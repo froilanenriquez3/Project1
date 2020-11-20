@@ -1,31 +1,36 @@
 body{
     display: grid;
-    
+   
 }
 #game{
     box-sizing: border-box;
     margin: auto;
+    margin-top: 50px;
     width: 1000px;
 }
 
 .container{
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-content: space-between;
- 
 
+}
+
+.shelf{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
 }
 
 [draggable='true']{
     width: 75px;
-    height: 150px;
+    height: 100px;
     text-align: center;
     background: white;
   }
   
   .dropzone {
     width: 75px;
-    height: 150px;
+    height: 100px;
     background: blue;
     margin: 10px;
     padding: 10px;

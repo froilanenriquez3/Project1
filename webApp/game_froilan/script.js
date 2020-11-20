@@ -23,6 +23,10 @@ document.addEventListener("dragover", function(event) {
   event.preventDefault();
 }, false);
 
+
+
+//Drop Zone event listeners
+
 document.addEventListener("dragenter", function(event) {
   // highlight potential drop target when the draggable element enters it
   if (event.target.className == "dropzone") {
