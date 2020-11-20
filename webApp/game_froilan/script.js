@@ -1,8 +1,8 @@
 var dragged;
 
 /* events fired on the draggable target */
-document.addEventListener("drag", function(event) {
-
+ document.addEventListener("drag", function(event) {
+   
 }, false);
 
 document.addEventListener("dragstart", function(event) {
