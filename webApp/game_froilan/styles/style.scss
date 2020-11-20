@@ -15,9 +15,10 @@ body{
 #game{
     box-sizing: border-box;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 2%;
     width: 75%;
     min-width: 1050px;
+    border: solid grey 10px;
    
 }
 
@@ -29,9 +30,7 @@ body{
     display: grid;
     grid-template-columns: 3fr 3fr 1fr 1fr;
     
-
     #feedback{
-    
         margin-left: 10px;
     }
     
@@ -40,17 +39,13 @@ body{
         font-size: 20px;
         padding: 3px;
         margin: 10px;
-
-        &#next{
-           
-        }
     }
 }
 
 .container{
     box-sizing: border-box;
     display:grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1.25fr 1.25fr 1fr;
     justify-content: space-between;
     
     .shelf{
@@ -69,6 +64,7 @@ body{
         }
         
         .center{
+            box-sizing: border-box;
             background-color: rgb(51, 168, 168);
             width: 300px;
             margin: auto;
@@ -78,8 +74,16 @@ body{
            
            
             .dropzone{
+                
+                border: solid black 1px;
+                margin-top: 0px;
                 background-color: beige;
-                width: 100px;
+                width: 300px;
+                height: 100%;
+                padding-top: 7px;
+                
+                display: grid;
+                justify-content:center;
             }
         }
 
@@ -100,6 +104,7 @@ body{
 
     #shirts{
         background-color: lightsalmon;
+        
     }
 
     #pants{

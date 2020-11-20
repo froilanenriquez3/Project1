@@ -7,9 +7,10 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 2%;
   width: 75%;
   min-width: 1050px;
+  border: solid grey 10px;
 }
 
 .topbar {
@@ -40,8 +41,8 @@ body {
           box-sizing: border-box;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1.25fr 1.25fr 1fr;
+      grid-template-rows: 1fr 1.25fr 1.25fr 1fr;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -65,6 +66,8 @@ body {
 }
 
 .container .shelf .center {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #33a8a8;
   width: 300px;
   margin: auto;
@@ -77,8 +80,17 @@ body {
 }
 
 .container .shelf .center .dropzone {
+  border: solid black 1px;
+  margin-top: 0px;
   background-color: beige;
-  width: 100px;
+  width: 300px;
+  height: 100%;
+  padding-top: 7px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .container .shelf [draggable='true'] {

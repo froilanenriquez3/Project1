@@ -4,7 +4,21 @@ let shirt;
 let pants;
 let shoes;
 
+let points;
+
 newCombo();
+initPoints();
+document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+console.log(window.points);
+
+function initPoints(){
+  window.points = 0;
+}
+
+function displayUpdateScore(){
+  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  console.log(window.points);
+}
 
 //Function to check selected clothes items
 function checkCombo() {
@@ -21,7 +35,6 @@ function checkCombo() {
   } else {
     text += "This hat sucks. <br>";
   }
-
 
   if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
     text += "This shirt is shuper. <br>";
@@ -46,7 +59,8 @@ function checkCombo() {
 
   if ( checkHat && checkShirt && checkPants && checkShoes){
     text2 = "You got me the perfect outfit!";
-    
+    window.points++;
+    displayUpdateScore();
   }
   document.querySelector('#next').disabled = false;
   document.querySelector('#feedback').innerHTML = text;
@@ -200,7 +214,6 @@ document.addEventListener("dragenter", function (event) {
   if (event.target.className == "dropzone hat") {
     event.target.style.background = "grey";
   }
-
 }, false);
 
 document.addEventListener("dragleave", function (event) {
