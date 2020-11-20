@@ -8,11 +8,16 @@ newCombo();
 
 //Function to check selected clothes items
 function checkCombo() {
-  
+  let checkHat = false;
+  let checkShirt = false;
+  let checkPants = false;
+  let checkShoes = false;
   let text = "";
+  let text2 = "Keep trying.";
 
   if (document.querySelector(' #hathole').firstChild.id == window.hat) {
     text += "This hat is hitting it. <br>";
+    checkHat = true;
   } else {
     text += "This hat sucks. <br>";
   }
@@ -20,23 +25,32 @@ function checkCombo() {
 
   if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
     text += "This shirt is shuper. <br>";
+    checkShirt = true;
   } else {
     text += "This shirt sucks. <br>";
   }
 
   if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
     text += "These pants are the cat's pajamas! Well, not literally. <br>";
+    checkPants = true;
   } else {
     text += "These pants suck. <br>"
   }
 
   if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
-    text += "These shoes are shpectacular!";
+    text += "These shoes are shpectacular! <br>";
+    checkShoes = true;
   } else {
     text += "I am not wearing these shoes.";
   }
 
+  if ( checkHat && checkShirt && checkPants && checkShoes){
+    text2 = "You got me the perfect outfit!";
+    
+  }
+  document.querySelector('#next').disabled = false;
   document.querySelector('#feedback').innerHTML = text;
+  document.querySelector('#winner').innerHTML = text2;
 }
 
 //Function to generate new outfit
@@ -138,11 +152,9 @@ function newCombo() {
     default:
       break;
   }
-
-
-
-
-
+  document.querySelector('#feedback').innerHTML = "";
+  document.querySelector('#winner').innerHTML = "";
+  console.log(hatNum + " " + shirtNum + " " + pantsNum + " " + shoesNum);
 
 }
 

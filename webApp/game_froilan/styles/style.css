@@ -17,14 +17,14 @@ body {
           box-sizing: border-box;
   height: 100px;
   background-color: black;
+  color: white;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 7fr 1fr 1fr;
-      grid-template-columns: 7fr 1fr 1fr;
+  -ms-grid-columns: 3fr 3fr 1fr 1fr;
+      grid-template-columns: 3fr 3fr 1fr 1fr;
 }
 
 .topbar #feedback {
-  color: white;
   margin-left: 10px;
 }
 
