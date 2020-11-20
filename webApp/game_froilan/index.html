@@ -11,6 +11,13 @@
 <body>
 
     <div id="game" >
+        <div class="topbar">
+            <div>
+                <p id="feedback"></p>
+            </div>
+
+            <button onclick="checkCombo()">CHECK</button>
+        </div>
 
         <div class="container">
 
@@ -35,7 +42,7 @@
                 </div>
 
                 <div class="center">
-                    <div class="dropzone hat"></div>
+                    <div class="dropzone hat" id="hathole"></div>
                     
                 </div>
 
@@ -81,7 +88,7 @@
                 </div>
 
                 <div class="center">
-                    <div class="dropzone shirt"></div>
+                    <div class="dropzone shirt" id="shirthole"></div>
                 </div>
 
                 <div class="dropzone shirt">
@@ -106,7 +113,7 @@
 
             <div class="shelf" id="pants">
                 <div class="dropzone pants">
-                    <div id="dragpants" class="dragPants" draggable="true"
+                    <div id="dragpants1" class="dragPants" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
                         PANTS
                     </div>
@@ -125,7 +132,7 @@
                 </div>
 
                 <div class="center">
-                    <div class="dropzone pants"></div>
+                    <div class="dropzone pants" id="pantshole"></div>
                 </div>
 
                 <div class="dropzone pants">
@@ -151,42 +158,42 @@
 
             <div class="shelf" id="shoes">
                 <div class="dropzone shoes">
-                    <div id="draggable5" class="dragShoes" draggable="true"
+                    <div id="dragshoes1" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
                         SHOES
                     </div>
                 </div>
                 <div class="dropzone shoes">
-                    <div id="draggable5" class="dragShoes" draggable="true"
+                    <div id="dragshoes2" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
                         SHOES
                     </div>
                 </div>
                 <div class="dropzone shoes">
-                    <div id="draggable5" class="dragShoes" draggable="true"
+                    <div id="dragshoes3" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
                         SHOES
                     </div>
                 </div>
 
                 <div class="center">
-                    <div class="dropzone shoes"></div>
+                    <div class="dropzone shoes" id="shoeshole" ></div>
                 </div>
 
                 <div class="dropzone shoes">
-                    <div id="draggable5" class="dragShoes" draggable="true"
+                    <div id="dragshoes4" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
                         SHOES
                     </div>
                 </div>
                 <div class="dropzone shoes">
-                    <div id="draggable5" class="dragShoes" draggable="true"
+                    <div id="dragshoes5" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
                         SHOES
                     </div>
                 </div>
                 <div class="dropzone shoes">
-                    <div id="draggable5" class="dragShoes" draggable="true"
+                    <div id="dragshoes5" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
                         SHOES
                     </div>
