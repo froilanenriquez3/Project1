@@ -1,0 +1,77 @@
+body {
+  display: -ms-grid;
+  display: grid;
+}
+
+#game {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: auto;
+  margin-top: 50px;
+  width: 1000px;
+  background-color: cyan;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .shelf {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
+}
+
+.container .shelf .dropzone {
+  width: 75px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  background-color: black;
+}
+
+.container .shelf .center {
+  background-color: #33a8a8;
+  width: 300px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .shelf .center .dropzone {
+  background-color: beige;
+}
+
+.container .shelf [draggable='true'] {
+  width: 75px;
+  height: 100px;
+  text-align: center;
+  background: #00aeff;
+}
+
+.container #hats {
+  background-color: brown;
+}
+
+.container #shirts {
+  background-color: lightsalmon;
+}
+
+.container #pants {
+  background-color: #aa7447;
+}
+
+.container #shoes {
+  background-color: #5c3b3b;
+}
+/*# sourceMappingURL=style.css.map */
