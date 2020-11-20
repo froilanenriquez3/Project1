@@ -1,3 +1,44 @@
+
+  function checkCombo(){
+
+   let text = "";
+
+    if (document.querySelector(' #hathole').firstChild.id == "draghat1") {
+      text += "This hat is hitting it. <br>";
+    }else{
+      text += "This hat sucks. <br>";
+    }
+
+
+    if(document.querySelector(' #shirthole').firstChild.id == "dragshirt1"){
+      text += "This shirt is shuper. <br>";
+    } else{
+      text += "This shirt sucks. <br>";
+    }
+
+    if (document.querySelector(' #pantshole').firstChild.id == "dragpants1") {
+      text += "These pants are the cat's pajamas! Well, not literally. <br>";
+    } else{
+      text += "These pants suck. <br>"
+    }
+    
+    if (document.querySelector(' #shoeshole').firstChild.id == "dragshoes1") {
+      text += "These shoes are shpectacular!";
+    } else{
+      text += "I am not wearing these shoes.";
+    }
+
+    document.querySelector('#feedback').innerHTML = text;
+  }
+
+
+
+
+
+
+
+
+
 var dragged;
 
 /* events fired on the draggable target */

@@ -16,11 +16,35 @@ body{
     box-sizing: border-box;
     margin: auto;
     margin-top: 5%;
-    width: 1000px;
+    width: 75%;
+    min-width: 1050px;
    
 }
 
+.topbar{
+    box-sizing: border-box;
+    height: 100px;
+    background-color: black;
+
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    
+
+    #feedback{
+        color: white;
+        margin-left: 10px;
+    }
+    
+    button{
+        height: 70%;
+        font-size: 20px;
+        padding: 3px;
+        margin: 10px;
+    }
+}
+
 .container{
+    box-sizing: border-box;
     display:grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-content: space-between;
@@ -28,7 +52,6 @@ body{
     .shelf{
         display:grid;
         grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
-        
 
         .dropzone {
             box-sizing: border-box;
@@ -52,7 +75,7 @@ body{
            
             .dropzone{
                 background-color: beige;
-                
+                width: 100px;
             }
         }
 
