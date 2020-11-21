@@ -36,10 +36,11 @@ body{
     background-color: black;
     color:white;
     display: grid;
-    grid-template-columns: 3fr 3fr 1fr 1fr;
+    grid-template-columns: 3fr 2fr 1fr 1fr 1fr;
     
     #feedback{
         margin-left: 10px;
+        
     }
     
     button{
@@ -120,9 +121,12 @@ body{
 
     #hats{
         background-color: brown;
+        #draghat1{
+            @include bodyImage("../img/hats/hat.png");
+        }
         
         #draghat2{
-            @include bodyImage("../img/hats/superhero.png");
+            @include bodyImage("../img/hats/disguise.png");
         }
 
         #draghat3{
@@ -136,7 +140,7 @@ body{
         }
 
         #draghat4{
-            @include bodyImage("../img/hats/disguise.png")
+            @include bodyImage("../img/hats/superhero.png")
         }
         #draghat5{
             @include bodyImage("../img/hats/bowl.png");

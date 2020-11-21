@@ -21,8 +21,8 @@ body {
   color: white;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 1fr 1fr;
-      grid-template-columns: 3fr 3fr 1fr 1fr;
+  -ms-grid-columns: 3fr 2fr 1fr 1fr 1fr;
+      grid-template-columns: 3fr 2fr 1fr 1fr 1fr;
 }
 
 .topbar #feedback {
@@ -123,8 +123,15 @@ body {
   background-color: brown;
 }
 
+.container #hats #draghat1 {
+  background-image: url("../img/hats/hat.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .container #hats #draghat2 {
-  background-image: url("../img/hats/superhero.png");
+  background-image: url("../img/hats/disguise.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -145,7 +152,7 @@ body {
 }
 
 .container #hats #draghat4 {
-  background-image: url("../img/hats/disguise.png");
+  background-image: url("../img/hats/superhero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

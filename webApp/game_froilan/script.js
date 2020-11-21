@@ -11,6 +11,9 @@ initPoints();
 document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
 console.log(window.points);
 
+
+
+
 function initPoints(){
   window.points = 0;
 }
@@ -30,39 +33,40 @@ function checkCombo() {
   let text2 = "Keep trying.";
 
   if (document.querySelector(' #hathole').firstChild.id == window.hat) {
-    text += "This hat is hitting it. <br>";
+    text += "Great hat!. <br>";
     checkHat = true;
   } else {
     text += "This hat sucks. <br>";
   }
 
   if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
-    text += "This shirt is shuper. <br>";
+    text += "Great shirt!. <br>";
     checkShirt = true;
   } else {
     text += "This shirt sucks. <br>";
   }
 
   if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
-    text += "These pants are the cat's pajamas! Well, not literally. <br>";
+    text += "Great pants! <br>";
     checkPants = true;
   } else {
     text += "These pants suck. <br>"
   }
 
   if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
-    text += "These shoes are shpectacular! <br>";
+    text += "Great shoes! <br>";
     checkShoes = true;
   } else {
-    text += "I am not wearing these shoes.";
+    text += "These shoes suck.";
   }
 
   if ( checkHat && checkShirt && checkPants && checkShoes){
     text2 = "You got me the perfect outfit!";
     window.points++;
     displayUpdateScore();
+    document.querySelector('#next').disabled = false;
   }
-  document.querySelector('#next').disabled = false;
+  
   document.querySelector('#feedback').innerHTML = text;
   document.querySelector('#winner').innerHTML = text2;
 }
