@@ -41,8 +41,8 @@ body {
           box-sizing: border-box;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 40% 30% 20% 10%;
-      grid-template-rows: 40% 30% 20% 10%;
+  -ms-grid-rows: 40% 32% 22% 6%;
+      grid-template-rows: 40% 32% 22% 6%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -66,24 +66,28 @@ body {
 .container .shelf .dropzone {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border: solid black 2px;
   width: 100px;
   height: 90%;
   margin: 10px;
   padding: 0px;
-  background-color: black;
+  background-color: #583f21;
 }
 
 .container .shelf [draggable='true'] {
   width: 100px;
   height: 100%;
   text-align: center;
-  background: #00aeff;
+  background: transparent;
+  background-image: url("../img/shirts/whiteshirt.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .container .shelf .center {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: #33a8a8;
   width: 300px;
   margin: auto;
   display: -ms-grid;
@@ -95,7 +99,7 @@ body {
 }
 
 .container .shelf .center .dropzone {
-  border: solid black 1px;
+  border: none;
   margin-top: 0px;
   background-color: beige;
   width: 300px;
@@ -111,11 +115,26 @@ body {
 }
 
 .container .shelf .center .dropzone [draggable='true'] {
-  height: 90%;
+  width: 300px;
+  height: 100%;
 }
 
 .container #hats {
   background-color: brown;
+}
+
+.container #hats #draghat1 {
+  background-image: url("../img/bowl.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat2 {
+  background-image: url("../img/hat.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .container #hats .center .dropzone {
@@ -129,8 +148,50 @@ body {
   background-color: lightsalmon;
 }
 
+.container #shirts #dragshirt1 {
+  background-image: url("../img/shirts/cyan.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt2 {
+  background-image: url("../img/shirts/redshirt.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt3 {
+  background-image: url("../img/shirts/whiteshirt.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .container #shirts .center .dropzone {
   background-image: url("../img/body.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt4 {
+  background-image: url("../img/shirts/black.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt5 {
+  background-image: url("../img/shirts/green.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt6 {
+  background-image: url("../img/shirts/purple.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -152,7 +213,7 @@ body {
 }
 
 .container #shoes .center .dropzone {
-  background-image: url("../img/shoes.png");
+  background-image: url("../img/feet.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

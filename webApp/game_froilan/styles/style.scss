@@ -13,6 +13,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    
 
 }
 
@@ -52,7 +53,7 @@ body{
 .container{
     box-sizing: border-box;
     display:grid;
-    grid-template-rows: 40% 30% 20% 10%;
+    grid-template-rows: 40% 32% 22% 6%;
     justify-content: space-between;
     height:480px;
     width: 1048px;
@@ -66,12 +67,13 @@ body{
 
         .dropzone {
             box-sizing: border-box;
+            border: solid black 2px;
             width: 100px;
             height: 90%;
             margin: 10px;
             padding: 0px;
             
-            background-color: black;
+            background-color: rgb(88, 63, 33);
             
         }
 
@@ -79,13 +81,14 @@ body{
             width: 100px;
             height: 100%;
             text-align: center;
-            background: rgb(0, 174, 255);
+            background: transparent;
+            @include bodyImage("../img/shirts/whiteshirt.png");
             
         }
         
         .center{
             box-sizing: border-box;
-            background-color: rgb(51, 168, 168);
+            //background-color: rgb(51, 168, 168);
             width: 300px;
             margin: auto;
             display: grid;
@@ -95,7 +98,7 @@ body{
            
             .dropzone{
                 
-                border: solid black 1px;
+                border:none;
                 margin-top: 0px;
                 background-color: beige;
                 width: 300px;
@@ -105,7 +108,8 @@ body{
                 justify-content:center;
                 align-items:center;
                 [draggable='true']{
-                    height: 90%;
+                    width: 300px;
+                    height: 100%;
                 }
             }
         }
@@ -116,6 +120,15 @@ body{
 
     #hats{
         background-color: brown;
+        #draghat1{
+            @include bodyImage("../img/bowl.png");
+        }
+
+        #draghat2{
+            @include bodyImage("../img/hat.png");
+            
+        }
+
         .center{
             .dropzone{
             @include bodyImage("../img/head.png");
@@ -126,11 +139,34 @@ body{
 
     #shirts{
         background-color: lightsalmon;
+
+        #dragshirt1{
+            @include bodyImage("../img/shirts/cyan.png");
+        }
+
+        #dragshirt2{
+            @include bodyImage("../img/shirts/redshirt.png")
+        }
+        #dragshirt3{
+            @include bodyImage("../img/shirts/whiteshirt.png")
+        }
         .center{
             .dropzone{
                 @include bodyImage("../img/body.png");
             }
         }
+
+        #dragshirt4{
+            @include bodyImage("../img/shirts/black.png");
+        }
+
+        #dragshirt5{
+            @include bodyImage("../img/shirts/green.png");
+        }
+        #dragshirt6{
+            @include bodyImage("../img/shirts/purple.png");
+        }
+
     }
 
     #pants{
@@ -144,9 +180,11 @@ body{
 
     #shoes{
         background-color: rgb(92, 59, 59);
+       
         .center{
             .dropzone{
-                @include bodyImage("../img/shoes.png");
+                @include bodyImage("../img/feet.png");
+               
             }
         }
     }
