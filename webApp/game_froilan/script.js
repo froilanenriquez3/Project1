@@ -65,6 +65,7 @@ function checkCombo() {
     window.points++;
     displayUpdateScore();
     document.querySelector('#next').disabled = false;
+    document.querySelector('#check').disabled = true;
   }
   
   document.querySelector('#feedback').innerHTML = text;
