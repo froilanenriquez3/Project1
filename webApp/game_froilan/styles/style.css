@@ -41,14 +41,18 @@ body {
           box-sizing: border-box;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1.25fr 1.25fr 1fr;
-      grid-template-rows: 1fr 1.25fr 1.25fr 1fr;
+  -ms-grid-rows: 40% 30% 20% 10%;
+      grid-template-rows: 40% 30% 20% 10%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  height: 480px;
+  width: 1048px;
 }
 
 .container .shelf {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
@@ -56,16 +60,24 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
 }
 
 .container .shelf .dropzone {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100px;
-  height: 100px;
+  height: 90%;
   margin: 10px;
   padding: 0px;
   background-color: black;
+}
+
+.container .shelf [draggable='true'] {
+  width: 100px;
+  height: 100%;
+  text-align: center;
+  background: #00aeff;
 }
 
 .container .shelf .center {
@@ -98,26 +110,51 @@ body {
           align-items: center;
 }
 
-.container .shelf [draggable='true'] {
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  background: #00aeff;
+.container .shelf .center .dropzone [draggable='true'] {
+  height: 90%;
 }
 
 .container #hats {
   background-color: brown;
 }
 
+.container #hats .center .dropzone {
+  background-image: url("../img/head.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .container #shirts {
   background-color: lightsalmon;
+}
+
+.container #shirts .center .dropzone {
+  background-image: url("../img/body.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .container #pants {
   background-color: #aa7447;
 }
 
+.container #pants .center .dropzone {
+  background-image: url("../img/legs.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .container #shoes {
   background-color: #5c3b3b;
+}
+
+.container #shoes .center .dropzone {
+  background-image: url("../img/shoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 /*# sourceMappingURL=style.css.map */
