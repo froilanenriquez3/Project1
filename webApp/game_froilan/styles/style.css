@@ -17,8 +17,8 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 100px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 3fr 2fr 1fr 1fr 1fr;
@@ -30,10 +30,19 @@ body {
 }
 
 .topbar button {
+  position: relative;
   height: 70%;
   font-size: 20px;
   padding: 3px;
   margin: 10px;
+  text-decoration: none;
+  background-color: brown;
+  border-radius: 5px;
+  border: none;
+}
+
+.topbar button:active {
+  background-color: #c46666;
 }
 
 .container {
@@ -124,7 +133,7 @@ body {
 }
 
 .container #hats #draghat1 {
-  background-image: url("../img/hats/hat.png");
+  background-image: url("../img/hats/red.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -152,21 +161,21 @@ body {
 }
 
 .container #hats #draghat4 {
-  background-image: url("../img/hats/superhero.png");
+  background-image: url("../img/hats/brown.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .container #hats #draghat5 {
-  background-image: url("../img/hats/bowl.png");
+  background-image: url("../img/hats/astronaut.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .container #hats #draghat6 {
-  background-image: url("../img/hats/astronaut.png");
+  background-image: url("../img/hats/superhero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
