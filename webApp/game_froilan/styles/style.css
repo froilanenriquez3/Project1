@@ -79,7 +79,7 @@ body {
   height: 100%;
   text-align: center;
   background: transparent;
-  background-image: url("../img/shirts/whiteshirt.png");
+  background-image: url("../img/hat.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -123,15 +123,15 @@ body {
   background-color: brown;
 }
 
-.container #hats #draghat1 {
-  background-image: url("../img/bowl.png");
+.container #hats #draghat2 {
+  background-image: url("../img/hats/superhero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #hats #draghat2 {
-  background-image: url("../img/hat.png");
+.container #hats #draghat3 {
+  background-image: url("../img/hats/jokein2020.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -139,6 +139,27 @@ body {
 
 .container #hats .center .dropzone {
   background-image: url("../img/head.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat4 {
+  background-image: url("../img/hats/disguise.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat5 {
+  background-image: url("../img/hats/bowl.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat6 {
+  background-image: url("../img/hats/astronaut.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -201,8 +222,50 @@ body {
   background-color: #aa7447;
 }
 
+.container #pants #dragpants1 {
+  background-image: url("../img/pants/cyanpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants2 {
+  background-image: url("../img/pants/redpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants3 {
+  background-image: url("../img/pants/whitepants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .container #pants .center .dropzone {
   background-image: url("../img/legs.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants4 {
+  background-image: url("../img/pants/blackpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants5 {
+  background-image: url("../img/pants/greenpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants6 {
+  background-image: url("../img/pants/bluepants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -212,8 +275,51 @@ body {
   background-color: #5c3b3b;
 }
 
+.container #shoes #dragshoes1 {
+  background-image: url("../img/shoes/blueshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes2 {
+  background-image: url("../img/shoes/redshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes3 {
+  background-image: url("../img/shoes/whiteshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .container #shoes .center .dropzone {
+  background-color: beige;
   background-image: url("../img/feet.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes4 {
+  background-image: url("../img/shoes/brownshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes5 {
+  background-image: url("../img/shoes/greenshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes6 {
+  background-image: url("../img/shoes/difblueshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
