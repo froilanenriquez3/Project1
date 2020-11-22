@@ -8,8 +8,8 @@ body {
           box-sizing: border-box;
   margin: auto;
   margin-top: 2%;
-  width: 75%;
-  min-width: 1050px;
+  width: 895px;
+  height: 570px;
   border: solid grey 10px;
 }
 
@@ -55,8 +55,8 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 480px;
-  width: 1048px;
+  height: 450px;
+  width: 875px;
 }
 
 .container .shelf {
@@ -76,15 +76,15 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: solid black 2px;
-  width: 100px;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   margin: 10px;
   padding: 0px;
   background-color: #583f21;
 }
 
 .container .shelf [draggable='true'] {
-  width: 100px;
+  width: 100%;
   height: 100%;
   text-align: center;
   background: transparent;
@@ -98,13 +98,13 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 300px;
+  height: 100%;
   margin: auto;
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100%;
 }
 
 .container .shelf .center .dropzone {
@@ -214,7 +214,7 @@ body {
 }
 
 .container #shirts #dragshirt4 {
-  background-image: url("../img/shirts/black.png");
+  background-image: url("../img/shirts/purple.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
