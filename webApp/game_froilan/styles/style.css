@@ -221,14 +221,14 @@ body {
 }
 
 .container #shirts #dragshirt5 {
-  background-image: url("../img/shirts/green.png");
+  background-image: url("../img/shirts/yoda.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .container #shirts #dragshirt6 {
-  background-image: url("../img/shirts/purple.png");
+  background-image: url("../img/shirts/spidey.PNG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
