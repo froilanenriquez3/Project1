@@ -40,7 +40,7 @@ function checkCombo() {
   }
 
   if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
-    text += "Great shirt!. <br>";
+    text += "Great shirt! <br>";
     checkShirt = true;
   } else {
     text += "This shirt sucks. <br>";
