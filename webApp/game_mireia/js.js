@@ -7,7 +7,9 @@ let products = [{ name: "Harina", img: "img/Harina.png", x: 410, y: 27 },
 {name: "Miel", img:"img/Miel.png", x:495, y: 169}, {name: "Ketchup", img:"img/Ketchup.png", x:565, y: 164},
 {name: "Mermelada", img:"img/Mermelada.png", x:415, y: 174}, {name: "Té", img:"img/Té.png", x:675, y: 151},
 {name: "Café", img:"img/Café.png", x:820, y: 162}, {name: "Vino Blanco", img:"img/Vino Blanco.png", x:430, y: 313},
-{name: "Vino Tinto", img:"img/Vino Tinto.png", x:385, y: 313}];
+{name: "Vino Tinto", img:"img/Vino Tinto.png", x:385, y: 313}, {name: "Cava", img:"img/Cava.png", x: 485, y:314},
+{name: "Cola", img: "img/Cola.png", x: 537, y:313}, {name: "Limonada", img:"img/Limonada.png", x: 575, y: 315},
+{name: "Naranjada", img: "img/Naranjada.png", x: 628, y: 315}];
 let lady = document.getElementById("lady");
 let interior = document.getElementById("interior");
 let list= document.getElementById("list");
@@ -55,8 +57,8 @@ function drawLady(){
 window.addEventListener("keydown", function (button) {
     let key = button.keyCode;
     if (key == 37 && character.x > 50) {
-        // LEFT
-        //if going left, turn right
+        // RIGHT
+        //if going right, turn left
         if (lady.getAttribute("src") == "img/ladyLeft.png" || lady.getAttribute("src") == "img/ladyLeft2.png") {
             lady.setAttribute("src", "img/ladyRight.png");
         }
@@ -76,7 +78,7 @@ window.addEventListener("keydown", function (button) {
         }
     } else if (key == 39 && character.x < 530) {
         console.log(character.x);
-        //RIGHT
+        //LEFT
         if (lady.getAttribute("src") == "img/ladyRight.png" || lady.getAttribute("src") == "img/ladyRight2.png") {
             lady.setAttribute("src", "img/ladyLeft.png");
         }
@@ -143,18 +145,18 @@ function dragElement(elmnt) {
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
 
-    //410 && 925 is basket position
-        if(pos3 > 375 && pos4 >825){
-            debugger;
-            listElemements= document.querySelectorAll("li");
-            console.log(listElemements);
-            listElemements.forEach(element => {
+    // //410 && 925 is basket position
+    //     if(pos3 > 375 && pos4 >825){
+    //         debugger;
+    //         listElemements= document.querySelectorAll("li");
+    //         console.log(listElemements);
+    //         listElemements.forEach(element => {
                 
-                if(element.innerHTML === elmnt.id){
-                    element.style.textDecoration= "line-through";
-                }
-            });
-        }
+    //             if(element.innerHTML === elmnt.id){
+    //                 element.style.textDecoration= "line-through";
+    //             }
+    //         });
+    //     }
 
     }
   
@@ -170,6 +172,7 @@ function dragElement(elmnt) {
     }
   }
 
+  //Generate Random products
   function generateProductsToFind(){
     for(let i=0; i<5; i++){
         if(i===0){
@@ -185,10 +188,10 @@ function dragElement(elmnt) {
         }
         }while(isSame);
         }
-        productsToFind.push(randomNum);
-
-        
+        productsToFind.push(randomNum);  
     }
+
+    //Create elements in shop list
     productsToFind.forEach(element => {
         let listEl= document.createElement("li");
         listEl.textContent= products[element].name;
