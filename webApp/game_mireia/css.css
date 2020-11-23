@@ -1,0 +1,73 @@
+.background{
+    background-image: url("img/background.png");
+    height: 450px;
+    width: 895px;
+    margin: 20px auto;
+    position: relative;
+}
+
+#lady{
+    position: relative;
+    height: 260px;
+    width: 145px;
+    z-index: 2;
+}
+
+#basket{
+    position: absolute;
+    top: 375px;
+    left: 825px;
+    height: 50px;
+    background-color: rgb(233, 167, 92, 0.3);
+    border: black 1px solid;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+#list{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 20px;
+    background-color: rgb(233, 167, 92, 0.3);
+    border: black 1px solid;
+    padding: 5px;
+    border-radius: 4px;
+
+}
+
+#speak{
+    position: absolute;
+    top: 200px;
+    left: 690px;
+    height: 20px;
+    background-color: rgb(233, 167, 92, 0.3);
+    border: black 1px solid;
+    border-radius: 35px;
+    padding: 10px;
+    display: none;
+    z-index: 2;
+}
+
+.divList{
+    background-image: url(img/notebook.png);
+    background-position: center;
+    background-size: cover;
+    height: 170px;
+    width: 200px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    font-family: 'Caveat', cursive;
+}
+
+.divList > ul{
+    list-style: none;
+}
+
+
+
+.noVisible{
+    display: none;
+}

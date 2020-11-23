@@ -1,0 +1,343 @@
+body {
+  display: -ms-grid;
+  display: grid;
+}
+
+#game {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: auto;
+  margin-top: 2%;
+  width: 895px;
+  height: 570px;
+  border: solid grey 10px;
+}
+
+.topbar {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100px;
+  background-color: white;
+  color: black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 2fr 1fr 1fr 1fr;
+      grid-template-columns: 3fr 2fr 1fr 1fr 1fr;
+}
+
+.topbar #feedback {
+  margin-left: 10px;
+}
+
+.topbar button {
+  position: relative;
+  height: 70%;
+  font-size: 20px;
+  padding: 3px;
+  margin: 10px;
+  text-decoration: none;
+  background-color: brown;
+  border-radius: 5px;
+  border: none;
+}
+
+.topbar button:active {
+  background-color: #c46666;
+}
+
+.container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 40% 32% 22% 6%;
+      grid-template-rows: 40% 32% 22% 6%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 450px;
+  width: 875px;
+}
+
+.container .shelf {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.container .shelf .dropzone {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: solid black 2px;
+  width: 80%;
+  height: 80%;
+  margin: 10px;
+  padding: 0px;
+  background-color: #583f21;
+}
+
+.container .shelf [draggable='true'] {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: transparent;
+  background-image: url("../img/hat.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container .shelf .center {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 300px;
+  height: 100%;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .shelf .center .dropzone {
+  border: none;
+  margin-top: 0px;
+  background-color: beige;
+  width: 300px;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .shelf .center .dropzone [draggable='true'] {
+  width: 300px;
+  height: 100%;
+}
+
+.container #hats {
+  background-color: brown;
+}
+
+.container #hats #draghat1 {
+  background-image: url("../img/hats/red.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat2 {
+  background-image: url("../img/hats/disguise.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat3 {
+  background-image: url("../img/hats/jokein2020.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats .center .dropzone {
+  background-image: url("../img/head.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat4 {
+  background-image: url("../img/hats/brown.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat5 {
+  background-image: url("../img/hats/astronaut.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #hats #draghat6 {
+  background-image: url("../img/hats/superhero.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts {
+  background-color: lightsalmon;
+}
+
+.container #shirts #dragshirt1 {
+  background-image: url("../img/shirts/cyan.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt2 {
+  background-image: url("../img/shirts/redshirt.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt3 {
+  background-image: url("../img/shirts/whiteshirt.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts .center .dropzone {
+  background-image: url("../img/body.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt4 {
+  background-image: url("../img/shirts/purple.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt5 {
+  background-image: url("../img/shirts/yoda.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shirts #dragshirt6 {
+  background-image: url("../img/shirts/spidey.PNG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants {
+  background-color: #aa7447;
+}
+
+.container #pants #dragpants1 {
+  background-image: url("../img/pants/cyanpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants2 {
+  background-image: url("../img/pants/redpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants3 {
+  background-image: url("../img/pants/whitepants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants .center .dropzone {
+  background-image: url("../img/legs.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants4 {
+  background-image: url("../img/pants/blackpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants5 {
+  background-image: url("../img/pants/greenpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #pants #dragpants6 {
+  background-image: url("../img/pants/bluepants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes {
+  background-color: #5c3b3b;
+}
+
+.container #shoes #dragshoes1 {
+  background-image: url("../img/shoes/blueshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes2 {
+  background-image: url("../img/shoes/redshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes3 {
+  background-image: url("../img/shoes/whiteshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes .center .dropzone {
+  background-color: beige;
+  background-image: url("../img/feet.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes4 {
+  background-image: url("../img/shoes/brownshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes5 {
+  background-image: url("../img/shoes/greenshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container #shoes #dragshoes6 {
+  background-image: url("../img/shoes/difblueshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+/*# sourceMappingURL=style.css.map */
