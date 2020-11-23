@@ -56,7 +56,7 @@ function selectUserById($user_id){
 
 }
 
-function selectUserPromotions($user_id){
+function selectUserPromos($user_id){
     $connection = openDB();
 
     $mySQLsentence = "SELECT * FROM user_has_promotion WHERE user_userid = :userid";
