@@ -76,7 +76,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `restore`.`store` ;
 
 CREATE TABLE IF NOT EXISTS `restore`.`store` (
-  `idstore` INT NOT NULL,
+  `idstore` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `desc` VARCHAR(45) NULL,
   PRIMARY KEY (`idstore`))
@@ -135,3 +135,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 /*Inserts for testing - REMOVE LATER!  pretty please - */
 
 INSERT INTO user VALUES(null, "Alex", "1234", 123, true, "alxcant@whatev.com");
+INSERT INTO game VALUES(null, "Game1", 100);
+INSERT INTO game VALUES(null, "Game2", 100);
+INSERT INTO game VALUES(null, "Game3", 100);
+INSERT INTO game VALUES(null, "Game4", 100);

@@ -1,7 +1,5 @@
 <?php
-
-insertUser("Froilan", "1235", 0, 0, "frilan@whatev.com");
-
+insertUserHasPromo(1, 1);
 
 function openDB(){
     $servername = "localhost";
@@ -125,7 +123,62 @@ function insertUser($username, $password, $points, $isAdmin, $email){
     $connection->commit();
     $connection = closeDB();
 
- 
+}
+
+function insertStore($name, $desc){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence = "INSERT INTO store VALUES(null, :storename, :storedesc)";
+
+    $mySQLsentence = $connection ->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":storename", $name);
+    $mySQLsentence->bindParam(":storedesc", $desc);
+    $mySQLsentence->execute();
+
+
+    $connection->commit();
+    $connection = closeDB();
+}
+
+function insertPromotion($name, $desc, $point_cost, $store_id){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid)";
+
+    $mySQLsentence = $connection ->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":promname", $name);
+    $mySQLsentence->bindParam(":promdesc", $desc);
+    $mySQLsentence->bindParam(":pointcost", $point_cost);
+    $mySQLsentence->bindParam(":storeid", $store_id);
+
+    $mySQLsentence->execute();
+
+
+    $connection->commit();
+    $connection = closeDB();
+}
+
+function insertUserHasPromo($user_id, $promo_id){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence = "INSERT INTO user_has_promotion VALUES(:userid, :promoid)";
+
+    $mySQLsentence = $connection ->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":userid", $user_id);
+    $mySQLsentence->bindParam(":promoid", $promo_id);
+
+
+    $mySQLsentence->execute();
+
+
+    $connection->commit();
+    $connection = closeDB();
 
 }
 
