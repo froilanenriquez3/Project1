@@ -1,0 +1,280 @@
+@mixin flexDisplay($direction){
+    display: flex;
+    justify-content: $direction;
+    align-items: $direction;
+}
+
+@mixin gridDisplay(){
+    display: grid;
+}
+
+@mixin bodyImage($url){
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+
+}
+
+body{
+    display: grid;
+}
+#game{
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 2%;
+    width:895px;
+    height:570px;
+    //width: 75%;
+    //min-width: 1068px;
+    border: solid grey 10px;
+   
+}
+
+.topbar{
+    box-sizing: border-box;
+    height: 100px;
+    background-color: white;
+    color:black;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 1fr 1fr;
+    
+    #feedback{
+        margin-left: 10px;
+        
+    }
+    
+    button{
+        position: relative;
+        height: 70%;
+        font-size: 20px;
+        padding: 3px;
+        margin: 10px;
+        text-decoration: none;
+        background-color: brown;
+        border-radius: 5px;
+        border: none;
+        &:active{
+            background-color: rgb(196, 102, 102);
+        }
+        
+    }
+}
+
+.container{
+    box-sizing: border-box;
+    display:grid;
+    grid-template-rows: 40% 32% 22% 6%;
+    justify-content: space-between;
+    //height:480px;
+    //width: 1048px;
+    height: 450px;
+    width:875px;
+    
+    .shelf{
+        box-sizing: border-box;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
+        align-items: center;
+        height: 100%;
+
+        .dropzone {
+            box-sizing: border-box;
+            border: solid black 2px;
+            //width: 100px;
+            width: 80%;
+            //height: 90%; 
+            height: 80%;
+            margin: 10px;
+            padding: 0px;
+            
+            background-color: rgb(88, 63, 33);
+            
+        }
+
+        [draggable='true']{
+            //width: 100px;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background: transparent;
+            @include bodyImage("../img/hat.png");
+            
+        }
+        
+        .center{
+            box-sizing: border-box;
+            //background-color: rgb(51, 168, 168);
+            width: 300px;
+            height: 100%;
+            margin: auto;
+            display: grid;
+            justify-content: center;
+           
+           
+           
+            .dropzone{
+                
+                border:none;
+                margin-top: 0px;
+                background-color: beige;
+                width: 300px;
+                height: 100%;
+                
+                display: grid;
+                justify-content:center;
+                align-items:center;
+                [draggable='true']{
+                    width: 300px;
+                    height: 100%;
+                }
+            }
+        }
+
+        
+    }
+
+
+    #hats{
+        background-color: brown;
+        #draghat1{
+            @include bodyImage("../img/hats/red.png");
+        }
+        
+        #draghat2{
+            @include bodyImage("../img/hats/disguise.png");
+        }
+
+        #draghat3{
+            @include bodyImage("../img/hats/jokein2020.png")
+        }
+        .center{
+            .dropzone{
+            @include bodyImage("../img/head.png");
+                
+            }
+        }
+
+        #draghat4{
+            @include bodyImage("../img/hats/brown.png")
+        }
+        #draghat5{
+            @include bodyImage("../img/hats/astronaut.png");
+        }
+
+        #draghat6{
+            @include bodyImage("../img/hats/superhero.png");
+            
+        }
+    }
+
+    #shirts{
+        background-color: lightsalmon;
+
+        #dragshirt1{
+            @include bodyImage("../img/shirts/cyan.png");
+        }
+
+        #dragshirt2{
+            @include bodyImage("../img/shirts/redshirt.png")
+        }
+        #dragshirt3{
+            @include bodyImage("../img/shirts/whiteshirt.png")
+        }
+        .center{
+            .dropzone{
+                @include bodyImage("../img/body.png");
+            }
+        }
+
+        #dragshirt4{
+            @include bodyImage("../img/shirts/purple.png");
+        }
+
+        #dragshirt5{
+            @include bodyImage("../img/shirts/yoda.png");
+        }
+        #dragshirt6{
+            @include bodyImage("../img/shirts/spidey.PNG");
+        }
+
+    }
+
+    #pants{
+        background-color: rgb(170, 116, 71);
+        #dragpants1{
+            @include bodyImage("../img/pants/cyanpants.png");
+        }
+        #dragpants2{
+            @include bodyImage("../img/pants/redpants.png");
+        }
+        #dragpants3{
+            @include bodyImage("../img/pants/whitepants.png");
+        }
+        .center{
+            .dropzone{
+                @include bodyImage("../img/legs.png");
+            }
+        }
+
+        #dragpants4{
+            @include bodyImage("../img/pants/blackpants.png");
+        }
+
+        #dragpants5{
+            @include bodyImage("../img/pants/greenpants.png");
+        }
+        #dragpants6{
+            @include bodyImage("../img/pants/bluepants.png");
+        }
+    }
+
+    #shoes{
+        background-color: rgb(92, 59, 59);
+ 
+        #dragshoes1{
+            @include bodyImage("../img/shoes/blueshoes.png");
+        }
+
+        #dragshoes2{
+            @include bodyImage("../img/shoes/redshoes.png");
+        }
+
+
+        #dragshoes3{
+            @include bodyImage("../img/shoes/whiteshoes.png");
+        }
+       
+        .center{
+            .dropzone{
+                background-color:beige;
+                @include bodyImage("../img/feet.png");
+               
+            }
+        }
+
+
+        #dragshoes4{
+            @include bodyImage("../img/shoes/brownshoes.png");
+        }
+
+        #dragshoes5{
+            @include bodyImage("../img/shoes/greenshoes.png");
+        }
+
+        #dragshoes6{
+            @include bodyImage("../img/shoes/difblueshoes.png");
+        }
+       
+    }
+
+
+}
+
+
+
+  
+  
+
+  
