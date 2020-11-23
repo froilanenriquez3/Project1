@@ -33,14 +33,14 @@ function checkCombo() {
   let text2 = "Keep trying.";
 
   if (document.querySelector(' #hathole').firstChild.id == window.hat) {
-    text += "Great hat!. <br>";
+    text += "Great hat! <br>";
     checkHat = true;
   } else {
     text += "This hat sucks. <br>";
   }
 
   if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
-    text += "Great shirt!. <br>";
+    text += "Great shirt! <br>";
     checkShirt = true;
   } else {
     text += "This shirt sucks. <br>";
@@ -74,10 +74,10 @@ function checkCombo() {
 
 //Function to generate new outfit
 function newCombo() {
-  let hatNum = Math.floor((Math.random() * 5) + 1);
-  let shirtNum = Math.floor((Math.random() * 5) + 1);
-  let pantsNum = Math.floor((Math.random() * 5) + 1);
-  let shoesNum = Math.floor((Math.random() * 5) + 1);
+  let hatNum = Math.floor((Math.random() * 6) + 1);
+  let shirtNum = Math.floor((Math.random() * 6) + 1);
+  let pantsNum = Math.floor((Math.random() * 6) + 1);
+  let shoesNum = Math.floor((Math.random() * 6) + 1);
 
   switch (hatNum) {
     case 1:
@@ -174,6 +174,8 @@ function newCombo() {
   document.querySelector('#feedback').innerHTML = "";
   document.querySelector('#winner').innerHTML = "";
   console.log(hatNum + " " + shirtNum + " " + pantsNum + " " + shoesNum);
+  document.querySelector('#next').disabled = true;
+    document.querySelector('#check').disabled = false;
 
 }
 
