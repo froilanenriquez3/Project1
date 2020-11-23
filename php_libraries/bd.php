@@ -1,7 +1,5 @@
 <?php
 
-echo selectAllFromTable("user");
-
 
 function openDB(){
     $servername = "localhost";
@@ -21,14 +19,14 @@ function closeDB(){
     return null;
 }
 
+//Function to select all items from a given table
 function selectAllFromTable($table_name){
 
     $connection = openDB();
 
-    $mySQLsentence = "SELECT * FROM :tablename";
+    $mySQLsentence = "SELECT * FROM ".$table_name;
 
     $mySQLsentence = $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":tablename", $table_name);
     $mySQLsentence->execute();
 
     $result = $mySQLsentence->fetchAll();
