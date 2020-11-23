@@ -142,7 +142,7 @@ function insertStore($name, $desc){
     $connection = closeDB();
 }
 
-function insertPromotion($name, $desc, $point_cost, $store_id){
+function insertPromo($name, $desc, $point_cost, $store_id){
     $connection = openDB();
     $connection->beginTransaction();
 
@@ -201,6 +201,41 @@ function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
 
 }
 
+function modifyPromo($promo_name, $promo_desc, $point_cost, $store_id, $promo_id){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence = "UPDATE promotion SET name =:promoname, promo_desc=:promodesc, pointCost =:pointcost, store_idstore =:store_idstore WHERE idpromotion =:id_promo";
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":promoname", $promo_name);
+    $mySQLsentence->bindParam(":promodesc", $promo_desc);
+    $mySQLsentence->bindParam(":pointcost", $point_cost);
+    $mySQLsentence->bindParam(":store_idstore", $store_id);
+    $mySQLsentence->bindParam(":id_promo", $promo_id);
+
+    $mySQLsentence->execute();
+
+    $connection->commit();
+    $connection = closeDB();
+}
+
+function modifyGamePointLimit($game_limit, $game_id){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence = "UPDATE game SET pointLimit = :game_limit WHERE idgame =:game_id";
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":game_limit", $game_limit);
+    $mySQLsentence->bindParam(":game_id", $game_id);
+
+    $mySQLsentence->execute();
+
+    $connection->commit();
+    $connection = closeDB();
+
+}
 
 function deleteUser($user_id){
     $connection = openDb();
@@ -218,6 +253,23 @@ function deleteUser($user_id){
 
     $connection = closeDb();
 
+}
+
+function deletePromo($promo_id){
+    $connection = openDb();
+    
+    $mySQLsentence = "DELETE FROM promotion WHERE idpromotion=:id_promotion";
+
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(':id_promotion', $promo_id);
+
+    $connection->beginTransaction();
+    $mySQLsentence->execute();
+
+    $connection->commit();
+
+
+    $connection = closeDb();
 }
 
 ?>

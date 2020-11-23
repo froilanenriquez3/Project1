@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `restore`.`store` ;
 CREATE TABLE IF NOT EXISTS `restore`.`store` (
   `idstore` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `desc` VARCHAR(45) NULL,
+  `store_desc` VARCHAR(45) NULL,
   PRIMARY KEY (`idstore`))
 ENGINE = InnoDB;
 
@@ -91,7 +91,7 @@ DROP TABLE IF EXISTS `restore`.`promotion` ;
 CREATE TABLE IF NOT EXISTS `restore`.`promotion` (
   `idpromotion` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `desc` VARCHAR(45) NULL,
+  `promo_desc` VARCHAR(45) NULL,
   `pointCost` INT NULL,
   `store_idstore` INT NOT NULL,
   PRIMARY KEY (`idpromotion`),
