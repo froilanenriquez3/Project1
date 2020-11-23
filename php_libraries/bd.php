@@ -1,5 +1,4 @@
 <?php
-insertUserHasPromo(1, 1);
 
 function openDB(){
     $servername = "localhost";
@@ -135,8 +134,8 @@ function insertStore($name, $desc){
 
     $mySQLsentence->bindParam(":storename", $name);
     $mySQLsentence->bindParam(":storedesc", $desc);
-    $mySQLsentence->execute();
 
+    $mySQLsentence->execute();
 
     $connection->commit();
     $connection = closeDB();
@@ -157,7 +156,6 @@ function insertPromotion($name, $desc, $point_cost, $store_id){
 
     $mySQLsentence->execute();
 
-
     $connection->commit();
     $connection = closeDB();
 }
@@ -168,14 +166,34 @@ function insertUserHasPromo($user_id, $promo_id){
 
     $mySQLsentence = "INSERT INTO user_has_promotion VALUES(:userid, :promoid)";
 
-    $mySQLsentence = $connection ->prepare($mySQLsentence);
+    $mySQLsentence = $connection->prepare($mySQLsentence);
 
     $mySQLsentence->bindParam(":userid", $user_id);
     $mySQLsentence->bindParam(":promoid", $promo_id);
 
-
     $mySQLsentence->execute();
 
+    $connection->commit();
+    $connection = closeDB();
+
+}
+
+
+function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence = "UPDATE user SET username =:username, password =:usepassword, points =:points, isAdmin =:isAdmin, email=:email WHERE userid=:userid";
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":userid", $user_id);
+    $mySQLsentence->bindParam(":username", $username);
+    $mySQLsentence->bindParam(":usepassword", $password);
+    $mySQLsentence->bindParam(":points", $points);
+    $mySQLsentence->bindParam(":isAdmin", $isAdmin);
+    $mySQLsentence->bindParam(":email", $email);
+
+    $mySQLsentence->execute();
 
     $connection->commit();
     $connection = closeDB();
