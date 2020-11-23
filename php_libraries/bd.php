@@ -1,5 +1,6 @@
 <?php
 
+
 function openDB(){
     $servername = "localhost";
     $username = "root";
@@ -200,5 +201,23 @@ function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
 
 }
 
+
+function deleteUser($user_id){
+    $connection = openDb();
+    
+    $mySQLsentence = "DELETE FROM user WHERE userid=:userid";
+
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(':userid', $user_id);
+
+    $connection->beginTransaction();
+    $mySQLsentence->execute();
+
+    $connection->commit();
+
+
+    $connection = closeDb();
+
+}
 
 ?>
