@@ -1,2 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+#div1{
+    background-color: aqua;
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
 
-
+#div2{
+    background-color: blueviolet;
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
