@@ -56,6 +56,42 @@ function selectUserById($user_id){
 
 }
 
+function selectUserPromotions($user_id){
+    $connection = openDB();
+
+    $mySQLsentence = "SELECT * FROM user_has_promotion WHERE user_userid = :userid";
+
+    $mySQLsentence= $connection ->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":userid",$user_id); 
+
+    $mySQLsentence->execute();
+
+    $result = $mySQLsentence->fetchAll();
+
+    $connection = closeDB();
+
+    return $result;
+}
+
+function selectUserGameInfo($user_id) {
+    $connection = openDB();
+
+    $mySQLsentence = "SELECT * FROM user_plays_game WHERE users_userid = :userid";
+
+    $mySQLsentence= $connection ->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":userid",$user_id); 
+
+    $mySQLsentence->execute();
+
+    $result = $mySQLsentence->fetchAll();
+
+    $connection = closeDB();
+
+    return $result;
+
+}
+
+
 
 
 ?>
