@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `restore`.`user_plays_game` (
   CONSTRAINT `fk_users_has_games_games1`
     FOREIGN KEY (`games_idgame`)
     REFERENCES `restore`.`game` (`idgame`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -76,9 +76,9 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `restore`.`store` ;
 
 CREATE TABLE IF NOT EXISTS `restore`.`store` (
-  `idstore` INT NOT NULL,
+  `idstore` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `desc` VARCHAR(45) NULL,
+  `store_desc` VARCHAR(45) NULL,
   PRIMARY KEY (`idstore`))
 ENGINE = InnoDB;
 
@@ -91,7 +91,7 @@ DROP TABLE IF EXISTS `restore`.`promotion` ;
 CREATE TABLE IF NOT EXISTS `restore`.`promotion` (
   `idpromotion` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `desc` VARCHAR(45) NULL,
+  `promo_desc` VARCHAR(45) NULL,
   `pointCost` INT NULL,
   `store_idstore` INT NOT NULL,
   PRIMARY KEY (`idpromotion`),
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `restore`.`promotion` (
   CONSTRAINT `fk_promotion_store1`
     FOREIGN KEY (`store_idstore`)
     REFERENCES `restore`.`store` (`idstore`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -135,3 +135,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 /*Inserts for testing - REMOVE LATER!  pretty please - */
 
 INSERT INTO user VALUES(null, "Alex", "1234", 123, true, "alxcant@whatev.com");
+INSERT INTO game VALUES(null, "Game1", 100);
+INSERT INTO game VALUES(null, "Game2", 100);
+INSERT INTO game VALUES(null, "Game3", 100);
+INSERT INTO game VALUES(null, "Game4", 100);
