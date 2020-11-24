@@ -1,6 +1,7 @@
 body {
   display: -ms-grid;
   display: grid;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #game {
