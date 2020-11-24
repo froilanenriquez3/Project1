@@ -1,4 +1,4 @@
-let character = { x: 50, y: 180 };
+let character = { x: 50, y: 140 };
 let products = [{ name: "Harina", img: "img/Harina.png", x: 410, y: 27 },
 {name: "Masa pastel", img: "img/Masa pastel.png", x: 540, y: 29}, {name:"Azúcar", img: "img/Azúcar.png", x: 420, y: 94},
 {name:"Huevos", img: "img/Huevos.png", x: 515, y: 108}, {name: "Salsa de tomate", img:"img/Salsa de tomate.png", x: 660, y: 38},
@@ -9,16 +9,21 @@ let products = [{ name: "Harina", img: "img/Harina.png", x: 410, y: 27 },
 {name: "Café", img:"img/Café.png", x:820, y: 162}, {name: "Vino Blanco", img:"img/Vino Blanco.png", x:430, y: 313},
 {name: "Vino Tinto", img:"img/Vino Tinto.png", x:385, y: 313}, {name: "Cava", img:"img/Cava.png", x: 485, y:314},
 {name: "Cola", img: "img/Cola.png", x: 537, y:313}, {name: "Limonada", img:"img/Limonada.png", x: 575, y: 315},
-{name: "Naranjada", img: "img/Naranjada.png", x: 628, y: 315}];
+{name: "Naranjada", img: "img/Naranjada.png", x: 628, y: 315}, {name: "Mayonesa", img: "img/mayonesa.png", x: 394, y: 242}];
 let lady = document.getElementById("lady");
 let interior = document.getElementById("interior");
 let list= document.getElementById("list");
+let pointsText= document.querySelector("#interior > p");
 
 let productsToFind=[];
+const numberProducts= 5;
 let randomNum;
 let productsLength= products.length;
 let isSame;
-
+let productsFound=0;
+let points= 0;
+let finished= false;
+let hasRoscon= false;
 
 
 //Main
@@ -29,6 +34,8 @@ generateProductsToFind();
 
 
 list.addEventListener("click", ()=>{document.querySelector(".divList").classList.toggle("noVisible")});
+basket.addEventListener("animationend", () => basket.classList.remove("animationClass"));
+speak.addEventListener("click", createText);
 
 //Draw all draggable objects
 function drawAll() {
@@ -77,7 +84,6 @@ window.addEventListener("keydown", function (button) {
             document.getElementById("speak").style.display= "none";
         }
     } else if (key == 39 && character.x < 530) {
-        console.log(character.x);
         //LEFT
         if (lady.getAttribute("src") == "img/ladyRight.png" || lady.getAttribute("src") == "img/ladyRight2.png") {
             lady.setAttribute("src", "img/ladyLeft.png");
@@ -136,7 +142,7 @@ function dragElement(elmnt) {
       pos3 = e.clientX;
       pos4 = e.clientY;
 
-      //put element in front of others;
+      //put element in front of others
       elmnt.style.zIndex= 1;
       // set the element's new position:
       //1000 = interior width / 500 = interior height / 60 && 75 = max products width and height
@@ -145,20 +151,32 @@ function dragElement(elmnt) {
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
 
-    // //410 && 925 is basket position
-    //     if(pos3 > 375 && pos4 >825){
-    //         debugger;
-    //         listElemements= document.querySelectorAll("li");
-    //         console.log(listElemements);
-    //         listElemements.forEach(element => {
-                
-    //             if(element.innerHTML === elmnt.id){
-    //                 element.style.textDecoration= "line-through";
-    //             }
-    //         });
-    //     }
+    
+    //¡¡¡¡REVISAR!!!!!
+    //Check if they are in the basket
+    if(pos4 > 375 && pos4 < 425 && pos3 >1026 && pos3 <1070){
+        listElemements= document.querySelectorAll("li");
+        listElemements.forEach(element => {
+            if(element.innerHTML === elmnt.id){
+                element.style.textDecoration= "line-through";
+                interior.removeChild(elmnt);
+                productsFound++;
+                points += 50;
+                debugger;
+                basket.classList.add("animationClass");
+                pointsText.innerHTML= "Puntos: "+points;
+                if(productsFound === numberProducts){
+                    finished= true;
+                }
+            } else {
+                points -= 20;
+                pointsText.innerHTML= "Puntos: "+points;
+            }
 
+        });
     }
+}
+
   
     function closeDragElement() {
       // stop moving when mouse button is released:
@@ -174,7 +192,7 @@ function dragElement(elmnt) {
 
   //Generate Random products
   function generateProductsToFind(){
-    for(let i=0; i<5; i++){
+    for(let i=0; i<numberProducts; i++){
         if(i===0){
             randomNum= Math.floor(Math.random() * productsLength); 
         } else {
@@ -197,6 +215,29 @@ function dragElement(elmnt) {
         listEl.textContent= products[element].name;
         document.querySelector("div > ul").appendChild(listEl);
     });
-    
-    console.log(productsToFind);
+    }
+
+    //Create conversation
+    function createText(){
+        let text= document.getElementById("text"); 
+        let divText= document.querySelector("#text > div")
+        if(!hasRoscon){   
+            divText.innerHTML = "Hola (nombre). Como va todo? Hemos guardado el roscón de reyes que nos pediste! Aquí tienes.";
+            points += 50;
+            pointsText.innerHTML= "Puntos: "+points;
+            hasRoscon = true;
+
+        } else {
+            divText.innerHTML= "Que pases muy buen día!";
+        }
+
+        text.style.display= "Inline";
+        
+        
+    }
+
+    //Close text
+    function closeText(){
+        let text= document.getElementById("text");
+        text.style.display= "none";
     }
