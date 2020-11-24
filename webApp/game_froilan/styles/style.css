@@ -9,7 +9,7 @@ body {
           box-sizing: border-box;
   margin: auto;
   margin-top: 2%;
-  height: 570px;
+  height: 520px;
   width: 895px;
   border: solid grey 10px;
 }
@@ -17,33 +17,77 @@ body {
 .topbar {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: 100px;
+  height: 50px;
   background-color: white;
   color: black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 2fr 1fr 1fr 1fr;
-      grid-template-columns: 3fr 2fr 1fr 1fr 1fr;
+  -ms-grid-columns: 3fr 3fr 3fr;
+      grid-template-columns: 3fr 3fr 3fr;
 }
 
-.topbar #feedback {
-  margin-left: 10px;
+.topbar #feedbackbox {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: whitesmoke;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.75fr 2fr 2fr 2fr;
+      grid-template-columns: 1.75fr 2fr 2fr 2fr;
+  padding-left: 10px;
+  padding-right: 7px;
 }
 
-.topbar button {
-  position: relative;
-  height: 70%;
-  font-size: 20px;
-  padding: 3px;
-  margin: 10px;
+.topbar #scorebox {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: 15px;
+  margin-top: 10px;
+  vertical-align: center;
+  font-size: 15px;
+}
+
+.topbar #scorebox p {
+  margin: 5px;
+}
+
+.topbar #buttonsbox {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -ms-grid;
+  display: grid;
+  padding: 10px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  background-color: aliceblue;
+}
+
+.topbar #buttonsbox button {
+  height: 30px;
+  width: 70px;
+  font-size: 15px;
+  margin-left: 40px;
   text-decoration: none;
-  background-color: brown;
+  background-color: black;
+  color: white;
   border-radius: 5px;
   border: none;
 }
 
-.topbar button:active {
-  background-color: #c46666;
+.topbar #buttonsbox button:active {
+  background-color: #2ca50e;
+  color: black;
+}
+
+.topbar #buttonsbox button:disabled {
+  background-color: grey;
+}
+
+.topbar #buttonsbox button:disabled:active {
+  color: white;
 }
 
 .container {

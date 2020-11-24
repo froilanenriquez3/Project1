@@ -26,7 +26,7 @@ function initPoints(){
 function displayUpdateScore(){
   
   if(window.points == pointLimit){
-    document.querySelector('#counter').innerHTML = 'Score: ' + window.points + " (Point limit reached)";
+    document.querySelector('#counter').innerHTML = 'Score: ' + window.points + " (Point limit)";
   }else{
     document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
   }
@@ -40,46 +40,66 @@ function checkCombo() {
   let checkShirt = false;
   let checkPants = false;
   let checkShoes = false;
-  let text = "";
+
+  
+  let shirttext = "";
+  let panttext = "";
+  let shoetext = "";
+
   let text2 = "Keep trying.";
 
   if (document.querySelector(' #hathole').firstChild.id == window.hat) {
-    text += "Great hat! <br>";
+    let hat = document.querySelector('#feedhat');
+    hat.innerHTML = "Hat: ✓ ";
+    hat.style.color = "green";
     checkHat = true;
   } else {
-    text += "This hat sucks. <br>";
+    let hat = document.querySelector('#feedhat');
+    hat.innerHTML = "Hat: X ";
+    hat.style.color = "red";
   }
 
   if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
-    text += "Great shirt! <br>";
+    let shirt = document.querySelector('#feedshirt');
+    shirt.innerHTML = "Shirt: ✓ ";
+    shirt.style.color = "green";
     checkShirt = true;
   } else {
-    text += "This shirt sucks. <br>";
+    let shirt = document.querySelector('#feedshirt');
+    shirt.innerHTML = "Shirt: X ";
+    shirt.style.color = "red";
   }
 
   if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
-    text += "Great pants! <br>";
+    let pant = document.querySelector('#feedpants');
+    pant.innerHTML = "Pants: ✓ ";
+    pant.style.color = "green";
     checkPants = true;
   } else {
-    text += "These pants suck. <br>"
+    let pant = document.querySelector('#feedpants');
+    pant.innerHTML = "Pants: X ";
+    pant.style.color = "red";
   }
 
   if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
-    text += "Great shoes! <br>";
+    let shoe = document.querySelector('#feedshoes');
+    shoe.innerHTML = "Shoes: ✓ ";
+    shoe.style.color = "green";
     checkShoes = true;
   } else {
-    text += "These shoes suck.";
+    let shoe = document.querySelector('#feedshoes');
+    shoe.innerHTML = "Shoes: X ";
+    shoe.style.color = "red";
   }
 
   if ( checkHat && checkShirt && checkPants && checkShoes){
-    text2 = "You got me the perfect outfit!";
+    text2 = "You got it!";
     increasePoints();
     displayUpdateScore();
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
   }
   
-  document.querySelector('#feedback').innerHTML = text;
   document.querySelector('#winner').innerHTML = text2;
 }
 
@@ -182,20 +202,26 @@ function newCombo() {
     default:
       break;
   }
-  console.log(hatNum + " " + shirtNum + " " + pantsNum + " " + shoesNum); //DELETE ME
+  console.log(window.hat + " " + window.shirt + " " + window.pants + " " + window.shoes); //DELETE ME
 
   resetGame();
 
 }
 
 function resetGame(){
-  document.querySelector('#feedback').innerHTML = "";
+  document.querySelector('#feedhat').innerHTML = "";
+  document.querySelector('#feedshirt').innerHTML = "";
+  document.querySelector('#feedpants').innerHTML = "";
+  document.querySelector('#feedshoes').innerHTML = "";
+
   document.querySelector('#winner').innerHTML = "";
   
   document.querySelector('#next').disabled = true;
   document.querySelector('#check').disabled = false;
 
-  document.querySelector(".container").innerHTML = ` <div class="shelf" id="hats">
+  //When game container is updated, copy contents into this string literal
+  document.querySelector(".container").innerHTML = ` 
+  <div class="shelf" id="hats">
   <div class="dropzone hat" id="hatzone1">
       <div id="draghat1" class="dragHat" draggable="true"
           ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
