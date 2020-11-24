@@ -69,7 +69,7 @@ document.addEventListener("drop", function (event) {
   || (event.target.classList.contains("dragShoes") && dragged.classList.contains("dragShoes"))
   ) {
     let previousParent = dragged.parentNode;
-    if(!(dragged.parentNode == event.target.paretNode)){
+    if(!(dragged.parentNode == event.target.parentNode)){
       dragged.parentNode.removeChild(dragged);
     }
 
