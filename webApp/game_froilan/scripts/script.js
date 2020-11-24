@@ -5,21 +5,32 @@ let pants;
 let shoes;
 
 let points;
+let pointLimit = 1;
 
 newCombo();
 initPoints();
 document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
 console.log(window.points);
 
-
-
+function increasePoints(){
+ 
+  if(window.points < pointLimit){
+    window.points++;
+  } 
+}
 
 function initPoints(){
   window.points = 0;
 }
 
 function displayUpdateScore(){
-  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  
+  if(window.points == pointLimit){
+    document.querySelector('#counter').innerHTML = 'Score: ' + window.points + " (Point limit reached)";
+  }else{
+    document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  }
+  
   console.log(window.points);
 }
 
@@ -62,7 +73,7 @@ function checkCombo() {
 
   if ( checkHat && checkShirt && checkPants && checkShoes){
     text2 = "You got me the perfect outfit!";
-    window.points++;
+    increasePoints();
     displayUpdateScore();
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
