@@ -13,66 +13,58 @@
         Give me a makeover from head to toe and click check.
         If I like the whole outfit, you get a point!
         Then click next to go to the next outfit.</p>
-    <div id="game" >
+    <div id="game">
         <div class="topbar">
-            <div>
-                
-                <p id="feedback"></p>
+            <div id="feedbackbox">
+                <p id="feedhat"></p>
+                <p id="feedshirt"></p>
+                <p id="feedpants"></p>
+                <p id="feedshoes"></p>
             </div>
-            <div>
+            <div id="scorebox">
                 <p id="counter">Score: </p>
-                <p id="winner">
-                    
+                <p id="winner"></p>
+
+            </div>
+            <div id="buttonsbox">
+                <button onclick="checkCombo()" id="check">CHECK</button>
+                <button onclick="newCombo()" id="next" disabled>NEXT</button>
             </div>
 
-            <button onclick="checkCombo()" id="check">CHECK</button>
-            <button onclick="newCombo()" id="next" disabled>NEXT</button>
         </div>
 
         <div class="container">
-
+            <!-- Updates to content of container must be copied to script.js resetGame function-->
             <div class="shelf" id="hats">
-                <div class="dropzone hat">
+                <div class="dropzone hat" id="hatzone1">
                     <div id="draghat1" class="dragHat" draggable="true"
-                        ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
-                    </div>
+                        ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
                 </div>
-                <div class="dropzone hat">
+                <div class="dropzone hat" id="hatzone2">
                     <div id="draghat2" class="dragHat" draggable="true"
-                        ondragstart="event.dataTransfer.setData('text/plain',null)">
-                         
-                    </div>
+                        ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
                 </div>
-                <div class="dropzone hat">
+                <div class="dropzone hat" id="hatzone3">
                     <div id="draghat3" class="dragHat" draggable="true"
-                        ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
-                    </div>
+                        ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
                 </div>
 
                 <div class="center">
                     <div class="dropzone hat" id="hathole"></div>
-                    
+
                 </div>
 
-                <div class="dropzone hat">
+                <div class="dropzone hat" id="hatzone4">
                     <div id="draghat4" class="dragHat" draggable="true"
-                        ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
-                    </div>
+                        ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
                 </div>
-                <div class="dropzone hat">
+                <div class="dropzone hat" id="hatzone5">
                     <div id="draghat5" class="dragHat" draggable="true"
-                        ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
-                    </div>
+                        ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
                 </div>
-                <div class="dropzone hat">
+                <div class="dropzone hat" id="hatzone6">
                     <div id="draghat6" class="dragHat" draggable="true"
-                        ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
-                    </div>
+                        ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
                 </div>
             </div>
 
@@ -81,43 +73,43 @@
                 <div class="dropzone shirt">
                     <div id="dragshirt1" class="dragShirt" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shirt">
                     <div id="dragshirt2" class="dragShirt" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shirt">
                     <div id="dragshirt3" class="dragShirt" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
 
                 <div class="center">
                     <div class="dropzone shirt" id="shirthole"></div>
-                    
+
                 </div>
 
                 <div class="dropzone shirt">
                     <div id="dragshirt4" class="dragShirt" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shirt">
                     <div id="dragshirt5" class="dragShirt" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shirt">
                     <div id="dragshirt6" class="dragShirt" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
             </div>
@@ -126,19 +118,19 @@
                 <div class="dropzone pants">
                     <div id="dragpants1" class="dragPants" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone pants">
                     <div id="dragpants2" class="dragPants" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone pants">
                     <div id="dragpants3" class="dragPants" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
 
@@ -149,19 +141,19 @@
                 <div class="dropzone pants">
                     <div id="dragpants4" class="dragPants" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone pants">
                     <div id="dragpants5" class="dragPants" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone pants">
                     <div id="dragpants6" class="dragPants" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
             </div>
@@ -171,45 +163,46 @@
                 <div class="dropzone shoes">
                     <div id="dragshoes1" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shoes">
                     <div id="dragshoes2" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shoes">
                     <div id="dragshoes3" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
 
                 <div class="center">
-                    <div class="dropzone shoes" id="shoeshole" ></div>
+                    <div class="dropzone shoes" id="shoeshole"></div>
                 </div>
 
                 <div class="dropzone shoes">
                     <div id="dragshoes4" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shoes">
                     <div id="dragshoes5" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
                 <div class="dropzone shoes">
                     <div id="dragshoes6" class="dragShoes" draggable="true"
                         ondragstart="event.dataTransfer.setData('text/plain',null)">
-                        
+
                     </div>
                 </div>
             </div>
+
 
 
         </div>
