@@ -1,3 +1,53 @@
+#instructions{
+    background-color: #ffb35c;
+    color: #2e585a;
+    z-index: 50;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#instructionsInfo{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 25% 75%;
+    justify-content: space-around;
+}
+
+#instructionsInfo > img {
+    width: 55px;
+    padding: 2px;
+}
+
+.play{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 0px;
+    height: 20px;
+}
+
+.play div{
+    display: flex;
+    align-items: center;
+}
+
+.play img{
+    padding-left: 3px;
+    height: 22px;
+}
+
+.play h4{
+    padding-right: 20px;
+}
+
+#interior{
+    display:none;
+  }
+
 .background{
     background-image: url("img/background.png");
     height: 450px;

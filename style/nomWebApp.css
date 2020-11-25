@@ -1,4 +1,4 @@
-/*  ffb35c groc
+/*  ffb35c groc rgb(255, 179, 92)
     ddfff5 fondo
     ffc6d9
 
@@ -10,7 +10,7 @@
 html, body {
     height: 100%;
     margin: 0;
-  }
+  } 
   
 .recomerçem{
     box-sizing: border-box;

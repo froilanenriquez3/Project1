@@ -17,9 +17,7 @@ let pointsText = document.querySelector("#interior > p");
 
 let productsToFind = [];
 const numberProducts = 5;
-let randomNum;
 let productsLength = products.length;
-let isSame;
 let productsFound = 0;
 let points = 0;
 let finished = false;
@@ -28,12 +26,32 @@ let hasRoscon = false;
 
 //Main
 
-drawAll();
-drawLady();
-generateProductsToFind();
+document.querySelector(".play > div >img").addEventListener("click", startGame);
 
 
-list.addEventListener("click", () => { document.querySelector(".divList").classList.toggle("noVisible") });
+
+function startGame(){
+    //ocult instructions & show interior
+    document.querySelector(".background > #instructions").style.display= "none";
+    document.querySelector(".background > #interior").style.display= "inline";
+    //reset some variables
+    productsToFind = [];
+    productsFound= 0;
+    points=0;
+    finished= false;
+    hasRoscon= false;
+    
+
+    //Draw objects & character
+    drawAll();
+    drawLady();
+
+    //Generate list of products
+    generateProductsToFind();
+
+    //addSomeEvents
+    addCharacterMovement();
+    list.addEventListener("click", () => { document.querySelector(".divList").classList.toggle("noVisible") });
 basket.addEventListener("animationend", () => {
     if(basket.classList.contains("animationClassGreen")){
         basket.classList.remove("animationClassGreen");
@@ -41,9 +59,11 @@ basket.addEventListener("animationend", () => {
         basket.classList.remove("animationClassRed");
     }
 });
-
-
 speak.addEventListener("click", createText);
+
+}
+
+
 
 //Draw all draggable objects
 function drawAll() {
@@ -69,6 +89,8 @@ function drawLady() {
 }
 
 //Character movement
+
+function addCharacterMovement(){
 window.addEventListener("keydown", function (button) {
     let key = button.keyCode;
     if (key == 37 && character.x > 50) {
@@ -113,6 +135,7 @@ window.addEventListener("keydown", function (button) {
 
     }
 });
+}
 
 //Make products bigger when mouseover and smaller when mouseout
 function makeBigger() {
@@ -215,6 +238,8 @@ function checkBasket(elmnt){
 
 //Generate Random products
 function generateProductsToFind() {
+    let isSame= false;
+    let randomNum;
     for (let i = 0; i < numberProducts; i++) {
         if (i === 0) {
             randomNum = Math.floor(Math.random() * productsLength);
