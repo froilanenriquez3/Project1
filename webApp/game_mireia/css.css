@@ -108,8 +108,12 @@ padding-left: 10px;
     margin-bottom: 5px;
 }
 
-.animationClass{
+.animationClassGreen{
     animation: basketGreen 0.5s linear;
+}
+
+.animationClassRed{
+    animation: basketRed 0.5s linear;
 }
 
 @keyframes basketGreen{
@@ -119,6 +123,20 @@ padding-left: 10px;
 
     50%{
         background-color: rgb(60, 175, 60);
+    }
+
+    100%{
+        background-color: rgb(233, 167, 92, 0.5);;
+    }
+}
+
+@keyframes basketRed{
+    0%{
+        background-color: rgb(233, 167, 92, 0.5);
+    } 
+
+    50%{
+        background-color: rgb(245, 20, 20);
     }
 
     100%{
