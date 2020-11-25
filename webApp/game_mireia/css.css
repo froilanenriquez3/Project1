@@ -26,28 +26,17 @@
 
 #list{
     position: absolute;
-    top: 25px;
+    top: 30px;
     left: 25px;
     height: 20px;
-    background-color: rgb(233, 167, 92, 0.3);
+    background-color: rgb(233, 167, 92, 0.5);
     border: black 1px solid;
     padding: 5px;
     border-radius: 4px;
 
 }
 
-#speak{
-    position: absolute;
-    top: 200px;
-    left: 675px;
-    height: 20px;
-    background-color: rgb(233, 167, 92, 0.3);
-    border: black 1px solid;
-    border-radius: 35px;
-    padding: 10px;
-    display: none;
-    z-index: 2;
-}
+/* List */
 
 .divList{
     background-image: url(img/notebook.png);
@@ -57,9 +46,14 @@
     width: 200px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 10px;
+    top: 30px;
     left: 70px;
     font-family: 'Caveat', cursive;
+}
+
+#interior > p{
+padding-top: 5px;
+padding-left: 10px;
 }
 
 .divList > ul{
@@ -68,4 +62,66 @@
 
 .noVisible{
     display: none;
+}
+
+/* Talk with someone  */
+
+#speak{
+    position: absolute;
+    top: 200px;
+    left: 675px;
+    height: 20px;
+    background-color: rgb(233, 167, 92, 0.5);
+    border: black 1px solid;
+    border-radius: 35px;
+    padding: 10px;
+    display: none;
+    z-index: 2;
+}
+
+
+.visible{
+    display: inline;
+}
+
+#text{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: auto;
+    font-size: large;
+    background-color: rgb(233, 167, 92, 0.8);
+    display: none;
+    padding: 5px;
+    border: 1px solid black;
+    z-index: 50;
+
+}
+
+#text > div {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#text > img{
+    height: 10px;
+    margin-bottom: 5px;
+}
+
+.animationClass{
+    animation: basketGreen 0.5s linear;
+}
+
+@keyframes basketGreen{
+    0%{
+        background-color: rgb(233, 167, 92, 0.5);
+    } 
+
+    50%{
+        background-color: rgb(60, 175, 60);
+    }
+
+    100%{
+        background-color: rgb(233, 167, 92, 0.5);;
+    }
 }

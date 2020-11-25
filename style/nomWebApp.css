@@ -1,7 +1,11 @@
 /*  ffb35c groc
     ddfff5 fondo
+    ffc6d9
+
     2e585a fosc
 */
+
+/* RECOMERÇEM */
 
 html, body {
     height: 100%;
@@ -93,12 +97,38 @@ justify-content: center;
     color: #2e585a;
     position: absolute;
     bottom: 2em;
+    border: #2e585a 1px solid;
 }
 
-#div2{
-    background-color: blueviolet;
+/* DIVULGACIO */
+
+#divulgacio{
+    background-color: #ddfff5;
     height: 100%;
     min-height: 100%;
     min-width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
 }
+
+#divulgacio > p {
+  padding: 5%;
+}
+
+#imgDiv1{
+  background-image: url('../media/divphoto1.jpg');
+  background-position: center;
+  background-size: cover;
+  margin-left: 2%;
+
+}
+
+#imgDiv2{
+  background-image: url('../media/divphoto2.jpg');
+  background-position: center;
+  background-size: cover;
+  margin-right: 2%;
+}
+
 
