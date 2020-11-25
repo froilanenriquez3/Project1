@@ -5,21 +5,32 @@ let pants;
 let shoes;
 
 let points;
+let pointLimit = 1;
 
 newCombo();
 initPoints();
 document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
 console.log(window.points);
 
-
-
+function increasePoints(){
+ 
+  if(window.points < pointLimit){
+    window.points++;
+  } 
+}
 
 function initPoints(){
   window.points = 0;
 }
 
 function displayUpdateScore(){
-  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  
+  if(window.points == pointLimit){
+    document.querySelector('#counter').innerHTML = 'Score: ' + window.points + " (Point limit)";
+  }else{
+    document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  }
+  
   console.log(window.points);
 }
 
@@ -29,46 +40,66 @@ function checkCombo() {
   let checkShirt = false;
   let checkPants = false;
   let checkShoes = false;
-  let text = "";
+
+  
+  let shirttext = "";
+  let panttext = "";
+  let shoetext = "";
+
   let text2 = "Keep trying.";
 
   if (document.querySelector(' #hathole').firstChild.id == window.hat) {
-    text += "Great hat! <br>";
+    let hat = document.querySelector('#feedhat');
+    hat.innerHTML = "Hat: ✓ ";
+    hat.style.color = "green";
     checkHat = true;
   } else {
-    text += "This hat sucks. <br>";
+    let hat = document.querySelector('#feedhat');
+    hat.innerHTML = "Hat: X ";
+    hat.style.color = "red";
   }
 
   if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
-    text += "Great shirt! <br>";
+    let shirt = document.querySelector('#feedshirt');
+    shirt.innerHTML = "Shirt: ✓ ";
+    shirt.style.color = "green";
     checkShirt = true;
   } else {
-    text += "This shirt sucks. <br>";
+    let shirt = document.querySelector('#feedshirt');
+    shirt.innerHTML = "Shirt: X ";
+    shirt.style.color = "red";
   }
 
   if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
-    text += "Great pants! <br>";
+    let pant = document.querySelector('#feedpants');
+    pant.innerHTML = "Pants: ✓ ";
+    pant.style.color = "green";
     checkPants = true;
   } else {
-    text += "These pants suck. <br>"
+    let pant = document.querySelector('#feedpants');
+    pant.innerHTML = "Pants: X ";
+    pant.style.color = "red";
   }
 
   if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
-    text += "Great shoes! <br>";
+    let shoe = document.querySelector('#feedshoes');
+    shoe.innerHTML = "Shoes: ✓ ";
+    shoe.style.color = "green";
     checkShoes = true;
   } else {
-    text += "These shoes suck.";
+    let shoe = document.querySelector('#feedshoes');
+    shoe.innerHTML = "Shoes: X ";
+    shoe.style.color = "red";
   }
 
   if ( checkHat && checkShirt && checkPants && checkShoes){
-    text2 = "You got me the perfect outfit!";
-    window.points++;
+    text2 = "You got it!";
+    increasePoints();
     displayUpdateScore();
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
   }
   
-  document.querySelector('#feedback').innerHTML = text;
   document.querySelector('#winner').innerHTML = text2;
 }
 
@@ -171,10 +202,191 @@ function newCombo() {
     default:
       break;
   }
-  document.querySelector('#feedback').innerHTML = "";
-  document.querySelector('#winner').innerHTML = "";
-  console.log(hatNum + " " + shirtNum + " " + pantsNum + " " + shoesNum);
-  document.querySelector('#next').disabled = true;
-    document.querySelector('#check').disabled = false;
+  console.log(window.hat + " " + window.shirt + " " + window.pants + " " + window.shoes); //DELETE ME
 
+  resetGame();
+
+}
+
+function resetGame(){
+  document.querySelector('#feedhat').innerHTML = "";
+  document.querySelector('#feedshirt').innerHTML = "";
+  document.querySelector('#feedpants').innerHTML = "";
+  document.querySelector('#feedshoes').innerHTML = "";
+
+  document.querySelector('#winner').innerHTML = "";
+  
+  document.querySelector('#next').disabled = true;
+  document.querySelector('#check').disabled = false;
+
+  //When game container is updated, copy contents into this string literal
+  document.querySelector(".container").innerHTML = ` 
+  <div class="shelf" id="hats">
+  <div class="dropzone hat" id="hatzone1">
+      <div id="draghat1" class="dragHat" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
+  </div>
+  <div class="dropzone hat" id="hatzone2">
+      <div id="draghat2" class="dragHat" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
+  </div>
+  <div class="dropzone hat" id="hatzone3">
+      <div id="draghat3" class="dragHat" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
+  </div>
+
+  <div class="center">
+      <div class="dropzone hat" id="hathole"></div>
+      
+  </div>
+
+  <div class="dropzone hat" id="hatzone4">
+      <div id="draghat4" class="dragHat" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
+  </div>
+  <div class="dropzone hat" id="hatzone5">
+      <div id="draghat5" class="dragHat" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
+  </div>
+  <div class="dropzone hat" id="hatzone6">
+      <div id="draghat6" class="dragHat" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"></div>
+  </div>
+</div>
+
+
+<div class="shelf" id="shirts">
+  <div class="dropzone shirt">
+      <div id="dragshirt1" class="dragShirt" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shirt">
+      <div id="dragshirt2" class="dragShirt" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shirt">
+      <div id="dragshirt3" class="dragShirt" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+
+  <div class="center">
+      <div class="dropzone shirt" id="shirthole"></div>
+      
+  </div>
+
+  <div class="dropzone shirt">
+      <div id="dragshirt4" class="dragShirt" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shirt">
+      <div id="dragshirt5" class="dragShirt" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shirt">
+      <div id="dragshirt6" class="dragShirt" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+</div>
+
+<div class="shelf" id="pants">
+  <div class="dropzone pants">
+      <div id="dragpants1" class="dragPants" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone pants">
+      <div id="dragpants2" class="dragPants" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone pants">
+      <div id="dragpants3" class="dragPants" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+
+  <div class="center">
+      <div class="dropzone pants" id="pantshole"></div>
+  </div>
+
+  <div class="dropzone pants">
+      <div id="dragpants4" class="dragPants" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone pants">
+      <div id="dragpants5" class="dragPants" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone pants">
+      <div id="dragpants6" class="dragPants" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+</div>
+
+
+<div class="shelf" id="shoes">
+  <div class="dropzone shoes">
+      <div id="dragshoes1" class="dragShoes" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shoes">
+      <div id="dragshoes2" class="dragShoes" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shoes">
+      <div id="dragshoes3" class="dragShoes" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+
+  <div class="center">
+      <div class="dropzone shoes" id="shoeshole" ></div>
+  </div>
+
+  <div class="dropzone shoes">
+      <div id="dragshoes4" class="dragShoes" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shoes">
+      <div id="dragshoes5" class="dragShoes" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+  <div class="dropzone shoes">
+      <div id="dragshoes6" class="dragShoes" draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)">
+          
+      </div>
+  </div>
+</div>
+`;
 }

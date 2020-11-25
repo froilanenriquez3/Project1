@@ -27,9 +27,7 @@ document.addEventListener("dragover", function (event) {
 
 //Drop Zone event listeners
 
-//HAT event listeners
-
-document.addEventListener("dragenter", function (event) {
+/* document.addEventListener("dragenter", function (event) {
   // highlight potential drop target when the draggable element enters it
   if (event.target.className == "dropzone hat") {
     event.target.style.background = "";
@@ -43,104 +41,42 @@ document.addEventListener("dragleave", function (event) {
   }
 
 }, false);
+ */
 
 document.addEventListener("drop", function (event) {
   // prevent default action (open as link for some elements)
   event.preventDefault();
   // move dragged elem to the selected drop target
-  if (event.target.className == "dropzone hat" && dragged.className == "dragHat") {
+  if ((event.target.classList.contains("dropzone") && event.target.classList.contains("hat") && dragged.classList.contains("dragHat"))
+  || (event.target.classList.contains("dropzone") && event.target.classList.contains("shirt") && dragged.classList.contains("dragShirt"))
+  || (event.target.classList.contains("dropzone") && event.target.classList.contains("pants") && dragged.classList.contains("dragPants")) 
+  || (event.target.classList.contains("dropzone") && event.target.classList.contains("shoes") && dragged.classList.contains("dragShoes"))
+  
+  ) {
     dragged.parentNode.removeChild(dragged);
     event.target.appendChild(dragged);
   }
   event.target.style.background = "";
 }, false);
 
-
-//SHIRT event listeners
-
-document.addEventListener("dragenter", function (event) {
-  // highlight potential drop target when the draggable element enters it
-  if (event.target.className == "dropzone shirt") {
-    event.target.style.background = "";
-  }
-
-}, false);
-
-document.addEventListener("dragleave", function (event) {
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.className == "dropzone shirt") {
-    event.target.style.background = "";
-  }
-
-}, false);
-
 document.addEventListener("drop", function (event) {
   // prevent default action (open as link for some elements)
   event.preventDefault();
   // move dragged elem to the selected drop target
-  if (event.target.className == "dropzone shirt" && dragged.className == "dragShirt") {
-    dragged.parentNode.removeChild(dragged);
-    event.target.appendChild(dragged);
-  }
-  event.target.style.background = "";
-}, false);
+  if ((event.target.classList.contains("dragHat") && dragged.classList.contains("dragHat"))
+  || (event.target.classList.contains("dragShirt") && dragged.classList.contains("dragShirt"))
+  || (event.target.classList.contains("dragPants") && dragged.classList.contains("dragPants"))
+  || (event.target.classList.contains("dragShoes") && dragged.classList.contains("dragShoes"))
+  ) {
+    let previousParent = dragged.parentNode;
+    if(!(dragged.parentNode == event.target.parentNode)){
+      dragged.parentNode.removeChild(dragged);
+    }
 
-
-//PANTS event listeners
-
-document.addEventListener("dragenter", function (event) {
-  // highlight potential drop target when the draggable element enters it
-  if (event.target.className == "dropzone pants") {
-    event.target.style.background = "";
-  }
-
-}, false);
-
-document.addEventListener("dragleave", function (event) {
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.className == "dropzone pants") {
-    event.target.style.background = "";
-  }
-
-}, false);
-
-document.addEventListener("drop", function (event) {
-  // prevent default action (open as link for some elements)
-  event.preventDefault();
-  // move dragged elem to the selected drop target
-  if (event.target.className == "dropzone pants" && dragged.className == "dragPants") {
-    dragged.parentNode.removeChild(dragged);
-    event.target.appendChild(dragged);
-  }
-  event.target.style.background = "";
-}, false);
-
-
-//SHOES event listeners
-
-document.addEventListener("dragenter", function (event) {
-  // highlight potential drop target when the draggable element enters it
-  if (event.target.className == "dropzone shoes") {
-    event.target.style.background = "";
-  }
-
-}, false);
-
-document.addEventListener("dragleave", function (event) {
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.className == "dropzone shoes") {
-    event.target.style.background = "";
-  }
-
-}, false);
-
-document.addEventListener("drop", function (event) {
-  // prevent default action (open as link for some elements)
-  event.preventDefault();
-  // move dragged elem to the selected drop target
-  if (event.target.className == "dropzone shoes" && dragged.className == "dragShoes") {
-    dragged.parentNode.removeChild(dragged);
-    event.target.appendChild(dragged);
+    event.target.parentNode.appendChild(dragged);
+    event.target.parentNode.removeChild(event.target.parentNode.childNodes[0]);
+    previousParent.appendChild(event.target);
+ 
   }
   event.target.style.background = "";
 }, false);
