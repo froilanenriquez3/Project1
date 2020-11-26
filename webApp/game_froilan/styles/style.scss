@@ -124,14 +124,14 @@ body{
         box-sizing: border-box;
         display: grid; 
         padding: 10px;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         background-color: aliceblue;
 
         button{
             height:30px;
             width:70px;
             font-size: 15px;
-            margin-left: 40px;
+            //margin-left: 40px;
             text-decoration: none;
             background-color: rgb(0, 0, 0);
             color: white;
@@ -146,6 +146,12 @@ body{
                 &:active{
                     color: white;
                 }
+            }
+
+            &#music{
+                background-color: white;
+                color: black;
+                border: solid black 1px;
             }
             
         }
