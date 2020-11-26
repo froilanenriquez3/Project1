@@ -5,7 +5,7 @@ let pants;
 let shoes;
 
 let points;
-let pointLimit = 1;
+let pointLimit = 1000;
 
 newCombo();
 initPoints();
@@ -15,7 +15,7 @@ console.log(window.points);
 function increasePoints(){
  
   if(window.points < pointLimit){
-    window.points++;
+    window.points+= 100;
   } 
 }
 
