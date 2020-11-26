@@ -3,7 +3,14 @@
     session_start();
     $all_users = selectAllFromTable('user');
     $all_promos = selectAllFromTable('promotion');
+    $all_games = selectAllFromTable('game');
 
+    $_SESSION['user']['isAdmin'] = 1; // REMOVE ME Setting user to admin
+    //Checking if user is an admin
+    if($_SESSION['user']['isAdmin'] == 0){
+        header("Location: ../index.html");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +36,7 @@
                     <li><a href="#pointssection">Manage points</a></li>
                 </ul>
 
-
+                <p>Here is where you can manage the administratos, users, promotions, and points</p>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <h2 id="adminssection">Manage admins</h2>
@@ -57,7 +64,7 @@
                             <div class="card col-2">
                                 <div class="card-body p-2">
                                     <p><?= "User ID-".$admin['userid'].": ".$admin['username']?></p>
-                                   <form action="../php_controllers/restore_controller.php" method="post">
+                                   <form action="../php_controllers/user_controller.php" method="post">
                                         <button class="btn m-1">Remove admin</button>
                                    </form>
                                 </div>
@@ -89,18 +96,18 @@
                         foreach($all_users as $user) {?>
                             <div class="card">
                                 <div class="card-body">
-                                    <form enctype="multipart/form-data" action="../php_controllers/restore_controller.php" method="post">
+                                    <form enctype="multipart/form-data" action="../php_controllers/user_controller.php" method="post">
                                         <p><?= "User ID-".$user['userid']?></p>
                                         
                                          <!-- User -->
                                         <div class="form-group row">
                                             <label class="col-2" for="username">Username</label>
-                                            <input class="col-10 form-control" type="text" id="username" name="username" value="<?=$user['username']?>" autofocus>
+                                            <input class="col-10 form-control" type="text" id="username" name="username" value="<?=$user['username']?>" >
                                         </div>
                                         <!-- Password -->
                                         <div class="form-group row">
                                             <label class="col-2" for="password">Password</label>
-                                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" value="<?=$user['password']?>" autofocus required>
+                                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" value="<?=$user['password']?>"  required>
                                         </div>
                                         <!-- Points -->
                                         <div class="form-group row">
@@ -156,28 +163,26 @@
 
                     <li class="list-group-item">
                         <h2 id="pointssection">Manage points</h2>
-                        <?php
-                        if (empty($all_users)){
-                                echo "<p class='m-5'>There are no users with points to manage.</p>";
-                            }
+                        <?php foreach($all_games as $game){ ?>
                         
-                        
-                        foreach($all_users as $user) {?>
                             <div class="card">
                                 <div class="card-body">
-                                    <form enctype="multipart/form-data" action="../php_controllers/restore_controller.php" method="post">
-                                        <p><?= "User ID-".$user['userid'].": ".$user['username']?></p>
+                                    <p><?= $game['name'] ?></p>
+                                    <form action="" method="post">
+
+                                    <div class="form-group row">
+
+                                        <label class="col-2" for="pointlimit">Maximum points</label>
+                                        <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit']?>"> 
+
+                                        <button class="col-1 btn" type="submit">Save</button>
+                                    </div>
                                         
-                                         <!-- User -->
-                                        <div class="form-group row">
-                                            <label class="col-2" for="points">Points</label>
-                                            <input class="col-10 form-control" type="number" id="points" name="points" value="<?=$user['points']?>" >
-                                        </div>
-                                        
-                                        <button type="submit" class="btn m-2" id="modify">Save</button>
+
                                     </form>
-                                    
+
                                 </div>
+
                             </div>
                             
 
