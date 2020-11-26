@@ -36,7 +36,7 @@
                     <li><a href="#pointssection">Manage points</a></li>
                 </ul>
 
-                <p>Here is where you can manage the administratos, users, promotions, and points</p>
+                <p>Here is where you can manage the administrators, users, promotions, and points</p>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <h2 id="adminssection">Manage admins</h2>
@@ -52,11 +52,7 @@
                         }
 
                         if (empty($admins)){
-                            echo "
-                            
-                            <p class='m-5'>There are no admins.</p>
-                            
-                            ";
+                            echo "<p class='m-5'>There are no admins.</p> ";
                         }
 
                             foreach ($admins as $admin){
@@ -65,7 +61,8 @@
                                 <div class="card-body p-2">
                                     <p><?= "User ID-".$admin['userid'].": ".$admin['username']?></p>
                                    <form action="../php_controllers/user_controller.php" method="post">
-                                        <button class="btn m-1">Remove admin</button>
+                                        <input name="adminid" id= "adminid" type="text" value=" <?=$admin['userid']?> " style="display:none">
+                                        <button type="submit" class="btn m-1" id="removeadmin" name="removeadmin">Remove admin</button>
                                    </form>
                                 </div>
                                 
@@ -190,15 +187,7 @@
                        
                     </li>
                 </ul>
-                
-                
-
-                
-
-                
-
-                
-                
+                               
             </div>
         </div>
 
