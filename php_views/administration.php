@@ -42,7 +42,8 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                 <ul class="list-group">
                     <li class="list-group-item">
                         <h2 id="adminssection">Manage admins</h2>
-                        <div class="card-deck">
+
+                        <div class="row d-flex align-items-stretch ">
                             <?php
 
                             $admins = [];
@@ -59,8 +60,9 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                             foreach ($admins as $admin) {
                             ?>
-                                <div class="card col-2">
-                                    <div class="card-body p-2">
+                            <!-- Card of admin -->
+                                <div class="card col-3 mb-1">
+                                    <div class="card-body p-2"> 
                                         <p><?= "User ID-" . $admin['userid'] . ": " . $admin['username'] ?></p>
                                         <form action="../php_controllers/user_controller.php" method="post">
                                             <input name="adminid" id="adminid" type="text" value=" <?= $admin['userid'] ?> " style="display:none">
@@ -71,8 +73,9 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 </div>
 
                             <?php } ?>
-
+                        
                         </div>
+
                         <div class="card col-4 mt-2">
                             <div class="card-body">
                                 <p class="">Grant user admin priveleges by ID</p>
@@ -99,13 +102,12 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                             echo "<p class='m-5'>There are no users.</p> ";
                         }
 
-
                         foreach ($all_users as $user) { ?>
                             <div class="card">
                                 <div class="card-body">
                                     <form enctype="multipart/form-data" action="../php_controllers/user_controller.php" method="post">
                                         <p><?= "User ID-" . $user['userid'] ?></p>
-
+                                        <input class="m-1" type="number" name="userid" id="userid" min="0" style="display:none" value="<?=$user['userid']?>">
                                         <!-- User -->
                                         <div class="form-group row">
                                             <label class="col-2" for="username">Username</label>
@@ -122,12 +124,13 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                             <input type="number" class="col-10 form-control" id="points" name="points" value="<?= $user['points'] ?>" min="0">
 
                                         </div>
-
+                                        <!-- Email -->
                                         <div class="form-group row">
                                             <label for="email" class="col-2">Email</label>
                                             <input type="text" class="col-10 form-control" id="email" name="email" value="<?= $user['email'] ?>">
                                         </div>
-                                        <button type="submit" class="btn m-2" id="modify">Save</button>
+                                        <button type="submit" class="btn m-2" name="modifyuser" id="modifyuser">Save</button>
+                                        <button type="submit" class="btn m-2" name="deleteuser" id="deleteuser">Delete</button>
                                     </form>
 
                                 </div>
