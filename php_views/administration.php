@@ -165,7 +165,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         </button>
 
                     </li>
-
+                    <!-- not finished -->
                     <li class="list-group-item">
                         <h2 id="promossection">Manage promos</h2>
                         <div class="row d-flex align-items-stretch ">
@@ -189,7 +189,9 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         </div>
                         <button class="btn m-2">Add promo</button>
                     </li>
-
+                
+                    <!-- not finished -->
+                    
                     <li class="list-group-item">
                         <h2 id="pointssection">Manage points</h2>
                         <?php foreach ($all_games as $game) { ?>
