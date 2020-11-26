@@ -30,17 +30,19 @@ document.querySelector(".play > div >img").addEventListener("click", startGame);
 
 
 
-function startGame(){
-    //ocult instructions & show interior
-    document.querySelector(".background > #instructions").style.display= "none";
-    document.querySelector(".background > #interior").style.display= "inline";
+function startGame() {
+    //ocult instructions or afterGame & show interior
+    document.querySelector(".background > #instructions").style.display = "none";
+    document.querySelector(".background > #afterGame").style.display= "none";
+    document.querySelector(".background > #interior").style.display = "inline";
     //reset some variables
     productsToFind = [];
-    productsFound= 0;
-    points=0;
-    finished= false;
-    hasRoscon= false;
-    
+    eraseList();
+    productsFound = 0;
+    points = 0;
+    finished = false;
+    hasRoscon = false;
+
 
     //Draw objects & character
     drawAll();
@@ -48,19 +50,19 @@ function startGame(){
 
     //Generate list of products
     generateProductsToFind();
+    createList();
 
     //addSomeEvents
     addCharacterMovement();
     list.addEventListener("click", () => { document.querySelector(".divList").classList.toggle("noVisible") });
-basket.addEventListener("animationend", () => {
-    if(basket.classList.contains("animationClassGreen")){
-        basket.classList.remove("animationClassGreen");
-    } else {
-        basket.classList.remove("animationClassRed");
-    }
-});
-speak.addEventListener("click", createText);
-
+    basket.addEventListener("animationend", () => {
+        if (basket.classList.contains("animationClassGreen")) {
+            basket.classList.remove("animationClassGreen");
+        } else {
+            basket.classList.remove("animationClassRed");
+        }
+    });
+    speak.addEventListener("click", createText);
 }
 
 
@@ -90,51 +92,51 @@ function drawLady() {
 
 //Character movement
 
-function addCharacterMovement(){
-window.addEventListener("keydown", function (button) {
-    let key = button.keyCode;
-    if (key == 37 && character.x > 50) {
-        // RIGHT
-        //if going right, turn left
-        if (lady.getAttribute("src") == "img/ladyLeft.png" || lady.getAttribute("src") == "img/ladyLeft2.png") {
-            lady.setAttribute("src", "img/ladyRight.png");
-        }
-        //Change picture every 20px
-        if (character.x % 20 === 0) {
-
-            if (lady.getAttribute("src") == "img/ladyRight.png") {
-                lady.src = "img/ladyRight2.png"
-            } else {
+function addCharacterMovement() {
+    window.addEventListener("keydown", function (button) {
+        let key = button.keyCode;
+        if (key == 37 && character.x > 50) {
+            // RIGHT
+            //if going right, turn left
+            if (lady.getAttribute("src") == "img/ladyLeft.png" || lady.getAttribute("src") == "img/ladyLeft2.png") {
                 lady.setAttribute("src", "img/ladyRight.png");
             }
-        }
-        character.x -= 5;
-        lady.style.left = character.x + "px";
-        if (character.x == 500) {
-            document.getElementById("speak").style.display = "none";
-        }
-    } else if (key == 39 && character.x < 530) {
-        //LEFT
-        if (lady.getAttribute("src") == "img/ladyRight.png" || lady.getAttribute("src") == "img/ladyRight2.png") {
-            lady.setAttribute("src", "img/ladyLeft.png");
-        }
+            //Change picture every 20px
+            if (character.x % 20 === 0) {
 
-        if (character.x % 20 === 0) {
-            if (lady.getAttribute("src") == "img/ladyLeft.png") {
-                lady.src = "img/ladyLeft2.png";
-            } else {
+                if (lady.getAttribute("src") == "img/ladyRight.png") {
+                    lady.src = "img/ladyRight2.png"
+                } else {
+                    lady.setAttribute("src", "img/ladyRight.png");
+                }
+            }
+            character.x -= 5;
+            lady.style.left = character.x + "px";
+            if (character.x == 500) {
+                document.getElementById("speak").style.display = "none";
+            }
+        } else if (key == 39 && character.x < 530) {
+            //LEFT
+            if (lady.getAttribute("src") == "img/ladyRight.png" || lady.getAttribute("src") == "img/ladyRight2.png") {
                 lady.setAttribute("src", "img/ladyLeft.png");
             }
 
-        }
-        character.x += 5;
-        lady.style.left = character.x + "px";
-        if (character.x == 500) {
-            document.getElementById("speak").style.display = "inline";
-        }
+            if (character.x % 20 === 0) {
+                if (lady.getAttribute("src") == "img/ladyLeft.png") {
+                    lady.src = "img/ladyLeft2.png";
+                } else {
+                    lady.setAttribute("src", "img/ladyLeft.png");
+                }
 
-    }
-});
+            }
+            character.x += 5;
+            lady.style.left = character.x + "px";
+            if (character.x == 500) {
+                document.getElementById("speak").style.display = "inline";
+            }
+
+        }
+    });
 }
 
 //Make products bigger when mouseover and smaller when mouseout
@@ -199,46 +201,45 @@ function dragElement(elmnt) {
 
 
 //Check if element in basket is correct.
-function checkBasket(elmnt){
-    let found= false;
-    if (elmnt.offsetTop+60 > basket.offsetTop && basket.offsetLeft < elmnt.offsetLeft+60) {
+function checkBasket(elmnt) {
+    let found = false;
+    if (elmnt.offsetTop + 60 > basket.offsetTop && basket.offsetLeft < elmnt.offsetLeft + 60) {
         listElemements = document.querySelectorAll("li");
         listElemements.forEach(element => {
             if (element.innerHTML === elmnt.id) {
                 element.style.textDecoration = "line-through";
                 interior.removeChild(elmnt);
-                found= true;
+                found = true;
                 productsFound++;
                 points += 60;
                 basket.classList.add("animationClassGreen");
                 pointsText.innerHTML = "Puntos: " + points;
                 if (productsFound === numberProducts) {
-                    finished = true;
+                    endGame();
                 }
-            } 
-    
+            }
+
         });
 
-        if(!found){
-            debugger;
-                elementInProducts= products.find( el => el.name === elmnt.id);
-                elmnt.style.top =  elementInProducts.y + "px";
-                elmnt.style.left = elementInProducts.x + "px";
-                basket.classList.add("animationClassRed");
-                if(points >0){
-                    points -= 20;
+        if (!found) {
+            elementInProducts = products.find(el => el.name === elmnt.id);
+            elmnt.style.top = elementInProducts.y + "px";
+            elmnt.style.left = elementInProducts.x + "px";
+            basket.classList.add("animationClassRed");
+            if (points > 0) {
+                points -= 20;
                 pointsText.innerHTML = "Puntos: " + points;
                 document.onmouseup = null;
                 document.onmousemove = null;
-                }
-                
+            }
+
         }
     }
 }
 
 //Generate Random products
 function generateProductsToFind() {
-    let isSame= false;
+    let isSame = false;
     let randomNum;
     for (let i = 0; i < numberProducts; i++) {
         if (i === 0) {
@@ -256,21 +257,33 @@ function generateProductsToFind() {
         }
         productsToFind.push(randomNum);
     }
-
-    //Create elements in shop list
-    productsToFind.forEach(element => {
-        let listEl = document.createElement("li");
-        listEl.textContent = products[element].name;
-        document.querySelector("div > ul").appendChild(listEl);
-    });
 }
+
+//Create List
+function createList(){
+        productsToFind.forEach(element => {
+            let listEl = document.createElement("li");
+            listEl.textContent = products[element].name;
+            document.querySelector("div > ul").appendChild(listEl);
+        });
+}
+
+//Erase List
+function eraseList(){
+        let listElement = document.querySelectorAll("div > ul> li");
+        listElement.forEach(element => {
+            document.querySelector("div > ul").removeChild(element);
+        });
+
+}
+
 
 //Create conversation
 function createText() {
     let text = document.getElementById("text");
     let divText = document.querySelector("#text > div")
     if (!hasRoscon) {
-        divText.innerHTML = "Hola (nombre). Como va todo? Hemos guardado el roscón de reyes que nos pediste! Aquí tienes.";
+        divText.innerHTML = "Hola Teresa! Como va todo? Y tu família? Hemos guardado el roscón de reyes que nos pediste! Aquí tienes.";
         points += 60;
         pointsText.innerHTML = "Puntos: " + points;
         hasRoscon = true;
@@ -288,4 +301,17 @@ function createText() {
 function closeText() {
     let text = document.getElementById("text");
     text.style.display = "none";
+}
+
+
+function endGame(){
+    interior.style.display= "none";
+    let productsImages= document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady)");
+    productsImages.forEach(element => {
+        interior.removeChild(element);
+    });
+    afterGame= document.getElementById("afterGame");
+    afterGame.style.display= "inline-block";
+    document.querySelector("#afterGame > h1").innerHTML= "Felicidades, Has conseguido "+points+ " puntos!";
+    document.getElementById("replay").addEventListener("click", startGame);
 }
