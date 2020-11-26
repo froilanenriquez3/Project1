@@ -1,3 +1,5 @@
+/* INSTRUCTIONS */
+
 #instructions{
     background-color: #ffb35c;
     color: #2e585a;
@@ -47,6 +49,10 @@
 #interior{
     display:none;
   }
+  
+
+
+/* GAME */
 
 .background{
     background-image: url("img/background.png");
@@ -158,6 +164,8 @@ padding-left: 10px;
     margin-bottom: 5px;
 }
 
+/* Basket animations */
+
 .animationClassGreen{
     animation: basketGreen 0.5s linear;
 }
@@ -192,4 +200,37 @@ padding-left: 10px;
     100%{
         background-color: rgb(233, 167, 92, 0.5);;
     }
+}
+
+/* MESSAGE AFTER GAME */
+
+#afterGame{
+    display: none;
+    background-color: #ffb35c;
+    color: #2e585a;
+    position: relative;
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    height: 450px;
+    width: 895px;
+}
+
+#replay{
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#replay > img{
+    
+    padding-left: 3px;
+    height: 30px; 
+}
+
+#replay > h2 {
+    padding-left: 1em;
 }
