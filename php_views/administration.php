@@ -2,7 +2,15 @@
     require_once '../php_libraries/bd.php';
     session_start();
     $all_users = selectAllFromTable('user');
+    $all_promos = selectAllFromTable('promotion');
+    $all_games = selectAllFromTable('game');
 
+    $_SESSION['user']['isAdmin'] = 1; // REMOVE ME Setting user to admin
+    //Checking if user is an admin
+    if($_SESSION['user']['isAdmin'] == 0){
+        header("Location: ../index.html");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/all.min.css">
     <title>Restore</title>
 </head>
 <body>
@@ -21,37 +30,84 @@
             </div>
             <div class="card-body">
                 <ul class="list-unstyled">
-                    <li><a href="">Manage admins</a></li>
-                    <li><a href="">Manage users</a></li>
-                    <li><a href="">Manage promos</a></li>
-                    <li><a href="">Manage points</a></li>
+                    <li><a href="#adminssection">Manage admins</a></li>
+                    <li><a href="#userssection">Manage users</a></li>
+                    <li><a href="#promossection">Manage promos</a></li>
+                    <li><a href="#pointssection">Manage points</a></li>
                 </ul>
 
-
+                <p>Here is where you can manage the administratos, users, promotions, and points</p>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <h2>Manage admins</h2>
+                        <h2 id="adminssection">Manage admins</h2>
+                        <div class="card-deck">
+                        <?php 
+
+                        $admins = [];
+                        foreach($all_users as $user) {
+                            
+                            if ($user['isAdmin'] == 1){   
+                                array_push ($admins, $user);
+                            }
+                        }
+
+                        if (empty($admins)){
+                            echo "
+                            
+                            <p class='m-5'>There are no admins.</p>
+                            
+                            ";
+                        }
+
+                            foreach ($admins as $admin){
+                        ?>
+                            <div class="card col-2">
+                                <div class="card-body p-2">
+                                    <p><?= "User ID-".$admin['userid'].": ".$admin['username']?></p>
+                                   <form action="../php_controllers/user_controller.php" method="post">
+                                        <button class="btn m-1">Remove admin</button>
+                                   </form>
+                                </div>
+                                
+                            </div>
+
+                    <?php }?>
+                       
+                        </div>
+                        <button class="btn m-2">Add admin</button>
 
                     </li>
 
                     <li class="list-group-item">
-                        <h2>Manage users</h2>
+                        <h2 id="userssection">Manage users</h2>
                         
-                        <?php foreach($all_users as $user) {?>
+                        <?php 
+
+                            if (empty($all_users)){
+                                echo "
+                                
+                                <p class='m-5'>There are no users.</p>
+                                
+                                ";
+
+                            }
+                        
+                        
+                        foreach($all_users as $user) {?>
                             <div class="card">
                                 <div class="card-body">
-                                    <form enctype="multipart/form-data" action="../php_controllers/restore_controller.php" method="post">
-                                        <p><?= "User #".$user['userid']?></p>
+                                    <form enctype="multipart/form-data" action="../php_controllers/user_controller.php" method="post">
+                                        <p><?= "User ID-".$user['userid']?></p>
                                         
                                          <!-- User -->
                                         <div class="form-group row">
                                             <label class="col-2" for="username">Username</label>
-                                            <input class="col-10 form-control" type="text" id="username" name="username" value="<?=$user['username']?>" autofocus>
+                                            <input class="col-10 form-control" type="text" id="username" name="username" value="<?=$user['username']?>" >
                                         </div>
                                         <!-- Password -->
                                         <div class="form-group row">
                                             <label class="col-2" for="password">Password</label>
-                                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" value="<?=$user['password']?>" autofocus required>
+                                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" value="<?=$user['password']?>"  required>
                                         </div>
                                         <!-- Points -->
                                         <div class="form-group row">
@@ -72,15 +128,66 @@
                             
 
                         <?php }?>
+                        <button class="btn m-2">Add user</button>
                         
                     </li>
 
                     <li class="list-group-item">
-                        <h2>Manage promos</h2>
+                        <h2 id="promossection">Manage promos</h2>
+                        <div class="card-deck">
+                        
+                        <?php 
+                        if (empty($all_promos)){
+                            echo "
+                            
+                            <p class='m-5'>There are no promotions.</p>
+                            
+                            ";
+
+                        }
+                        
+                        foreach($all_promos as $promo){?>
+
+                            <div class="card col-3">
+
+                            <div class="card-body">
+                            <p><?= $promo['name']?></p>
+                            </div>
+                            
+                            </div>
+                            
+                        <?php }?>
+                        </div>
+                        <button class="btn m-2">Add promo</button>
                     </li>
 
                     <li class="list-group-item">
-                        <h2>Manage points</h2>
+                        <h2 id="pointssection">Manage points</h2>
+                        <?php foreach($all_games as $game){ ?>
+                        
+                            <div class="card">
+                                <div class="card-body">
+                                    <p><?= $game['name'] ?></p>
+                                    <form action="" method="post">
+
+                                    <div class="form-group row">
+
+                                        <label class="col-2" for="pointlimit">Maximum points</label>
+                                        <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit']?>"> 
+
+                                        <button class="col-1 btn" type="submit">Save</button>
+                                    </div>
+                                        
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+                            
+
+                        <?php }?>
+                       
                     </li>
                 </ul>
                 
