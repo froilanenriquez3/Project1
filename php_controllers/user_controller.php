@@ -3,12 +3,17 @@
 require_once '../php_libraries/bd.php';
 session_start();
 
+if ($_SESSION['user']['isAdmin'] == 1) {
+    $currentIsAdmin = true;
+}
+
 $all_users = selectAllFromTable('user');
 
 $remove_admin = isset($_POST['removeadmin']);
 $add_admin = isset($_POST['addadmin']);
 $modify_user = isset($_POST['modifyuser']);
 $delete_user = isset($_POST['deleteuser']);
+$add_user = isset($_POST['adduser']);
 
 
 if($remove_admin){
@@ -49,6 +54,19 @@ if($delete_user){
 
     header("Location: ../php_views/administration.php");
     exit();
+}
+
+
+if($add_user){
+    insertUser($_POST['username'], $_POST['password'],0, 0,$_POST['email']);
+    if($currentIsAdmin){
+        header("Location: ../php_views/administration.php");
+        exit();
+    }else{
+        header("Location: ../index.html");
+        exit();
+    }
+  
 }
 
 

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,17 +20,17 @@
             </div>
 
             <div class="card-body">
-                <form enctype="multipart/form-data" action="tabla.php" method="post">
+                <form enctype="multipart/form-data" action="../php_controllers/user_controller.php" method="post">
                     <div class="form-group">
                         <!-- User -->
                         <div class="form-group row">
                             <label class="col-2" for="username">Usuario</label>
-                            <input class="col-10 form-control" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" autofocus required>
+                            <input class="col-10 form-control" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" maxlength="16" autofocus required>
                         </div>
                         <!-- Email -->
                         <div class="form-group row">
                             <label class="col-2" for="email">Email</label>
-                            <input class="col-10 form-control" type="text" id="email" name="email" placeholder="Introduce tu email" autofocus required>
+                            <input class="col-10 form-control" type="text" id="email" name="email" placeholder="Introduce tu email" maxlength="45" autofocus required>
                         </div>
                         <!-- Password -->
                         <div class="form-group row">
@@ -40,7 +44,7 @@
                         </div>
                         <!-- Boton de submit -->
                         <div class="btn-group float-right">
-                            <input class="btn btn-primary" type="submit" value="Registrarse">
+                            <input class="btn btn-primary" type="submit" value="Registrarse" id="adduser" name="adduser">
                         </div>
                     </div>
                 </form>

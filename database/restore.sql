@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `restore`.`user_plays_game` (
   CONSTRAINT `fk_users_has_games_users`
     FOREIGN KEY (`users_userid`)
     REFERENCES `restore`.`user` (`userid`)
-    ON DELETE NO ACTION
+     ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_has_games_games1`
     FOREIGN KEY (`games_idgame`)
@@ -118,12 +118,12 @@ CREATE TABLE IF NOT EXISTS `restore`.`user_has_promotion` (
   CONSTRAINT `fk_user_has_promotion_user1`
     FOREIGN KEY (`user_userid`)
     REFERENCES `restore`.`user` (`userid`)
-    ON DELETE NO ACTION
+     ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_promotion_promotion1`
     FOREIGN KEY (`promotion_idpromotion`)
     REFERENCES `restore`.`promotion` (`idpromotion`)
-    ON DELETE NO ACTION
+     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

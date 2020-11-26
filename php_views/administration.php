@@ -60,9 +60,9 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                             foreach ($admins as $admin) {
                             ?>
-                            <!-- Card of admin -->
+                                <!-- Card of admin -->
                                 <div class="card col-3 mb-1">
-                                    <div class="card-body p-2"> 
+                                    <div class="card-body p-2">
                                         <p><?= "User ID-" . $admin['userid'] . ": " . $admin['username'] ?></p>
                                         <form action="../php_controllers/user_controller.php" method="post">
                                             <input name="adminid" id="adminid" type="text" value=" <?= $admin['userid'] ?> " style="display:none">
@@ -73,21 +73,23 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 </div>
 
                             <?php } ?>
-                        
+
                         </div>
+                        <div class="row d-flex align-items-stretch ">
+                            <div class="card col-4 mt-2">
+                                <div class="card-body">
+                                    <p class="">Grant user admin priveleges by ID</p>
+                                    <form class="" action="../php_controllers/user_controller.php" method="post">
+                                        <div class="form-group row ">
+                                            <label class="m-1" for="newadmin">ID</label>
+                                            <input class="m-1" type="number" name="newadmin" id="newadmin" min="0">
+                                            <button class="btn" type="submit" id="addadmin" name="addadmin">Add admin</button>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
 
-                        <div class="card col-4 mt-2">
-                            <div class="card-body">
-                                <p class="">Grant user admin priveleges by ID</p>
-                                <form class="" action="../php_controllers/user_controller.php" method="post">
-                                    <div class="form-group row ">
-                                        <label class="m-1" for="newadmin">ID</label>
-                                        <input class="m-1" type="number" name="newadmin" id="newadmin" min="0">
-                                    </div>
-                                    <button class="btn" type="submit" id="addadmin" name="addadmin">Add admin</button>
-                                </form>
                             </div>
-
                         </div>
 
 
@@ -107,7 +109,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 <div class="card-body">
                                     <form enctype="multipart/form-data" action="../php_controllers/user_controller.php" method="post">
                                         <p><?= "User ID-" . $user['userid'] ?></p>
-                                        <input class="m-1" type="number" name="userid" id="userid" min="0" style="display:none" value="<?=$user['userid']?>">
+                                        <input class="m-1" type="number" name="userid" id="userid" min="0" style="display:none" value="<?= $user['userid'] ?>">
                                         <!-- User -->
                                         <div class="form-group row">
                                             <label class="col-2" for="username">Username</label>
@@ -138,7 +140,9 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
 
                         <?php } ?>
-                        <button class="btn m-2">Add user</button>
+                        <button class="btn m-2" name="adduser" id="adduser">
+                            <a href="signup.php">Register a new user</a>
+                        </button>
 
                     </li>
 
