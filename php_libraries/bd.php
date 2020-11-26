@@ -56,6 +56,23 @@ function selectUserById($user_id){
 
 }
 
+function selectUserByUsername($username){
+    $connection = openDB();
+
+    $mySQLsentence = "SELECT * FROM user WHERE username = :username";
+
+    $mySQLsentence= $connection ->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":username",$username); 
+
+    $mySQLsentence->execute();
+
+    $result = $mySQLsentence->fetch();
+
+    $connection = closeDB();
+
+    return $result;
+}
+
 function selectUserPromos($user_id){
     $connection = openDB();
 
