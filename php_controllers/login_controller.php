@@ -5,7 +5,7 @@ session_start();
 if (isset($_POST['login'])){
     $_SESSION['user'] = selectUserByUsername($_POST['username']);
 
-    header("Location: ../index.html");
+    header("Location: ../index_anna.html");
     exit();
 }
 

@@ -43,7 +43,7 @@ if($modify_user){
 
     modifyUser($_POST['userid'], $_POST['username'], $_POST['password'], $_POST['points'], $user['isAdmin'], $_POST['email']);
 
-    header("Location: ../php_views/administration.php");
+    header("Location: ../php_views/administration.php#userssection");
     exit();
 }
 
@@ -52,7 +52,7 @@ if($delete_user){
 
     deleteUser($_POST['userid']);
 
-    header("Location: ../php_views/administration.php");
+    header("Location: ../php_views/administration.php#userssection");
     exit();
 }
 
@@ -60,7 +60,7 @@ if($delete_user){
 if($add_user){
     insertUser($_POST['username'], $_POST['password'],0, 0,$_POST['email']);
     if($currentIsAdmin){
-        header("Location: ../php_views/administration.php");
+        header("Location: ../php_views/administration.php#userssection");
         exit();
     }else{
         header("Location: ../index.html");

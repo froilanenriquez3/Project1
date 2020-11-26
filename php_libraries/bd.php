@@ -76,7 +76,10 @@ function selectUserByUsername($username){
 function selectUserPromos($user_id){
     $connection = openDB();
 
-    $mySQLsentence = "SELECT * FROM user_has_promotion WHERE user_userid = :userid";
+    $mySQLsentence = "select promotion.* from promotion 
+    join user_has_promotion on promotion.idpromotion = user_has_promotion.promotion_idpromotion 
+    join user on user_has_promotion.user_userid = user.userid
+    where user_userid = :userid";
 
     $mySQLsentence= $connection ->prepare($mySQLsentence);
     $mySQLsentence->bindParam(":userid",$user_id); 

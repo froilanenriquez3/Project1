@@ -8,7 +8,7 @@ $all_games = selectAllFromTable('game');
 //$_SESSION['user']['isAdmin'] = 1; // REMOVE ME Setting user to admin
 //Checking if user is an admin
 if ($_SESSION['user']['isAdmin'] == 0) {
-    header("Location: ../index.html");
+    header("Location: ../index_anna.html");
     exit();
 }
 ?>
@@ -131,6 +131,26 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                             <label for="email" class="col-2">Email</label>
                                             <input type="text" class="col-10 form-control" id="email" name="email" value="<?= $user['email'] ?>">
                                         </div>
+
+
+                                        <!-- Promos, not finished-->
+                                        <div class="form-group row">
+                                            <p class="col-2">Promotions:</p>
+                                        <?php 
+                                            $user_promos = selectUserPromos($user['userid']);
+                                            foreach($user_promos as $user_promo){
+                                        ?>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <?= $user_promo['name']?>
+
+                                                </div>
+                                            </div>
+                                                                                   
+                                        <?php }?>
+
+                                        </div>
+
                                         <button type="submit" class="btn m-2" name="modifyuser" id="modifyuser">Save</button>
                                         <button type="submit" class="btn m-2" name="deleteuser" id="deleteuser">Delete</button>
                                     </form>
@@ -148,15 +168,11 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                     <li class="list-group-item">
                         <h2 id="promossection">Manage promos</h2>
-                        <div class="card-deck">
+                        <div class="row d-flex align-items-stretch ">
 
                             <?php
                             if (empty($all_promos)) {
-                                echo "
-                            
-                            <p class='m-5'>There are no promotions.</p>
-                            
-                            ";
+                                echo " <p class='m-5'>There are no promotions.</p>";
                             }
 
                             foreach ($all_promos as $promo) { ?>
