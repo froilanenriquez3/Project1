@@ -7,10 +7,34 @@ let shoes;
 let points;
 let pointLimit = 1000;
 
-newCombo();
-initPoints();
-document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
-console.log(window.points);
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.setAttribute("loop","true")
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
+function startGame(){
+  newCombo();
+  initPoints();
+  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  console.log(window.points);
+  document.querySelector('.startscreen').style.display = "none";
+  document.querySelector('.mainscreen').style.display = "block";
+  myMusic = new sound("img/gamemusic.mp3");
+  myMusic.play();
+
+}
+
 
 function increasePoints(){
  
