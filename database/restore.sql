@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `restore`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `restore`.`user` (
   `userid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(16) NOT NULL,
+  `username` VARCHAR(16) NOT NULL UNIQUE,
   `password` VARCHAR(16) NOT NULL,
   `points` INT NULL,
   `isAdmin` TINYINT NULL,
