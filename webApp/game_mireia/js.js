@@ -18,13 +18,20 @@ let pointsText = document.querySelector("#interior > p");
 let productsToFind = [];
 const numberProducts = 5;
 let productsLength = products.length;
-let productsFound = 0;
-let points = 0;
-let finished = false;
-let hasRoscon = false;
+let productsFound, points, finished, hasRoscon, minutes, seconds, clock;
 
+//Game events
+addCharacterMovement();
+    list.addEventListener("click", () => { document.querySelector(".divList").classList.toggle("noVisible") });
+    basket.addEventListener("animationend", () => {
+        if (basket.classList.contains("animationClassGreen")) {
+            basket.classList.remove("animationClassGreen");
+        } else {
+            basket.classList.remove("animationClassRed");
+        }
+    });
+    document.getElementById("speak").addEventListener("click", createText);
 
-//Main
 
 document.querySelector(".play > div >img").addEventListener("click", startGame);
 
@@ -33,7 +40,7 @@ document.querySelector(".play > div >img").addEventListener("click", startGame);
 function startGame() {
     //ocult instructions or afterGame & show interior
     document.querySelector(".background > #instructions").style.display = "none";
-    document.querySelector(".background > #afterGame").style.display= "none";
+    document.querySelector(".background > #afterGame").style.display = "none";
     document.querySelector(".background > #interior").style.display = "inline";
     //reset some variables
     productsToFind = [];
@@ -42,6 +49,10 @@ function startGame() {
     points = 0;
     finished = false;
     hasRoscon = false;
+    minutes = 1;
+    seconds = 0;
+    pointsText.innerHTML = "Puntos: " + points;
+    time.innerHTML = "0" + minutes + ":" + seconds;
 
 
     //Draw objects & character
@@ -52,17 +63,38 @@ function startGame() {
     generateProductsToFind();
     createList();
 
-    //addSomeEvents
-    addCharacterMovement();
-    list.addEventListener("click", () => { document.querySelector(".divList").classList.toggle("noVisible") });
-    basket.addEventListener("animationend", () => {
-        if (basket.classList.contains("animationClassGreen")) {
-            basket.classList.remove("animationClassGreen");
+    //set Time
+    time();
+}
+
+function time() {
+    time.innerHTML = "0" + minutes + ":" + seconds;
+    clock = setInterval(passTime, 1000);
+}
+
+function passTime() {
+    let secondsView;
+    if (seconds > 0) {
+        seconds--;
+    }
+    if (seconds == 0) {
+        if (minutes > 0) {
+            minutes--;
+            seconds = 59;
         } else {
-            basket.classList.remove("animationClassRed");
+            endGame();
         }
-    });
-    speak.addEventListener("click", createText);
+    }
+
+
+    if (seconds < 10) {
+        secondsView = "0" + seconds;
+        document.getElementById("time").innerHTML = "0"+ minutes + ":" + secondsView;
+    } else {
+        document.getElementById("time").innerHTML = "0"+ minutes + ":" + seconds;
+    }
+
+
 }
 
 
@@ -260,21 +292,20 @@ function generateProductsToFind() {
 }
 
 //Create List
-function createList(){
-        productsToFind.forEach(element => {
-            let listEl = document.createElement("li");
-            listEl.textContent = products[element].name;
-            document.querySelector("div > ul").appendChild(listEl);
-        });
+function createList() {
+    productsToFind.forEach(element => {
+        let listEl = document.createElement("li");
+        listEl.textContent = products[element].name;
+        document.querySelector("div > ul").appendChild(listEl);
+    });
 }
 
 //Erase List
-function eraseList(){
-        let listElement = document.querySelectorAll("div > ul> li");
-        listElement.forEach(element => {
-            document.querySelector("div > ul").removeChild(element);
-        });
-
+function eraseList() {
+    let listElement = document.querySelectorAll("div > ul> li");
+    listElement.forEach(element => {
+        document.querySelector("div > ul").removeChild(element);
+    });
 }
 
 
@@ -293,8 +324,6 @@ function createText() {
     }
 
     text.style.display = "Inline";
-
-
 }
 
 //Close text
@@ -304,14 +333,15 @@ function closeText() {
 }
 
 
-function endGame(){
-    interior.style.display= "none";
-    let productsImages= document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady)");
+function endGame() {
+    window.clearInterval(clock);
+    interior.style.display = "none";
+    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(#speak)");
     productsImages.forEach(element => {
         interior.removeChild(element);
     });
-    afterGame= document.getElementById("afterGame");
-    afterGame.style.display= "inline-block";
-    document.querySelector("#afterGame > h1").innerHTML= "Felicidades, Has conseguido "+points+ " puntos!";
+    afterGame = document.getElementById("afterGame");
+    afterGame.style.display = "inline-block";
+    document.querySelector("#afterGame > h1").innerHTML = "Felicidades, Has conseguido " + points + " puntos!";
     document.getElementById("replay").addEventListener("click", startGame);
 }
