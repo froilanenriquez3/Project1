@@ -285,15 +285,16 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                             <div class="card">
                                 <div class="card-body">
-                                    <p><?= $game['name'] ?></p>
-                                    <form action="" method="post">
+                                    <p><?= "Game ID-".$game['idgame'].": ".$game['name'] ?></p>
+                                    <form action="../php_controllers/game_controller.php" method="post">
 
                                         <div class="form-group row">
 
                                             <label class="col-2" for="pointlimit">Maximum points</label>
                                             <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0">
+                                            <input type="num" id="gameid" name="gameid" value="<?=$game['idgame']?>" style="display:none"> 
 
-                                            <button class="col-1 btn" type="submit">Save</button>
+                                            <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Save</button>
                                         </div>
 
 
