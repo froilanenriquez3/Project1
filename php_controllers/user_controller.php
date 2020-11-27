@@ -42,6 +42,8 @@ if($modify_user){
     $user = selectUserById($_POST['userid']);
 
     modifyUser($_POST['userid'], $_POST['username'], $_POST['password'], $_POST['points'], $user['isAdmin'], $_POST['email']);
+   insertUserHasPromo($_POST['userid'], $_POST['promotions']);
+   
 
     header("Location: ../php_views/administration.php#userssection");
     exit();
