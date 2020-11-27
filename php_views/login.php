@@ -16,7 +16,7 @@
             </div>
 
             <div class="card-body">
-                <form enctype="multipart/form-data" action="tabla.php" method="post">
+                <form enctype="multipart/form-data" action="../php_controllers/login_controller.php" method="post">
                     <div class="form-group">
                         <!-- User -->
                         <div class="form-group row">
@@ -30,7 +30,7 @@
                         </div>
                         <!-- Boton de submit -->
                         <div class="btn-group float-right">
-                            <input class="btn btn-primary" type="submit" value="Iniciar Sesión">
+                            <input class="btn btn-primary" type="submit" value="Iniciar Sesión" name="login" id="login">
                         </div>
                     </div>
                 </form>

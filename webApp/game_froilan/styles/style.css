@@ -14,6 +14,60 @@ body {
   border: solid grey 10px;
 }
 
+.startscreen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("../img/store.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 500px;
+  width: 875px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: black;
+}
+
+.startscreen .text {
+  border-radius: 50px;
+  background-color: white;
+  margin-top: 70px;
+  padding: 20px;
+  text-align: center;
+}
+
+.startscreen .startbutton {
+  margin: 30px;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  border: solid white 2px;
+}
+
+.startscreen .startbutton:hover {
+  background-color: greenyellow;
+  color: black;
+  border: solid black 2px;
+}
+
+.mainscreen {
+  display: none;
+}
+
 .topbar {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -60,8 +114,8 @@ body {
   display: -ms-grid;
   display: grid;
   padding: 10px;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   background-color: aliceblue;
 }
 
@@ -69,7 +123,6 @@ body {
   height: 30px;
   width: 70px;
   font-size: 15px;
-  margin-left: 40px;
   text-decoration: none;
   background-color: black;
   color: white;
@@ -88,6 +141,12 @@ body {
 
 .topbar #buttonsbox button:disabled:active {
   color: white;
+}
+
+.topbar #buttonsbox button#music {
+  background-color: white;
+  color: black;
+  border: solid black 1px;
 }
 
 .container {
