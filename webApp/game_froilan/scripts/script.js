@@ -19,10 +19,16 @@ function startGame(){
   document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
   console.log(window.points);
   document.querySelector('.startscreen').style.display = "none";
+  document.querySelector('.endscreen').style.display = "none";
   document.querySelector('.mainscreen').style.display = "block";
   window.myMusic = new sound("img/gamemusic.mp3");
   //window.myMusic.play();
 
+}
+
+function endScreen(){
+  document.querySelector('.mainscreen').style.display = "none";
+  document.querySelector('.endscreen').style.display = "flex";
 }
 
 //Music functions
