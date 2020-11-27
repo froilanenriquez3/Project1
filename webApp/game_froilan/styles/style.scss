@@ -54,33 +54,33 @@ body{
     
     color: black;
     
-    .text{
+
+}
+
+.text{
     border-radius: 50px;
     background-color: white;
     margin-top: 70px;
     padding:20px;
     text-align: center;
-
+  
     }
 
     .startbutton{
         margin: 30px;
         font-size: 30px;
         border-radius: 10px;
-        background-color: green;
-        color: white;
-        border: solid white 2px;
+        background-color: greenyellow;
+        color: black;
+        border: solid black 2px;
        
         &:hover{
-            background-color: greenyellow;
-            color: black;
-            border: solid black 2px;
+            background-color: rgb(20, 214, 20);
+            color: white;
+            border: solid white 2px;
             
         }
     }
-
-}
-
 
 
 .mainscreen{
@@ -137,6 +137,12 @@ body{
             color: white;
             border-radius: 5px;
             border: none;
+            
+            &:hover{
+                background-color: white;
+                color: black;
+                border: solid black 1px;
+            }
             &:active{
                 background-color: rgb(44, 165, 14);
                 color: black;
@@ -146,12 +152,19 @@ body{
                 &:active{
                     color: white;
                 }
+                &:hover{
+                    background-color: grey;
+                    color: white;
+                }
             }
+
+            
 
             &#music{
                 background-color: white;
                 color: black;
                 border: solid black 1px;
+                width: 100px;
             }
             
         }
@@ -370,6 +383,68 @@ body{
 }
 
 
+.endgame{
+    position: relative;
+    bottom: 50px;
+    left: 500px;
+    z-index: 1;
+    height: 30px;
+    border-radius: 50px;
+    border: black solid 1px;
+    background-color: red;
+    color: white;
+    &:hover{
+        background-color: white;
+        color: black;
+        border: black solid 1px;
+    }
+
+}
+
+
+.endscreen{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    height: 500px;
+    width: 875px;
+
+    background-image: url('../img/store.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    padding-left: 40px;
+    padding-right: 40px;
+    
+    color: black;
+
+    .text{
+        height: 200px;
+
+        h2{
+            color: red;
+        }
+
+    }
+
+    .redeem{
+       
+        background-color: lightblue;
+        color: black;
+        border: solid black 2px;
+       
+        &:hover{
+            background-color: blue;
+            color: white;
+            border: solid white 2px;
+            
+        }
+    }
+}
 
   
   
