@@ -74,7 +74,7 @@
     top: 375px;
     left: 825px;
     height: 50px;
-    background-color: rgb(233, 167, 92, 0.3);
+    background-color: rgb(233, 167, 92);
     border: black 1px solid;
     border-radius: 4px;
     padding: 5px;
@@ -85,7 +85,7 @@
     top: 30px;
     left: 25px;
     height: 20px;
-    background-color: rgb(233, 167, 92, 0.5);
+    background-color: rgb(233, 167, 92);
     border: black 1px solid;
     padding: 5px;
     border-radius: 4px;
@@ -127,7 +127,7 @@ padding-left: 10px;
     top: 200px;
     left: 675px;
     height: 20px;
-    background-color: rgb(233, 167, 92, 0.5);
+    background-color: rgb(233, 167, 92);
     border: black 1px solid;
     border-radius: 35px;
     padding: 10px;
@@ -146,7 +146,7 @@ padding-left: 10px;
     left: 20px;
     margin: auto;
     font-size: large;
-    background-color: rgb(233, 167, 92, 0.8);
+    background-color: rgb(233, 167, 92);
     display: none;
     padding: 5px;
     border: 1px solid black;
@@ -176,7 +176,7 @@ padding-left: 10px;
 
 @keyframes basketGreen{
     0%{
-        background-color: rgb(233, 167, 92, 0.5);
+        background-color: rgb(233, 167, 92);
     } 
 
     50%{
@@ -184,13 +184,13 @@ padding-left: 10px;
     }
 
     100%{
-        background-color: rgb(233, 167, 92, 0.5);;
+        background-color: rgb(233, 167, 92);;
     }
 }
 
 @keyframes basketRed{
     0%{
-        background-color: rgb(233, 167, 92, 0.5);
+        background-color: rgb(233, 167, 92);
     } 
 
     50%{
@@ -198,7 +198,7 @@ padding-left: 10px;
     }
 
     100%{
-        background-color: rgb(233, 167, 92, 0.5);;
+        background-color: rgb(233, 167, 92);
     }
 }
 
@@ -233,4 +233,18 @@ padding-left: 10px;
 
 #replay > h2 {
     padding-left: 1em;
+}
+
+/* Clock */
+
+#time{
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+    z-index: 3;
+    background-color: #ffb35c;
+    border: 1px solid black;
+    border-radius: 3px;
 }
