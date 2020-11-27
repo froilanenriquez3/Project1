@@ -21,7 +21,7 @@ if($remove_admin){
 
     modifyUser($_POST['adminid'], $admin['username'], $admin['password'], $admin['points'], 0, $admin['email']);
 
-    header("Location: ../php_views/administration.php");
+    header("Location: ../php_views/administration.php#adminssection");
     exit();
 }
 
@@ -32,7 +32,7 @@ if($add_admin){
 
     modifyUser($_POST['newadmin'], $admin['username'], $admin['password'], $admin['points'], 1, $admin['email']);
 
-    header("Location: ../php_views/administration.php");
+    header("Location: ../php_views/administration.php#adminssection");
     exit();
    
     
