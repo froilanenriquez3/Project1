@@ -39,9 +39,9 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                 </ul>
 
                 <p>Here is where you can manage the administrators, users, promotions, and points</p>
-                <ul class="list-group">
+                <ul class="list-group" id="adminssection">
                     <li class="list-group-item">
-                        <h2 id="adminssection">Manage admins</h2>
+                        <h2>Manage admins</h2>
 
                         <div class="row d-flex align-items-stretch ">
                             <?php
@@ -82,7 +82,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                     <form class="" action="../php_controllers/user_controller.php" method="post">
                                         <div class="form-group row ">
                                             <label class="m-1" for="newadmin">ID</label>
-                                            <input class="m-1" type="number" name="newadmin" id="newadmin" min="0">
+                                            <input class="m-1" type="number" name="newadmin" id="newadmin" min="1">
                                             <button class="btn" type="submit" id="addadmin" name="addadmin">Add admin</button>
                                         </div>
                                         
@@ -95,8 +95,8 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                     </li>
 
-                    <li class="list-group-item">
-                        <h2 id="userssection">Manage users</h2>
+                    <li class="list-group-item" id="userssection">
+                        <h2>Manage users</h2>
 
                         <?php
 
@@ -176,9 +176,6 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                                             </div>
 
-
-                                       
-
                                         <button type="submit" class="btn m-2" name="modifyuser" id="modifyuser">Save</button>
                                         <button type="submit" class="btn m-2" name="deleteuser" id="deleteuser">Delete</button>
                                     </form>
@@ -194,34 +191,96 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                     </li>
                     <!-- not finished -->
-                    <li class="list-group-item">
-                        <h2 id="promossection">Manage promos</h2>
+                    <li class="list-group-item" id="promossection">
+                        <h2>Manage promos</h2>
                         <div class="row d-flex align-items-stretch ">
 
                             <?php
                             if (empty($all_promos)) {
-                                echo " <p class='m-5'>There are no promotions.</p>";
+                                echo " <p cass='m-5'>There are no promotions.</p>";
                             }
 
                             foreach ($all_promos as $promo) { ?>
 
-                                <div class="card col-3">
-
+                                <div class="card col-12">
+                                    <form action="../php_controllers/promo_controller.php" method="post">
                                     <div class="card-body">
-                                        <p><?= $promo['name'] ?></p>
+                                        <p><?= "Promo ID-".$promo['idpromotion'].": ".$promo['name'] ?></p>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-2" for="modpromoname">Name</label>
+                                            <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?=$promo['name']?>" maxlength="45">
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-2" for="modpromodesc">Description</label>
+                                            <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?=$promo['promo_desc']?>" maxlength="45">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-2" for="modpromocost">Cost</label>
+                                            <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?=$promo['pointCost']?>">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-2" for="modstoreid">Store ID</label>
+                                            <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?=$promo['store_idstore']?>">
+                                        </div>
+
+
+                                        <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+
+                                        <input type="number" value=<?=$promo['idpromotion']?> style="display:none" id="promoid" name="promoid">
+                                        <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
                                     </div>
+                                    </form>
 
                                 </div>
 
                             <?php } ?>
+                            
+                            
                         </div>
-                        <button class="btn m-2">Add promo</button>
+                        <div class="row ">
+                            <div class="card col-12">
+
+                                <div class="card-body">
+                                    <h5>New promo</h5>
+                                    <form action="../php_controllers/promo_controller.php" method="post">
+                                        <div class="form-group row">
+                                            <label class="col-2" for="promoname">Name</label>
+                                            <input class="col-10 form-control" type="text" id="promoname" name="promoname" maxlength="45">
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-2" for="promodesc">Description</label>
+                                            <input class="col-10 form-control" type="text" id="promodesc" name="promodesc" maxlength="45">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-2" for="promocost">Cost</label>
+                                            <input class="col-10 form-control" type="number" id="promocost" name="promocost" min="0">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-2" for="storeid">Store ID</label>
+                                            <input class="col-10 form-control" type="number" id="storeid" name="storeid" min="1">
+                                        </div>
+
+
+                                    <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Add promo</button>
+                                    </form>
+
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        
                     </li>
                 
                     <!-- not finished -->
                     
-                    <li class="list-group-item">
-                        <h2 id="pointssection">Manage points</h2>
+                    <li class="list-group-item" id="pointssection">
+                        <h2>Manage points</h2>
                         <?php foreach ($all_games as $game) { ?>
 
                             <div class="card">
