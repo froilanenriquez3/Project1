@@ -181,18 +181,25 @@ function insertPromo($name, $desc, $point_cost, $store_id){
     $connection = closeDB();
 }
 
-function insertUserHasPromo($user_id, $promo_id){
+function insertUserHasPromo($user_id, $promos){
     $connection = openDB();
     $connection->beginTransaction();
 
-    $mySQLsentence = "INSERT INTO user_has_promotion VALUES(:userid, :promoid)";
+    $mySQLsentence2 = "DELETE FROM user_has_promotion WHERE user_userid =:userid;";
+    $mySQLsentence2 = $connection->prepare($mySQLsentence2);
+    $mySQLsentence2->bindParam(':userid', $user_id);
+    $mySQLsentence2->execute(); 
 
-    $mySQLsentence = $connection->prepare($mySQLsentence);
+    foreach($promos as $promo){
+        $mySQLsentence = "INSERT INTO user_has_promotion VALUES(:userid, :promoid)";
 
-    $mySQLsentence->bindParam(":userid", $user_id);
-    $mySQLsentence->bindParam(":promoid", $promo_id);
+        $mySQLsentence = $connection->prepare($mySQLsentence);
 
-    $mySQLsentence->execute();
+        $mySQLsentence->bindParam(":userid", $user_id);
+        $mySQLsentence->bindParam(":promoid", $promo);
+
+        $mySQLsentence->execute();
+    }
 
     $connection->commit();
     $connection = closeDB();

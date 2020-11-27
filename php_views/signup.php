@@ -30,17 +30,17 @@
                         <!-- Email -->
                         <div class="form-group row">
                             <label class="col-2" for="email">Email</label>
-                            <input class="col-10 form-control" type="text" id="email" name="email" placeholder="Introduce tu email" maxlength="45" autofocus required>
+                            <input class="col-10 form-control" type="text" id="email" name="email" placeholder="Introduce tu email" maxlength="45"  required>
                         </div>
                         <!-- Password -->
                         <div class="form-group row">
                             <label class="col-2" for="password">Contraseña</label>
-                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" placeholder="Introduce tu contraseña " autofocus required>
+                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" placeholder="Introduce tu contraseña "  required>
                         </div>
                         <!-- Confirm Password -->
                         <div class="form-group row">
                             <label class="col-2" for="confpassword">Repite tu Contraseña</label>
-                            <input class="col-10 form-control" type="password" id="confpaswword" name="confpassword" minlength="8" placeholder="Introduce tu contraseña" autofocus required>
+                            <input class="col-10 form-control" type="password" id="confpaswword" name="confpassword" minlength="8" placeholder="Introduce tu contraseña"  required>
                         </div>
                         <!-- Boton de submit -->
                         <div class="btn-group float-right">

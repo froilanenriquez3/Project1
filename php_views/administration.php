@@ -118,7 +118,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                         <!-- Password -->
                                         <div class="form-group row">
                                             <label class="col-2" for="password">Password</label>
-                                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" value="<?= $user['password'] ?>" required>
+                                            <input class="col-10 form-control" type="password" id="password" name="password" minlength="8" value="<?= $user['password'] ?>" required>
                                         </div>
                                         <!-- Points -->
                                         <div class="form-group row">
@@ -132,24 +132,52 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                             <input type="text" class="col-10 form-control" id="email" name="email" value="<?= $user['email'] ?>">
                                         </div>
 
-
-                                        <!-- Promos, not finished-->
+                                       
+                                        <!-- Promotions -->
                                         <div class="form-group row">
-                                            <p class="col-2">Promotions:</p>
-                                        <?php 
-                                            $user_promos = selectUserPromos($user['userid']);
-                                            foreach($user_promos as $user_promo){
-                                        ?>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <?= $user_promo['name']?>
 
-                                                </div>
+                                            <label class="col-2 form-check-label">Promotions</label>
+                                            <div class="col-10">
+                                                <?php
+
+                                                $user_promos = selectUserPromos($user['userid']);
+                                               
+                                                $counter = 0;
+                                                foreach ($all_promos as $promo) {
+
+                                                ?>
+
+                                                    <div class="custom-checkbox form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" id="promotion<?= $counter + 1 ?>" name="promotions[]" value="<?php echo $promo['idpromotion'] ?>" 
+                                                        <?php 
+                                                            $same = false;
+                                                           
+                                                            foreach($user_promos as $user_promo){
+                                                                if($user_promo['name'] == $promo['name']){
+                                                                    $same = true;
+                                                                }
+                                                            }
+                                                            if($same){
+                                                                echo "checked";
+                                                            }
+
+                                                        ?>  >
+
+                                                        <label class="form-check-label" for="type<?= $counter + 1 ?>"> <?= $promo['name'] ?></label>
+                                                    </div>
+
+                                                <?php
+                                                    $counter++;
+                                                } 
+
+                                                ?>
+
                                             </div>
-                                                                                   
-                                        <?php }?>
 
-                                        </div>
+                                            </div>
+
+
+                                       
 
                                         <button type="submit" class="btn m-2" name="modifyuser" id="modifyuser">Save</button>
                                         <button type="submit" class="btn m-2" name="deleteuser" id="deleteuser">Delete</button>
