@@ -7,10 +7,62 @@ let shoes;
 let points;
 let pointLimit = 1000;
 
-newCombo();
-initPoints();
-document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
-console.log(window.points);
+let myMusic;
+
+
+function startGame(){
+  newCombo();
+  initPoints();
+  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  console.log(window.points);
+  document.querySelector('.startscreen').style.display = "none";
+  document.querySelector('.mainscreen').style.display = "block";
+  window.myMusic = new sound("img/gamemusic.mp3");
+  window.myMusic.play();
+
+}
+
+//Music functions
+
+function mute(){
+  window.myMusic.stop();
+
+
+  setTimeout(function(){
+    document.querySelector('#music').setAttribute("onclick", "play()");
+  }, 100);
+  document.querySelector('#music').innerHTML = "play";
+
+}
+
+function play(){
+  window.myMusic.play();
+  setTimeout(function(){
+    document.querySelector('#music').setAttribute("onclick", "mute()");
+  }, 100);
+  document.querySelector('#music').innerHTML = "mute";
+}
+
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.setAttribute("loop","true")
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
+
+//Points functions
+
 
 function increasePoints(){
  
@@ -35,6 +87,7 @@ function displayUpdateScore(){
 }
 
 //Function to check selected clothes items
+
 function checkCombo() {
   let checkHat = false;
   let checkShirt = false;
