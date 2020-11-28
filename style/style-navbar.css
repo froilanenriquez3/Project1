@@ -8,7 +8,7 @@
 }
 
 body{
-   background-color: #DDFFF7;
+  background-color: red;
 }
 
 
@@ -39,12 +39,12 @@ body{
   position: fixed;
 }
 
-.wrapper .sidebar h2{
+/* .wrapper .sidebar h2{
   color: #fff;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 30px;
-}
+} */
 
 .wrapper .sidebar ul li{
   text-align: center;
@@ -54,13 +54,13 @@ body{
   border-top: 1px solid rgba(255,255,255,0.05); */
 }    
 
-.wrapper .sidebar ul li a{
+/* .wrapper .sidebar ul li a{
   color: #bdb8d7;
   display: block;
-}
+} */
 
 .wrapper .sidebar ul li:hover{
-  background-color: grey;
+  background-color: #E3F2E6;
   opacity: 0.5;
 }
 
