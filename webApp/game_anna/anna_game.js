@@ -14,7 +14,42 @@ function start(){
   let timerRight;
   let timerLeft;
   let velocidad = 15;
+  let coins = [];
+
   
+  // function fall(){
+  //   bottom -= 5;
+  //   square.style.bottom = bottom + 'px';
+  //   if(
+  //     (square.bottom >= barrera.bottom) &&
+  //     (square.bottom <= (barrera.bottom + 80))){
+  //       console.log('funciona');
+  //       square.bottom = barrera.bottom;
+  //   }
+  // }
+
+//   var rect1 = {x: 5, y: 5, width: 50, height: 50}
+//   var rect2 = {x: 20, y: 10, width: 10, height: 10}
+
+//   if (rect1.x < rect2.x + rect2.width &&
+//    rect1.x + rect1.width > rect2.x &&
+//    rect1.y < rect2.y + rect2.height &&
+//    rect1.y + rect1.height > rect2.y) {
+//     // collision detected!
+// }
+
+  // function collision(){
+  //   let characterLeft = square.offsetLeft;
+  //   let characterRight = square.offsetLeft + square.offsetWidth;
+  //   let characterTop = square.offsetTop;
+  //   let objectLeft = barrera.offsetLeft;
+  //   let objectRight = barrera.offsetLeft + barrera.offsetWidth;
+  //   let objectTop = barrera.offsetTop;
+
+  //   if (objectLeft > characterRight || objectRight < characterLeft){
+
+  //   }
+  // }
 
 
   function jump(){
@@ -36,8 +71,9 @@ function start(){
             //Si está en el suelo (bottom es más pequeño que 0), sí podremos volver a saltar
             isJumping = false;
           }
-          bottom -= 5;
-          square.style.bottom = bottom + 'px';
+          //fall();
+            bottom -= 5;
+            square.style.bottom = bottom + 'px';
         }, 20);
       }
 
@@ -49,6 +85,20 @@ function start(){
       bottom = bottom * gravity;
       square.style.bottom = bottom + 'px';
     }, 20);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
   }
 
@@ -116,7 +166,7 @@ function start(){
 
 
   function control(e) {    
-    chocar();
+    //chocar();
 
     if (e.keyCode === 32) {
       jump(); // si apretamos la barra espaciadora
