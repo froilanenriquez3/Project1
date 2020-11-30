@@ -6,7 +6,6 @@ let shoes;
 
 let pointLimit = 1000;
 
-let tries;
 let triesLimit = 5;
 
 let myMusic;
@@ -14,7 +13,7 @@ let myMusic;
 //Start game: hide start screen, generate new combo, set score to 0, start music 
 function startGame() {
   let score = document.querySelector('#counter').dataset.points;
-  newCombo(resetGame, resetTries, resetFeedback);
+  newCombo(()=>{console.log('Game started')},resetTries, resetFeedback);
   //initPoints();
 
   document.querySelector('#counter').innerHTML = 'Score: ' + score;
@@ -74,23 +73,28 @@ function sound(src) {
 //Try functions
 
 function resetTries() {
-  window.tries = 0;
+  let attempts = +document.querySelector('#tries').dataset.tries;
+  attempts = 0;
   document.querySelector('#tries').innerHTML = "Tries: 0/" + triesLimit;
+
+  document.querySelector('#tries').dataset.tries = attempts;
 }
 
 function increaseTries() {
+  let attempts = +document.querySelector('#tries').dataset.tries;
   checkCombo();
-  window.tries++;
+  attempts++;
 
-  if (window.tries < triesLimit) {
-    document.querySelector('#tries').innerHTML = "Tries: " + window.tries + "/" + triesLimit;
-  } else if (window.tries == 5) {
+  if (attempts < triesLimit) {
+    document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
+  } else if (attempts == 5) {
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
-    document.querySelector('#tries').innerHTML = "Tries: " + window.tries + "/" + triesLimit;
+    document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
     document.querySelector('#winner').innerHTML = "Click next";
   }
 
+  document.querySelector('#tries').dataset.tries = attempts;
 
 }
 
@@ -121,6 +125,7 @@ function displayUpdateScore() {
 //Function to check selected clothes items
 
 function checkCombo() {
+  let attempts = document.querySelector('#tries').dataset.tries;
   let checkHat = false;
   let checkShirt = false;
   let checkPants = false;
@@ -190,10 +195,10 @@ function checkCombo() {
     document.querySelector('#winner').innerHTML = text2;
   } else {
     document.querySelector('#winner').innerHTML = "You're missing clothes.";
-    window.tries--;
+    attempts--;
   }
 
-
+  document.querySelector('#tries').dataset.tries = attempts;
 }
 
 //Function to generate new outfit

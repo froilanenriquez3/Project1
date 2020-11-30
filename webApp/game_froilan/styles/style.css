@@ -482,6 +482,11 @@ body {
   border: black solid 1px;
 }
 
+.check:active {
+  background-color: lime;
+  color: black;
+}
+
 .check:disabled {
   background-color: grey;
 }

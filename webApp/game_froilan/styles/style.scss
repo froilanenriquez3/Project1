@@ -402,6 +402,10 @@ body{
         color: black;
         border: black solid 1px;
     }
+    &:active{
+        background-color: lime;
+        color: black;
+    }
     &:disabled{
         background-color: grey;
         &:active{
