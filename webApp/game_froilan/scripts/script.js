@@ -311,10 +311,13 @@ function newCombo(callback1, callback2, callback3) {
 function resetFeedback() {
   document.querySelector('#feedhat').innerHTML = "Hat";
   document.querySelector('#feedhat').style.color="black";
+
   document.querySelector('#feedshirt').innerHTML = "Shirt";
   document.querySelector('#feedshirt').style.color="black";
+
   document.querySelector('#feedpants').innerHTML = "Pants";
   document.querySelector('#feedpants').style.color="black";
+  
   document.querySelector('#feedshoes').innerHTML = "Shoes";
   document.querySelector('#feedshoes').style.color="black";
   

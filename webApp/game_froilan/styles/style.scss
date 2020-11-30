@@ -19,7 +19,7 @@ body {
     display: grid;
     font-family: Arial, Helvetica, sans-serif;
 }
-button{
+button {
     cursor: pointer;
 }
 #game {
@@ -95,41 +95,43 @@ button{
         box-sizing: border-box;
         background-color: whitesmoke;
         display: grid;
-        grid-template-columns:0.75fr 1fr 1fr 1fr ;
+        grid-template-columns: 0.75fr 1fr 1fr 1fr;
         height: 50px;
         border-right: solid black 3px;
         padding-top: 10px;
-        p{
-            border: solid black 1px;
+        p {
+            border: solid black 3px;
+            border-radius: 20px;
             margin: 1px;
             text-align: center;
             vertical-align: center;
             height: 20px;
+            font-size: 15px;
         }
     }
 
     #scorebox {
         box-sizing: border-box;
         display: grid;
-        grid-template-columns: 1fr 1fr; 
-        row-gap: 0;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 1;
 
         margin-left: 10px;
         padding: 1px;
- 
+
         vertical-align: center;
         font-size: 15px;
-       
+
         p {
-            border: solid black 1px;
-            margin: 3px;
+            border: solid black 3px;
+            border-bottom:none;
+            border-radius: 20px;
+            margin: 0px;
             text-align: center;
-           
         }
-        #winner{
-            grid-area: 2 / 1 / span 1/ span 2;
+        #winner {
+            grid-area: 2 / 1 / span 1 / span 2;
         }
-       
     }
 
     #buttonsbox {
@@ -137,20 +139,34 @@ button{
         display: grid;
         padding: 10px;
         height: 50px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         background-color: aliceblue;
         border-left: solid black 3px;
-      
-     
-        .music{
-            padding: 7px;
+
+        .music {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            .fa-volume-up,
+            .fa-volume-mute {
+                padding-top: 7px;
+            }
+            .fa-volume-up {
+                position: relative;
+                left: 12px;
+            }
+            .fa-volume-mute {
+                position: relative;
+                left: 4px;
+            }
+            margin-right: 15px;
         }
+
         .switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 34px;
-            
+
             input {
                 display: none;
             }
@@ -180,7 +196,7 @@ button{
             }
 
             input:checked + .slider {
-                background-color:  #ccc;
+                background-color: #ccc;
             }
 
             input:focus + .slider {
@@ -193,11 +209,10 @@ button{
         }
 
         button {
-        
             height: 30px;
             width: 70px;
             font-size: 15px;
-            margin-right: 5px;
+            margin-left: 30px;
             text-decoration: none;
             background-color: red;
             color: white;
@@ -222,13 +237,6 @@ button{
                     color: white;
                 }
             }
-
-            /* &#music {
-                background-color: white;
-                color: black;
-                border: solid black 1px;
-                width: 100px;
-            } */
         }
     }
 }
@@ -250,7 +258,6 @@ button{
         grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
         align-items: center;
         height: 100%;
-       
 
         .dropzone {
             box-sizing: border-box;
@@ -263,7 +270,6 @@ button{
             padding: 0px;
 
             background-color: rgb(88, 63, 33);
-           
         }
 
         [draggable="true"] {
@@ -283,7 +289,6 @@ button{
             margin: auto;
             display: grid;
             justify-content: center;
-           
 
             .dropzone {
                 border: none;
@@ -458,7 +463,6 @@ button{
         background-color: grey;
         &:active {
             color: white;
-            
         }
         &:hover {
             background-color: grey;
