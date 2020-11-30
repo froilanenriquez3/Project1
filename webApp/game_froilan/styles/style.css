@@ -100,11 +100,13 @@ button {
 }
 
 .topbar #feedbackbox p {
-  border: solid black 1px;
+  border: solid black 3px;
+  border-radius: 20px;
   margin: 1px;
   text-align: center;
   vertical-align: center;
   height: 20px;
+  font-size: 15px;
 }
 
 .topbar #scorebox {
@@ -114,7 +116,7 @@ button {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  row-gap: 0;
+  row-gap: 1;
   margin-left: 10px;
   padding: 1px;
   vertical-align: center;
@@ -122,8 +124,10 @@ button {
 }
 
 .topbar #scorebox p {
-  border: solid black 1px;
-  margin: 3px;
+  border: solid black 3px;
+  border-bottom: none;
+  border-radius: 20px;
+  margin: 0px;
   text-align: center;
 }
 
@@ -132,7 +136,7 @@ button {
   -ms-grid-row-span: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
-  grid-area: 2 / 1 / span 1/ span 2;
+  grid-area: 2 / 1 / span 1 / span 2;
 }
 
 .topbar #buttonsbox {
@@ -142,14 +146,33 @@ button {
   display: grid;
   padding: 10px;
   height: 50px;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   background-color: aliceblue;
   border-left: solid black 3px;
 }
 
 .topbar #buttonsbox .music {
-  padding: 7px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr 1fr;
+      grid-template-columns: 1fr 3fr 1fr;
+  margin-right: 15px;
+}
+
+.topbar #buttonsbox .music .fa-volume-up,
+.topbar #buttonsbox .music .fa-volume-mute {
+  padding-top: 7px;
+}
+
+.topbar #buttonsbox .music .fa-volume-up {
+  position: relative;
+  left: 12px;
+}
+
+.topbar #buttonsbox .music .fa-volume-mute {
+  position: relative;
+  left: 4px;
 }
 
 .topbar #buttonsbox .switch {
@@ -207,18 +230,12 @@ button {
   height: 30px;
   width: 70px;
   font-size: 15px;
-  margin-right: 5px;
+  margin-left: 30px;
   text-decoration: none;
   background-color: red;
   color: white;
   border-radius: 5px;
   border: solid black 2px;
-  /* &#music {
-                background-color: white;
-                color: black;
-                border: solid black 1px;
-                width: 100px;
-            } */
 }
 
 .topbar #buttonsbox button:hover {
