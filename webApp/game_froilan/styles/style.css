@@ -4,6 +4,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 #game {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -76,8 +80,8 @@ body {
   color: black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 3fr;
-      grid-template-columns: 3fr 3fr 3fr;
+  -ms-grid-columns: 5fr 6fr 5fr;
+      grid-template-columns: 5fr 6fr 5fr;
   padding-bottom: 5px;
   padding-top: 0px;
 }
@@ -88,26 +92,47 @@ body {
   background-color: whitesmoke;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1.75fr 2fr 2fr 2fr;
-      grid-template-columns: 1.75fr 2fr 2fr 2fr;
-  padding-left: 10px;
-  padding-right: 7px;
+  -ms-grid-columns: 0.75fr 1fr 1fr 1fr;
+      grid-template-columns: 0.75fr 1fr 1fr 1fr;
+  height: 50px;
+  border-right: solid black 3px;
+  padding-top: 10px;
+}
+
+.topbar #feedbackbox p {
+  border: solid black 1px;
+  margin: 1px;
+  text-align: center;
+  vertical-align: center;
+  height: 20px;
 }
 
 .topbar #scorebox {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-left: 15px;
-  margin-top: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  row-gap: 0;
+  margin-left: 10px;
+  padding: 1px;
   vertical-align: center;
   font-size: 15px;
 }
 
 .topbar #scorebox p {
-  margin: 5px;
+  border: solid black 1px;
+  margin: 3px;
+  text-align: center;
+}
+
+.topbar #scorebox #winner {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 1 / span 1/ span 2;
 }
 
 .topbar #buttonsbox {
@@ -116,30 +141,93 @@ body {
   display: -ms-grid;
   display: grid;
   padding: 10px;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  height: 50px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: aliceblue;
+  border-left: solid black 3px;
+}
+
+.topbar #buttonsbox .music {
+  padding: 7px;
+}
+
+.topbar #buttonsbox .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.topbar #buttonsbox .switch input {
+  display: none;
+}
+
+.topbar #buttonsbox .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #06f0d1;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.topbar #buttonsbox .switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.topbar #buttonsbox .switch input:checked + .slider {
+  background-color: #ccc;
+}
+
+.topbar #buttonsbox .switch input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #ccc;
+          box-shadow: 0 0 1px #ccc;
+}
+
+.topbar #buttonsbox .switch input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+          transform: translateX(26px);
 }
 
 .topbar #buttonsbox button {
   height: 30px;
   width: 70px;
   font-size: 15px;
+  margin-right: 5px;
   text-decoration: none;
-  background-color: black;
+  background-color: red;
   color: white;
   border-radius: 5px;
-  border: none;
+  border: solid black 2px;
+  /* &#music {
+                background-color: white;
+                color: black;
+                border: solid black 1px;
+                width: 100px;
+            } */
 }
 
 .topbar #buttonsbox button:hover {
   background-color: white;
   color: black;
-  border: solid black 1px;
 }
 
 .topbar #buttonsbox button:active {
-  background-color: #2ca50e;
+  background-color: pink;
   color: black;
 }
 
@@ -156,13 +244,6 @@ body {
   color: white;
 }
 
-.topbar #buttonsbox button#music {
-  background-color: white;
-  color: black;
-  border: solid black 1px;
-  width: 100px;
-}
-
 .container {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -175,6 +256,7 @@ body {
           justify-content: space-between;
   height: 450px;
   width: 875px;
+  border-top: solid black 3px;
 }
 
 .container .shelf {
@@ -201,7 +283,7 @@ body {
   background-color: #583f21;
 }
 
-.container .shelf [draggable='true'] {
+.container .shelf [draggable="true"] {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -241,7 +323,7 @@ body {
           align-items: center;
 }
 
-.container .shelf .center .dropzone [draggable='true'] {
+.container .shelf .center .dropzone [draggable="true"] {
   width: 300px;
   height: 100%;
 }
@@ -459,22 +541,47 @@ body {
   background-size: contain;
 }
 
-.endgame {
+.check {
   position: relative;
-  bottom: 50px;
-  left: 500px;
+  bottom: 100px;
+  left: 295px;
   z-index: 1;
-  height: 30px;
+  height: 50px;
+  width: 92px;
   border-radius: 50px;
-  border: black solid 1px;
-  background-color: red;
+  border: white solid 2px;
+  background-color: green;
+  color: white;
+  font-size: 25px;
+}
+
+.check#next {
+  left: 393px;
+}
+
+.check:hover {
+  background-color: white;
+  color: black;
+  border: black solid 2px;
+}
+
+.check:active {
+  background-color: lime;
+  color: black;
+}
+
+.check:disabled {
+  background-color: grey;
+}
+
+.check:disabled:active {
   color: white;
 }
 
-.endgame:hover {
-  background-color: white;
-  color: black;
-  border: black solid 1px;
+.check:disabled:hover {
+  background-color: grey;
+  color: white;
+  border: white solid 2px;
 }
 
 .endscreen {

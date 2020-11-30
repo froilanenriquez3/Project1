@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <link href="./styles/all.min.css" rel="stylesheet">
+
+    
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com">  -->
 
     <title>Froilan's Fantastic Fitting Room</title>
@@ -27,21 +30,26 @@
         <div class="mainscreen">
             <div class="topbar">
                 <div id="feedbackbox">
-                    <p id="feedhat"></p>
-                    <p id="feedshirt"></p>
-                    <p id="feedpants"></p>
-                    <p id="feedshoes"></p>
+                    <p id="feedhat">Hat </p>
+                    <p id="feedshirt">Shirt </p>
+                    <p id="feedpants">Pants </p>
+                    <p id="feedshoes">Shoes</p>
                 </div>
                 <div id="scorebox">
-                    <p id="counter">Score: 0</p>
-                    <p id="tries">Tries: 0</p>
+                    <p id="counter" data-points=0>Score: 0</p>
+                    <p id="tries" data-tries=0>Tries: 0</p>
                     <p id="winner"></p>
     
                 </div>
                 <div id="buttonsbox">
-                    <button onclick="increaseTries()" id="check">CHECK</button>
-                    <button onclick="newCombo()" id="next" disabled>NEXT</button>
-                    <button onclick="mute()" id="music">Music: Off</button>
+                    <button class="endgame" onclick="endScreen()">EXIT</button>
+                    <i class="music fas fa-volume-up"></i>
+                    
+                    <label class="switch" >
+                        <input type="checkbox" id="music" onclick="mute()">
+                        <span class="slider"></span>
+                    </label>
+                      <i class="music fas fa-volume-mute"></i>
                 </div>
     
             </div>
@@ -218,8 +226,9 @@
     
             </div>
             
-        
-                <button class="endgame" onclick="endScreen()">end game</button>
+                <button class="check" onclick="increaseTries()" id="check">check</button>
+                <button class="check" onclick="newCombo(resetGame, resetTries, resetFeedback)" id="next" disabled>next</button>
+                
         </div>
 
 

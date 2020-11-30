@@ -4,23 +4,24 @@ let shirt;
 let pants;
 let shoes;
 
-let points;
 let pointLimit = 1000;
 
-let tries;
 let triesLimit = 5;
 
 let myMusic;
 
 //Start game: hide start screen, generate new combo, set score to 0, start music 
 function startGame() {
-  newCombo();
-  initPoints();
-  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
-  console.log(window.points);
+  let score = document.querySelector('#counter').dataset.points;
+  newCombo(()=>{console.log('Game started')},resetTries, resetFeedback);
+  //initPoints();
+
+  document.querySelector('#counter').innerHTML = 'Score: ' + score;
+
   document.querySelector('.startscreen').style.display = "none";
   document.querySelector('.endscreen').style.display = "none";
   document.querySelector('.mainscreen').style.display = "block";
+
   window.myMusic = new sound("img/gamemusic.mp3");
   window.myMusic.play();
 
@@ -40,7 +41,7 @@ function mute() {
   setTimeout(function () {
     document.querySelector('#music').setAttribute("onclick", "play()");
   }, 100);
-  document.querySelector('#music').innerHTML = "Music: Off";
+  //document.querySelector('#music').innerHTML = "Music: Off";
 
 }
 
@@ -49,7 +50,7 @@ function play() {
   setTimeout(function () {
     document.querySelector('#music').setAttribute("onclick", "mute()");
   }, 100);
-  document.querySelector('#music').innerHTML = "Music: On";
+  //document.querySelector('#music').innerHTML = "Music: On";
 }
 
 // Sound constructor to add music element to html
@@ -72,53 +73,59 @@ function sound(src) {
 //Try functions
 
 function resetTries() {
-  window.tries = 0;
+  let attempts = +document.querySelector('#tries').dataset.tries;
+  attempts = 0;
   document.querySelector('#tries').innerHTML = "Tries: 0/" + triesLimit;
+
+  document.querySelector('#tries').dataset.tries = attempts;
 }
 
 function increaseTries() {
+  let attempts = +document.querySelector('#tries').dataset.tries;
   checkCombo();
-  window.tries++;
+  attempts++;
 
-  if (window.tries < triesLimit) {
-    document.querySelector('#tries').innerHTML = "Tries: " + window.tries + "/" + triesLimit;
-  } else if (window.tries == 5) {
+  if (attempts < triesLimit) {
+    document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
+  } else if (attempts == 5) {
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
-    document.querySelector('#tries').innerHTML = "Tries: " + window.tries + "/" + triesLimit;
+    document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
     document.querySelector('#winner').innerHTML = "Click next";
   }
 
+  document.querySelector('#tries').dataset.tries = attempts;
 
 }
 
 //Points functions
 
 function increasePoints() {
-
-  if (window.points < pointLimit) {
-    window.points += 100;
+  let score = +document.querySelector('#counter').dataset.points;
+  
+  if (score < pointLimit) {
+    score += 100;
+   
   }
+  document.querySelector('#counter').dataset.points = score;
 }
 
-function initPoints() {
-  window.points = 0;
-}
 
 function displayUpdateScore() {
-
-  if (window.points == pointLimit) {
-    document.querySelector('#counter').innerHTML = 'Score: ' + window.points + " (Point limit)";
+  let score = document.querySelector('#counter').dataset.points;
+  if (score == pointLimit) {
+    document.querySelector('#counter').innerHTML = 'Score: ' + score + " (Point limit)";
   } else {
-    document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+    document.querySelector('#counter').innerHTML = 'Score: ' + score;
   }
 
-  console.log(window.points);
+  
 }
 
 //Function to check selected clothes items
 
 function checkCombo() {
+  let attempts = document.querySelector('#tries').dataset.tries;
   let checkHat = false;
   let checkShirt = false;
   let checkPants = false;
@@ -135,45 +142,45 @@ function checkCombo() {
   ) {
     if (document.querySelector(' #hathole').firstChild.id == window.hat) {
       let hat = document.querySelector('#feedhat');
-      hat.innerHTML = "Hat: ✓ ";
+      hat.innerHTML = "Hat ✓";
       hat.style.color = "green";
       checkHat = true;
     } else {
       let hat = document.querySelector('#feedhat');
-      hat.innerHTML = "Hat: X ";
+      hat.innerHTML = "Hat X";
       hat.style.color = "red";
     }
 
     if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
       let shirt = document.querySelector('#feedshirt');
-      shirt.innerHTML = "Shirt: ✓ ";
+      shirt.innerHTML = "Shirt ✓";
       shirt.style.color = "green";
       checkShirt = true;
     } else {
       let shirt = document.querySelector('#feedshirt');
-      shirt.innerHTML = "Shirt: X ";
+      shirt.innerHTML = "Shirt X";
       shirt.style.color = "red";
     }
 
     if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
       let pant = document.querySelector('#feedpants');
-      pant.innerHTML = "Pants: ✓ ";
+      pant.innerHTML = "Pants ✓";
       pant.style.color = "green";
       checkPants = true;
     } else {
       let pant = document.querySelector('#feedpants');
-      pant.innerHTML = "Pants: X ";
+      pant.innerHTML = "Pants X";
       pant.style.color = "red";
     }
 
     if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
       let shoe = document.querySelector('#feedshoes');
-      shoe.innerHTML = "Shoes: ✓ ";
+      shoe.innerHTML = "Shoes ✓";
       shoe.style.color = "green";
       checkShoes = true;
     } else {
       let shoe = document.querySelector('#feedshoes');
-      shoe.innerHTML = "Shoes: X ";
+      shoe.innerHTML = "Shoes X";
       shoe.style.color = "red";
     }
 
@@ -188,14 +195,14 @@ function checkCombo() {
     document.querySelector('#winner').innerHTML = text2;
   } else {
     document.querySelector('#winner').innerHTML = "You're missing clothes.";
-    window.tries--;
+    attempts--;
   }
 
-
+  document.querySelector('#tries').dataset.tries = attempts;
 }
 
 //Function to generate new outfit
-function newCombo() {
+function newCombo(callback1, callback2, callback3) {
   let hatNum = Math.floor((Math.random() * 6) + 1);
   let shirtNum = Math.floor((Math.random() * 6) + 1);
   let pantsNum = Math.floor((Math.random() * 6) + 1);
@@ -295,19 +302,24 @@ function newCombo() {
   }
   console.log(window.hat + " " + window.shirt + " " + window.pants + " " + window.shoes); //DELETE ME
 
-  resetGame();
-  resetTries();
-  resetFeedback();
+  callback1();
+  callback2();
+  callback3();
 
 }
 
 function resetFeedback() {
-  document.querySelector('#feedhat').innerHTML = "";
-  document.querySelector('#feedshirt').innerHTML = "";
-  document.querySelector('#feedpants').innerHTML = "";
-  document.querySelector('#feedshoes').innerHTML = "";
+  document.querySelector('#feedhat').innerHTML = "Hat";
+  document.querySelector('#feedhat').style.color="black";
+  document.querySelector('#feedshirt').innerHTML = "Shirt";
+  document.querySelector('#feedshirt').style.color="black";
+  document.querySelector('#feedpants').innerHTML = "Pants";
+  document.querySelector('#feedpants').style.color="black";
+  document.querySelector('#feedshoes').innerHTML = "Shoes";
+  document.querySelector('#feedshoes').style.color="black";
+  
 
-  document.querySelector('#winner').innerHTML = "";
+  document.querySelector('#winner').innerHTML = "Click check when you're done";
 
   document.querySelector('#next').disabled = true;
   document.querySelector('#check').disabled = false;
