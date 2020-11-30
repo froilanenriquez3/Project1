@@ -302,14 +302,14 @@ body {
 }
 
 .container #shirts #dragshirt1 {
-  background-image: url("../img/shirts/cyan.png");
+  background-image: url("../img/shirts/redshirt.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .container #shirts #dragshirt2 {
-  background-image: url("../img/shirts/redshirt.png");
+  background-image: url("../img/shirts/cyan.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -355,14 +355,14 @@ body {
 }
 
 .container #pants #dragpants1 {
-  background-image: url("../img/pants/cyanpants.png");
+  background-image: url("../img/pants/redpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .container #pants #dragpants2 {
-  background-image: url("../img/pants/redpants.png");
+  background-image: url("../img/pants/cyanpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -408,14 +408,14 @@ body {
 }
 
 .container #shoes #dragshoes1 {
-  background-image: url("../img/shoes/blueshoes.png");
+  background-image: url("../img/shoes/redshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .container #shoes #dragshoes2 {
-  background-image: url("../img/shoes/redshoes.png");
+  background-image: url("../img/shoes/blueshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
