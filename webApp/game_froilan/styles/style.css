@@ -78,6 +78,8 @@ body {
   display: grid;
   -ms-grid-columns: 3fr 3fr 3fr;
       grid-template-columns: 3fr 3fr 3fr;
+  padding-bottom: 5px;
+  padding-top: 0px;
 }
 
 .topbar #feedbackbox {
