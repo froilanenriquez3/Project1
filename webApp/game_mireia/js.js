@@ -282,7 +282,7 @@ function checkBasket(elmnt, products) {
                 basket.classList.add("animationClassGreen");
                 pointsText.innerHTML = "Puntos: " + points;
                 productsFound.push(elmnt.id);
-                if (productsFound.lenght === TOTALPRODUCTS) {
+                if (productsFound.length == TOTALPRODUCTS) {
                     endGame();
                 }
             }
@@ -300,7 +300,6 @@ function checkBasket(elmnt, products) {
                 document.onmouseup = null;
                 document.onmousemove = null;
             }
-
         }
     }
 }
@@ -325,7 +324,6 @@ function generateProductsToFind(products) {
         }
         productsToFind.push(products[randomNum].name);
     }
-
 }
 
 // Generate Random Extra
@@ -363,15 +361,14 @@ function createText() {
         listElemements.forEach(element => {
             if (element.innerHTML === extraProduct) {
                 element.style.textDecoration= "line-through";
+                productsFound.push(extraProduct);
             }});
         points += 60;
         pointsText.innerHTML = "Puntos: " + points;
-        productsFound.push(extraProduct);
 
     } else {
         divText.innerHTML = "Que pases muy buen día!";
     }
-
     text.style.display = "Inline";
 }
 
@@ -379,6 +376,9 @@ function createText() {
 function closeText() {
     let text = document.getElementById("text");
     text.style.display = "none";
+    if (productsFound.length == TOTALPRODUCTS) {
+        endGame();
+    }
 }
 
 
