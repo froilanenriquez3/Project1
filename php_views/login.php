@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    //or some other equivalent feedback code here
+    if(!$_SESSION['logged']){
+        echo "<p>Your password was incorrect.</p>";
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
