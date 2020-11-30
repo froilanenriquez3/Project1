@@ -41,7 +41,7 @@ function mute() {
   setTimeout(function () {
     document.querySelector('#music').setAttribute("onclick", "play()");
   }, 100);
-  document.querySelector('#music').innerHTML = "Music: Off";
+  //document.querySelector('#music').innerHTML = "Music: Off";
 
 }
 
@@ -50,7 +50,7 @@ function play() {
   setTimeout(function () {
     document.querySelector('#music').setAttribute("onclick", "mute()");
   }, 100);
-  document.querySelector('#music').innerHTML = "Music: On";
+  //document.querySelector('#music').innerHTML = "Music: On";
 }
 
 // Sound constructor to add music element to html

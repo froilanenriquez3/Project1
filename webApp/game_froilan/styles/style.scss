@@ -1,105 +1,97 @@
-
-@mixin flexDisplay($direction){
+@mixin flexDisplay($direction) {
     display: flex;
     justify-content: $direction;
     align-items: $direction;
 }
 
-@mixin gridDisplay(){
+@mixin gridDisplay() {
     display: grid;
 }
 
-@mixin bodyImage($url){
+@mixin bodyImage($url) {
     background-image: url($url);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-body{
+body {
     display: grid;
     font-family: Arial, Helvetica, sans-serif;
-    
 }
-#game{
-    
+button{
+    cursor: pointer;
+}
+#game {
     box-sizing: border-box;
     margin: auto;
     margin-top: 2%;
-    
+
     //height: 450px;
-    height:520px;
+    height: 520px;
     //width: 75%;
-    width:895px;
+    width: 895px;
     //min-width: 1068px;
     border: solid grey 10px;
-   
 }
 
-.startscreen{
+.startscreen {
     @include flexDisplay(center);
-    
+
     flex-direction: column;
-    background-image: url('../img/store.jpg');
+    background-image: url("../img/store.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
- 
+
     box-sizing: border-box;
     height: 500px;
     width: 875px;
 
     padding-left: 40px;
     padding-right: 40px;
-    
-    color: black;
-    
 
+    color: black;
 }
 
-.text{
+.text {
     border-radius: 50px;
     background-color: white;
     margin-top: 70px;
-    padding:20px;
+    padding: 20px;
     text-align: center;
-  
+}
+
+.startbutton {
+    margin: 30px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: greenyellow;
+    color: black;
+    border: solid black 2px;
+
+    &:hover {
+        background-color: rgb(20, 214, 20);
+        color: white;
+        border: solid white 2px;
     }
+}
 
-    .startbutton{
-        margin: 30px;
-        font-size: 30px;
-        border-radius: 10px;
-        background-color: greenyellow;
-        color: black;
-        border: solid black 2px;
-       
-        &:hover{
-            background-color: rgb(20, 214, 20);
-            color: white;
-            border: solid white 2px;
-            
-        }
-    }
-
-
-.mainscreen{
+.mainscreen {
     display: none;
 }
 
-
-.topbar{
-    
+.topbar {
     box-sizing: border-box;
     height: 50px;
     background-color: white;
-    color:black;
+    color: black;
     display: grid;
     grid-template-columns: 3fr 4fr 2fr;
     padding-bottom: 5px;
     padding-top: 0px;
 
-    #feedbackbox{
+    #feedbackbox {
         box-sizing: border-box;
         background-color: whitesmoke;
         display: grid;
@@ -107,84 +99,135 @@ body{
         padding-left: 10px;
         padding-right: 7px;
     }
-    
-    #scorebox{
+
+    #scorebox {
         display: inline-flex;
         box-sizing: border-box;
         margin-left: 15px;
         margin-top: 10px;
         vertical-align: center;
         font-size: 15px;
-        p{
+        p {
             margin: 5px;
-            
         }
-        
     }
-    
-    #buttonsbox{
-        box-sizing: border-box;
-        display: grid; 
-        padding: 10px;
-        grid-template-columns: 1fr 1fr;
-        background-color: aliceblue;
 
-        button{
-            height:30px;
-            width:70px;
+    #buttonsbox {
+        box-sizing: border-box;
+        display: grid;
+        padding: 10px;
+
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        background-color: aliceblue;
+        .music{
+            padding: 7px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            
+
+            input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #2196f3;
+
+                transition: 0.4s;
+                border-radius: 34px;
+            }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+
+                transition: 0.4s;
+                border-radius: 50%;
+            }
+
+            input:checked + .slider {
+                background-color:  #ccc;
+            }
+
+            input:focus + .slider {
+                box-shadow: 0 0 1px #ccc;
+            }
+
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+        }
+
+        button {
+        
+            height: 30px;
+            width: 70px;
             font-size: 15px;
-            //margin-left: 40px;
+            
             text-decoration: none;
             background-color: red;
             color: white;
             border-radius: 5px;
-            border: solid black 1px;
-            
-            &:hover{
+            border: solid black 2px;
+
+            &:hover {
                 background-color: white;
                 color: black;
-                
             }
-            &:active{
-                background-color: rgb(44, 165, 14);
+            &:active {
+                background-color: pink;
                 color: black;
             }
-            &:disabled{
+            &:disabled {
                 background-color: grey;
-                &:active{
+                &:active {
                     color: white;
                 }
-                &:hover{
+                &:hover {
                     background-color: grey;
                     color: white;
                 }
             }
 
-            &#music{
+            /* &#music {
                 background-color: white;
                 color: black;
                 border: solid black 1px;
                 width: 100px;
-            }
-            
+            } */
         }
     }
-    
 }
 
-.container{
+.container {
     box-sizing: border-box;
-    display:grid;
+    display: grid;
     grid-template-rows: 40% 32% 22% 6%;
     justify-content: space-between;
     //height:480px;
     //width: 1048px;
     height: 450px;
-    width:875px;
-    
-    .shelf{
+    width: 875px;
+
+    .shelf {
         box-sizing: border-box;
-        display:grid;
+        display: grid;
         grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
         align-items: center;
         height: 100%;
@@ -194,26 +237,24 @@ body{
             border: solid black 2px;
             //width: 100px;
             width: 80%;
-            //height: 90%; 
+            //height: 90%;
             height: 80%;
             margin: 10px;
             padding: 0px;
-            
+
             background-color: rgb(88, 63, 33);
-            
         }
 
-        [draggable='true']{
+        [draggable="true"] {
             //width: 100px;
             width: 100%;
             height: 100%;
             text-align: center;
             background: transparent;
             @include bodyImage("../img/hat.png");
-            
         }
-        
-        .center{
+
+        .center {
             box-sizing: border-box;
             //background-color: rgb(51, 168, 168);
             width: 300px;
@@ -222,166 +263,152 @@ body{
             display: grid;
             justify-content: center;
 
-            .dropzone{
-                
-                border:none;
+            .dropzone {
+                border: none;
                 margin-top: 0px;
                 background-color: beige;
                 width: 300px;
                 height: 100%;
-                
+
                 display: grid;
-                justify-content:center;
-                align-items:center;
-                [draggable='true']{
+                justify-content: center;
+                align-items: center;
+                [draggable="true"] {
                     width: 300px;
                     height: 100%;
                 }
             }
         }
-
-        
     }
 
-
-    #hats{
+    #hats {
         background-color: brown;
-        #draghat1{
+        #draghat1 {
             @include bodyImage("../img/hats/red.png");
         }
-        
-        #draghat2{
+
+        #draghat2 {
             @include bodyImage("../img/hats/disguise.png");
         }
 
-        #draghat3{
-            @include bodyImage("../img/hats/jokein2020.png")
+        #draghat3 {
+            @include bodyImage("../img/hats/jokein2020.png");
         }
-        .center{
-            .dropzone{
-            @include bodyImage("../img/head.png");
-                
+        .center {
+            .dropzone {
+                @include bodyImage("../img/head.png");
             }
         }
 
-        #draghat4{
-            @include bodyImage("../img/hats/brown.png")
+        #draghat4 {
+            @include bodyImage("../img/hats/brown.png");
         }
-        #draghat5{
+        #draghat5 {
             @include bodyImage("../img/hats/astronaut.png");
         }
 
-        #draghat6{
+        #draghat6 {
             @include bodyImage("../img/hats/superhero.png");
-            
         }
     }
 
-    #shirts{
+    #shirts {
         background-color: lightsalmon;
 
-        #dragshirt1{
+        #dragshirt1 {
             @include bodyImage("../img/shirts/redshirt.png");
         }
 
-        #dragshirt2{
-            @include bodyImage("../img/shirts/cyan.png")
+        #dragshirt2 {
+            @include bodyImage("../img/shirts/cyan.png");
         }
-        #dragshirt3{
-            @include bodyImage("../img/shirts/whiteshirt.png")
+        #dragshirt3 {
+            @include bodyImage("../img/shirts/whiteshirt.png");
         }
-        .center{
-            .dropzone{
+        .center {
+            .dropzone {
                 @include bodyImage("../img/body.png");
             }
         }
 
-        #dragshirt4{
+        #dragshirt4 {
             @include bodyImage("../img/shirts/purple.png");
         }
 
-        #dragshirt5{
+        #dragshirt5 {
             @include bodyImage("../img/shirts/yoda.png");
         }
-        #dragshirt6{
+        #dragshirt6 {
             @include bodyImage("../img/shirts/spidey.PNG");
         }
-
     }
 
-    #pants{
+    #pants {
         background-color: rgb(170, 116, 71);
-        #dragpants1{
+        #dragpants1 {
             @include bodyImage("../img/pants/redpants.png");
         }
-        #dragpants2{
+        #dragpants2 {
             @include bodyImage("../img/pants/cyanpants.png");
         }
-        #dragpants3{
+        #dragpants3 {
             @include bodyImage("../img/pants/whitepants.png");
         }
-        .center{
-            .dropzone{
+        .center {
+            .dropzone {
                 @include bodyImage("../img/legs.png");
             }
         }
 
-        #dragpants4{
+        #dragpants4 {
             @include bodyImage("../img/pants/blackpants.png");
         }
 
-        #dragpants5{
+        #dragpants5 {
             @include bodyImage("../img/pants/greenpants.png");
         }
-        #dragpants6{
+        #dragpants6 {
             @include bodyImage("../img/pants/bluepants.png");
         }
     }
 
-    #shoes{
+    #shoes {
         background-color: rgb(92, 59, 59);
- 
-        #dragshoes1{
+
+        #dragshoes1 {
             @include bodyImage("../img/shoes/redshoes.png");
         }
 
-        #dragshoes2{
+        #dragshoes2 {
             @include bodyImage("../img/shoes/blueshoes.png");
         }
 
-
-        #dragshoes3{
+        #dragshoes3 {
             @include bodyImage("../img/shoes/whiteshoes.png");
         }
-       
-        .center{
-            .dropzone{
-                background-color:beige;
+
+        .center {
+            .dropzone {
+                background-color: beige;
                 @include bodyImage("../img/feet.png");
-               
             }
         }
 
-
-        #dragshoes4{
+        #dragshoes4 {
             @include bodyImage("../img/shoes/brownshoes.png");
         }
 
-        #dragshoes5{
+        #dragshoes5 {
             @include bodyImage("../img/shoes/greenshoes.png");
         }
 
-        #dragshoes6{
+        #dragshoes6 {
             @include bodyImage("../img/shoes/difblueshoes.png");
         }
-       
     }
-
-
 }
 
-
-.check{
+.check {
     position: relative;
     bottom: 100px;
     left: 295px;
@@ -389,39 +416,37 @@ body{
     height: 50px;
     width: 92px;
     border-radius: 50px;
-    border: black solid 1px;
+    border: white solid 2px;
     background-color: green;
     color: white;
-    font-size: 30px;
-    &#next{
+    font-size: 25px;
+    &#next {
         left: 393px;
-
     }
-    &:hover{
+    &:hover {
         background-color: white;
         color: black;
-        border: black solid 1px;
+        border: black solid 2px;
     }
-    &:active{
+    &:active {
         background-color: lime;
         color: black;
     }
-    &:disabled{
+    &:disabled {
         background-color: grey;
-        &:active{
+        &:active {
             color: white;
+            
         }
-        &:hover{
+        &:hover {
             background-color: grey;
             color: white;
+            border: white solid 2px;
         }
     }
 }
 
-
-
-
-.endscreen{
+.endscreen {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -431,41 +456,33 @@ body{
     height: 500px;
     width: 875px;
 
-    background-image: url('../img/store.jpg');
+    background-image: url("../img/store.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
     padding-left: 40px;
     padding-right: 40px;
-    
+
     color: black;
 
-    .text{
+    .text {
         height: 200px;
 
-        h2{
+        h2 {
             color: red;
         }
-
     }
 
-    .redeem{
-       
+    .redeem {
         background-color: lightblue;
         color: black;
         border: solid black 2px;
-       
-        &:hover{
+
+        &:hover {
             background-color: blue;
             color: white;
             border: solid white 2px;
-            
         }
     }
 }
-
-  
-  
-
-  
