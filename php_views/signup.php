@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,32 +9,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Log In</title>
+    <title>Sign Up</title>
 </head>
 
 <body>
     <div class="container">
         <div class="card mt-2">
             <div class="card-header bg-secondary text-white">
-                Log In
+                Sign Up
             </div>
 
             <div class="card-body">
-                <form enctype="multipart/form-data" action="../php_controllers/login_controller.php" method="post">
+                <form enctype="multipart/form-data" action="../php_controllers/user_controller.php" method="post">
                     <div class="form-group">
                         <!-- User -->
                         <div class="form-group row">
                             <label class="col-2" for="username">Usuario</label>
-                            <input class="col-10 form-control" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" autofocus>
+                            <input class="col-10 form-control" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" maxlength="16" autofocus required>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-group row">
+                            <label class="col-2" for="email">Email</label>
+                            <input class="col-10 form-control" type="text" id="email" name="email" placeholder="Introduce tu email" maxlength="45"  required>
                         </div>
                         <!-- Password -->
                         <div class="form-group row">
                             <label class="col-2" for="password">Contraseña</label>
-                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" placeholder="Introduce tu contraseña " autofocus required>
+                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" placeholder="Introduce tu contraseña "  required>
+                        </div>
+                        <!-- Confirm Password -->
+                        <div class="form-group row">
+                            <label class="col-2" for="confpassword">Repite tu Contraseña</label>
+                            <input class="col-10 form-control" type="password" id="confpaswword" name="confpassword" minlength="8" placeholder="Introduce tu contraseña"  required>
                         </div>
                         <!-- Boton de submit -->
                         <div class="btn-group float-right">
-                            <input class="btn btn-primary" type="submit" value="Iniciar Sesión" name="login" id="login">
+                            <input class="btn btn-primary" type="submit" value="Registrarse" id="adduser" name="adduser">
                         </div>
                     </div>
                 </form>

@@ -7,10 +7,88 @@ let shoes;
 let points;
 let pointLimit = 1000;
 
-newCombo();
-initPoints();
-document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
-console.log(window.points);
+let tries;
+let triesLimit = 5;
+
+let myMusic;
+
+//Start game: hide start screen, generate new combo, set score to 0, start music 
+function startGame(){
+  newCombo();
+  initPoints();
+  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+  console.log(window.points);
+  document.querySelector('.startscreen').style.display = "none";
+  document.querySelector('.endscreen').style.display = "none";
+  document.querySelector('.mainscreen').style.display = "block";
+  window.myMusic = new sound("img/gamemusic.mp3");
+  //window.myMusic.play();
+
+}
+
+function endScreen(){
+  document.querySelector('.mainscreen').style.display = "none";
+  document.querySelector('.endscreen').style.display = "flex";
+}
+
+//Music functions
+
+function mute(){
+  window.myMusic.stop();
+
+  setTimeout(function(){
+    document.querySelector('#music').setAttribute("onclick", "play()");
+  }, 100);
+  document.querySelector('#music').innerHTML = "Music: On";
+
+}
+
+function play(){
+  window.myMusic.play();
+  setTimeout(function(){
+    document.querySelector('#music').setAttribute("onclick", "mute()");
+  }, 100);
+  document.querySelector('#music').innerHTML = "mute";
+}
+
+// Sound constructor to add music element to html
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.setAttribute("loop","true")
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
+//Try functions
+
+function resetTries(){
+  window.tries = 0;
+  document.querySelector('#tries').innerHTML = "Tries: 0/" + triesLimit;
+}
+
+function increaseTries(){
+  if(window.tries < triesLimit-1){
+    window.tries++;
+    document.querySelector('#tries').innerHTML = "Tries: " + window.tries + "/" + triesLimit;
+  } else{
+    document.querySelector('#tries').innerHTML = "You are all out of tries!";
+    document.querySelector('#next').disabled = false;
+    document.querySelector('#check').disabled = true;
+
+  }
+  
+}
+
+//Points functions
 
 function increasePoints(){
  
@@ -35,18 +113,17 @@ function displayUpdateScore(){
 }
 
 //Function to check selected clothes items
+
 function checkCombo() {
+  increaseTries();
+
   let checkHat = false;
   let checkShirt = false;
   let checkPants = false;
   let checkShoes = false;
 
-  
-  let shirttext = "";
-  let panttext = "";
-  let shoetext = "";
 
-  let text2 = "Keep trying.";
+  let text2 = "Not quite.";
 
   if (document.querySelector(' #hathole').firstChild.id == window.hat) {
     let hat = document.querySelector('#feedhat');
@@ -209,6 +286,7 @@ function newCombo() {
 }
 
 function resetGame(){
+  resetTries();
   document.querySelector('#feedhat').innerHTML = "";
   document.querySelector('#feedshirt').innerHTML = "";
   document.querySelector('#feedpants').innerHTML = "";
