@@ -1,54 +1,64 @@
 let character = { x: 50, y: 140 };
-let products = [{ name: "Harina", img: "img/Harina.png", x: 410, y: 27 },
-{ name: "Masa pastel", img: "img/Masa pastel.png", x: 540, y: 29 }, { name: "Azúcar", img: "img/Azúcar.png", x: 420, y: 94 },
-{ name: "Huevos", img: "img/Huevos.png", x: 515, y: 108 }, { name: "Salsa de tomate", img: "img/Salsa de tomate.png", x: 660, y: 38 },
-{ name: "Galletas", img: "img/Galletas.png", x: 800, y: 102 }, { name: "Polvorones", img: "img/Polvorones.png", x: 660, y: 98 },
-{ name: "Láminas para canelones", img: "img/Láminas para canelones.png", x: 725, y: 42 }, { name: "Galets", img: "img/Galets.png", x: 817, y: 38 },
-{ name: "Miel", img: "img/Miel.png", x: 495, y: 169 }, { name: "Ketchup", img: "img/Ketchup.png", x: 565, y: 164 },
-{ name: "Mermelada", img: "img/Mermelada.png", x: 415, y: 174 }, { name: "Té", img: "img/Té.png", x: 675, y: 151 },
-{ name: "Café", img: "img/Café.png", x: 820, y: 162 }, { name: "Vino Blanco", img: "img/Vino Blanco.png", x: 430, y: 313 },
-{ name: "Vino Tinto", img: "img/Vino Tinto.png", x: 385, y: 313 }, { name: "Cava", img: "img/Cava.png", x: 485, y: 314 },
-{ name: "Cola", img: "img/Cola.png", x: 537, y: 313 }, { name: "Limonada", img: "img/Limonada.png", x: 575, y: 315 },
-{ name: "Naranjada", img: "img/Naranjada.png", x: 628, y: 315 }, { name: "Mayonesa", img: "img/mayonesa.png", x: 394, y: 242 }];
+let productsGrocery = [{ name: "Harina", img: "img/Grocery/Harina.png", x: 385, y: -1 },
+{ name: "Masa pastel", img: "img/Grocery/Masa pastel.png", x: 510, y: -1 }, { name: "Azúcar", img: "img/Grocery/Azúcar.png", x: 390, y: 64 },
+{ name: "Huevos", img: "img/Grocery/Huevos.png", x: 482, y: 76 }, { name: "Salsa de tomate", img: "img/Grocery/Salsa de tomate.png", x: 630, y: 9 },
+{ name: "Galletas", img: "img/Grocery/Galletas.png", x: 760, y: 71 }, { name: "Polvorones", img: "img/Grocery/Polvorones.png", x: 640, y: 70 },
+{ name: "Láminas para canelones", img: "img/Grocery/Láminas para canelones.png", x: 689, y: 9 }, { name: "Galets", img: "img/Grocery/Galets.png", x: 790, y: 7 },
+{ name: "Miel", img: "img/Grocery/Miel.png", x: 470, y: 138 }, { name: "Ketchup", img: "img/Grocery/Ketchup.png", x: 535, y: 134 },
+{ name: "Mermelada", img: "img/Grocery/Mermelada.png", x: 388, y: 144 }, { name: "Té", img: "img/Grocery/Té.png", x: 645, y: 121 },
+{ name: "Café", img: "img/Grocery/Café.png", x: 790, y: 132 }, { name: "Vino Blanco", img: "img/Grocery/Vino Blanco.png", x: 400, y: 275 },
+{ name: "Vino Tinto", img: "img/Grocery/Vino Tinto.png", x: 355, y: 275 }, { name: "Cava", img: "img/Grocery/Cava.png", x: 455, y: 276 },
+{ name: "Cola", img: "img/Grocery/Cola.png", x: 505, y: 275 }, { name: "Limonada", img: "img/Grocery/Limonada.png", x: 545, y: 277 },
+{ name: "Naranjada", img: "img/Grocery/Naranjada.png", x: 599, y: 277 }, { name: "Mayonesa", img: "img/Grocery/mayonesa.png", x: 370, y: 213 }];
+
+let productsFruit = [{ name: "Manzana", img: "img/Fruits/Manzana.png", x: 730, y: 300 }, { name: "Uva", img: "img/Fruits/Uva.png", x: 650, y: 240 },
+{ name: "Plátanos", img: "img/Fruits/Plátanos.png", x: 592, y: 222 }, { name: "Pera", img: "img/Fruits/Pera.png", x: 648, y: 170 }, { name: "Mandarina", img: "img/Fruits/Mandarina.png", x: 800, y: 240 },
+{ name: "Zanahoria", img: "img/Fruits/Zanahoria.png", x: 760, y: 55 }, { name: "Cebolla", img: "img/Fruits/Cebolla.png", x: 770, y: 120 },
+{ name: "Ciruela", img: "img/Fruits/Ciruela.png", x: 810, y: 60 }, { name: "Pimiento", img: "img/Fruits/Pimiento.png", x: 700, y: 110 },
+{ name: "Tomate", img: "img/Fruits/Tomate.png", x: 820, y: 150 }
+];
+
+let productsExtra = ["Turrón artesano", "Mazapán casero", "Jamón Ibérico"];
+
 let lady = document.getElementById("lady");
 let interior = document.getElementById("interior");
 let list = document.getElementById("list");
 let pointsText = document.querySelector("#interior > p");
 
-let productsToFind = [];
-const numberProducts = 5;
-let productsLength = products.length;
-let productsFound, points, finished, hasRoscon, minutes, seconds, clock;
+
+const TOTALPRODUCTS = 7;
+const NUMBERPRODUCTS = 3;
+let productsFound, points, finished, extraProduct, minutes, seconds, clock, productsToFind, hasExtra;
 
 //Game events
 addCharacterMovement();
-    list.addEventListener("click", () => { document.querySelector(".divList").classList.toggle("noVisible") });
-    basket.addEventListener("animationend", () => {
-        if (basket.classList.contains("animationClassGreen")) {
-            basket.classList.remove("animationClassGreen");
-        } else {
-            basket.classList.remove("animationClassRed");
-        }
-    });
-    document.getElementById("speak").addEventListener("click", createText);
+list.addEventListener("click", () => { document.querySelector(".divList").classList.toggle("noVisible") });
+basket.addEventListener("animationend", () => {
+    if (basket.classList.contains("animationClassGreen")) {
+        basket.classList.remove("animationClassGreen");
+    } else {
+        basket.classList.remove("animationClassRed");
+    }
+});
 
-
+document.getElementById("speak").addEventListener("click", createText);
 document.querySelector(".play > div >img").addEventListener("click", startGame);
+document.getElementById("shop").addEventListener("click", changeShop);
 
 
 
 function startGame() {
     //ocult instructions or afterGame & show interior
-    document.querySelector(".background > #instructions").style.display = "none";
-    document.querySelector(".background > #afterGame").style.display = "none";
-    document.querySelector(".background > #interior").style.display = "inline";
+    document.querySelector("#background > #instructions").style.display = "none";
+    document.querySelector("#background > #afterGame").style.display = "none";
+    document.querySelector("#background > #interior").style.display = "inline";
     //reset some variables
     productsToFind = [];
     eraseList();
-    productsFound = 0;
+    productsFound = [];
     points = 0;
-    finished = false;
-    hasRoscon = false;
+    extraProduct= "";
+    hasExtra= false;
     minutes = 1;
     seconds = 0;
     pointsText.innerHTML = "Puntos: " + points;
@@ -56,11 +66,15 @@ function startGame() {
 
 
     //Draw objects & character
-    drawAll();
+    drawAll(productsGrocery);
+    document.getElementById("gameBack").setAttribute("src", "img/background.png");
     drawLady();
 
     //Generate list of products
-    generateProductsToFind();
+    generateProductsToFind(productsGrocery);
+    generateProductsToFind(productsFruit);
+    generateRandomExtra();
+    productsToFind.sort(function (a, b) { return 0.5 - Math.random() });
     createList();
 
     //set Time
@@ -89,9 +103,9 @@ function passTime() {
 
     if (seconds < 10) {
         secondsView = "0" + seconds;
-        document.getElementById("time").innerHTML = "0"+ minutes + ":" + secondsView;
+        document.getElementById("time").innerHTML = "0" + minutes + ":" + secondsView;
     } else {
-        document.getElementById("time").innerHTML = "0"+ minutes + ":" + seconds;
+        document.getElementById("time").innerHTML = "0" + minutes + ":" + seconds;
     }
 
 
@@ -99,20 +113,27 @@ function passTime() {
 
 
 
+
 //Draw all draggable objects
-function drawAll() {
+function drawAll(products) {
+    let isInList;
     for (let i = 0; i < products.length; i++) {
         let product = products[i];
-        image = document.createElement("img");
-        image.setAttribute("id", product.name);
-        image.setAttribute("src", product.img);
-        image.style.position = "absolute";
-        image.style.top = product.y + "px";
-        image.style.left = product.x + "px";
-        dragElement(image);
-        image.addEventListener("mouseover", makeBigger);
-        image.addEventListener("mouseout", makeSmaller);
-        interior.appendChild(image);
+        isInList = productsFound.includes(product.name);
+        if (!isInList) {
+            // If is not still found we draw it
+            image = document.createElement("img");
+            image.setAttribute("id", product.name);
+            image.setAttribute("src", product.img);
+            image.style.position = "absolute";
+            image.style.top = product.y + "px";
+            image.style.left = product.x + "px";
+            image.style.transform= "scale(0.5)";
+            dragElement(image, products);
+            image.addEventListener("mouseover", makeBigger);
+            image.addEventListener("mouseout", makeSmaller);
+            interior.appendChild(image, products);
+        }
     }
 }
 
@@ -173,17 +194,30 @@ function addCharacterMovement() {
 
 //Make products bigger when mouseover and smaller when mouseout
 function makeBigger() {
-    this.style.transform = "scale(1.2)";
+    this.style.transform = "scale(0.7)";
 }
 
 function makeSmaller() {
-    this.style.transform = "scale(1)";
+    this.style.transform = "scale(0.5)";
 }
 
+//Change shop
+function changeShop() {
+    eraseProducts();
+    let image = document.getElementById("gameBack");
+    let shopUsed = image.getAttribute("src");
+    console.log(shopUsed);
+    if (shopUsed == "img/background.png") {
+        image.setAttribute("src", "img/background2.png");
+        drawAll(productsFruit);
+    } else {
+        image.setAttribute("src", "img/background.png");
+        drawAll(productsGrocery);
+    }
+}
 
-
-//Functions to draw the objects
-function dragElement(elmnt) {
+//Functions to drag the objects
+function dragElement(elmnt, products) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     elmnt.onmousedown = dragMouseDown;
 
@@ -215,7 +249,7 @@ function dragElement(elmnt) {
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
         }
-        checkBasket(elmnt);
+        checkBasket(elmnt, products);
     }
 
 
@@ -232,8 +266,10 @@ function dragElement(elmnt) {
 }
 
 
+
+
 //Check if element in basket is correct.
-function checkBasket(elmnt) {
+function checkBasket(elmnt, products) {
     let found = false;
     if (elmnt.offsetTop + 60 > basket.offsetTop && basket.offsetLeft < elmnt.offsetLeft + 60) {
         listElemements = document.querySelectorAll("li");
@@ -242,11 +278,11 @@ function checkBasket(elmnt) {
                 element.style.textDecoration = "line-through";
                 interior.removeChild(elmnt);
                 found = true;
-                productsFound++;
                 points += 60;
                 basket.classList.add("animationClassGreen");
                 pointsText.innerHTML = "Puntos: " + points;
-                if (productsFound === numberProducts) {
+                productsFound.push(elmnt.id);
+                if (productsFound.lenght === TOTALPRODUCTS) {
                     endGame();
                 }
             }
@@ -270,33 +306,42 @@ function checkBasket(elmnt) {
 }
 
 //Generate Random products
-function generateProductsToFind() {
+function generateProductsToFind(products) {
     let isSame = false;
     let randomNum;
-    for (let i = 0; i < numberProducts; i++) {
+    for (let i = 0; i < NUMBERPRODUCTS; i++) {
         if (i === 0) {
-            randomNum = Math.floor(Math.random() * productsLength);
+            randomNum = Math.floor(Math.random() * products.length);
         } else {
             do {
-                randomNum = Math.floor(Math.random() * productsLength);
+                randomNum = Math.floor(Math.random() * products.length);
                 isSame = false;
                 for (let y = 0; y < productsToFind.length; y++) {
-                    if (randomNum == productsToFind[y]) {
+                    if (products[randomNum].name == productsToFind[y]) {
                         isSame = true;
                     }
                 }
             } while (isSame);
         }
-        productsToFind.push(randomNum);
+        productsToFind.push(products[randomNum].name);
     }
+
+}
+
+// Generate Random Extra
+function generateRandomExtra() {
+    randomNum = Math.floor(Math.random() * 3);
+    productsToFind.push(productsExtra[randomNum]);
+    extraProduct= productsExtra[randomNum];
 }
 
 //Create List
 function createList() {
     productsToFind.forEach(element => {
         let listEl = document.createElement("li");
-        listEl.textContent = products[element].name;
+        listEl.textContent = element;
         document.querySelector("div > ul").appendChild(listEl);
+        console.log(listEl);
     });
 }
 
@@ -308,16 +353,20 @@ function eraseList() {
     });
 }
 
-
 //Create conversation
 function createText() {
     let text = document.getElementById("text");
     let divText = document.querySelector("#text > div")
-    if (!hasRoscon) {
-        divText.innerHTML = "Hola Teresa! Como va todo? Y tu família? Hemos guardado el roscón de reyes que nos pediste! Aquí tienes.";
+    if (!hasExtra) {
+        divText.innerHTML = "Hola Teresa! Como va todo? Y tu família? Hemos guardado el "+ extraProduct +" que nos pediste! Aquí tienes.";
+        listElemements = document.querySelectorAll("li");
+        listElemements.forEach(element => {
+            if (element.innerHTML === extraProduct) {
+                element.style.textDecoration= "line-through";
+            }});
         points += 60;
         pointsText.innerHTML = "Puntos: " + points;
-        hasRoscon = true;
+        productsFound.push(extraProduct);
 
     } else {
         divText.innerHTML = "Que pases muy buen día!";
@@ -333,10 +382,17 @@ function closeText() {
 }
 
 
+function eraseProducts() {
+    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(#speak):not(#shop):not(#gameBack)");
+    productsImages.forEach(element => {
+        interior.removeChild(element);
+    });
+}
+
 function endGame() {
     window.clearInterval(clock);
     interior.style.display = "none";
-    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(#speak)");
+    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(#speak):not(#shop):not(#gameBack)");
     productsImages.forEach(element => {
         interior.removeChild(element);
     });
