@@ -14,7 +14,7 @@ let myMusic;
 //Start game: hide start screen, generate new combo, set score to 0, start music 
 function startGame() {
   let score = document.querySelector('#counter').dataset.points;
-  newCombo();
+  newCombo(resetGame, resetTries, resetFeedback);
   //initPoints();
 
   document.querySelector('#counter').innerHTML = 'Score: ' + score;
@@ -197,7 +197,7 @@ function checkCombo() {
 }
 
 //Function to generate new outfit
-function newCombo() {
+function newCombo(callback1, callback2, callback3) {
   let hatNum = Math.floor((Math.random() * 6) + 1);
   let shirtNum = Math.floor((Math.random() * 6) + 1);
   let pantsNum = Math.floor((Math.random() * 6) + 1);
@@ -297,9 +297,9 @@ function newCombo() {
   }
   console.log(window.hat + " " + window.shirt + " " + window.pants + " " + window.shoes); //DELETE ME
 
-  resetGame();
-  resetTries();
-  resetFeedback();
+  callback1();
+  callback2();
+  callback3();
 
 }
 
