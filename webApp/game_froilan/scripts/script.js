@@ -14,13 +14,17 @@ let myMusic;
 
 //Start game: hide start screen, generate new combo, set score to 0, start music 
 function startGame() {
+  let score = document.querySelector('#counter').dataset.points;
   newCombo();
-  initPoints();
-  document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
-  console.log(window.points);
+  //initPoints();
+
+  document.querySelector('#counter').innerHTML = 'Score: ' + score;
+  console.log(score);
+
   document.querySelector('.startscreen').style.display = "none";
   document.querySelector('.endscreen').style.display = "none";
   document.querySelector('.mainscreen').style.display = "block";
+
   window.myMusic = new sound("img/gamemusic.mp3");
   window.myMusic.play();
 
@@ -95,10 +99,13 @@ function increaseTries() {
 //Points functions
 
 function increasePoints() {
-
-  if (window.points < pointLimit) {
-    window.points += 100;
+  let score = +document.querySelector('#counter').dataset.points;
+  
+  if (score < pointLimit) {
+    score += 100;
+    console.log('Score increased');
   }
+  document.querySelector('#counter').dataset.points = score;
 }
 
 function initPoints() {
@@ -106,14 +113,14 @@ function initPoints() {
 }
 
 function displayUpdateScore() {
-
-  if (window.points == pointLimit) {
-    document.querySelector('#counter').innerHTML = 'Score: ' + window.points + " (Point limit)";
+  let score = document.querySelector('#counter').dataset.points;
+  if (score == pointLimit) {
+    document.querySelector('#counter').innerHTML = 'Score: ' + score + " (Point limit)";
   } else {
-    document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
+    document.querySelector('#counter').innerHTML = 'Score: ' + score;
   }
 
-  console.log(window.points);
+  
 }
 
 //Function to check selected clothes items
