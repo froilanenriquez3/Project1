@@ -3,9 +3,17 @@ require_once '../php_libraries/bd.php';
 session_start();
 
 if (isset($_POST['login'])){
-    $_SESSION['user'] = selectUserByUsername($_POST['username']);
+    $user = selectUserByUsername($_POST['username']);
 
-    header("Location: ../index_anna.html");
+    if($_POST['password'] != $user['password']){
+        header("Location: ../php_views/login.php");
+        $_SESSION['logged'] = false;
+       
+    } else{
+        $_SESSION['user'] = $user;
+        header("Location: ../index_anna.html");
+    }
+    
     exit();
 }
 

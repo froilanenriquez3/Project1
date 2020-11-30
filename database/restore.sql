@@ -134,7 +134,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 /*Inserts for testing - REMOVE LATER!  pretty please - */
 
-INSERT INTO user VALUES(null, "Alex", "1234", 123, true, "alxcant@whatev.com");
+INSERT INTO user VALUES(null, "Alex", "1234pass", 123, true, "alxcant@whatev.com");
 INSERT INTO game VALUES(null, "Game1", 1000);
 INSERT INTO game VALUES(null, "Game2", 1000);
 INSERT INTO game VALUES(null, "Game3", 1000);
