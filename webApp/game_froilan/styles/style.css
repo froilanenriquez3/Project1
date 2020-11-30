@@ -80,8 +80,8 @@ button {
   color: black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 4fr 2fr;
-      grid-template-columns: 3fr 4fr 2fr;
+  -ms-grid-columns: 5fr 6fr 5fr;
+      grid-template-columns: 5fr 6fr 5fr;
   padding-bottom: 5px;
   padding-top: 0px;
 }
@@ -92,26 +92,47 @@ button {
   background-color: whitesmoke;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1.75fr 2fr 2fr 2fr;
-      grid-template-columns: 1.75fr 2fr 2fr 2fr;
-  padding-left: 10px;
-  padding-right: 7px;
+  -ms-grid-columns: 0.75fr 1fr 1fr 1fr;
+      grid-template-columns: 0.75fr 1fr 1fr 1fr;
+  height: 50px;
+  border-right: solid black 3px;
+  padding-top: 10px;
+}
+
+.topbar #feedbackbox p {
+  border: solid black 1px;
+  margin: 1px;
+  text-align: center;
+  vertical-align: center;
+  height: 20px;
 }
 
 .topbar #scorebox {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-left: 15px;
-  margin-top: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  row-gap: 0;
+  margin-left: 10px;
+  padding: 1px;
   vertical-align: center;
   font-size: 15px;
 }
 
 .topbar #scorebox p {
-  margin: 5px;
+  border: solid black 1px;
+  margin: 3px;
+  text-align: center;
+}
+
+.topbar #scorebox #winner {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 1 / span 1/ span 2;
 }
 
 .topbar #buttonsbox {
@@ -120,9 +141,11 @@ button {
   display: -ms-grid;
   display: grid;
   padding: 10px;
+  height: 50px;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: aliceblue;
+  border-left: solid black 3px;
 }
 
 .topbar #buttonsbox .music {
@@ -137,9 +160,7 @@ button {
 }
 
 .topbar #buttonsbox .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  display: none;
 }
 
 .topbar #buttonsbox .switch .slider {
@@ -149,10 +170,10 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #2196f3;
+  background-color: #06f0d1;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 34px;
+  border-radius: 50px;
 }
 
 .topbar #buttonsbox .switch .slider:before {
@@ -186,6 +207,7 @@ button {
   height: 30px;
   width: 70px;
   font-size: 15px;
+  margin-right: 5px;
   text-decoration: none;
   background-color: red;
   color: white;
@@ -234,6 +256,7 @@ button {
           justify-content: space-between;
   height: 450px;
   width: 875px;
+  border-top: solid black 3px;
 }
 
 .container .shelf {

@@ -142,45 +142,45 @@ function checkCombo() {
   ) {
     if (document.querySelector(' #hathole').firstChild.id == window.hat) {
       let hat = document.querySelector('#feedhat');
-      hat.innerHTML = "Hat: ✓ ";
+      hat.innerHTML = "Hat ✓";
       hat.style.color = "green";
       checkHat = true;
     } else {
       let hat = document.querySelector('#feedhat');
-      hat.innerHTML = "Hat: X ";
+      hat.innerHTML = "Hat X";
       hat.style.color = "red";
     }
 
     if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
       let shirt = document.querySelector('#feedshirt');
-      shirt.innerHTML = "Shirt: ✓ ";
+      shirt.innerHTML = "Shirt ✓";
       shirt.style.color = "green";
       checkShirt = true;
     } else {
       let shirt = document.querySelector('#feedshirt');
-      shirt.innerHTML = "Shirt: X ";
+      shirt.innerHTML = "Shirt X";
       shirt.style.color = "red";
     }
 
     if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
       let pant = document.querySelector('#feedpants');
-      pant.innerHTML = "Pants: ✓ ";
+      pant.innerHTML = "Pants ✓";
       pant.style.color = "green";
       checkPants = true;
     } else {
       let pant = document.querySelector('#feedpants');
-      pant.innerHTML = "Pants: X ";
+      pant.innerHTML = "Pants X";
       pant.style.color = "red";
     }
 
     if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
       let shoe = document.querySelector('#feedshoes');
-      shoe.innerHTML = "Shoes: ✓ ";
+      shoe.innerHTML = "Shoes ✓";
       shoe.style.color = "green";
       checkShoes = true;
     } else {
       let shoe = document.querySelector('#feedshoes');
-      shoe.innerHTML = "Shoes: X ";
+      shoe.innerHTML = "Shoes X";
       shoe.style.color = "red";
     }
 
@@ -309,13 +309,13 @@ function newCombo(callback1, callback2, callback3) {
 }
 
 function resetFeedback() {
-  document.querySelector('#feedhat').innerHTML = "Hat: ";
+  document.querySelector('#feedhat').innerHTML = "Hat";
   document.querySelector('#feedhat').style.color="black";
-  document.querySelector('#feedshirt').innerHTML = "Shirt: ";
+  document.querySelector('#feedshirt').innerHTML = "Shirt";
   document.querySelector('#feedshirt').style.color="black";
-  document.querySelector('#feedpants').innerHTML = "Pants: ";
+  document.querySelector('#feedpants').innerHTML = "Pants";
   document.querySelector('#feedpants').style.color="black";
-  document.querySelector('#feedshoes').innerHTML = "Shoes: ";
+  document.querySelector('#feedshoes').innerHTML = "Shoes";
   document.querySelector('#feedshoes').style.color="black";
   
 

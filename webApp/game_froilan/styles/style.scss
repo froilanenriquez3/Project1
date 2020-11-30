@@ -87,7 +87,7 @@ button{
     background-color: white;
     color: black;
     display: grid;
-    grid-template-columns: 3fr 4fr 2fr;
+    grid-template-columns: 5fr 6fr 5fr;
     padding-bottom: 5px;
     padding-top: 0px;
 
@@ -95,30 +95,53 @@ button{
         box-sizing: border-box;
         background-color: whitesmoke;
         display: grid;
-        grid-template-columns: 1.75fr 2fr 2fr 2fr;
-        padding-left: 10px;
-        padding-right: 7px;
+        grid-template-columns:0.75fr 1fr 1fr 1fr ;
+        height: 50px;
+        border-right: solid black 3px;
+        padding-top: 10px;
+        p{
+            border: solid black 1px;
+            margin: 1px;
+            text-align: center;
+            vertical-align: center;
+            height: 20px;
+        }
     }
 
     #scorebox {
-        display: inline-flex;
         box-sizing: border-box;
-        margin-left: 15px;
-        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        row-gap: 0;
+
+        margin-left: 10px;
+        padding: 1px;
+ 
         vertical-align: center;
         font-size: 15px;
+       
         p {
-            margin: 5px;
+            border: solid black 1px;
+            margin: 3px;
+            text-align: center;
+           
         }
+        #winner{
+            grid-area: 2 / 1 / span 1/ span 2;
+        }
+       
     }
 
     #buttonsbox {
         box-sizing: border-box;
         display: grid;
         padding: 10px;
-
+        height: 50px;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         background-color: aliceblue;
+        border-left: solid black 3px;
+      
+     
         .music{
             padding: 7px;
         }
@@ -128,11 +151,8 @@ button{
             width: 60px;
             height: 34px;
             
-
             input {
-                opacity: 0;
-                width: 0;
-                height: 0;
+                display: none;
             }
 
             .slider {
@@ -142,10 +162,9 @@ button{
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: #2196f3;
-
+                background-color: #06f0d1;
                 transition: 0.4s;
-                border-radius: 34px;
+                border-radius: 50px;
             }
 
             .slider:before {
@@ -156,7 +175,6 @@ button{
                 left: 4px;
                 bottom: 4px;
                 background-color: white;
-
                 transition: 0.4s;
                 border-radius: 50%;
             }
@@ -179,7 +197,7 @@ button{
             height: 30px;
             width: 70px;
             font-size: 15px;
-            
+            margin-right: 5px;
             text-decoration: none;
             background-color: red;
             color: white;
@@ -224,6 +242,7 @@ button{
     //width: 1048px;
     height: 450px;
     width: 875px;
+    border-top: solid black 3px;
 
     .shelf {
         box-sizing: border-box;
@@ -231,6 +250,7 @@ button{
         grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
         align-items: center;
         height: 100%;
+       
 
         .dropzone {
             box-sizing: border-box;
@@ -243,6 +263,7 @@ button{
             padding: 0px;
 
             background-color: rgb(88, 63, 33);
+           
         }
 
         [draggable="true"] {
@@ -262,6 +283,7 @@ button{
             margin: auto;
             display: grid;
             justify-content: center;
+           
 
             .dropzone {
                 border: none;
