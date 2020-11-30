@@ -13,7 +13,7 @@ let triesLimit = 5;
 let myMusic;
 
 //Start game: hide start screen, generate new combo, set score to 0, start music 
-function startGame(){
+function startGame() {
   newCombo();
   initPoints();
   document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
@@ -22,33 +22,34 @@ function startGame(){
   document.querySelector('.endscreen').style.display = "none";
   document.querySelector('.mainscreen').style.display = "block";
   window.myMusic = new sound("img/gamemusic.mp3");
-  //window.myMusic.play();
+  window.myMusic.play();
 
 }
 
-function endScreen(){
+function endScreen() {
   document.querySelector('.mainscreen').style.display = "none";
   document.querySelector('.endscreen').style.display = "flex";
+  window.myMusic.stop();
 }
 
 //Music functions
 
-function mute(){
+function mute() {
   window.myMusic.stop();
 
-  setTimeout(function(){
+  setTimeout(function () {
     document.querySelector('#music').setAttribute("onclick", "play()");
   }, 100);
-  document.querySelector('#music').innerHTML = "Music: On";
+  document.querySelector('#music').innerHTML = "Music: Off";
 
 }
 
-function play(){
+function play() {
   window.myMusic.play();
-  setTimeout(function(){
+  setTimeout(function () {
     document.querySelector('#music').setAttribute("onclick", "mute()");
   }, 100);
-  document.querySelector('#music').innerHTML = "mute";
+  document.querySelector('#music').innerHTML = "Music: On";
 }
 
 // Sound constructor to add music element to html
@@ -57,66 +58,67 @@ function sound(src) {
   this.sound.src = src;
   this.sound.setAttribute("preload", "auto");
   this.sound.setAttribute("controls", "none");
-  this.sound.setAttribute("loop","true")
+  this.sound.setAttribute("loop", "true")
   this.sound.style.display = "none";
   document.body.appendChild(this.sound);
-  this.play = function(){
+  this.play = function () {
     this.sound.play();
   }
-  this.stop = function(){
+  this.stop = function () {
     this.sound.pause();
   }
 }
 
 //Try functions
 
-function resetTries(){
+function resetTries() {
   window.tries = 0;
   document.querySelector('#tries').innerHTML = "Tries: 0/" + triesLimit;
 }
 
-function increaseTries(){
-  if(window.tries < triesLimit-1){
-    window.tries++;
+function increaseTries() {
+  checkCombo();
+  window.tries++;
+
+  if (window.tries < triesLimit) {
     document.querySelector('#tries').innerHTML = "Tries: " + window.tries + "/" + triesLimit;
-  } else{
-    document.querySelector('#tries').innerHTML = "You are all out of tries!";
+  } else if (window.tries == 5) {
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
-
+    document.querySelector('#tries').innerHTML = "Tries: " + window.tries + "/" + triesLimit;
+    document.querySelector('#winner').innerHTML = "Click next";
   }
-  
+
+
 }
 
 //Points functions
 
-function increasePoints(){
- 
-  if(window.points < pointLimit){
-    window.points+= 100;
-  } 
+function increasePoints() {
+
+  if (window.points < pointLimit) {
+    window.points += 100;
+  }
 }
 
-function initPoints(){
+function initPoints() {
   window.points = 0;
 }
 
-function displayUpdateScore(){
-  
-  if(window.points == pointLimit){
+function displayUpdateScore() {
+
+  if (window.points == pointLimit) {
     document.querySelector('#counter').innerHTML = 'Score: ' + window.points + " (Point limit)";
-  }else{
+  } else {
     document.querySelector('#counter').innerHTML = 'Score: ' + window.points;
   }
-  
+
   console.log(window.points);
 }
 
 //Function to check selected clothes items
 
 function checkCombo() {
-  increaseTries();
-
   let checkHat = false;
   let checkShirt = false;
   let checkPants = false;
@@ -125,59 +127,71 @@ function checkCombo() {
 
   let text2 = "Not quite.";
 
-  if (document.querySelector(' #hathole').firstChild.id == window.hat) {
-    let hat = document.querySelector('#feedhat');
-    hat.innerHTML = "Hat: ✓ ";
-    hat.style.color = "green";
-    checkHat = true;
+  if (document.querySelector('#hathole').hasChildNodes()
+    && document.querySelector('#shirthole').hasChildNodes()
+    && document.querySelector('#pantshole').hasChildNodes()
+    && document.querySelector('#shoeshole').hasChildNodes()
+
+  ) {
+    if (document.querySelector(' #hathole').firstChild.id == window.hat) {
+      let hat = document.querySelector('#feedhat');
+      hat.innerHTML = "Hat: ✓ ";
+      hat.style.color = "green";
+      checkHat = true;
+    } else {
+      let hat = document.querySelector('#feedhat');
+      hat.innerHTML = "Hat: X ";
+      hat.style.color = "red";
+    }
+
+    if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
+      let shirt = document.querySelector('#feedshirt');
+      shirt.innerHTML = "Shirt: ✓ ";
+      shirt.style.color = "green";
+      checkShirt = true;
+    } else {
+      let shirt = document.querySelector('#feedshirt');
+      shirt.innerHTML = "Shirt: X ";
+      shirt.style.color = "red";
+    }
+
+    if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
+      let pant = document.querySelector('#feedpants');
+      pant.innerHTML = "Pants: ✓ ";
+      pant.style.color = "green";
+      checkPants = true;
+    } else {
+      let pant = document.querySelector('#feedpants');
+      pant.innerHTML = "Pants: X ";
+      pant.style.color = "red";
+    }
+
+    if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
+      let shoe = document.querySelector('#feedshoes');
+      shoe.innerHTML = "Shoes: ✓ ";
+      shoe.style.color = "green";
+      checkShoes = true;
+    } else {
+      let shoe = document.querySelector('#feedshoes');
+      shoe.innerHTML = "Shoes: X ";
+      shoe.style.color = "red";
+    }
+
+    if (checkHat && checkShirt && checkPants && checkShoes) {
+      text2 = "You got it!";
+      increasePoints();
+      displayUpdateScore();
+      document.querySelector('#next').disabled = false;
+      document.querySelector('#check').disabled = true;
+    }
+
+    document.querySelector('#winner').innerHTML = text2;
   } else {
-    let hat = document.querySelector('#feedhat');
-    hat.innerHTML = "Hat: X ";
-    hat.style.color = "red";
+    document.querySelector('#winner').innerHTML = "You're missing clothes.";
+    window.tries--;
   }
 
-  if (document.querySelector(' #shirthole').firstChild.id == window.shirt) {
-    let shirt = document.querySelector('#feedshirt');
-    shirt.innerHTML = "Shirt: ✓ ";
-    shirt.style.color = "green";
-    checkShirt = true;
-  } else {
-    let shirt = document.querySelector('#feedshirt');
-    shirt.innerHTML = "Shirt: X ";
-    shirt.style.color = "red";
-  }
 
-  if (document.querySelector(' #pantshole').firstChild.id == window.pants) {
-    let pant = document.querySelector('#feedpants');
-    pant.innerHTML = "Pants: ✓ ";
-    pant.style.color = "green";
-    checkPants = true;
-  } else {
-    let pant = document.querySelector('#feedpants');
-    pant.innerHTML = "Pants: X ";
-    pant.style.color = "red";
-  }
-
-  if (document.querySelector(' #shoeshole').firstChild.id == window.shoes) {
-    let shoe = document.querySelector('#feedshoes');
-    shoe.innerHTML = "Shoes: ✓ ";
-    shoe.style.color = "green";
-    checkShoes = true;
-  } else {
-    let shoe = document.querySelector('#feedshoes');
-    shoe.innerHTML = "Shoes: X ";
-    shoe.style.color = "red";
-  }
-
-  if ( checkHat && checkShirt && checkPants && checkShoes){
-    text2 = "You got it!";
-    increasePoints();
-    displayUpdateScore();
-    document.querySelector('#next').disabled = false;
-    document.querySelector('#check').disabled = true;
-  }
-  
-  document.querySelector('#winner').innerHTML = text2;
 }
 
 //Function to generate new outfit
@@ -282,20 +296,27 @@ function newCombo() {
   console.log(window.hat + " " + window.shirt + " " + window.pants + " " + window.shoes); //DELETE ME
 
   resetGame();
+  resetTries();
+  resetFeedback();
 
 }
 
-function resetGame(){
-  resetTries();
+function resetFeedback() {
   document.querySelector('#feedhat').innerHTML = "";
   document.querySelector('#feedshirt').innerHTML = "";
   document.querySelector('#feedpants').innerHTML = "";
   document.querySelector('#feedshoes').innerHTML = "";
 
   document.querySelector('#winner').innerHTML = "";
-  
+
   document.querySelector('#next').disabled = true;
   document.querySelector('#check').disabled = false;
+
+
+}
+
+function resetGame() {
+
 
   //When game container is updated, copy contents into this string literal
   document.querySelector(".container").innerHTML = ` 

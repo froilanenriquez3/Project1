@@ -96,6 +96,8 @@ body{
     color:black;
     display: grid;
     grid-template-columns: 3fr 3fr 3fr;
+    padding-bottom: 5px;
+    padding-top: 0px;
 
     #feedbackbox{
         box-sizing: border-box;
