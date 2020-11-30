@@ -4,7 +4,6 @@ let shirt;
 let pants;
 let shoes;
 
-let points;
 let pointLimit = 1000;
 
 let tries;
@@ -19,7 +18,6 @@ function startGame() {
   //initPoints();
 
   document.querySelector('#counter').innerHTML = 'Score: ' + score;
-  console.log(score);
 
   document.querySelector('.startscreen').style.display = "none";
   document.querySelector('.endscreen').style.display = "none";
@@ -103,14 +101,11 @@ function increasePoints() {
   
   if (score < pointLimit) {
     score += 100;
-    console.log('Score increased');
+   
   }
   document.querySelector('#counter').dataset.points = score;
 }
 
-function initPoints() {
-  window.points = 0;
-}
 
 function displayUpdateScore() {
   let score = document.querySelector('#counter').dataset.points;
@@ -309,12 +304,17 @@ function newCombo() {
 }
 
 function resetFeedback() {
-  document.querySelector('#feedhat').innerHTML = "";
-  document.querySelector('#feedshirt').innerHTML = "";
-  document.querySelector('#feedpants').innerHTML = "";
-  document.querySelector('#feedshoes').innerHTML = "";
+  document.querySelector('#feedhat').innerHTML = "Hat: ";
+  document.querySelector('#feedhat').style.color="black";
+  document.querySelector('#feedshirt').innerHTML = "Shirt: ";
+  document.querySelector('#feedshirt').style.color="black";
+  document.querySelector('#feedpants').innerHTML = "Pants: ";
+  document.querySelector('#feedpants').style.color="black";
+  document.querySelector('#feedshoes').innerHTML = "Shoes: ";
+  document.querySelector('#feedshoes').style.color="black";
+  
 
-  document.querySelector('#winner').innerHTML = "";
+  document.querySelector('#winner').innerHTML = "Click check when you're done";
 
   document.querySelector('#next').disabled = true;
   document.querySelector('#check').disabled = false;

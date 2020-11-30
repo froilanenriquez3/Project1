@@ -27,10 +27,10 @@
         <div class="mainscreen">
             <div class="topbar">
                 <div id="feedbackbox">
-                    <p id="feedhat"></p>
-                    <p id="feedshirt"></p>
-                    <p id="feedpants"></p>
-                    <p id="feedshoes"></p>
+                    <p id="feedhat">Hat: </p>
+                    <p id="feedshirt">Shirt: </p>
+                    <p id="feedpants">Pants: </p>
+                    <p id="feedshoes">Shoes: </p>
                 </div>
                 <div id="scorebox">
                     <p id="counter" data-points=0>Score: 0</p>
@@ -39,9 +39,9 @@
     
                 </div>
                 <div id="buttonsbox">
-                    <button onclick="increaseTries()" id="check">CHECK</button>
-                    <button onclick="newCombo()" id="next" disabled>NEXT</button>
-                    <button onclick="mute()" id="music">Music: Off</button>
+                    <button class="endgame" onclick="endScreen()">EXIT</button>
+                    
+                    <button onclick="mute()" id="music">Music: On</button>
                 </div>
     
             </div>
@@ -218,8 +218,9 @@
     
             </div>
             
-        
-                <button class="endgame" onclick="endScreen()">end game</button>
+                <button class="check" onclick="increaseTries()" id="check">check</button>
+                <button class="check" onclick="newCombo()" id="next" disabled>next</button>
+                
         </div>
 
 

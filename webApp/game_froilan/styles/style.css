@@ -76,8 +76,8 @@ body {
   color: black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 3fr;
-      grid-template-columns: 3fr 3fr 3fr;
+  -ms-grid-columns: 3fr 4fr 2fr;
+      grid-template-columns: 3fr 4fr 2fr;
   padding-bottom: 5px;
   padding-top: 0px;
 }
@@ -116,8 +116,8 @@ body {
   display: -ms-grid;
   display: grid;
   padding: 10px;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   background-color: aliceblue;
 }
 
@@ -126,16 +126,15 @@ body {
   width: 70px;
   font-size: 15px;
   text-decoration: none;
-  background-color: black;
+  background-color: red;
   color: white;
   border-radius: 5px;
-  border: none;
+  border: solid black 1px;
 }
 
 .topbar #buttonsbox button:hover {
   background-color: white;
   color: black;
-  border: solid black 1px;
 }
 
 .topbar #buttonsbox button:active {
@@ -459,22 +458,41 @@ body {
   background-size: contain;
 }
 
-.endgame {
+.check {
   position: relative;
-  bottom: 50px;
-  left: 500px;
+  bottom: 100px;
+  left: 295px;
   z-index: 1;
-  height: 30px;
+  height: 50px;
+  width: 92px;
   border-radius: 50px;
   border: black solid 1px;
-  background-color: red;
+  background-color: green;
   color: white;
+  font-size: 30px;
 }
 
-.endgame:hover {
+.check#next {
+  left: 393px;
+}
+
+.check:hover {
   background-color: white;
   color: black;
   border: black solid 1px;
+}
+
+.check:disabled {
+  background-color: grey;
+}
+
+.check:disabled:active {
+  color: white;
+}
+
+.check:disabled:hover {
+  background-color: grey;
+  color: white;
 }
 
 .endscreen {
