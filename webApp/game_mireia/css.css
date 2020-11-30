@@ -1,3 +1,5 @@
+/* INSTRUCTIONS */
+
 #instructions{
     background-color: #ffb35c;
     color: #2e585a;
@@ -47,13 +49,22 @@
 #interior{
     display:none;
   }
+  
 
-.background{
-    background-image: url("img/background.png");
+
+/* GAME */
+
+#background{
     height: 450px;
     width: 895px;
     margin: 20px auto;
     position: relative;
+}
+
+#gameBack{
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 #lady{
@@ -68,7 +79,7 @@
     top: 375px;
     left: 825px;
     height: 50px;
-    background-color: rgb(233, 167, 92, 0.3);
+    background-color: rgb(233, 167, 92);
     border: black 1px solid;
     border-radius: 4px;
     padding: 5px;
@@ -79,7 +90,7 @@
     top: 30px;
     left: 25px;
     height: 20px;
-    background-color: rgb(233, 167, 92, 0.5);
+    background-color: rgb(233, 167, 92);
     border: black 1px solid;
     padding: 5px;
     border-radius: 4px;
@@ -121,12 +132,17 @@ padding-left: 10px;
     top: 200px;
     left: 675px;
     height: 20px;
-    background-color: rgb(233, 167, 92, 0.5);
+    background-color: rgb(233, 167, 92);
     border: black 1px solid;
     border-radius: 35px;
     padding: 10px;
     display: none;
     z-index: 2;
+}
+
+#interior > p{
+    z-index: 2;
+    color: black;
 }
 
 
@@ -140,7 +156,7 @@ padding-left: 10px;
     left: 20px;
     margin: auto;
     font-size: large;
-    background-color: rgb(233, 167, 92, 0.8);
+    background-color: rgb(233, 167, 92);
     display: none;
     padding: 5px;
     border: 1px solid black;
@@ -158,6 +174,8 @@ padding-left: 10px;
     margin-bottom: 5px;
 }
 
+/* Basket animations */
+
 .animationClassGreen{
     animation: basketGreen 0.5s linear;
 }
@@ -168,7 +186,7 @@ padding-left: 10px;
 
 @keyframes basketGreen{
     0%{
-        background-color: rgb(233, 167, 92, 0.5);
+        background-color: rgb(233, 167, 92);
     } 
 
     50%{
@@ -176,13 +194,13 @@ padding-left: 10px;
     }
 
     100%{
-        background-color: rgb(233, 167, 92, 0.5);;
+        background-color: rgb(233, 167, 92);;
     }
 }
 
 @keyframes basketRed{
     0%{
-        background-color: rgb(233, 167, 92, 0.5);
+        background-color: rgb(233, 167, 92);
     } 
 
     50%{
@@ -190,6 +208,66 @@ padding-left: 10px;
     }
 
     100%{
-        background-color: rgb(233, 167, 92, 0.5);;
+        background-color: rgb(233, 167, 92);
     }
+}
+
+/* MESSAGE AFTER GAME */
+
+#afterGame{
+    display: none;
+    background-color: #ffb35c;
+    color: #2e585a;
+    position: relative;
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    height: 450px;
+    width: 895px;
+}
+
+#replay{
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#replay > img{
+    
+    padding-left: 3px;
+    height: 30px; 
+}
+
+#replay > h2 {
+    padding-left: 1em;
+}
+
+/* Clock */
+
+#time{
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+    z-index: 3;
+    background-color: #ffb35c;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+/* Change shop */
+
+#shop{
+    position: absolute;
+    top: 75px;
+    left: 25px;
+    height: 20px;
+    background-color: rgb(233, 167, 92);
+    border: black 1px solid;
+    padding: 5px;
+    border-radius: 4px;
 }

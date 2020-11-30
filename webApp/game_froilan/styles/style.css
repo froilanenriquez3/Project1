@@ -14,6 +14,60 @@ body {
   border: solid grey 10px;
 }
 
+.startscreen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("../img/store.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 500px;
+  width: 875px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: black;
+}
+
+.text {
+  border-radius: 50px;
+  background-color: white;
+  margin-top: 70px;
+  padding: 20px;
+  text-align: center;
+}
+
+.startbutton {
+  margin: 30px;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color: greenyellow;
+  color: black;
+  border: solid black 2px;
+}
+
+.startbutton:hover {
+  background-color: #14d614;
+  color: white;
+  border: solid white 2px;
+}
+
+.mainscreen {
+  display: none;
+}
+
 .topbar {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -60,8 +114,8 @@ body {
   display: -ms-grid;
   display: grid;
   padding: 10px;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   background-color: aliceblue;
 }
 
@@ -69,12 +123,17 @@ body {
   height: 30px;
   width: 70px;
   font-size: 15px;
-  margin-left: 40px;
   text-decoration: none;
   background-color: black;
   color: white;
   border-radius: 5px;
   border: none;
+}
+
+.topbar #buttonsbox button:hover {
+  background-color: white;
+  color: black;
+  border: solid black 1px;
 }
 
 .topbar #buttonsbox button:active {
@@ -88,6 +147,18 @@ body {
 
 .topbar #buttonsbox button:disabled:active {
   color: white;
+}
+
+.topbar #buttonsbox button:disabled:hover {
+  background-color: grey;
+  color: white;
+}
+
+.topbar #buttonsbox button#music {
+  background-color: white;
+  color: black;
+  border: solid black 1px;
+  width: 100px;
 }
 
 .container {
@@ -384,5 +455,68 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.endgame {
+  position: relative;
+  bottom: 50px;
+  left: 500px;
+  z-index: 1;
+  height: 30px;
+  border-radius: 50px;
+  border: black solid 1px;
+  background-color: red;
+  color: white;
+}
+
+.endgame:hover {
+  background-color: white;
+  color: black;
+  border: black solid 1px;
+}
+
+.endscreen {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 500px;
+  width: 875px;
+  background-image: url("../img/store.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: black;
+}
+
+.endscreen .text {
+  height: 200px;
+}
+
+.endscreen .text h2 {
+  color: red;
+}
+
+.endscreen .redeem {
+  background-color: lightblue;
+  color: black;
+  border: solid black 2px;
+}
+
+.endscreen .redeem:hover {
+  background-color: blue;
+  color: white;
+  border: solid white 2px;
 }
 /*# sourceMappingURL=style.css.map */
