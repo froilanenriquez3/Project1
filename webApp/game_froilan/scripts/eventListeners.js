@@ -48,10 +48,10 @@ document.addEventListener("drop", function (event) {
   event.preventDefault();
   // move dragged elem to the selected drop target
   if ((event.target.classList.contains("dropzone") && event.target.classList.contains("hat") && dragged.classList.contains("dragHat"))
-  || (event.target.classList.contains("dropzone") && event.target.classList.contains("shirt") && dragged.classList.contains("dragShirt"))
-  || (event.target.classList.contains("dropzone") && event.target.classList.contains("pants") && dragged.classList.contains("dragPants")) 
-  || (event.target.classList.contains("dropzone") && event.target.classList.contains("shoes") && dragged.classList.contains("dragShoes"))
-  
+    || (event.target.classList.contains("dropzone") && event.target.classList.contains("shirt") && dragged.classList.contains("dragShirt"))
+    || (event.target.classList.contains("dropzone") && event.target.classList.contains("pants") && dragged.classList.contains("dragPants"))
+    || (event.target.classList.contains("dropzone") && event.target.classList.contains("shoes") && dragged.classList.contains("dragShoes"))
+
   ) {
     dragged.parentNode.removeChild(dragged);
     event.target.appendChild(dragged);
@@ -59,24 +59,77 @@ document.addEventListener("drop", function (event) {
   event.target.style.background = "";
 }, false);
 
+//Event listener for dragging items over occupied squares
 document.addEventListener("drop", function (event) {
   // prevent default action (open as link for some elements)
   event.preventDefault();
   // move dragged elem to the selected drop target
-  if ((event.target.classList.contains("dragHat") && dragged.classList.contains("dragHat"))
-  || (event.target.classList.contains("dragShirt") && dragged.classList.contains("dragShirt"))
-  || (event.target.classList.contains("dragPants") && dragged.classList.contains("dragPants"))
-  || (event.target.classList.contains("dragShoes") && dragged.classList.contains("dragShoes"))
-  ) {
-    let previousParent = dragged.parentNode;
-    if(!(dragged.parentNode == event.target.parentNode)){
-      dragged.parentNode.removeChild(dragged);
-    }
 
-    event.target.parentNode.appendChild(dragged);
-    event.target.parentNode.removeChild(event.target.parentNode.childNodes[0]);
-    previousParent.appendChild(event.target);
- 
+  if ((event.target.classList.contains("dragHat") && dragged.classList.contains("dragHat"))
+    || (event.target.classList.contains("dragShirt") && dragged.classList.contains("dragShirt"))
+    || (event.target.classList.contains("dragPants") && dragged.classList.contains("dragPants"))
+    || (event.target.classList.contains("dragShoes") && dragged.classList.contains("dragShoes"))
+  ) {
+  
+    let destination = locateDestination(event.target);
+    
+    if(event.target.parentNode.parentNode.classList.contains("center")){
+      dragged.parentNode.removeChild(dragged);
+      event.target.parentNode.appendChild(dragged);
+      event.target.parentNode.removeChild(event.target.parentNode.childNodes[0]);
+
+      document.querySelector('#'+destination+"").appendChild(event.target);
+    }
+    
+    
+
   }
+
+
   event.target.style.background = "";
 }, false);
+
+
+function locateDestination(replaced) {
+  let zone = replaced.classList;
+  let zoneStr;
+  let location;
+  
+  //Find the zone
+  if(zone.contains("dragHat")){
+    zoneStr = "hatzone";
+  }
+  if(zone.contains("dragShirt")){
+    zoneStr = "shirtzone";
+  }
+  if(zone.contains("dragPants")){
+    zoneStr = "pantszone";
+  }
+  if(zone.contains("dragShoes")){
+    zoneStr = "shoeszone";
+  }
+ 
+
+  //Find the number
+  if(replaced.id.includes("1")){
+    location = zoneStr + "1";
+  }
+  if(replaced.id.includes("2")){
+    location = zoneStr + "2";
+  }
+  if(replaced.id.includes("3")){
+    location = zoneStr + "3";
+  }
+  if(replaced.id.includes("4")){
+    location = zoneStr + "4";
+  }
+  if(replaced.id.includes("5")){
+    location = zoneStr + "5";
+  }
+  if(replaced.id.includes("6")){
+    location = zoneStr + "6";
+  }
+
+  console.log(location);
+  return location;
+}

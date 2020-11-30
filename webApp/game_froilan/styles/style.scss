@@ -221,9 +221,7 @@ body{
             margin: auto;
             display: grid;
             justify-content: center;
-           
-           
-           
+
             .dropzone{
                 
                 border:none;
@@ -283,11 +281,11 @@ body{
         background-color: lightsalmon;
 
         #dragshirt1{
-            @include bodyImage("../img/shirts/cyan.png");
+            @include bodyImage("../img/shirts/redshirt.png");
         }
 
         #dragshirt2{
-            @include bodyImage("../img/shirts/redshirt.png")
+            @include bodyImage("../img/shirts/cyan.png")
         }
         #dragshirt3{
             @include bodyImage("../img/shirts/whiteshirt.png")
@@ -314,10 +312,10 @@ body{
     #pants{
         background-color: rgb(170, 116, 71);
         #dragpants1{
-            @include bodyImage("../img/pants/cyanpants.png");
+            @include bodyImage("../img/pants/redpants.png");
         }
         #dragpants2{
-            @include bodyImage("../img/pants/redpants.png");
+            @include bodyImage("../img/pants/cyanpants.png");
         }
         #dragpants3{
             @include bodyImage("../img/pants/whitepants.png");
@@ -344,11 +342,11 @@ body{
         background-color: rgb(92, 59, 59);
  
         #dragshoes1{
-            @include bodyImage("../img/shoes/blueshoes.png");
+            @include bodyImage("../img/shoes/redshoes.png");
         }
 
         #dragshoes2{
-            @include bodyImage("../img/shoes/redshoes.png");
+            @include bodyImage("../img/shoes/blueshoes.png");
         }
 
 
