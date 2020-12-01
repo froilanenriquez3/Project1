@@ -22,18 +22,16 @@ if($remove_admin){
     modifyUser($_POST['adminid'], $admin['username'], $admin['password'], $admin['points'], 0, $admin['email']);
 
     header("Location: ../php_views/administration.php#adminssection");
-    exit();
+
 }
 
 if($add_admin){
-    
-    
     $admin = selectUserById($_POST['newadmin']);
 
     modifyUser($_POST['newadmin'], $admin['username'], $admin['password'], $admin['points'], 1, $admin['email']);
 
     header("Location: ../php_views/administration.php#adminssection");
-    exit();
+  
    
     
 }
@@ -46,7 +44,7 @@ if($modify_user){
    
 
     header("Location: ../php_views/administration.php#userssection");
-    exit();
+  
 }
 
 if($delete_user){
@@ -55,22 +53,27 @@ if($delete_user){
     deleteUser($_POST['userid']);
 
     header("Location: ../php_views/administration.php#userssection");
-    exit();
+
 }
 
 
 if($add_user){
-    insertUser($_POST['username'], $_POST['password'],0, 0,$_POST['email']);
-    if($currentIsAdmin){
-        header("Location: ../php_views/administration.php#userssection");
-        exit();
-    }else{
-        header("Location: ../index.html");
-        exit();
+    if ($_POST['password'] == $_POST['confpassword']) {
+        insertUser($_POST['username'], $_POST['password'],0, 0,$_POST['email']);
+        if(!$currentIsAdmin){
+            header("Location: ../index_anna.html");
+          
+        }else{
+            header("Location: ../php_views/administration.php#userssection");
+            
+        }
+    } else{
+        header("Location: ../php_views/signup.php");
     }
+
   
 }
 
-
+exit();
 
 ?>
