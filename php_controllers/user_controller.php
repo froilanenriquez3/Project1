@@ -69,6 +69,7 @@ if($add_user){
         }
     } else{
         header("Location: ../php_views/signup.php");
+        $_SESSION['password_conf'] = false;
     }
 
   
