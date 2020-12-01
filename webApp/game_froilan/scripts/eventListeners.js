@@ -61,9 +61,9 @@ document.addEventListener("drop", function (event) {
 
 //Event listener for dragging items over occupied squares
 document.addEventListener("drop", function (event) {
-  // prevent default action (open as link for some elements)
+ 
   event.preventDefault();
-  // move dragged elem to the selected drop target
+
 
   if ((event.target.classList.contains("dragHat") && dragged.classList.contains("dragHat"))
     || (event.target.classList.contains("dragShirt") && dragged.classList.contains("dragShirt"))

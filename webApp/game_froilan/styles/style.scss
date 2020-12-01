@@ -179,6 +179,7 @@ button {
                 right: 0;
                 bottom: 0;
                 background-color: #06f0d1;
+                
                 transition: 0.4s;
                 border-radius: 50px;
             }
@@ -188,7 +189,7 @@ button {
                 content: "";
                 height: 26px;
                 width: 26px;
-                left: 4px;
+                left: 30px;
                 bottom: 4px;
                 background-color: white;
                 transition: 0.4s;
@@ -197,6 +198,7 @@ button {
 
             input:checked + .slider {
                 background-color: #ccc;
+                
             }
 
             input:focus + .slider {
@@ -204,7 +206,7 @@ button {
             }
 
             input:checked + .slider:before {
-                transform: translateX(26px);
+                transform: translateX(-26px);
             }
         }
 

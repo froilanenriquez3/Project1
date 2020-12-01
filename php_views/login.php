@@ -1,10 +1,14 @@
 <?php
-    session_start();
+session_start();
 
-    //or some other equivalent feedback code here
-    if(!$_SESSION['logged']){
+//or some other equivalent feedback code here
+if (isset($_SESSION['logged'])) {
+
+
+    if (!$_SESSION['logged']) {
         echo "<p>Your password was incorrect.</p>";
     }
+}
 ?>
 
 

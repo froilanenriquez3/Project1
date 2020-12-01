@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `restore`.`user` (
   `password` VARCHAR(16) NOT NULL,
   `points` INT NULL,
   `isAdmin` TINYINT NULL,
-  `email` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`userid`))
 ENGINE = InnoDB;
 
