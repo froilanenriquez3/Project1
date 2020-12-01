@@ -20,6 +20,7 @@ let productsFruit = [{ name: "Manzana", img: "img/Fruits/Manzana.png", x: 730, y
 
 let productsExtra = ["Turrón artesano", "Mazapán casero", "Jamón Ibérico"];
 
+
 let lady = document.getElementById("lady");
 let interior = document.getElementById("interior");
 let list = document.getElementById("list");
@@ -110,9 +111,6 @@ function passTime() {
 
 
 }
-
-
-
 
 //Draw all draggable objects
 function drawAll(products) {
@@ -389,13 +387,11 @@ function eraseProducts() {
     });
 }
 
+
 function endGame() {
     window.clearInterval(clock);
     interior.style.display = "none";
-    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(#speak):not(#shop):not(#gameBack)");
-    productsImages.forEach(element => {
-        interior.removeChild(element);
-    });
+    eraseProducts();
     afterGame = document.getElementById("afterGame");
     afterGame.style.display = "inline-block";
     document.querySelector("#afterGame > h1").innerHTML = "Felicidades, Has conseguido " + points + " puntos!";
