@@ -1,0 +1,24 @@
+#buttons{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    padding: 1em;
+    z-index: 100;
+}
+
+#buttons > .btn{
+    background-color: #ffb35c;
+    color: #2e585a;
+    margin: 0.5em;
+    border: 1px solid #2e585a;
+}
+
+#recomerçButton{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#buttons > .btn:hover{
+  background-color: #ff9b29;
+}

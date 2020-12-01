@@ -32,8 +32,6 @@
     <li></li>
     <li></li>
     <li></li>
-    <li></li>
-    <li></li>
   </ul>
   <div id="buttons">
     <a role="button" class="btn btn-sm" href="php_views/login.php">Log in</a>

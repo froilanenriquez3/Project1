@@ -73,7 +73,7 @@ html, body {
   }
 
 
-#buttons{
+/* #buttons{
     position: fixed;
     top: 5px;
     right: 5px;
@@ -90,7 +90,7 @@ html, body {
 
 #buttons > .btn:hover{
   background-color: #ff9b29;
-}
+} */
 
 #recomerçButton{
 display: flex;
@@ -180,7 +180,7 @@ h3{
 
 
 /* BOTONES */
-#buttons{
+/* #buttons{
   position: fixed;
   top: 5px;
   right: 5px;
@@ -191,7 +191,7 @@ h3{
   background-color: #ffb35c;
   color: #2e585a;
   margin: 0.5em;
-}
+} */
 
 .wrapper{
   display: flex;
