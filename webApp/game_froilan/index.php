@@ -1,19 +1,32 @@
+<?php
+    require_once '../../php_libraries/bd.php';
+    session_start();
+    $games = selectAllFromTable('game');
+    $limit = $games['2']['pointLimit'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    
     <link href="./styles/all.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="../../style/buttons.css">
+    <link rel="stylesheet" href="../../style/login.css">
+    <!-- <link rel="stylesheet" href="../../style/style-navbar.css"> -->
+    <link rel="stylesheet" href="styles/style.css">
     
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com">  -->
 
     <title>Froilan's Fantastic Fitting Room</title>
 </head>
-
 <body>
+
+<?php
+    // require_once '../../php_partials/navbar.php';
+    require_once '../../php_partials/buttons.php';
+?>
     <div id="game">
         <div class="startscreen">
             <div class="text">
@@ -21,10 +34,11 @@
                 <h2>Help me buy clothes for my grandson, Marco</h2>
                 <p>Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
                     If your combo works, you earn points! If it doesn't, try again with something different. 
-                    You can earn up to 1000 points. Let's go!
+                    You can earn up to <?= $limit ?> points. Let's go!
                 </p>
             </div>
             <button class='startbutton' onclick="startGame()">Start</button>
+           
             
         </div>
         <div class="mainscreen">
@@ -36,7 +50,7 @@
                     <p id="feedshoes">Shoes</p>
                 </div>
                 <div id="scorebox">
-                    <p id="counter" data-points=0>Score: 0</p>
+                    <p id="counter" data-points=0 data-limit= "<?= $limit?>" >Score: 0</p>
                     <p id="tries" data-tries=0>Tries: 0</p>
                     <p id="winner"></p>
     
@@ -231,7 +245,7 @@
     
             </div>
             
-                <button class="check" onclick="increaseTries()" id="check">check</button>
+                <button class="check" onclick="increaseTries(checkOutfitFull)" id="check">check</button>
                 <button class="check" onclick="newCombo(resetGame, resetTries, resetFeedback)" id="next" disabled>next</button>
                 
         </div>
@@ -252,14 +266,12 @@
 
 
         </div>
-       
-
-
 
     </div>
 
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
+    <script src="../../js/navbar.js"></script>
 </body>
 
 </html>
