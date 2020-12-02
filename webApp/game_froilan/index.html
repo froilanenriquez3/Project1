@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link href="./styles/all.min.css" rel="stylesheet">
-
     
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com">  -->
 
@@ -25,6 +24,7 @@
                 </p>
             </div>
             <button class='startbutton' onclick="startGame()">Start</button>
+           
             
         </div>
         <div class="mainscreen">
@@ -36,7 +36,7 @@
                     <p id="feedshoes">Shoes</p>
                 </div>
                 <div id="scorebox">
-                    <p id="counter" data-points=0>Score: 0</p>
+                    <p id="counter" data-points=0 data-limit=>Score: 0</p>
                     <p id="tries" data-tries=0>Tries: 0</p>
                     <p id="winner"></p>
     
@@ -252,9 +252,6 @@
 
 
         </div>
-       
-
-
 
     </div>
 
