@@ -61,7 +61,9 @@ if($add_user){
     if ($_POST['password'] == $_POST['confpassword']) {
         insertUser($_POST['username'], $_POST['password'],0, 0,$_POST['email']);
         if(!$currentIsAdmin){
-            header("Location: ../index_anna.html");
+            $user = selectUserByUsername($_POST['username']);
+            header("Location: ../index_anna.php");
+            $_SESSION['user'] = $user;
           
         }else{
             header("Location: ../php_views/administration.php#userssection");
