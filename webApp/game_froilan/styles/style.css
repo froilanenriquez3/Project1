@@ -305,6 +305,8 @@ button {
   height: 100%;
   text-align: center;
   background: transparent;
+  zoom: 1;
+  filter: alpha(opacity=50);
   background-image: url("../img/hat.png");
   background-position: center;
   background-repeat: no-repeat;

@@ -1,5 +1,7 @@
 var dragged;
 
+//Drag eventlistners
+
 /* events fired on the draggable target */
 document.addEventListener("drag", function (event) {
 
@@ -9,12 +11,14 @@ document.addEventListener("dragstart", function (event) {
   // store a ref. on the dragged elem
   dragged = event.target;
   // make it half transparent
-  event.target.style.backgroundColor = "transparent";
+  //event.target.style.backgroundColor = "transparent";
+  event.target.style.opacity = 0.5;
 }, false);
 
 document.addEventListener("dragend", function (event) {
   // reset the transparency
-  event.target.style.backgroundColor = "transparent";
+  //event.target.style.backgroundColor = "transparent";
+  event.target.style.opacity = 1;
 }, false);
 
 /* events fired on the drop targets */
