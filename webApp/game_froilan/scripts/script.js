@@ -82,8 +82,10 @@ function resetTries() {
 
 function increaseTries() {
   let attempts = +document.querySelector('#tries').dataset.tries;
-  checkCombo();
-  attempts++;
+  if (checkCombo()){
+    attempts++;
+  }
+  
 
   if (attempts < triesLimit) {
     document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
@@ -130,6 +132,8 @@ function checkCombo() {
   let checkShirt = false;
   let checkPants = false;
   let checkShoes = false;
+
+  let increaseTries = true;
 
 
   let text2 = "Not quite.";
@@ -191,14 +195,18 @@ function checkCombo() {
       document.querySelector('#next').disabled = false;
       document.querySelector('#check').disabled = true;
     }
-
+  
     document.querySelector('#winner').innerHTML = text2;
   } else {
+
     document.querySelector('#winner').innerHTML = "You're missing clothes.";
-    attempts--;
+    increaseTries = false;
+
   }
 
   document.querySelector('#tries').dataset.tries = attempts;
+
+  return increaseTries;
 }
 
 //Function to generate new outfit
