@@ -11,7 +11,7 @@ if (isset($_POST['login'])){
        
     } else{
         $_SESSION['user'] = $user;
-        header("Location: ../index_anna.html");
+        header("Location: ../index_anna.php");
     }
     
     exit();
