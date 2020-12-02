@@ -4,11 +4,13 @@ let shirt;
 let pants;
 let shoes;
 
-let pointLimit = 1000;
+let pointLimit = document.querySelector('#counter').dataset.limit;
 
 let triesLimit = 5;
 
 let myMusic;
+
+console.log(pointLimit);
 
 //Start game: hide start screen, generate new combo, set score to 0, start music 
 function startGame() {
