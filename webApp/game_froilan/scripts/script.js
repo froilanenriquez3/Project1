@@ -80,12 +80,14 @@ function resetTries() {
   document.querySelector('#tries').dataset.tries = attempts;
 }
 
-function increaseTries() {
+function increaseTries(callback1) {
   let attempts = +document.querySelector('#tries').dataset.tries;
-  if (checkCombo()){
-    attempts++;
-  }
   
+  if(callback1()){
+    attempts++;
+    console.log(attempts);
+    checkCombo();
+  }
 
   if (attempts < triesLimit) {
     document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
@@ -133,17 +135,9 @@ function checkCombo() {
   let checkPants = false;
   let checkShoes = false;
 
-  let increaseTries = true;
-
-
   let text2 = "Not quite.";
 
-  if (document.querySelector('#hathole').hasChildNodes()
-    && document.querySelector('#shirthole').hasChildNodes()
-    && document.querySelector('#pantshole').hasChildNodes()
-    && document.querySelector('#shoeshole').hasChildNodes()
-
-  ) {
+  
     if (document.querySelector(' #hathole').firstChild.id == window.hat) {
       let hat = document.querySelector('#feedhat');
       hat.innerHTML = "Hat ✓";
@@ -197,16 +191,28 @@ function checkCombo() {
     }
   
     document.querySelector('#winner').innerHTML = text2;
-  } else {
-
-    document.querySelector('#winner').innerHTML = "You're missing clothes.";
-    increaseTries = false;
-
-  }
+  
 
   document.querySelector('#tries').dataset.tries = attempts;
 
-  return increaseTries;
+  
+}
+
+//Function to check if clothes are set
+
+function checkOutfitFull(){
+  let dressedUp = false;
+  if (document.querySelector('#hathole').hasChildNodes()
+    && document.querySelector('#shirthole').hasChildNodes()
+    && document.querySelector('#pantshole').hasChildNodes()
+    && document.querySelector('#shoeshole').hasChildNodes()
+  ) {
+    dressedUp = true;
+  } else{
+    document.querySelector('#winner').innerHTML = "You're missing clothes.";
+  }
+
+  return dressedUp;
 }
 
 //Function to generate new outfit
