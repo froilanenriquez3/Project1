@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +26,7 @@
 
   <link rel="stylesheet" href="style/reset.css">
   <link rel="stylesheet" href="style/nomWebApp.css">
+  <link rel="stylesheet" href="style/buttons.css">
 
   <title>Restore</title>
 
@@ -33,10 +38,13 @@
     <li></li>
     <li></li>
   </ul>
-  <div id="buttons">
+  <?php
+    require_once 'php_partials/buttons.php';
+  ?>
+  <!-- <div id="buttons">
     <a role="button" class="btn btn-sm" href="php_views/login.php">Log in</a>
     <a role="button" class="btn btn-sm" href="php_views/signup.php">Registrarse</a>
-  </div>
+  </div> -->
   <div id="recomerçButton">
 
     <a role="button" class="btn" href="#">Recomerçem!</a>

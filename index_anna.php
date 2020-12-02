@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +13,13 @@
     <title>Restore</title>
 </head>
 <body style="background-color: #F1F9F3;">
-    <div id="buttons">
+    <?php
+    require_once 'php_partials/buttons.php';
+  ?>
+    <!-- <div id="buttons">
         <a role="button" class="btn btn-sm" href="#">Log in</a>
         <a role="button" class="btn btn-sm" href="#">Registrarse</a>
-    </div>
+    </div> -->
 
 
     <div class="wrapper">

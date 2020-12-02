@@ -1,5 +1,12 @@
 <?php
     session_start();
+    if(isset($_SESSION['password_conf']))
+    {
+        if(!$_SESSION['password_conf']){
+            echo "Your password must match in both fields.";
+        }
+    }
+  
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +51,7 @@
                         </div>
                         <!-- Boton de submit -->
                         <div class="btn-group float-right">
-                            <input class="btn btn-primary" type="submit" value="Registrarse" id="adduser" name="adduser">
+                            <input class="btn btn-primary" type="submit" value="Registrarse" id="adduser" name="adduser" >
                         </div>
                     </div>
                 </form>
