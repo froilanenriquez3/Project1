@@ -14,7 +14,15 @@ if (isset($_POST['login'])){
         header("Location: ../index_anna.php");
     }
     
-    exit();
 }
 
+if(isset($_SESSION['logmeout'])){
+    if($_SESSION['logmeout']){
+        $_SESSION['user'] = null;
+        $_SESSION['logmeout'] = false;
+        header("Location: ../index.php");
+    }
+}
+
+exit();
 ?>
