@@ -15,8 +15,9 @@
     background-size: contain;
 }
 
+
 body {
-    display: grid;
+    display: flex;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #e2f3e7;
 }
@@ -289,6 +290,9 @@ button {
             height: 100%;
             text-align: center;
             background: transparent;
+            zoom: 1;
+            filter: alpha(opacity=50);
+        
             @include bodyImage("../img/hat.png");
         }
 

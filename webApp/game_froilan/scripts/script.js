@@ -4,11 +4,13 @@ let shirt;
 let pants;
 let shoes;
 
-let pointLimit = 1000;
+let pointLimit = document.querySelector('#counter').dataset.limit;
 
 let triesLimit = 5;
 
 let myMusic;
+
+console.log(pointLimit);
 
 //Start game: hide start screen, generate new combo, set score to 0, start music 
 function startGame() {
@@ -80,10 +82,14 @@ function resetTries() {
   document.querySelector('#tries').dataset.tries = attempts;
 }
 
-function increaseTries() {
+function increaseTries(callback1) {
   let attempts = +document.querySelector('#tries').dataset.tries;
-  checkCombo();
-  attempts++;
+  
+  if(callback1()){
+    attempts++;
+    console.log(attempts);
+    checkCombo();
+  }
 
   if (attempts < triesLimit) {
     document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
@@ -131,15 +137,9 @@ function checkCombo() {
   let checkPants = false;
   let checkShoes = false;
 
-
   let text2 = "Not quite.";
 
-  if (document.querySelector('#hathole').hasChildNodes()
-    && document.querySelector('#shirthole').hasChildNodes()
-    && document.querySelector('#pantshole').hasChildNodes()
-    && document.querySelector('#shoeshole').hasChildNodes()
-
-  ) {
+  
     if (document.querySelector(' #hathole').firstChild.id == window.hat) {
       let hat = document.querySelector('#feedhat');
       hat.innerHTML = "Hat ✓";
@@ -191,14 +191,30 @@ function checkCombo() {
       document.querySelector('#next').disabled = false;
       document.querySelector('#check').disabled = true;
     }
-
+  
     document.querySelector('#winner').innerHTML = text2;
-  } else {
-    document.querySelector('#winner').innerHTML = "You're missing clothes.";
-    attempts--;
-  }
+  
 
   document.querySelector('#tries').dataset.tries = attempts;
+
+  
+}
+
+//Function to check if clothes are set
+
+function checkOutfitFull(){
+  let dressedUp = false;
+  if (document.querySelector('#hathole').hasChildNodes()
+    && document.querySelector('#shirthole').hasChildNodes()
+    && document.querySelector('#pantshole').hasChildNodes()
+    && document.querySelector('#shoeshole').hasChildNodes()
+  ) {
+    dressedUp = true;
+  } else{
+    document.querySelector('#winner').innerHTML = "You're missing clothes.";
+  }
+
+  return dressedUp;
 }
 
 //Function to generate new outfit
