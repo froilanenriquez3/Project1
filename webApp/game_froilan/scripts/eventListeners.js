@@ -7,7 +7,7 @@ document.addEventListener("drag", function (event) {
 
 }, false);
 
-document.addEventListener("dragstart", function (event) {
+document.addEventListener("dragstart", (event) => {
   // store a ref. on the dragged elem
   dragged = event.target;
   // make it half transparent
@@ -15,14 +15,14 @@ document.addEventListener("dragstart", function (event) {
   event.target.style.opacity = 0.5;
 }, false);
 
-document.addEventListener("dragend", function (event) {
+document.addEventListener("dragend", (event) => {
   // reset the transparency
   //event.target.style.backgroundColor = "transparent";
   event.target.style.opacity = 1;
 }, false);
 
 /* events fired on the drop targets */
-document.addEventListener("dragover", function (event) {
+document.addEventListener("dragover", (event) => {
   // prevent default to allow drop
   event.preventDefault();
 }, false);
@@ -48,7 +48,7 @@ document.addEventListener("dragleave", function (event) {
  */
 
 //Event lisetener for dragging items
-document.addEventListener("drop", function (event) {
+document.addEventListener("drop", (event) => {
   // prevent default action (open as link for some elements)
   event.preventDefault();
   // move dragged elem to the selected drop target
@@ -65,7 +65,7 @@ document.addEventListener("drop", function (event) {
 }, false);
 
 //Event listener for dragging items over occupied squares
-document.addEventListener("drop", function (event) {
+document.addEventListener("drop", (event) => {
 
   event.preventDefault();
 

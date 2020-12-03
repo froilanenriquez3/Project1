@@ -97,7 +97,7 @@ function increaseTries(callback1) {
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
     document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
-    document.querySelector('#winner').innerHTML = "Click next";
+    document.querySelector('#winner').innerHTML += " Click next";
   }
 
   document.querySelector('#tries').dataset.tries = attempts;
@@ -137,7 +137,7 @@ function checkCombo() {
   let checkPants = false;
   let checkShoes = false;
 
-  let text2 = "Not quite.";
+  let text2 = "I don't like this outfit.";
 
   
     if (document.querySelector(' #hathole').firstChild.id == window.hat) {
@@ -184,6 +184,10 @@ function checkCombo() {
       shoe.style.color = "red";
     }
 
+    if(attempts  == triesLimit-1){
+      text2 = "You're all out of tries!";
+    }
+
     if (checkHat && checkShirt && checkPants && checkShoes) {
       text2 = "You got it!";
       increasePoints();
@@ -191,6 +195,8 @@ function checkCombo() {
       document.querySelector('#next').disabled = false;
       document.querySelector('#check').disabled = true;
     }
+
+    
   
     document.querySelector('#winner').innerHTML = text2;
   
