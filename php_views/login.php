@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+//or some other equivalent feedback code here
+if (isset($_SESSION['logged'])) {
+
+
+    if (!$_SESSION['logged']) {
+        echo "<p>Your password was incorrect.</p>";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +19,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/login.css">
     <title>Log In</title>
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
         <div class="card mt-2">
-            <div class="card-header bg-secondary text-white">
+            <div class="card-header text-center">
+            <!-- bg-secondary text-white -->
                 Log In
             </div>
 
@@ -20,20 +36,28 @@
                     <div class="form-group">
                         <!-- User -->
                         <div class="form-group row">
-                            <label class="col-2" for="username">Usuario</label>
-                            <input class="col-10 form-control" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" autofocus>
+                            <!-- <label class="col-sm-3 col-form-label" for="username">Usuario</label> -->
+                            <div class="col-sm-12">
+                                <input class="form-control form-control-sm" type="text" id="username" name="username" placeholder="Usuario" autofocus>
+                            </div>
                         </div>
                         <!-- Password -->
                         <div class="form-group row">
-                            <label class="col-2" for="password">Contraseña</label>
-                            <input class="col-10 form-control" type="password" id="paswword" name="password" minlength="8" placeholder="Introduce tu contraseña " autofocus required>
+                            <!-- <label class="col-sm-3 col-form-label" for="password">Contraseña</label> -->
+                            <div class="col-sm-12">
+                                <input class="form-control form-control-sm" type="password" id="paswword" name="password" minlength="8" placeholder="Contraseña " autofocus required>
+                            </div>                       
                         </div>
                         <!-- Boton de submit -->
-                        <div class="btn-group float-right">
-                            <input class="btn btn-primary" type="submit" value="Iniciar Sesión" name="login" id="login">
-                        </div>
+                        <div class="btn-group">
+                            <input class="btn btn-block" type="submit" value="Iniciar Sesión" name="login" id="login">
+                        </div>         
+
                     </div>
                 </form>
+                <div class="entrar">
+                    <a href="./signup.php">¿Aún no estás registrado?</a>
+                </div>
             </div>
         </div>
     </div>
