@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="/project1/style/style-navbar.css">
+    <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="styles/style.css">
     <link href="./styles/all.min.css" rel="stylesheet">
 
-    
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">  -->
 
     <title>Froilan's Fantastic Fitting Room</title>
 </head>
 
 <body>
+    <?php
+        include '../../php_partials/navbar.php';
+        include '../../php_partials/buttons.php';
+    ?>
+    <div class="gameContainer">
     <div id="game">
         <div class="startscreen">
             <div class="text">
@@ -252,12 +259,12 @@
 
 
         </div>
-       
+        </div>
 
 
 
     </div>
-
+    <script src="/project1/js/navbar.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
 </body>

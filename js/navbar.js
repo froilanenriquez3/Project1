@@ -10,7 +10,7 @@ function animationLeft(){
     let li= this;
     let p= this.children[0].children[1];
     li.style.width = "280px"; 
-    setTimeout(function(){ p.style.display= "inline" }, 300);
+    setTimeout(function(){ p.style.display= "inline"}, 300);
 }
 
 

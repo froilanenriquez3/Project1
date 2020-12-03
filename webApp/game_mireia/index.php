@@ -1,27 +1,31 @@
+<?php
+    require_once '../../php_libraries/bd.php';
+    $gameInfo= selectAllFromTable("game");
+    $pointsLimit= $gameInfo[3]["pointLimit"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/project1/style/style-navbar.css">
+    <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="css.css"> 
     <title>Game</title>
 </head>
 
 <body>
+<?php
+        include '../../php_partials/navbar.php';
+        include '../../php_partials/buttons.php';
+
+    ?>
+    <div class="gameContainer">
     <div id="background">
         <!-- Instructions -->
         <div id="instructions">
@@ -36,12 +40,12 @@
                     personas! Aprieta el símbolo que aparecerá al acercarte a ellas.</p>
 
                 <img src="img/plus.png" alt="">
-                <p>Por cada ingrediente correcto ganarás 60 puntos.</p>
+                <p>Por cada ingrediente correcto ganarás <span id="pointsForObject"><?php echo round($pointsLimit/8, 0, PHP_ROUND_HALF_DOWN) ?></span> puntos.</p>
                 <img src="img/minus.png" alt="">
-                <p>Si te equivocas perderás 20 puntos.</p>
+                <p>Si te equivocas perderás <span id="pointsRest"><?php echo round(($pointsLimit/8)/2, 0, PHP_ROUND_HALF_DOWN)?></span> puntos.</p>
             </div>
             <div class="play">
-                <h4>Máxima puntuación: 360</h4>
+                <h4>Máxima puntuación: <span><?php echo $pointsLimit ?></span></h4>
                 <div>
                 <h3>JUEGA</h3>
                 <img src="img/playGame.png" alt="">
@@ -53,7 +57,7 @@
         <div id="interior">
             <img src="img/background.png" id="gameBack" alt="imageback">
             <img id="list" src="img/list.png" alt="">
-            <div class="divList noVisible">
+            <div class="divList">
                 <ul></ul>
             </div>
             <img src="img/Shop.png" id="shop" alt="shop">
@@ -81,10 +85,9 @@
                 <h2>Volver a jugar</h2>
             </div>
         </div>
-
-
     </div>
-
+    </div>
+    <script src="/project1/js/navbar.js"></script>
     <script src="js.js"></script>
 </body>
 

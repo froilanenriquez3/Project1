@@ -101,7 +101,7 @@
         <img src="./media/img/aboutUs.png" width="150px" class="rounded-circle" alt="Cinque Terre">
         <h3>Mireia Sánchez</h3>
         <p>Después de diplomarme en turismo, decidí cambiar de aires y me embarqué en la aventura de ser desarrolladora web.
-          Ahora mis lunes son menos lunes si tengo un té, música de fondo y un proyecto con javascript entre manos.
+          Ahora mis lunes son menos lunes si tengo un té, música de fondo y un proyecto de javascript entre manos.
         </p>
       </div>
     </div>
