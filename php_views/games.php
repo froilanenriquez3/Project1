@@ -30,7 +30,7 @@
   </a>
 </div>
 <div class="col-lg-6 pt-2 pb-2">
-  <a href="../webApp/game_froilan/index.html">
+  <a href="../webApp/game_froilan/index.php">
 <div class="card mx-auto">
   <div class="card-body">
     <h5 class="card-title">Juego 2</h5>
@@ -53,7 +53,7 @@
     </a>
 </div>
 <div class="col-lg-6 pt-2 pb-2">
-  <a href="../webApp/game_mireia/index.html">
+  <a href="../webApp/game_mireia/index.php">
 <div class="card mx-auto">
   <div class="card-body">
     <h5 class="card-title">Juego 4</h5>

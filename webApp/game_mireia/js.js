@@ -9,7 +9,9 @@ let productsGrocery = [{ name: "Harina", img: "img/Grocery/Harina.png", x: 385, 
 { name: "Café", img: "img/Grocery/Café.png", x: 790, y: 132 }, { name: "Vino Blanco", img: "img/Grocery/Vino Blanco.png", x: 400, y: 275 },
 { name: "Vino Tinto", img: "img/Grocery/Vino Tinto.png", x: 355, y: 275 }, { name: "Cava", img: "img/Grocery/Cava.png", x: 455, y: 276 },
 { name: "Cola", img: "img/Grocery/Cola.png", x: 505, y: 275 }, { name: "Limonada", img: "img/Grocery/Limonada.png", x: 545, y: 277 },
-{ name: "Naranjada", img: "img/Grocery/Naranjada.png", x: 599, y: 277 }, { name: "Mayonesa", img: "img/Grocery/mayonesa.png", x: 370, y: 213 }];
+{ name: "Naranjada", img: "img/Grocery/Naranjada.png", x: 599, y: 277 }, { name: "Mayonesa", img: "img/Grocery/mayonesa.png", x: 370, y: 213 }, 
+{name: "Aceite", img: "img/Grocery/Aceite.png", x: 585, y: 190}, {name: "Cacao en polvo", img: "img/Grocery/Cacao en polvo.png", x: 680, y: 221},
+{name: "Olivas", img: "img/Grocery/Olivas.png", x: 535, y: 215}, {name: "Leche", img: "img/Grocery/Leche.png", x: 440, y: 213}, {name: "Panettone", img: "img/Grocery/Panettone.png", x: 783, y: 191}];
 
 let productsFruit = [{ name: "Manzana", img: "img/Fruits/Manzana.png", x: 730, y: 300 }, { name: "Uva", img: "img/Fruits/Uva.png", x: 650, y: 240 },
 { name: "Plátanos", img: "img/Fruits/Plátanos.png", x: 592, y: 222 }, { name: "Pera", img: "img/Fruits/Pera.png", x: 648, y: 170 }, { name: "Mandarina", img: "img/Fruits/Mandarina.png", x: 800, y: 240 },
@@ -25,10 +27,11 @@ let lady = document.getElementById("lady");
 let interior = document.getElementById("interior");
 let list = document.getElementById("list");
 let pointsText = document.querySelector("#interior > p");
+let pointsForObject= Number(document.getElementById("pointsForObject").innerHTML);
+let pointsRest= Number(document.getElementById("pointsRest").innerHTML);
 
 
-const TOTALPRODUCTS = 7;
-const NUMBERPRODUCTS = 3;
+const TOTALPRODUCTS = 8;
 let productsFound, points, finished, extraProduct, minutes, seconds, clock, productsToFind, hasExtra;
 
 //Game events
@@ -72,8 +75,8 @@ function startGame() {
     drawLady();
 
     //Generate list of products
-    generateProductsToFind(productsGrocery);
-    generateProductsToFind(productsFruit);
+    generateProductsToFind(productsGrocery, 4);
+    generateProductsToFind(productsFruit, 3);
     generateRandomExtra();
     productsToFind.sort(function (a, b) { return 0.5 - Math.random() });
     createList();
@@ -259,7 +262,7 @@ function dragElement(elmnt, products) {
         elementInProducts = products.find(el => el.name == elmnt.id);
         elmnt.style.top = elementInProducts.y + "px";
         elmnt.style.left = elementInProducts.x + "px";
-
+        document.onmousedown= null;
     }
 }
 
@@ -276,7 +279,7 @@ function checkBasket(elmnt, products) {
                 element.style.textDecoration = "line-through";
                 interior.removeChild(elmnt);
                 found = true;
-                points += 60;
+                points += pointsForObject;
                 basket.classList.add("animationClassGreen");
                 pointsText.innerHTML = "Puntos: " + points;
                 productsFound.push(elmnt.id);
@@ -293,7 +296,7 @@ function checkBasket(elmnt, products) {
             elmnt.style.left = elementInProducts.x + "px";
             basket.classList.add("animationClassRed");
             if (points > 0) {
-                points -= 20;
+                points -= pointsRest;
                 pointsText.innerHTML = "Puntos: " + points;
                 document.onmouseup = null;
                 document.onmousemove = null;
@@ -303,10 +306,10 @@ function checkBasket(elmnt, products) {
 }
 
 //Generate Random products
-function generateProductsToFind(products) {
+function generateProductsToFind(products, numberOfProducts) {
     let isSame = false;
     let randomNum;
-    for (let i = 0; i < NUMBERPRODUCTS; i++) {
+    for (let i = 0; i < numberOfProducts; i++) {
         if (i === 0) {
             randomNum = Math.floor(Math.random() * products.length);
         } else {
@@ -336,16 +339,16 @@ function createList() {
     productsToFind.forEach(element => {
         let listEl = document.createElement("li");
         listEl.textContent = element;
-        document.querySelector("div > ul").appendChild(listEl);
+        document.querySelector(".divList > ul").appendChild(listEl);
         console.log(listEl);
     });
 }
 
 //Erase List
 function eraseList() {
-    let listElement = document.querySelectorAll("div > ul> li");
+    let listElement = document.querySelectorAll(".divList > ul> li");
     listElement.forEach(element => {
-        document.querySelector("div > ul").removeChild(element);
+        document.querySelector(".divList > ul").removeChild(element);
     });
 }
 
@@ -361,7 +364,7 @@ function createText() {
                 element.style.textDecoration= "line-through";
                 productsFound.push(extraProduct);
             }});
-        points += 60;
+        points += pointsForObject;
         pointsText.innerHTML = "Puntos: " + points;
 
     } else {
