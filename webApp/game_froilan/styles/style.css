@@ -1,14 +1,27 @@
 body {
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #e2f3e7;
+}
+
+.gameContainer {
+  position: absolute;
+  right: 0px;
+  width: calc(100% - 100px);
+  margin-top: 7%;
+  z-index: -1;
+}
+
+button {
+  cursor: pointer;
 }
 
 #game {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: auto;
-  margin-top: 2%;
   height: 520px;
   width: 895px;
   border: solid grey 10px;
@@ -50,6 +63,7 @@ body {
 }
 
 .startbutton {
+  width: 100px;
   margin: 30px;
   font-size: 30px;
   border-radius: 10px;
@@ -76,8 +90,10 @@ body {
   color: black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 3fr;
-      grid-template-columns: 3fr 3fr 3fr;
+  -ms-grid-columns: 5fr 6fr 5fr;
+      grid-template-columns: 5fr 6fr 5fr;
+  padding-bottom: 5px;
+  padding-top: 0px;
 }
 
 .topbar #feedbackbox {
@@ -86,26 +102,51 @@ body {
   background-color: whitesmoke;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1.75fr 2fr 2fr 2fr;
-      grid-template-columns: 1.75fr 2fr 2fr 2fr;
-  padding-left: 10px;
-  padding-right: 7px;
+  -ms-grid-columns: 0.75fr 1fr 1fr 1fr;
+      grid-template-columns: 0.75fr 1fr 1fr 1fr;
+  height: 50px;
+  border-right: solid black 3px;
+  padding-top: 10px;
+}
+
+.topbar #feedbackbox p {
+  border: solid black 3px;
+  border-radius: 20px;
+  margin-bottom: 0px;
+  text-align: center;
+  vertical-align: center;
+  height: 25px;
+  font-size: 15px;
 }
 
 .topbar #scorebox {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-left: 15px;
-  margin-top: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  row-gap: 1;
+  margin-left: 10px;
+  padding: 1px;
   vertical-align: center;
   font-size: 15px;
 }
 
 .topbar #scorebox p {
-  margin: 5px;
+  border: solid black 3px;
+  border-bottom: none;
+  border-radius: 20px;
+  margin: 0px;
+  text-align: center;
+}
+
+.topbar #scorebox #winner {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 1 / span 1 / span 2;
 }
 
 .topbar #buttonsbox {
@@ -114,30 +155,106 @@ body {
   display: -ms-grid;
   display: grid;
   padding: 10px;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  height: 50px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   background-color: aliceblue;
+  border-left: solid black 3px;
+}
+
+.topbar #buttonsbox .music {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr 1fr;
+      grid-template-columns: 1fr 3fr 1fr;
+  margin-right: 15px;
+}
+
+.topbar #buttonsbox .music .fa-volume-up,
+.topbar #buttonsbox .music .fa-volume-mute {
+  padding-top: 7px;
+}
+
+.topbar #buttonsbox .music .fa-volume-up {
+  position: relative;
+  left: 12px;
+}
+
+.topbar #buttonsbox .music .fa-volume-mute {
+  position: relative;
+  left: 4px;
+}
+
+.topbar #buttonsbox .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.topbar #buttonsbox .switch input {
+  display: none;
+}
+
+.topbar #buttonsbox .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #06f0d1;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.topbar #buttonsbox .switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 30px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.topbar #buttonsbox .switch input:checked + .slider {
+  background-color: #ccc;
+}
+
+.topbar #buttonsbox .switch input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #ccc;
+          box-shadow: 0 0 1px #ccc;
+}
+
+.topbar #buttonsbox .switch input:checked + .slider:before {
+  -webkit-transform: translateX(-26px);
+          transform: translateX(-26px);
 }
 
 .topbar #buttonsbox button {
   height: 30px;
   width: 70px;
   font-size: 15px;
+  margin-left: 30px;
   text-decoration: none;
-  background-color: black;
+  background-color: red;
   color: white;
   border-radius: 5px;
-  border: none;
+  border: solid black 2px;
 }
 
 .topbar #buttonsbox button:hover {
   background-color: white;
   color: black;
-  border: solid black 1px;
 }
 
 .topbar #buttonsbox button:active {
-  background-color: #2ca50e;
+  background-color: pink;
   color: black;
 }
 
@@ -154,14 +271,7 @@ body {
   color: white;
 }
 
-.topbar #buttonsbox button#music {
-  background-color: white;
-  color: black;
-  border: solid black 1px;
-  width: 100px;
-}
-
-.container {
+.box {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -ms-grid;
@@ -173,9 +283,10 @@ body {
           justify-content: space-between;
   height: 450px;
   width: 875px;
+  border-top: solid black 3px;
 }
 
-.container .shelf {
+.box .shelf {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -ms-grid;
@@ -188,7 +299,7 @@ body {
   height: 100%;
 }
 
-.container .shelf .dropzone {
+.box .shelf .dropzone {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: solid black 2px;
@@ -199,18 +310,20 @@ body {
   background-color: #583f21;
 }
 
-.container .shelf [draggable='true'] {
+.box .shelf [draggable="true"] {
   width: 100%;
   height: 100%;
   text-align: center;
   background: transparent;
+  zoom: 1;
+  filter: alpha(opacity=50);
   background-image: url("../img/hat.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container .shelf .center {
+.box .shelf .center {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 300px;
@@ -223,7 +336,7 @@ body {
           justify-content: center;
 }
 
-.container .shelf .center .dropzone {
+.box .shelf .center .dropzone {
   border: none;
   margin-top: 0px;
   background-color: beige;
@@ -239,196 +352,196 @@ body {
           align-items: center;
 }
 
-.container .shelf .center .dropzone [draggable='true'] {
+.box .shelf .center .dropzone [draggable="true"] {
   width: 300px;
   height: 100%;
 }
 
-.container #hats {
+.box #hats {
   background-color: brown;
 }
 
-.container #hats #draghat1 {
+.box #hats #draghat1 {
   background-image: url("../img/hats/red.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #hats #draghat2 {
+.box #hats #draghat2 {
   background-image: url("../img/hats/disguise.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #hats #draghat3 {
+.box #hats #draghat3 {
   background-image: url("../img/hats/jokein2020.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #hats .center .dropzone {
+.box #hats .center .dropzone {
   background-image: url("../img/head.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #hats #draghat4 {
+.box #hats #draghat4 {
   background-image: url("../img/hats/brown.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #hats #draghat5 {
+.box #hats #draghat5 {
   background-image: url("../img/hats/astronaut.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #hats #draghat6 {
+.box #hats #draghat6 {
   background-image: url("../img/hats/superhero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shirts {
+.box #shirts {
   background-color: lightsalmon;
 }
 
-.container #shirts #dragshirt1 {
-  background-image: url("../img/shirts/cyan.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.container #shirts #dragshirt2 {
+.box #shirts #dragshirt1 {
   background-image: url("../img/shirts/redshirt.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shirts #dragshirt3 {
+.box #shirts #dragshirt2 {
+  background-image: url("../img/shirts/cyan.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.box #shirts #dragshirt3 {
   background-image: url("../img/shirts/whiteshirt.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shirts .center .dropzone {
+.box #shirts .center .dropzone {
   background-image: url("../img/body.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shirts #dragshirt4 {
+.box #shirts #dragshirt4 {
   background-image: url("../img/shirts/purple.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shirts #dragshirt5 {
+.box #shirts #dragshirt5 {
   background-image: url("../img/shirts/yoda.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shirts #dragshirt6 {
+.box #shirts #dragshirt6 {
   background-image: url("../img/shirts/spidey.PNG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #pants {
+.box #pants {
   background-color: #aa7447;
 }
 
-.container #pants #dragpants1 {
-  background-image: url("../img/pants/cyanpants.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.container #pants #dragpants2 {
+.box #pants #dragpants1 {
   background-image: url("../img/pants/redpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #pants #dragpants3 {
+.box #pants #dragpants2 {
+  background-image: url("../img/pants/cyanpants.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.box #pants #dragpants3 {
   background-image: url("../img/pants/whitepants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #pants .center .dropzone {
+.box #pants .center .dropzone {
   background-image: url("../img/legs.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #pants #dragpants4 {
+.box #pants #dragpants4 {
   background-image: url("../img/pants/blackpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #pants #dragpants5 {
+.box #pants #dragpants5 {
   background-image: url("../img/pants/greenpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #pants #dragpants6 {
+.box #pants #dragpants6 {
   background-image: url("../img/pants/bluepants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shoes {
+.box #shoes {
   background-color: #5c3b3b;
 }
 
-.container #shoes #dragshoes1 {
-  background-image: url("../img/shoes/blueshoes.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.container #shoes #dragshoes2 {
+.box #shoes #dragshoes1 {
   background-image: url("../img/shoes/redshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shoes #dragshoes3 {
+.box #shoes #dragshoes2 {
+  background-image: url("../img/shoes/blueshoes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.box #shoes #dragshoes3 {
   background-image: url("../img/shoes/whiteshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shoes .center .dropzone {
+.box #shoes .center .dropzone {
   background-color: beige;
   background-image: url("../img/feet.png");
   background-position: center;
@@ -436,43 +549,68 @@ body {
   background-size: contain;
 }
 
-.container #shoes #dragshoes4 {
+.box #shoes #dragshoes4 {
   background-image: url("../img/shoes/brownshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shoes #dragshoes5 {
+.box #shoes #dragshoes5 {
   background-image: url("../img/shoes/greenshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.container #shoes #dragshoes6 {
+.box #shoes #dragshoes6 {
   background-image: url("../img/shoes/difblueshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.endgame {
+.check {
   position: relative;
-  bottom: 50px;
-  left: 500px;
+  bottom: 100px;
+  left: 295px;
   z-index: 1;
-  height: 30px;
+  height: 50px;
+  width: 92px;
   border-radius: 50px;
-  border: black solid 1px;
-  background-color: red;
+  border: white solid 2px;
+  background-color: green;
+  color: white;
+  font-size: 25px;
+}
+
+.check#next {
+  left: 393px;
+}
+
+.check:hover {
+  background-color: white;
+  color: black;
+  border: black solid 2px;
+}
+
+.check:active {
+  background-color: lime;
+  color: black;
+}
+
+.check:disabled {
+  background-color: grey;
+}
+
+.check:disabled:active {
   color: white;
 }
 
-.endgame:hover {
-  background-color: white;
-  color: black;
-  border: black solid 1px;
+.check:disabled:hover {
+  background-color: grey;
+  color: white;
+  border: white solid 2px;
 }
 
 .endscreen {
@@ -506,6 +644,10 @@ body {
 
 .endscreen .text h2 {
   color: red;
+}
+
+.endscreen button {
+  width: 300px;
 }
 
 .endscreen .redeem {

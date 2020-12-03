@@ -1,16 +1,34 @@
+
+<?php
+    require_once '../../php_libraries/bd.php';
+    session_start();
+    $games = selectAllFromTable('game');
+    $limit = $games['1']['pointLimit'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="/project1/style/style-navbar.css">
+    <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="./styles/all.min.css" rel="stylesheet">
+
 
     <title>Froilan's Fantastic Fitting Room</title>
 </head>
 
 <body>
+    <?php
+        require_once '../../php_partials/navbar.php';
+        require_once '../../php_partials/buttons.php';
+    ?>
+    <div class="gameContainer">
     <div id="game">
         <div class="startscreen">
             <div class="text">
@@ -18,35 +36,47 @@
                 <h2>Help me buy clothes for my grandson, Marco</h2>
                 <p>Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
                     If your combo works, you earn points! If it doesn't, try again with something different. 
-                    You can earn up to 1000 points. Let's go!
+                    You can earn up to <?= $limit ?> points. Let's go!
                 </p>
             </div>
             <button class='startbutton' onclick="startGame()">Start</button>
+
             
         </div>
         <div class="mainscreen">
             <div class="topbar">
                 <div id="feedbackbox">
-                    <p id="feedhat"></p>
-                    <p id="feedshirt"></p>
-                    <p id="feedpants"></p>
-                    <p id="feedshoes"></p>
+                    <p id="feedhat">Hat </p>
+                    <p id="feedshirt">Shirt </p>
+                    <p id="feedpants">Pants </p>
+                    <p id="feedshoes">Shoes</p>
                 </div>
                 <div id="scorebox">
-                    <p id="counter">Score: 0</p>
-                    <p id="tries">Tries: 0</p>
+
+                    <p id="counter" data-points=0 data-limit= "<?= $limit?>" >Score: 0</p>
+                    <p id="tries" data-tries=0>Tries: 0</p>
                     <p id="winner"></p>
     
                 </div>
                 <div id="buttonsbox">
-                    <button onclick="checkCombo()" id="check">CHECK</button>
-                    <button onclick="newCombo()" id="next" disabled>NEXT</button>
-                    <button onclick="mute()" id="music">Music: Off</button>
+                    <button class="endgame" onclick="endScreen()">EXIT</button>
+
+                    <div class="music">
+                    <i class="music fas fa-volume-mute"></i>
+                    
+                    <label class="switch" >
+                        <input type="checkbox" id="music" onclick="mute()">
+                        <span class="slider"></span>
+                    </label>
+                      <i class="music fas fa-volume-up"></i>
+
+                    </div>
+                    
                 </div>
     
             </div>
     
-            <div class="container">
+            <div class="box">
                 <!-- Updates to content of container must be copied to script.js resetGame function-->
                 <div class="shelf" id="hats">
                     <div class="dropzone hat" id="hatzone1">
@@ -83,19 +113,19 @@
     
     
                 <div class="shelf" id="shirts">
-                    <div class="dropzone shirt">
+                    <div class="dropzone shirt" id="shirtzone1">
                         <div id="dragshirt1" class="dragShirt" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shirt">
+                    <div class="dropzone shirt" id="shirtzone2">
                         <div id="dragshirt2" class="dragShirt" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shirt">
+                    <div class="dropzone shirt" id="shirtzone3">
                         <div id="dragshirt3" class="dragShirt" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
@@ -107,19 +137,19 @@
     
                     </div>
     
-                    <div class="dropzone shirt">
+                    <div class="dropzone shirt" id="shirtzone4">
                         <div id="dragshirt4" class="dragShirt" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shirt">
+                    <div class="dropzone shirt" id="shirtzone5">
                         <div id="dragshirt5" class="dragShirt" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shirt">
+                    <div class="dropzone shirt" id="shirtzone6">
                         <div id="dragshirt6" class="dragShirt" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
@@ -128,19 +158,19 @@
                 </div>
     
                 <div class="shelf" id="pants">
-                    <div class="dropzone pants">
+                    <div class="dropzone pants" id="pantszone1">
                         <div id="dragpants1" class="dragPants" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone pants">
+                    <div class="dropzone pants" id="pantszone2">
                         <div id="dragpants2" class="dragPants" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone pants">
+                    <div class="dropzone pants" id="pantszone3">
                         <div id="dragpants3" class="dragPants" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
@@ -151,19 +181,19 @@
                         <div class="dropzone pants" id="pantshole"></div>
                     </div>
     
-                    <div class="dropzone pants">
+                    <div class="dropzone pants" id="pantszone4">
                         <div id="dragpants4" class="dragPants" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone pants">
+                    <div class="dropzone pants" id="pantszone5">
                         <div id="dragpants5" class="dragPants" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone pants">
+                    <div class="dropzone pants" id="pantszone6">
                         <div id="dragpants6" class="dragPants" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
@@ -173,19 +203,19 @@
     
     
                 <div class="shelf" id="shoes">
-                    <div class="dropzone shoes">
+                    <div class="dropzone shoes" id="shoeszone1">
                         <div id="dragshoes1" class="dragShoes" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shoes">
+                    <div class="dropzone shoes" id="shoeszone2">
                         <div id="dragshoes2" class="dragShoes" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shoes">
+                    <div class="dropzone shoes" id="shoeszone3">
                         <div id="dragshoes3" class="dragShoes" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
@@ -196,19 +226,19 @@
                         <div class="dropzone shoes" id="shoeshole"></div>
                     </div>
     
-                    <div class="dropzone shoes">
+                    <div class="dropzone shoes" id="shoeszone4">
                         <div id="dragshoes4" class="dragShoes" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shoes">
+                    <div class="dropzone shoes" id="shoeszone5">
                         <div id="dragshoes5" class="dragShoes" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
                         </div>
                     </div>
-                    <div class="dropzone shoes">
+                    <div class="dropzone shoes" id="shoeszone6">
                         <div id="dragshoes6" class="dragShoes" draggable="true"
                             ondragstart="event.dataTransfer.setData('text/plain',null)">
     
@@ -218,8 +248,10 @@
     
             </div>
             
-        
-                <button class="endgame" onclick="endScreen()">end game</button>
+
+                <button class="check" onclick="increaseTries(checkOutfitFull)" id="check">check</button>
+                <button class="check" onclick="newCombo(resetGame, resetTries, resetFeedback)" id="next" disabled>next</button>
+                
         </div>
 
 
@@ -232,18 +264,18 @@
             
             <div>
                 <button class='startbutton' onclick="startGame()">Try for more points!</button>
-                <button class='startbutton redeem' onclick="">Redeem my points now!</button>
+                <button class='startbutton redeem' onclick="">Redeem my points!</button>
 
             </div>
 
 
         </div>
-       
+        </div>
 
 
 
     </div>
-
+    <script src="/project1/js/navbar.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
 </body>

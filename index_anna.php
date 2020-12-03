@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +13,13 @@
     <title>Restore</title>
 </head>
 <body style="background-color: #F1F9F3;">
-    <div id="buttons">
+    <?php
+    require_once 'php_partials/buttons.php';
+  ?>
+    <!-- <div id="buttons">
         <a role="button" class="btn btn-sm" href="#">Log in</a>
         <a role="button" class="btn btn-sm" href="#">Registrarse</a>
-    </div>
+    </div> -->
 
 
     <div class="wrapper">
@@ -24,12 +31,11 @@
                 <!-- GAMES -->
                 <li><a href="#"><img src="./media/img/game.png" width="60px"><p>Juegos</p></a></li> 
                 <!-- PUNTOS Y PROMOCIONES -->
-                <li><a href="#"><img src="./media/img/promociones-relleno.png" width="50px"><p>Puntos y promociones</p></a></li>
+                <li><a href="#"><img src="./media/img/promociones-relleno.png" width="50px"><p>Puntos y Promociones</p></a></li>
                 <!-- SOBRE NOSOTRES -->
-                <li><a href="#"><img src="./media/img/aboutUs.png" width="50px"><p>Sobre nosotres</p></a></li>
+                <li><a href="#"><img src="./media/img/aboutUs.png" width="50px"><p>Sobre Nosotres</p></a></li>
                 <!-- ADMINISTRADOR -->
-
-                <li><a href="php_views/administration.php"><img src="./media/img/admin.png" width="50px"></a></li>
+                <li><a href="php_views/administration.php"><img src="./media/img/admin.png" width="50px"><p>Administración</p></a></li>
 
             </ul> 
 

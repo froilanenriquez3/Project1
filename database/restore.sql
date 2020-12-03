@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `restore`.`user` (
   `password` VARCHAR(16) NOT NULL,
   `points` INT NULL,
   `isAdmin` TINYINT NULL,
-  `email` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`userid`))
 ENGINE = InnoDB;
 
@@ -134,7 +134,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 /*Inserts for testing - REMOVE LATER!  pretty please - */
 
-INSERT INTO user VALUES(null, "Alex", "1234", 123, true, "alxcant@whatev.com");
+INSERT INTO user VALUES(null, "Alex", "1234pass", 123, true, "alxcant@whatev.com");
 INSERT INTO game VALUES(null, "Game1", 1000);
 INSERT INTO game VALUES(null, "Game2", 1000);
 INSERT INTO game VALUES(null, "Game3", 1000);
