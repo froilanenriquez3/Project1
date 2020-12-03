@@ -27,6 +27,7 @@ body {
     right: 0px;
     width: calc(100% - 100px);
     margin-top: 7%;
+    z-index: -1;
 }
 
 button {
@@ -253,7 +254,7 @@ button {
     }
 }
 
-.container {
+.box{
     box-sizing: border-box;
     display: grid;
     grid-template-rows: 40% 32% 22% 6%;
