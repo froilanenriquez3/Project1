@@ -76,7 +76,7 @@
     
             </div>
     
-            <div class="container">
+            <div class="box">
                 <!-- Updates to content of container must be copied to script.js resetGame function-->
                 <div class="shelf" id="hats">
                     <div class="dropzone hat" id="hatzone1">

@@ -350,7 +350,7 @@ function resetGame() {
 
 
   //When game container is updated, copy contents into this string literal
-  document.querySelector(".container").innerHTML = ` 
+  document.querySelector(".box").innerHTML = ` 
     <div class="shelf" id="hats">
     <div class="dropzone hat" id="hatzone1">
         <div id="draghat1" class="dragHat" draggable="true"
