@@ -264,7 +264,7 @@
             
             <div>
                 <button class='startbutton' onclick="startGame()">Try for more points!</button>
-                <button class='startbutton redeem' onclick="">Redeem my points now!</button>
+                <button class='startbutton redeem' onclick="">Redeem my points!</button>
 
             </div>
 
