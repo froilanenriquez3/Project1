@@ -3,7 +3,7 @@
     require_once '../../php_libraries/bd.php';
     session_start();
     $games = selectAllFromTable('game');
-    $limit = $games['2']['pointLimit'];
+    $limit = $games['1']['pointLimit'];
 ?>
 
 <!DOCTYPE html>

@@ -21,12 +21,20 @@ if ($_SESSION['user']['isAdmin'] == 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/all.min.css">
+    <link rel="stylesheet" href="../style/style-navbar.css">
+    <link rel="stylesheet" href="../style/buttons.css">
     <title>Restore</title>
 </head>
 
 <body>
+
+<?php
+    require_once "../php_partials/buttons.php";
+    require_once "../php_partials/navbar.php";
+
+?>
     <div class="container">
-        <div class="card mt-2">
+        <div class="card">
             <div class="card-header">
                 <h1>Administration</h1>
             </div>
