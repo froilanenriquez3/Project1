@@ -5,26 +5,24 @@ window.addEventListener('DOMContentLoaded', start());
 function start(){
   let square = document.getElementById("square");
   let barrera = document.getElementById("square2");
-  let bottom = 0;
   let gravity = 0.9;
   let isJumping = false;
-  let left = 0; //punto de partida para calcular el movimiento hacia la izquierda
   let velocidad = 10;
-  let isGoingLeft = false; //a menos que se clique la flecha no se moverá a la izquierda
-  let isGoingRight = false;
-  let timerRight;
-  let timerLeft;
+  let up = 5;
+
 
   let character ={
     x: 0, 
     y: 370,
-    width: 80
+    width: 80,
+    height: 80
   }
 
   let box = {
     x: 270,
     y: 370,
-    width: 80
+    width: 80, 
+    height: 80
   }
 
   drawSquare();
@@ -43,39 +41,27 @@ function start(){
   }
 
   function jump(){
-    //Para evitar el doble salto, de modo que solo llama a la función de saltar si no está saltando
-    //Si es true, devolverá la función y no hará nada. Solo actuará cuando detecte el false, que indica que bottom es más pequeño que 0
-    //if (isJumping == true) return;
-    //Establecemos un intervalo de 20 milisegundos
-    //et timerUp = setInterval(function(){
+    if (isJumping == true) return;
+    let timerUp = setInterval(function(){
+      if(character.y < 250){
+        clearInterval(timerUp);
+      
+        let timerDown = setInterval(function(){
+          if (character.y + character.height + up >= 450){
+            clearInterval(timerDown);
+            isJumping = false; 
+          }
+          character.y += up;
+          square.style.top = character.y + 'px';
+        }, 20);
+      }
 
-      //Cuando llega a 250px se para
-      //if (character.bottom > 250){
-      //  clearInterval(timerUp);
+      isJumping = true;
+      character.y -= 50;
+      square.style.top = character.y + 'px';
+      console.log(character.y);
 
-        // //Hacemos una función para que el cuadrado baje
-        // let timerDown = setInterval(function(){
-        //   //Si no lo paramos, sigue bajando hasta el infierno así que hay que poner un controlador
-        //   if (character.y <  5){
-        //     clearInterval(timerDown);
-        //     //Si está en el suelo (bottom es más pequeño que 0), sí podremos volver a saltar
-        //     isJumping = false;
-        //   }
-        //   //fall();
-        //     character.y -= 5;
-        //     square.style.bottom = character.y + 'px';
-        // }, 20);
-      //}
-
-      //Si ya está saltando, no podrá volver a saltar y no ascenderá 30px del suelo
-      //isJumping = true;
-      //Cada vez que pulsamos la tecla sube 30px del suelo
-      bottom += 30;
-      //Se multiplica constrantemente y cada vez la velocidad es menor para dar un efecto de gravedad
-      //character.y = character.y * gravity;
-      //square.style.bottom = character.y + 'px';
-    //}, 20);
-    
+    }, 20);
   }
 
   // function jump(){
@@ -114,39 +100,6 @@ function start(){
     
   // }
 
-  // function moveLeft(){
-  //   if(isGoingRight == true){
-  //     clearInterval(timerRight);
-  //     isGoingRight = false;
-  //   }
-  //   isGoingLeft = true;
-  //   //   timerLeft = setInterval(function(){
-  //   //   left -=5;
-  //   //   square.style.left = left + 'px';
-  //   // }, 5);
-
-  //   left -= velocidad;
-  //   square.style.marginLeft = left + 'px';
-    
-  //  }
-
-  // function moveRight(){
-  //   if (isGoingLeft == true){
-  //     clearInterval(timerLeft);
-  //     isGoingLeft = false;
-  //   }
-  //     isGoingRight = true;
-  //   //   timerRight = setInterval(function(){
-  //   //   left +=5;
-  //   //   square.style.left = left + 'px';
-  //   // }, 5);
-    
-  //   left +=velocidad;
-  //   square.style.marginLeft = left + 'px';
-
-  // }
-  
-// let cantidad = 0;
 
   //CONTROLES
   // function control(e){
@@ -170,6 +123,7 @@ function start(){
   //   }
   // }
 
+  console.log(character.y);
 
 
   function control(e) {    
@@ -177,22 +131,41 @@ function start(){
       jump(); // si apretamos la barra espaciadora
     } 
 
+    //LEFT
     else if(e.keyCode == 37 && character.x > 0){
-      // moveLeft();  //si apretamos la flecha de la izquierda
-      character.x -= velocidad;
-      square.style.left = character.x + "px";
-      if (character.x <= box.x + box.width && character.x > box.x){
-        character.x = box.x + box.width + 10;
+      // character.x -= velocidad;
+      // square.style.left = character.x + "px";
+      // console.log(character.x);
+      // if (character.x <= box.x + box.width && character.x > box.x){
+      //   character.x = box.x + box.width + 10;
+        
+      // }
+      if(character.x - velocidad < box.x + box.width && character.x > box.x){
+
+      }
+      else{
+        character.x -= velocidad;
+        square.style.left = character.x + 'px';
+        console.log(character.x);
       }
     
-    }
+    } 
 
-    else if(e.keyCode == 39 && character.x < 805){
-      // moveRight(); //si apretamos la flecha de la derecha
-      character.x += velocidad;
-      square.style.left = character.x + "px";
-      if (character.x + character.width > box.x && character.x + character.width < box.x + box.width){
-        character.x = box.x - character.width -5;
+    //RIGHT
+    else if(e.keyCode == 39 && character.x < 810){
+      // character.x += velocidad;
+      // square.style.left = character.x + "px";
+      // console.log(character.x);
+      // if (character.x + character.width > box.x && character.x + character.width < box.x + box.width){
+      //   character.x = box.x - character.width -10;
+      // }
+      if(character.x + character.width + velocidad > box.x && character.x + character.width < box.x + box.width){
+
+      }
+      else{
+        character.x += velocidad;
+        square.style.left = character.x + 'px';
+        console.log(character.x);
       }
     }
 

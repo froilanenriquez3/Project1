@@ -87,11 +87,9 @@
 
       <div style="text-align: center;" class="member">
         <img src="./media/img/aboutUs.png" width="150px" class="rounded-circle" alt="Cinque Terre">
-        <h3>Nombre</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur<br>
-          adipisicing elit. A sed nobis ut exercitationem <br>
-          atque accusamus sit natus officiis totam blanditiis <br>
-          at eum nemo, nulla et quae eius culpa eveniet.
+        <h3>Froilan Enriquez</h3>
+        <p>I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
+          and my downtime is spent noodling on the guitar, spending time with my girlfriend, and trying to learn new things. 
         </p>
       </div>
 
