@@ -16,7 +16,7 @@ function start(){
   let timerLeft;
 
   let character ={
-    x: 500, 
+    x: 0, 
     y: 370,
     width: 80
   }
@@ -171,31 +171,28 @@ function start(){
   // }
 
 
-  console.log(box.width);
-        console.log(box.x);
-        console.log(box.x - box.width);
-
-
 
   function control(e) {    
     if (e.keyCode === 32) {
       jump(); // si apretamos la barra espaciadora
     } 
 
-    else if(e.keyCode == 37 && character.x >0){
+    else if(e.keyCode == 37 && character.x > 0){
       // moveLeft();  //si apretamos la flecha de la izquierda
-      //if (character.x > box.x + box.width || character.x < box.x - box.width){
-        character.x -= velocidad;
-        square.style.left = character.x + "px";
-        
-      //}
+      character.x -= velocidad;
+      square.style.left = character.x + "px";
+      if (character.x <= box.x + box.width && character.x > box.x){
+        character.x = box.x + box.width + 10;
+      }
+    
     }
 
     else if(e.keyCode == 39 && character.x < 805){
       // moveRight(); //si apretamos la flecha de la derecha
-      if (character.x < box.x - box.width || character.x > box.x + box.width){
-        character.x += velocidad;
-        square.style.left = character.x + "px";
+      character.x += velocidad;
+      square.style.left = character.x + "px";
+      if (character.x + character.width > box.x && character.x + character.width < box.x + box.width){
+        character.x = box.x - character.width -5;
       }
     }
 
