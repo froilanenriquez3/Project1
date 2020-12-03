@@ -74,6 +74,7 @@ button {
 }
 
 .startbutton {
+    width:100px;
     margin: 30px;
     font-size: 30px;
     border-radius: 10px;
@@ -113,10 +114,11 @@ button {
         p {
             border: solid black 3px;
             border-radius: 20px;
-            margin: 1px;
+            // margin: 1px;
+            margin-bottom: 0px;
             text-align: center;
             vertical-align: center;
-            height: 20px;
+            height: 25px;
             font-size: 15px;
         }
     }
@@ -514,6 +516,10 @@ button {
         h2 {
             color: red;
         }
+    }
+
+    button {
+        width: 300px;
     }
 
     .redeem {
