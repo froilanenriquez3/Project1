@@ -23,6 +23,11 @@ if ($_SESSION['user']['isAdmin'] == 0) {
     <link rel="stylesheet" href="../style/all.min.css">
     <link rel="stylesheet" href="../style/style-navbar.css">
     <link rel="stylesheet" href="../style/buttons.css">
+
+    <!-- FONT MONTSERRAT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    
+
     <title>Restore</title>
 </head>
 
