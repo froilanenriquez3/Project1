@@ -18,7 +18,7 @@
 
 body {
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', 'sans-serif';
     background-color: #e2f3e7;
 }
 
@@ -71,9 +71,20 @@ button {
     margin-top: 70px;
     padding: 20px;
     text-align: center;
+    h1{
+        font-size: 50px;
+        margin: 10px;
+    }
+    h2{
+        margin: 10px;
+    }
+    p{
+        margin: 10px;
+    }
 }
 
 .startbutton {
+    width:100px;
     margin: 30px;
     font-size: 30px;
     border-radius: 10px;
@@ -113,10 +124,11 @@ button {
         p {
             border: solid black 3px;
             border-radius: 20px;
-            margin: 1px;
+            // margin: 1px;
+            margin-bottom: 0px;
             text-align: center;
             vertical-align: center;
-            height: 20px;
+            height: 25px;
             font-size: 15px;
         }
     }
@@ -331,11 +343,11 @@ button {
         }
 
         #draghat2 {
-            @include bodyImage("../img/hats/disguise.png");
+            @include bodyImage("../img/hats/brown.png");
         }
 
         #draghat3 {
-            @include bodyImage("../img/hats/jokein2020.png");
+            @include bodyImage("../img/hats/disguise.png");
         }
         .center {
             .dropzone {
@@ -344,7 +356,7 @@ button {
         }
 
         #draghat4 {
-            @include bodyImage("../img/hats/brown.png");
+            @include bodyImage("../img/hats/jokein2020.png");
         }
         #draghat5 {
             @include bodyImage("../img/hats/astronaut.png");
@@ -359,23 +371,23 @@ button {
         background-color: lightsalmon;
 
         #dragshirt1 {
-            @include bodyImage("../img/shirts/redshirt.png");
+            @include bodyImage("../img/shirts/btr.png");
         }
 
         #dragshirt2 {
-            @include bodyImage("../img/shirts/cyan.png");
+            @include bodyImage("../img/shirts/dwight.png");
         }
         #dragshirt3 {
-            @include bodyImage("../img/shirts/whiteshirt.png");
+            @include bodyImage("../img/shirts/shrek.png");
         }
         .center {
             .dropzone {
-                @include bodyImage("../img/body.png");
+                @include bodyImage("../img/shirts/pain.png");
             }
         }
 
         #dragshirt4 {
-            @include bodyImage("../img/shirts/purple.png");
+            @include bodyImage("../img/shirts/gamer.png");
         }
 
         #dragshirt5 {
@@ -392,10 +404,10 @@ button {
             @include bodyImage("../img/pants/redpants.png");
         }
         #dragpants2 {
-            @include bodyImage("../img/pants/cyanpants.png");
+            @include bodyImage("../img/pants/dwight.png");
         }
         #dragpants3 {
-            @include bodyImage("../img/pants/whitepants.png");
+            @include bodyImage("../img/pants/blackpants.png");
         }
         .center {
             .dropzone {
@@ -404,7 +416,7 @@ button {
         }
 
         #dragpants4 {
-            @include bodyImage("../img/pants/blackpants.png");
+            @include bodyImage("../img/pants/whitepants.png");
         }
 
         #dragpants5 {
@@ -419,15 +431,15 @@ button {
         background-color: rgb(92, 59, 59);
 
         #dragshoes1 {
-            @include bodyImage("../img/shoes/redshoes.png");
+            @include bodyImage("../img/shoes/pinkshoes.png");
         }
 
         #dragshoes2 {
-            @include bodyImage("../img/shoes/blueshoes.png");
+            @include bodyImage("../img/shoes/brownshoes.png");
         }
 
         #dragshoes3 {
-            @include bodyImage("../img/shoes/whiteshoes.png");
+            @include bodyImage("../img/shoes/blueshoes.png");
         }
 
         .center {
@@ -438,7 +450,7 @@ button {
         }
 
         #dragshoes4 {
-            @include bodyImage("../img/shoes/brownshoes.png");
+            @include bodyImage("../img/shoes/whiteshoes.png");
         }
 
         #dragshoes5 {
@@ -446,7 +458,7 @@ button {
         }
 
         #dragshoes6 {
-            @include bodyImage("../img/shoes/difblueshoes.png");
+            @include bodyImage("../img/shoes/redshoes.png");
         }
     }
 }
@@ -509,11 +521,18 @@ button {
     color: black;
 
     .text {
+        box-sizing: content-box;
         height: 200px;
+        margin: 10px;
 
         h2 {
             color: red;
+            margin-bottom: 10px;
         }
+    }
+
+    button {
+        width: 300px;
     }
 
     .redeem {

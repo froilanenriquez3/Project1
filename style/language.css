@@ -1,0 +1,13 @@
+.languages{
+    position: fixed;
+    right: 230px;
+    top: 15px;
+    
+}
+
+.languages > button{
+    background-color: #ffb35c;
+    color: #2e585a;
+    margin: 0.5em;
+    border: 1px solid #2e585a;
+}

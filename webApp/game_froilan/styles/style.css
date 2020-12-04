@@ -2,7 +2,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', 'sans-serif';
   background-color: #e2f3e7;
 }
 
@@ -62,7 +62,21 @@ button {
   text-align: center;
 }
 
+.text h1 {
+  font-size: 50px;
+  margin: 10px;
+}
+
+.text h2 {
+  margin: 10px;
+}
+
+.text p {
+  margin: 10px;
+}
+
 .startbutton {
+  width: 100px;
   margin: 30px;
   font-size: 30px;
   border-radius: 10px;
@@ -111,10 +125,10 @@ button {
 .topbar #feedbackbox p {
   border: solid black 3px;
   border-radius: 20px;
-  margin: 1px;
+  margin-bottom: 0px;
   text-align: center;
   vertical-align: center;
-  height: 20px;
+  height: 25px;
   font-size: 15px;
 }
 
@@ -368,14 +382,14 @@ button {
 }
 
 .box #hats #draghat2 {
-  background-image: url("../img/hats/disguise.png");
+  background-image: url("../img/hats/brown.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #hats #draghat3 {
-  background-image: url("../img/hats/jokein2020.png");
+  background-image: url("../img/hats/disguise.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -389,7 +403,7 @@ button {
 }
 
 .box #hats #draghat4 {
-  background-image: url("../img/hats/brown.png");
+  background-image: url("../img/hats/jokein2020.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -414,35 +428,35 @@ button {
 }
 
 .box #shirts #dragshirt1 {
-  background-image: url("../img/shirts/redshirt.png");
+  background-image: url("../img/shirts/btr.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts #dragshirt2 {
-  background-image: url("../img/shirts/cyan.png");
+  background-image: url("../img/shirts/dwight.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts #dragshirt3 {
-  background-image: url("../img/shirts/whiteshirt.png");
+  background-image: url("../img/shirts/shrek.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts .center .dropzone {
-  background-image: url("../img/body.png");
+  background-image: url("../img/shirts/pain.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts #dragshirt4 {
-  background-image: url("../img/shirts/purple.png");
+  background-image: url("../img/shirts/gamer.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -474,14 +488,14 @@ button {
 }
 
 .box #pants #dragpants2 {
-  background-image: url("../img/pants/cyanpants.png");
+  background-image: url("../img/pants/dwight.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #pants #dragpants3 {
-  background-image: url("../img/pants/whitepants.png");
+  background-image: url("../img/pants/blackpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -495,7 +509,7 @@ button {
 }
 
 .box #pants #dragpants4 {
-  background-image: url("../img/pants/blackpants.png");
+  background-image: url("../img/pants/whitepants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -520,21 +534,21 @@ button {
 }
 
 .box #shoes #dragshoes1 {
-  background-image: url("../img/shoes/redshoes.png");
+  background-image: url("../img/shoes/pinkshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shoes #dragshoes2 {
-  background-image: url("../img/shoes/blueshoes.png");
+  background-image: url("../img/shoes/brownshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shoes #dragshoes3 {
-  background-image: url("../img/shoes/whiteshoes.png");
+  background-image: url("../img/shoes/blueshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -549,7 +563,7 @@ button {
 }
 
 .box #shoes #dragshoes4 {
-  background-image: url("../img/shoes/brownshoes.png");
+  background-image: url("../img/shoes/whiteshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -563,7 +577,7 @@ button {
 }
 
 .box #shoes #dragshoes6 {
-  background-image: url("../img/shoes/difblueshoes.png");
+  background-image: url("../img/shoes/redshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -638,11 +652,19 @@ button {
 }
 
 .endscreen .text {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 200px;
+  margin: 10px;
 }
 
 .endscreen .text h2 {
   color: red;
+  margin-bottom: 10px;
+}
+
+.endscreen button {
+  width: 300px;
 }
 
 .endscreen .redeem {

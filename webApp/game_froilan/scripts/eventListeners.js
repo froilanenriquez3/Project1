@@ -7,7 +7,7 @@ document.addEventListener("drag", function (event) {
 
 }, false);
 
-document.addEventListener("dragstart", function (event) {
+document.addEventListener("dragstart", (event) => {
   // store a ref. on the dragged elem
   dragged = event.target;
   // make it half transparent
@@ -15,14 +15,14 @@ document.addEventListener("dragstart", function (event) {
   event.target.style.opacity = 0.5;
 }, false);
 
-document.addEventListener("dragend", function (event) {
+document.addEventListener("dragend", (event) => {
   // reset the transparency
   //event.target.style.backgroundColor = "transparent";
   event.target.style.opacity = 1;
 }, false);
 
 /* events fired on the drop targets */
-document.addEventListener("dragover", function (event) {
+document.addEventListener("dragover", (event) => {
   // prevent default to allow drop
   event.preventDefault();
 }, false);
@@ -31,27 +31,13 @@ document.addEventListener("dragover", function (event) {
 
 //Drop Zone event listeners
 
-/* document.addEventListener("dragenter", function (event) {
-  // highlight potential drop target when the draggable element enters it
-  if (event.target.className == "dropzone hat") {
-    event.target.style.background = "";
-  }
-}, false);
+//Event listener for dragging items
+document.addEventListener("drop", (event) => {
 
-document.addEventListener("dragleave", function (event) {
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.className == "dropzone hat") {
-    event.target.style.background = "";
-  }
-
-}, false);
- */
-
-//Event lisetener for dragging items
-document.addEventListener("drop", function (event) {
   // prevent default action (open as link for some elements)
   event.preventDefault();
-  // move dragged elem to the selected drop target
+
+  // move dragged element to the selected drop target
   if ((event.target.classList.contains("dropzone") && event.target.classList.contains("hat") && dragged.classList.contains("dragHat"))
     || (event.target.classList.contains("dropzone") && event.target.classList.contains("shirt") && dragged.classList.contains("dragShirt"))
     || (event.target.classList.contains("dropzone") && event.target.classList.contains("pants") && dragged.classList.contains("dragPants"))
@@ -65,7 +51,7 @@ document.addEventListener("drop", function (event) {
 }, false);
 
 //Event listener for dragging items over occupied squares
-document.addEventListener("drop", function (event) {
+document.addEventListener("drop", (event) => {
 
   event.preventDefault();
 
