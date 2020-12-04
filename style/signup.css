@@ -3,6 +3,7 @@ body {
     height:100%;
     margin: auto;
     margin-top: 10%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container{   
@@ -12,16 +13,20 @@ body {
 
 .card-header{
     background-color:#FFB35C;
+    color: black;
 }
 
 
 .card-body{
-    background-color: #F1F9F3;
+    background-color: #2e585a;
+    color: white;
+    font-size: 15px;
 }
 
 
 .btn{
     background-color: #FFB35C;
+    font-size: 14px;
 }
 
 .btn-group{
@@ -31,5 +36,9 @@ body {
 
 .entrar{
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
+}
+
+.entrar a{
+    color: white;
 }
