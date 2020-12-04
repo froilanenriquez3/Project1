@@ -2,7 +2,7 @@
     <h2>LOGO</h2>
     <ul>
         <!-- RECOMERÇEM -->
-        <li><a href="/project1/index.php"><img src="/project1/media/img/game-icon.png" width="50px">
+        <li><a href="/project1/index.php"><img src="/project1/media/img/home-icon.png" width="50px">
                 <p>Recomerçem</p>
             </a></li>
         <!-- GAMES -->
