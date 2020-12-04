@@ -2,6 +2,10 @@
 <?php
     require_once '../../php_libraries/bd.php';
     session_start();
+    if (!isset($_SESSION['user'])) {
+        header("Location: ../../php_views/login.php");
+        exit();  
+    }
     $games = selectAllFromTable('game');
     $limit = $games['1']['pointLimit'];
 ?>
@@ -266,7 +270,13 @@
             
             <div>
                 <button class='startbutton' onclick="startGame()">Try for more points!</button>
-                <button class='startbutton redeem' onclick="">Redeem my points!</button>
+                <button class='startbutton redeem' onclick="savePoints()">Redeem my points!</button>
+                <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
+                     <input type="number" style="display:none" id="finalPoints" name="finalPoints">
+                     <input type="number" style="display:none" id="gameId" name="gameId" value="2">
+                </form>
+               
+               
 
             </div>
 
@@ -280,6 +290,8 @@
     <script src="/project1/js/navbar.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
+    <script src="scripts/submit.js"></script>
+
     <script src="../../lang/ESP.js"></script>
     <script src="../../lang/ENG.js"></script>
     <script src="../../lang/CAT.js"></script>

@@ -2,7 +2,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', 'sans-serif';
   background-color: #e2f3e7;
 }
 
@@ -442,7 +442,7 @@ button {
 }
 
 .box #shirts #dragshirt3 {
-  background-image: url("../img/shirts/gamer.png");
+  background-image: url("../img/shirts/shrek.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -456,7 +456,7 @@ button {
 }
 
 .box #shirts #dragshirt4 {
-  background-image: url("../img/shirts/superman.png");
+  background-image: url("../img/shirts/gamer.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -495,7 +495,7 @@ button {
 }
 
 .box #pants #dragpants3 {
-  background-image: url("../img/pants/whitepants.png");
+  background-image: url("../img/pants/blackpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -509,14 +509,14 @@ button {
 }
 
 .box #pants #dragpants4 {
-  background-image: url("../img/pants/superpants.png");
+  background-image: url("../img/pants/whitepants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #pants #dragpants5 {
-  background-image: url("../img/pants/blackpants.png");
+  background-image: url("../img/pants/greenpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -534,7 +534,7 @@ button {
 }
 
 .box #shoes #dragshoes1 {
-  background-image: url("../img/shoes/redshoes.png");
+  background-image: url("../img/shoes/pinkshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -548,7 +548,7 @@ button {
 }
 
 .box #shoes #dragshoes3 {
-  background-image: url("../img/shoes/whiteshoes.png");
+  background-image: url("../img/shoes/blueshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -563,7 +563,7 @@ button {
 }
 
 .box #shoes #dragshoes4 {
-  background-image: url("../img/shoes/supershoes.png");
+  background-image: url("../img/shoes/whiteshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -577,7 +577,7 @@ button {
 }
 
 .box #shoes #dragshoes6 {
-  background-image: url("../img/shoes/difblueshoes.png");
+  background-image: url("../img/shoes/redshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -652,12 +652,15 @@ button {
 }
 
 .endscreen .text {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 200px;
   margin: 10px;
 }
 
 .endscreen .text h2 {
   color: red;
+  margin-bottom: 10px;
 }
 
 .endscreen button {
