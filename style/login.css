@@ -17,12 +17,13 @@ body {
 
 
 .card-body{
-    background-color: #F1F9F3;
+    background-color: #2e585a;
 }
 
 
 .btn{
     background-color: #FFB35C;
+    font-size: 14px;
 }
 
 
@@ -33,5 +34,9 @@ body {
 
 .entrar{
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
+}
+
+.entrar a{
+    color: white;
 }
