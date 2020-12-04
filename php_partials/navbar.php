@@ -16,9 +16,7 @@
                 <p>Puntos y Promociones</p>
             </a></li>
         <!-- SOBRE NOSOTRES -->
-
         <li><a href="/project1/index.php/#aboutUs"><img src="/project1/media/img/aboutUs.png" width="50px">
-
                 <p>Sobre Nosotres</p>
             </a></li>
         <!-- ADMINISTRADOR -->
