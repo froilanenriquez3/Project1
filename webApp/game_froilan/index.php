@@ -3,7 +3,7 @@
     require_once '../../php_libraries/bd.php';
     session_start();
     $games = selectAllFromTable('game');
-    $limit = $games['2']['pointLimit'];
+    $limit = $games['1']['pointLimit'];
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/project1/style/style-navbar.css">
     <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../../style/language.css">
     <link href="./styles/all.min.css" rel="stylesheet">
 
 
@@ -27,12 +28,13 @@
     <?php
         require_once '../../php_partials/navbar.php';
         require_once '../../php_partials/buttons.php';
+        require_once '../../php_partials/language.php';
     ?>
     <div class="gameContainer">
     <div id="game">
         <div class="startscreen">
             <div class="text">
-                <h1>Welcome to Froilan's Fantastic Fitting Room!</h1>
+                <h1 id="screenHeader" >Welcome to Froilan's Fantastic Fitting Room!</h1>
                 <h2>Help me buy clothes for my grandson, Marco</h2>
                 <p>Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
                     If your combo works, you earn points! If it doesn't, try again with something different. 
@@ -76,7 +78,7 @@
     
             </div>
     
-            <div class="container">
+            <div class="box">
                 <!-- Updates to content of container must be copied to script.js resetGame function-->
                 <div class="shelf" id="hats">
                     <div class="dropzone hat" id="hatzone1">
@@ -264,7 +266,7 @@
             
             <div>
                 <button class='startbutton' onclick="startGame()">Try for more points!</button>
-                <button class='startbutton redeem' onclick="">Redeem my points now!</button>
+                <button class='startbutton redeem' onclick="">Redeem my points!</button>
 
             </div>
 
@@ -278,6 +280,10 @@
     <script src="/project1/js/navbar.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
+    <script src="../../lang/ESP.js"></script>
+    <script src="../../lang/ENG.js"></script>
+    <script src="../../lang/CAT.js"></script>
+    <script src="../../lang/language.js"></script>
 </body>
 
 </html>
