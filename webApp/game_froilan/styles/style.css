@@ -382,14 +382,14 @@ button {
 }
 
 .box #hats #draghat2 {
-  background-image: url("../img/hats/disguise.png");
+  background-image: url("../img/hats/brown.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #hats #draghat3 {
-  background-image: url("../img/hats/jokein2020.png");
+  background-image: url("../img/hats/disguise.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -403,7 +403,7 @@ button {
 }
 
 .box #hats #draghat4 {
-  background-image: url("../img/hats/brown.png");
+  background-image: url("../img/hats/jokein2020.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -428,35 +428,35 @@ button {
 }
 
 .box #shirts #dragshirt1 {
-  background-image: url("../img/shirts/redshirt.png");
+  background-image: url("../img/shirts/btr.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts #dragshirt2 {
-  background-image: url("../img/shirts/cyan.png");
+  background-image: url("../img/shirts/dwight.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts #dragshirt3 {
-  background-image: url("../img/shirts/whiteshirt.png");
+  background-image: url("../img/shirts/gamer.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts .center .dropzone {
-  background-image: url("../img/body.png");
+  background-image: url("../img/shirts/pain.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #shirts #dragshirt4 {
-  background-image: url("../img/shirts/purple.png");
+  background-image: url("../img/shirts/superman.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -488,7 +488,7 @@ button {
 }
 
 .box #pants #dragpants2 {
-  background-image: url("../img/pants/cyanpants.png");
+  background-image: url("../img/pants/dwight.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -509,14 +509,14 @@ button {
 }
 
 .box #pants #dragpants4 {
-  background-image: url("../img/pants/blackpants.png");
+  background-image: url("../img/pants/superpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .box #pants #dragpants5 {
-  background-image: url("../img/pants/greenpants.png");
+  background-image: url("../img/pants/blackpants.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -541,7 +541,7 @@ button {
 }
 
 .box #shoes #dragshoes2 {
-  background-image: url("../img/shoes/blueshoes.png");
+  background-image: url("../img/shoes/brownshoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -563,7 +563,7 @@ button {
 }
 
 .box #shoes #dragshoes4 {
-  background-image: url("../img/shoes/brownshoes.png");
+  background-image: url("../img/shoes/supershoes.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -653,6 +653,7 @@ button {
 
 .endscreen .text {
   height: 200px;
+  margin: 10px;
 }
 
 .endscreen .text h2 {
