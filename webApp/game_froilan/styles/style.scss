@@ -18,7 +18,7 @@
 
 body {
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', 'sans-serif';
     background-color: #e2f3e7;
 }
 
@@ -378,7 +378,7 @@ button {
             @include bodyImage("../img/shirts/dwight.png");
         }
         #dragshirt3 {
-            @include bodyImage("../img/shirts/gamer.png");
+            @include bodyImage("../img/shirts/shrek.png");
         }
         .center {
             .dropzone {
@@ -387,7 +387,7 @@ button {
         }
 
         #dragshirt4 {
-            @include bodyImage("../img/shirts/superman.png");
+            @include bodyImage("../img/shirts/gamer.png");
         }
 
         #dragshirt5 {
@@ -407,7 +407,7 @@ button {
             @include bodyImage("../img/pants/dwight.png");
         }
         #dragpants3 {
-            @include bodyImage("../img/pants/whitepants.png");
+            @include bodyImage("../img/pants/blackpants.png");
         }
         .center {
             .dropzone {
@@ -416,11 +416,11 @@ button {
         }
 
         #dragpants4 {
-            @include bodyImage("../img/pants/superpants.png");
+            @include bodyImage("../img/pants/whitepants.png");
         }
 
         #dragpants5 {
-            @include bodyImage("../img/pants/blackpants.png");
+            @include bodyImage("../img/pants/greenpants.png");
         }
         #dragpants6 {
             @include bodyImage("../img/pants/bluepants.png");
@@ -431,7 +431,7 @@ button {
         background-color: rgb(92, 59, 59);
 
         #dragshoes1 {
-            @include bodyImage("../img/shoes/redshoes.png");
+            @include bodyImage("../img/shoes/pinkshoes.png");
         }
 
         #dragshoes2 {
@@ -439,7 +439,7 @@ button {
         }
 
         #dragshoes3 {
-            @include bodyImage("../img/shoes/whiteshoes.png");
+            @include bodyImage("../img/shoes/blueshoes.png");
         }
 
         .center {
@@ -450,7 +450,7 @@ button {
         }
 
         #dragshoes4 {
-            @include bodyImage("../img/shoes/supershoes.png");
+            @include bodyImage("../img/shoes/whiteshoes.png");
         }
 
         #dragshoes5 {
@@ -458,7 +458,7 @@ button {
         }
 
         #dragshoes6 {
-            @include bodyImage("../img/shoes/difblueshoes.png");
+            @include bodyImage("../img/shoes/redshoes.png");
         }
     }
 }
@@ -521,11 +521,13 @@ button {
     color: black;
 
     .text {
+        box-sizing: content-box;
         height: 200px;
         margin: 10px;
 
         h2 {
             color: red;
+            margin-bottom: 10px;
         }
     }
 
