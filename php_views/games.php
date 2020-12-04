@@ -22,8 +22,8 @@
 </head>
 <body>
 <?php   
-    include '../php_partials/navbar.php';
-    include '../php_partials/buttons.php';
+    require_once '../php_partials/navbar.php';
+    require_once '../php_partials/buttons.php';
 ?>  
 
 

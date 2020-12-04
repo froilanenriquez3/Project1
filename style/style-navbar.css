@@ -12,6 +12,7 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   margin: 0px 0px;
+  z-index: 2;
 }
 
 .sidebar ul{
