@@ -32,6 +32,9 @@
 </head>
 
 <body>
+    <div class="home">
+        <a href="/project1/index.php"><img src="/project1/media/img/home-icon-blue.png" width="70px"></a>
+    </div>    
     <div class="container">
         <div class="card mt-2">
             <div class="card-header text-center">
