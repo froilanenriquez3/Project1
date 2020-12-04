@@ -34,3 +34,8 @@
   padding: 20px 20px;
   box-sizing: border-box;
 } 
+
+.sidebar ul a{
+  text-decoration: none;
+  color: #ffb35c;
+}

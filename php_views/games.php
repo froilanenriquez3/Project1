@@ -36,7 +36,7 @@
     <h5 class="card-title">Juego 2</h5>
    
   </div>
-  <img src="../media/img/game4screenshot.png" class="card-img-bottom h-80" alt="game2">
+  <img src="../media/img/game2screenshot.png" class="card-img-bottom h-80" alt="game2">
 </div>
   </a>
 </div>
