@@ -94,6 +94,7 @@ function playLastxmas() {
     // Stopping Audio function
     // Stop music function
     audio.pause();
+    //audio.currentTime=syncData[questionNumber*2-1].end; //setting currenTime to last verse's end time
     play.style.backgroundColor = "#d7ebf7";
   }
 
@@ -178,19 +179,18 @@ function playLastxmas() {
         stopped = true;
         toggle.addEventListener("change", function () {
           // Changing type of input on click
+          var previousSpan = subtitles.children[questionNumber*2].style.backgroundColor;
           console.log("changed input");
           if (!toggle.checked) {
             inputTypeFunc = textInputFunc;
           } else {
             inputTypeFunc = voiceInputFunc;
           }
-          if(subtitles.children[questionNumber*2].style.backgroundColor=="lime"){
+          if(previousSpan=="lime" || previousSpan=="red"){
             setTimeout(inputTypeFunc(questionNumber), 5);
           }
         });
-        if(subtitles.children[questionNumber*2].style.backgroundColor=="lime" ){
           setTimeout(inputTypeFunc(questionNumber), 5);
-        }
       }
     }
   });
