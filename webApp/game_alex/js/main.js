@@ -74,18 +74,13 @@ function playLastxmas() {
   /* Creating the music player */
   var play = document.getElementById("play");
   play.addEventListener("click", function () {
-    playAudio("../media/songs/lastxmas/lastxmas.mp3");
+    playAudio();
     var maininfo = document.querySelector("#maininfo p"); //check queryselector
     maininfo.innerHTML =
       "<span>¡Vamos allá!...</span><br><br> Cada vez que pare la música introduce el siguiente verso en la cajita correspondiente (opción text input) o haz click en el micrófono, canta tu respuesta y haz click otra vez para confirmarla!<br><br>¡Recuerda que <u>puedes</u> cambiar el tipo de input (texto o voz) durante la canción!";
   }); // Onclick start music
 
-  // play.setAttribute(
-  //   "onclick",
-  //   "playAudio('../media/songs/lastxmas/lastxmas.mp3')"
-  // );
-
-  var audio = new Audio("../media/songs/lastxmas/lastxmas.mp3"); // Choosing audio track
+  var audio = document.getElementById("audio");
 
   playAudio = function () {
     // Playing audio function
@@ -242,7 +237,7 @@ function playLastxmas() {
     right.appendChild(button);
     img = document.createElement("img");
     img.setAttribute("id", "start_img");
-    img.setAttribute("src", "../media/api/mic.gif");
+    img.setAttribute("src", "./media/api/mic.gif");
     img.setAttribute("alt", "Start");
     button.appendChild(img);
 
@@ -338,17 +333,17 @@ function voiceRegnition() {
     recognition.onstart = function () {
       recognizing = true;
       showInfo("info_speak_now");
-      start_img.src = "../media/api/mic-animate.gif";
+      start_img.src = "./media/api/mic-animate.gif";
     };
 
     recognition.onerror = function (event) {
       if (event.error == "no-speech") {
-        start_img.src = "../media/api/mic.gif";
+        start_img.src = "./media/api/mic.gif";
         showInfo("info_no_speech");
         ignore_onend = true;
       }
       if (event.error == "audio-capture") {
-        start_img.src = "../media/api/mic.gif";
+        start_img.src = "./media/api/mic.gif";
         showInfo("info_no_microphone");
         ignore_onend = true;
       }
@@ -367,7 +362,7 @@ function voiceRegnition() {
       if (ignore_onend) {
         return;
       }
-      start_img.src = "../media/api/mic.gif";
+      start_img.src = "./media/api/mic.gif";
       if (!final_transcript) {
         showInfo("info_start");
         return;
@@ -425,7 +420,7 @@ function voiceRegnition() {
     ignore_onend = false;
     final_span.innerHTML = "";
     interim_span.innerHTML = "";
-    start_img.src = "../media/api/mic-slash.gif";
+    start_img.src = "./media/api/mic-slash.gif";
     showInfo("info_allow");
     start_timestamp = event.timeStamp;
   };
