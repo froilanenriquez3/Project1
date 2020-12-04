@@ -16,25 +16,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../style/signup.css">
-    
-    <!-- FONT MONTSERRAT -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">    
-
-
-    <!-- FONT OWSWALD BOLD -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
-
-
     <title>Sign Up</title>
 </head>
 
 <body>
     <div class="container">
         <div class="card mt-2">
-            <div class="card-header text-center">
+            <div class="card-header bg-secondary text-white">
                 Sign Up
             </div>
 
@@ -43,41 +31,30 @@
                     <div class="form-group">
                         <!-- User -->
                         <div class="form-group row">
-                            <label class="col-4" for="username">Usuario</label>
-                            <div class="col-sm-8">
-                                <input class="form-control form-control-sm" type="text" id="username" name="username" placeholder="Nombre de usuario" maxlength="16" autofocus required>
-                            </div>
+                            <label class="col-2" for="username">Usuario</label>
+                            <input class="col-10 form-control" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" maxlength="16" autofocus required>
                         </div>
                         <!-- Email -->
                         <div class="form-group row">
-                            <label class="col-4" for="email">Email</label>
-                            <div class="col-sm-8">
-                                <input class="form-control form-control-sm" type="text" id="email" name="email" placeholder="Email" maxlength="45"  required>
-                            </div>
+                            <label class="col-2" for="email">Email</label>
+                            <input class="col-10 form-control" type="text" id="email" name="email" placeholder="Introduce tu email" maxlength="45"  required>
                         </div>
                         <!-- Password -->
                         <div class="form-group row">
-                            <label class="col-4" for="password">Contraseña</label>
-                            <div class="col-sm-8">
-                                <input class="form-control form-control-sm" type="password" id="password" name="password" minlength="8" placeholder="Contraseña "  required>
-                            </div>
+                            <label class="col-2" for="password">Contraseña</label>
+                            <input class="col-10 form-control" type="password" id="password" name="password" minlength="8" placeholder="Introduce tu contraseña "  required>
                         </div>
                         <!-- Confirm Password -->
                         <div class="form-group row">
-                            <label class="col-4" for="confpassword">Repite tu Contraseña</label>
-                            <div class="col-sm-8">
-                                <input class="form-control form-control-sm" type="password" id="confpassword" name="confpassword" minlength="8" placeholder="Repite la contraseña"  required>
-                            </div>
+                            <label class="col-2" for="confpassword">Repite tu Contraseña</label>
+                            <input class="col-10 form-control" type="password" id="confpassword" name="confpassword" minlength="8" placeholder="Introduce tu contraseña"  required>
                         </div>
                         <!-- Boton de submit -->
-                        <div class="btn-group">
-                            <input class="btn" type="submit" value="Registrarse" id="adduser" name="adduser" >
+                        <div class="btn-group float-right">
+                            <input class="btn btn-primary" type="submit" value="Registrarse" id="adduser" name="adduser" >
                         </div>
                     </div>
                 </form>
-                <div class="entrar">
-                    <a href="./login.php">¿Ya estás registrado?</a>
-                </div>
             </div>
         </div>
     </div>

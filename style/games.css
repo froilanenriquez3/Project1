@@ -1,7 +1,5 @@
 body{
-    /* background-color: #D6E4EA; */
-    background-color: #C9DBE3;
-    /* C8CCF9 */
+    background-color: #e2f3e7;
 }
 .container{
     position: absolute;
@@ -30,8 +28,4 @@ body{
 
 .container a:hover {
     text-decoration: none;
-}
-
-.card-title{
-    font-family: 'Oswald', sans-serif;
 }

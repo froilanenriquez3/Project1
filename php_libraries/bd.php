@@ -19,9 +19,6 @@ function closeDB(){
     return null;
 }
 
-
-// **SELECT FUNCTIONS**
-
 //Function to select all items from a given table
 function selectAllFromTable($table_name){
 
@@ -40,7 +37,6 @@ function selectAllFromTable($table_name){
 
 }
 
-//Function to return a user given their user id number
 function selectUserById($user_id){
 
     $connection = openDB();
@@ -60,7 +56,6 @@ function selectUserById($user_id){
 
 }
 
-//function to return a user given their username
 function selectUserByUsername($username){
     $connection = openDB();
 
@@ -78,7 +73,6 @@ function selectUserByUsername($username){
     return $result;
 }
 
-//function to return all the promos that a user has given their user id
 function selectUserPromos($user_id){
     $connection = openDB();
 
@@ -99,35 +93,13 @@ function selectUserPromos($user_id){
     return $result;
 }
 
-//Function to return all the info of a user playing a game based on the id of the user
-function selectUserGameInfo($user_id, $game_id) {
+function selectUserGameInfo($user_id) {
     $connection = openDB();
 
-    $mySQLsentence = "SELECT * FROM user_plays_game WHERE users_userid = :userid AND games_idgame = :gameid";
+    $mySQLsentence = "SELECT * FROM user_plays_game WHERE users_userid = :userid";
 
     $mySQLsentence= $connection ->prepare($mySQLsentence);
     $mySQLsentence->bindParam(":userid",$user_id); 
-    $mySQLsentence->bindParam(":gameid",$game_id); 
-
-    $mySQLsentence->execute();
-
-    $result = $mySQLsentence->fetch();
-
-    $connection = closeDB();
-
-    return $result;
-
-}
-
-//function that returns the highest score of all the users given a certain game id 
-function selectHighScores($game_id){
-    $connection = openDB();
-
-    $mySQLsentence = "SELCT user_plays_game.highScore FROM user_plays_game JOIN user ON userid = users_userid WHERE games_gameid = :gameid;";
-
-    $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":gameid",$game_id); 
-
 
     $mySQLsentence->execute();
 
@@ -137,10 +109,7 @@ function selectHighScores($game_id){
 
     return $result;
 
-
 }
-
-
 
 function insertUser($username, $password, $points, $isAdmin, $email){
     $games = [1,2,3,4];
@@ -237,38 +206,6 @@ function insertUserHasPromo($user_id, $promos){
 
 }
 
-function insertUserPlaysGame($user_id, $game_id){
-    $connection = openDB();
-    $connection->beginTransaction();
-
-    $mySQLsentence = "INSERT INTO user_plays_game values(:userid, :gameid, 0, 0)";
-    $mySQLsentence = $connection->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":userid", $user_id);
-    $mySQLsentence->bindParam(":gameid", $game_id);
-
-    $mySQLsentence->execute();
-
-    $connection->commit();
-    $connection = closeDB();
-
-}
-
-
-function modifyPointSave($user_id, $game_id){
-    $connection = openDB();
-    $connection->beginTransaction();
-
-    $mySQLsentence = "UPDATE user_plays_game SET pointSave=1 WHERE users_userid = :userid AND games_idgame = :gameid";
-    $mySQLsentence = $connection->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":userid", $user_id);
-    $mySQLsentence->bindParam(":gameid", $game_id);
-
-    $mySQLsentence->execute();
-
-    $connection->commit();
-    $connection = closeDB();
-
-}
 
 function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
     $connection = openDB();

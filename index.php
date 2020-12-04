@@ -28,11 +28,6 @@
   <link rel="stylesheet" href="style/nomWebApp.css">
   <link rel="stylesheet" href="style/buttons.css">
 
-  <!-- FONT MONTSERRAT -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    
-
-
   <title>Restore</title>
 
 </head>
@@ -92,9 +87,11 @@
 
       <div style="text-align: center;" class="member">
         <img src="./media/img/aboutUs.png" width="150px" class="rounded-circle" alt="Cinque Terre">
-        <h3>Froilan Enriquez</h3>
-        <p>I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
-          and my downtime is spent noodling on the guitar, spending time with my girlfriend, and trying to learn new things. 
+        <h3>Nombre</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur<br>
+          adipisicing elit. A sed nobis ut exercitationem <br>
+          atque accusamus sit natus officiis totam blanditiis <br>
+          at eum nemo, nulla et quae eius culpa eveniet.
         </p>
       </div>
 
