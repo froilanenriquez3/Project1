@@ -14,6 +14,8 @@ body {
 .card-header{
     background-color:#FFB35C;
     color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
 }
 
 
@@ -27,6 +29,7 @@ body {
 .btn{
     background-color: #FFB35C;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .btn-group{

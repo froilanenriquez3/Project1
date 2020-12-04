@@ -28,6 +28,11 @@
   <link rel="stylesheet" href="style/nomWebApp.css">
   <link rel="stylesheet" href="style/buttons.css">
 
+  <!-- FONT MONTSERRAT -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    
+
+
   <title>Restore</title>
 
 </head>
