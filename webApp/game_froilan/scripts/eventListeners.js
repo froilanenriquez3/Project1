@@ -31,27 +31,13 @@ document.addEventListener("dragover", (event) => {
 
 //Drop Zone event listeners
 
-/* document.addEventListener("dragenter", function (event) {
-  // highlight potential drop target when the draggable element enters it
-  if (event.target.className == "dropzone hat") {
-    event.target.style.background = "";
-  }
-}, false);
-
-document.addEventListener("dragleave", function (event) {
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.className == "dropzone hat") {
-    event.target.style.background = "";
-  }
-
-}, false);
- */
-
-//Event lisetener for dragging items
+//Event listener for dragging items
 document.addEventListener("drop", (event) => {
+
   // prevent default action (open as link for some elements)
   event.preventDefault();
-  // move dragged elem to the selected drop target
+
+  // move dragged element to the selected drop target
   if ((event.target.classList.contains("dropzone") && event.target.classList.contains("hat") && dragged.classList.contains("dragHat"))
     || (event.target.classList.contains("dropzone") && event.target.classList.contains("shirt") && dragged.classList.contains("dragShirt"))
     || (event.target.classList.contains("dropzone") && event.target.classList.contains("pants") && dragged.classList.contains("dragPants"))

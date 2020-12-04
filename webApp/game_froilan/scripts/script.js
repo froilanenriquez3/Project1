@@ -40,18 +40,18 @@ function endScreen() {
 function mute() {
   window.myMusic.stop();
 
-  setTimeout(function () {
-    document.querySelector('#music').setAttribute("onclick", "play()");
-  }, 100);
+  
+  document.querySelector('#music').setAttribute("onclick", "play()");
+  
   //document.querySelector('#music').innerHTML = "Music: Off";
 
 }
 
 function play() {
   window.myMusic.play();
-  setTimeout(function () {
-    document.querySelector('#music').setAttribute("onclick", "mute()");
-  }, 100);
+  
+  document.querySelector('#music').setAttribute("onclick", "mute()");
+  
   //document.querySelector('#music').innerHTML = "Music: On";
 }
 
