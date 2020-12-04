@@ -1,5 +1,11 @@
 <?php
   session_start();
+
+  $user_set = false;
+    if(isset($_SESSION['user'])){
+        $user_set = true;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +33,7 @@
   <link rel="stylesheet" href="/project1/style/reset.css">
   <link rel="stylesheet" href="/project1/style/nomWebApp.css">
   <link rel="stylesheet" href="/project1/style/buttons.css">
+  <link rel="stylesheet" href="/project1/style/style-navbar.css">
 
   <!-- FONT MONTSERRAT -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -38,6 +45,18 @@
 </head>
 
 <body>
+  <?php
+  $logState;
+  if($user_set){
+    require_once 'php_partials/navbar.php';
+    $logState= "logged";
+  } else {
+    $logState= "no logged";
+  }
+?>
+
+  <p id="logState"><?php echo $logState?></p>
+
   <ul class="recomerçem">
     <li></li>
     <li></li>
@@ -107,7 +126,7 @@
     </div>
   </section>
   <script src="/project1/js/nomWebApp.js"></script>
-
+  <script src="/project1/js/navbar.js"></script>
 </body>
 
 </html>
