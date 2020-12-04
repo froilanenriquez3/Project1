@@ -22,7 +22,9 @@
     <?php
     if (!$user_set){
         echo "href="."/project1/php_views/signup.php";
-    } 
+    } else{
+        echo "style='pointer-events:none; cursor: default;'";
+    }
     ?>>
     <?php
         if($user_set){
