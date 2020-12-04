@@ -71,6 +71,16 @@ button {
     margin-top: 70px;
     padding: 20px;
     text-align: center;
+    h1{
+        font-size: 50px;
+        margin: 10px;
+    }
+    h2{
+        margin: 10px;
+    }
+    p{
+        margin: 10px;
+    }
 }
 
 .startbutton {
@@ -333,11 +343,11 @@ button {
         }
 
         #draghat2 {
-            @include bodyImage("../img/hats/disguise.png");
+            @include bodyImage("../img/hats/brown.png");
         }
 
         #draghat3 {
-            @include bodyImage("../img/hats/jokein2020.png");
+            @include bodyImage("../img/hats/disguise.png");
         }
         .center {
             .dropzone {
@@ -346,7 +356,7 @@ button {
         }
 
         #draghat4 {
-            @include bodyImage("../img/hats/brown.png");
+            @include bodyImage("../img/hats/jokein2020.png");
         }
         #draghat5 {
             @include bodyImage("../img/hats/astronaut.png");
@@ -361,23 +371,23 @@ button {
         background-color: lightsalmon;
 
         #dragshirt1 {
-            @include bodyImage("../img/shirts/redshirt.png");
+            @include bodyImage("../img/shirts/btr.png");
         }
 
         #dragshirt2 {
-            @include bodyImage("../img/shirts/cyan.png");
+            @include bodyImage("../img/shirts/dwight.png");
         }
         #dragshirt3 {
-            @include bodyImage("../img/shirts/whiteshirt.png");
+            @include bodyImage("../img/shirts/gamer.png");
         }
         .center {
             .dropzone {
-                @include bodyImage("../img/body.png");
+                @include bodyImage("../img/shirts/pain.png");
             }
         }
 
         #dragshirt4 {
-            @include bodyImage("../img/shirts/purple.png");
+            @include bodyImage("../img/shirts/superman.png");
         }
 
         #dragshirt5 {
@@ -394,7 +404,7 @@ button {
             @include bodyImage("../img/pants/redpants.png");
         }
         #dragpants2 {
-            @include bodyImage("../img/pants/cyanpants.png");
+            @include bodyImage("../img/pants/dwight.png");
         }
         #dragpants3 {
             @include bodyImage("../img/pants/whitepants.png");
@@ -406,11 +416,11 @@ button {
         }
 
         #dragpants4 {
-            @include bodyImage("../img/pants/blackpants.png");
+            @include bodyImage("../img/pants/superpants.png");
         }
 
         #dragpants5 {
-            @include bodyImage("../img/pants/greenpants.png");
+            @include bodyImage("../img/pants/blackpants.png");
         }
         #dragpants6 {
             @include bodyImage("../img/pants/bluepants.png");
@@ -425,7 +435,7 @@ button {
         }
 
         #dragshoes2 {
-            @include bodyImage("../img/shoes/blueshoes.png");
+            @include bodyImage("../img/shoes/brownshoes.png");
         }
 
         #dragshoes3 {
@@ -440,7 +450,7 @@ button {
         }
 
         #dragshoes4 {
-            @include bodyImage("../img/shoes/brownshoes.png");
+            @include bodyImage("../img/shoes/supershoes.png");
         }
 
         #dragshoes5 {
@@ -512,6 +522,7 @@ button {
 
     .text {
         height: 200px;
+        margin: 10px;
 
         h2 {
             color: red;

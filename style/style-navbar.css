@@ -1,6 +1,8 @@
 *{
   margin: 0;
-}
+  font-family: 'Montserrat', sans-serif;
+} 
+
 
 .sidebar{
   width: 100px;
@@ -22,7 +24,6 @@
 .sidebar h2{
   margin: auto;
 }
-
 
 .sidebar ul a > p{
   display: none;
