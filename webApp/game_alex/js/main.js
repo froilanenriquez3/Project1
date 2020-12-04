@@ -103,7 +103,6 @@ function playLastxmas() {
   });
 
   /* Setting up highlited subtitles */
-
   var subtitles = document.getElementById("subtitles");
 
   var syncData = [
@@ -142,6 +141,7 @@ function playLastxmas() {
     }
   }
 
+  /* Highlight the non-answer spans when played */
   audio.addEventListener("timeupdate", function (e) {
     syncData.forEach(function (element, index, array) {
       if (
@@ -184,9 +184,13 @@ function playLastxmas() {
           } else {
             inputTypeFunc = voiceInputFunc;
           }
-          setTimeout(inputTypeFunc(questionNumber), 500);
+          if(subtitles.children[questionNumber*2].style.backgroundColor=="lime"){
+            setTimeout(inputTypeFunc(questionNumber), 5);
+          }
         });
-        setTimeout(inputTypeFunc(questionNumber), 500);
+        if(subtitles.children[questionNumber*2].style.backgroundColor=="lime" ){
+          setTimeout(inputTypeFunc(questionNumber), 5);
+        }
       }
     }
   });
