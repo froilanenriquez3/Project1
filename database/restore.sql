@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `restore`.`user_plays_game` (
     FOREIGN KEY (`users_userid`)
     REFERENCES `restore`.`user` (`userid`)
      ON DELETE CASCADE
-    ON UPDATE NO ACTION,
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_users_has_games_games1`
     FOREIGN KEY (`games_idgame`)
     REFERENCES `restore`.`game` (`idgame`)
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `restore`.`promotion` (
     FOREIGN KEY (`store_idstore`)
     REFERENCES `restore`.`store` (`idstore`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -119,12 +119,12 @@ CREATE TABLE IF NOT EXISTS `restore`.`user_has_promotion` (
     FOREIGN KEY (`user_userid`)
     REFERENCES `restore`.`user` (`userid`)
      ON DELETE CASCADE
-    ON UPDATE NO ACTION,
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_user_has_promotion_promotion1`
     FOREIGN KEY (`promotion_idpromotion`)
     REFERENCES `restore`.`promotion` (`idpromotion`)
      ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -135,7 +135,23 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 /*Inserts for testing - REMOVE LATER!  pretty please - */
 
 INSERT INTO user VALUES(null, "Alex", "1234pass", 123, true, "alxcant@whatev.com");
+
 INSERT INTO game VALUES(null, "Game1", 1000);
 INSERT INTO game VALUES(null, "Game2", 1000);
 INSERT INTO game VALUES(null, "Game3", 1000);
+
 INSERT INTO game VALUES(null, "Game4", 1000);
+
+INSERT INTO user_plays_game values(1, 1, 0, 0);
+INSERT INTO user_plays_game values(1, 2, 0, 0);
+INSERT INTO user_plays_game values(1, 3, 0, 0);
+INSERT INTO user_plays_game values(1, 4, 0, 0);
+
+INSERT INTO store VALUES(null, "Store1", "COol store");
+INSERT INTO store VALUES(null, "Store2", "SuperCOol store");
+
+INSERT INTO promotion VALUES(null, "Supercombo", "Buy 3 get 2", 250, 1, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Not much", "Buy 3 get 3", 250, 1, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Supermix", "Buy 1 get 3", 500, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 500, 2, "/project1/media/img/promociones.png");
+
