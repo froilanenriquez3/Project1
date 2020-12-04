@@ -2,9 +2,11 @@
 
 require_once '../php_libraries/bd.php';
 session_start();
-
-if ($_SESSION['user']['isAdmin'] == 1) {
-    $currentIsAdmin = true;
+if(isset($_SESSION['user'])){
+    if ($_SESSION['user']['isAdmin'] == 1) {
+        $currentIsAdmin = true;
+    }
+    
 }
 
 $all_users = selectAllFromTable('user');
@@ -60,6 +62,8 @@ if($delete_user){
 if($add_user){
     if ($_POST['password'] == $_POST['confpassword']) {
         insertUser($_POST['username'], $_POST['password'],0, 0,$_POST['email']);
+
+
         if(!$currentIsAdmin){
             $user = selectUserByUsername($_POST['username']);
             header("Location: ../index_anna.php");

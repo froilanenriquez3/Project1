@@ -10,11 +10,11 @@
                 <p>Juegos</p>
             </a></li>
         <!-- PUNTOS Y PROMOCIONES -->
-        <li><a href="/project1/php_views/promotions.php"><img src="/project1/media/img/promociones-relleno.png" width="50px">
+        <li><a href="#"><img src="/project1/media/img/promociones-relleno.png" width="50px">
                 <p>Puntos y Promociones</p>
             </a></li>
         <!-- SOBRE NOSOTRES -->
-        <li><a href="/project1/aboutUs.html"><img src="/project1/media/img/aboutUs.png" width="50px">
+        <li><a href="/project1/index.php#aboutUs"><img src="/project1/media/img/aboutUs.png" width="50px">
                 <p>Sobre Nosotres</p>
             </a></li>
         <!-- ADMINISTRADOR -->
