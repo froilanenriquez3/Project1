@@ -94,7 +94,6 @@ CREATE TABLE IF NOT EXISTS `restore`.`promotion` (
   `promo_desc` VARCHAR(45) NULL,
   `pointCost` INT NULL,
   `store_idstore` INT NOT NULL,
-  `image` VARCHAR(45),
   PRIMARY KEY (`idpromotion`),
   INDEX `fk_promotion_store1_idx` (`store_idstore` ASC) ,
   CONSTRAINT `fk_promotion_store1`
@@ -140,6 +139,7 @@ INSERT INTO user VALUES(null, "Alex", "1234pass", 123, true, "alxcant@whatev.com
 INSERT INTO game VALUES(null, "Game1", 1000);
 INSERT INTO game VALUES(null, "Game2", 1000);
 INSERT INTO game VALUES(null, "Game3", 1000);
+
 INSERT INTO game VALUES(null, "Game4", 1000);
 
 INSERT INTO user_plays_game values(1, 1, 0, 0);
@@ -154,3 +154,4 @@ INSERT INTO promotion VALUES(null, "Supercombo", "Buy 3 get 2", 250, 1, "/projec
 INSERT INTO promotion VALUES(null, "Not much", "Buy 3 get 3", 250, 1, "/project1/media/img/promociones.png");
 INSERT INTO promotion VALUES(null, "Supermix", "Buy 1 get 3", 500, 2, "/project1/media/img/promociones.png");
 INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 500, 2, "/project1/media/img/promociones.png");
+
