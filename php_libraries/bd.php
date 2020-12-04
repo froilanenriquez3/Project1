@@ -140,8 +140,9 @@ function selectHighScores($game_id){
 
 }
 
+//** INSERT FUNCTIONS **
 
-
+//function to add a new user, including entries for user_plays_game for all games
 function insertUser($username, $password, $points, $isAdmin, $email){
     $games = [1,2,3,4];
 
@@ -176,6 +177,7 @@ function insertUser($username, $password, $points, $isAdmin, $email){
 
 }
 
+//function to insert a new store given the name and description
 function insertStore($name, $desc){
     $connection = openDB();
     $connection->beginTransaction();
@@ -193,6 +195,7 @@ function insertStore($name, $desc){
     $connection = closeDB();
 }
 
+//function to insert a new promo, given name, description, the cost in points, and the id of the store it belongs to 
 function insertPromo($name, $desc, $point_cost, $store_id){
     $connection = openDB();
     $connection->beginTransaction();
@@ -253,6 +256,8 @@ function insertUserPlaysGame($user_id, $game_id){
 
 }
 
+
+// **UPDATE FUNCTIONS **
 
 function modifyPointSave($user_id, $game_id){
     $connection = openDB();
@@ -326,6 +331,9 @@ function modifyGamePointLimit($game_limit, $game_id){
     $connection = closeDB();
 
 }
+
+
+// ** DELETE FUNCTIONS**
 
 function deleteUser($user_id){
     $connection = openDb();

@@ -25,7 +25,7 @@ function startGame() {
   document.querySelector('.mainscreen').style.display = "block";
 
   window.myMusic = new sound("img/gamemusic.mp3");
-  //window.myMusic.play();
+  window.myMusic.play();
 
 }
 
