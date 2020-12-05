@@ -94,7 +94,7 @@ function playLastxmas() {
     // Stopping Audio function
     // Stop music function
     audio.pause();
-    //audio.currentTime=syncData[questionNumber*2-1].end; //setting currentTime to last verse's endtime
+    // audio.currentTime = syncData[questionNumber * 2].end; //setting currentTime to last verse's endtime
     play.style.backgroundColor = "#d7ebf7";
   }
 
@@ -143,17 +143,6 @@ function playLastxmas() {
     }
   }
 
-  audio.addEventListener("timeupdate", function (e) {
-    syncData.forEach(function (element, index, array) {
-      if (
-        audio.currentTime >= element.start &&
-        audio.currentTime <= element.end
-      ) {
-        subtitles.children[index * 2].style.background = "lime";
-      }
-    });
-  });
-
   /* Appending answer spans */
   for (i = 0; i < 4; ++i) {
     element = document.createElement("span");
@@ -166,32 +155,39 @@ function playLastxmas() {
 
   /* Stop music when reach input point */
   audio.addEventListener("timeupdate", function (e) {
-    console.log(audio.currentTime);
+    syncData.forEach(function (element, index, array) {
+      if (
+        audio.currentTime >= element.start &&
+        audio.currentTime <= element.end
+      ) {
+        subtitles.children[index * 2].style.backgroundColor = "lime";
+      }
+    });
+    // console.log(audio.currentTime);
     if (
       (audio.currentTime >= 21.5 && audio.currentTime <= 21.8) ||
       (audio.currentTime >= 30.75 && audio.currentTime <= 31.019) ||
       (audio.currentTime >= 76.15 && audio.currentTime <= 76.45) ||
       (audio.currentTime >= 80.85 && audio.currentTime <= 81.15)
     ) {
-      if (stopped == false) {
+      console.log(questionNumber);
+      /* Check music is stopped and previous verse is played before stopping and asking for input */
+      var previousSpan = subtitles.children[questionNumber * 2].style;
+      if (stopped == false && previousSpan.backgroundColor == "lime") {
         stopAudio();
         console.log("parado musica");
         stopped = true;
         toggle.addEventListener("change", function () {
           // Changing type of input on click
-          var previousSpan =
-            subtitles.children[questionNumber * 2].style.backgroundColor;
           console.log("changed input");
           if (!toggle.checked) {
             inputTypeFunc = textInputFunc;
           } else {
             inputTypeFunc = voiceInputFunc;
           }
-          if (previousSpan == "lime" || previousSpan == "red") {
-            setTimeout(inputTypeFunc(questionNumber), 5);
-          }
+          inputTypeFunc(questionNumber);
         });
-        setTimeout(inputTypeFunc(questionNumber), 5);
+        inputTypeFunc(questionNumber);
       }
     }
   });
