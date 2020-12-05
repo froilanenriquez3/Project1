@@ -197,56 +197,60 @@ function playLastxmas() {
   var submit = document.createElement("input");
 
   function textInputFunc(number) {
-    console.log("running text input");
-    var subtitles = document.getElementById("subtitles");
-    subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
-    input = document.createElement("input");
-    input.setAttribute("type", "text");
-    subtitles.children[number * 2 + 1].appendChild(input);
-    submit.setAttribute("type", "submit");
-    submit.setAttribute("value", "Check");
-    subtitles.children[number * 2 + 1].appendChild(submit);
+    if (stopped == true) {
+      console.log("running text input");
+      var subtitles = document.getElementById("subtitles");
+      subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
+      input = document.createElement("input");
+      input.setAttribute("type", "text");
+      subtitles.children[number * 2 + 1].appendChild(input);
+      submit.setAttribute("type", "submit");
+      submit.setAttribute("value", "Check");
+      subtitles.children[number * 2 + 1].appendChild(submit);
+    }
   }
 
   function voiceInputFunc(number) {
-    /* Setting up voice recognition */
-    console.log("running voice input");
+    if (stopped == true) {
+      /* Setting up voice recognition */
+      console.log("running voice input");
 
-    var subtitles = document.getElementById("subtitles");
-    subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
-    results = document.createElement("div");
-    results.setAttribute("id", "results");
-    subtitles.children[number * 2 + 1].appendChild(results);
+      var subtitles = document.getElementById("subtitles");
+      subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
+      results = document.createElement("div");
+      results.setAttribute("id", "results");
+      subtitles.children[number * 2 + 1].appendChild(results);
 
-    final_span = document.createElement("span");
-    final_span.setAttribute("id", "final_span");
-    final_span.setAttribute("class", "final");
-    results.appendChild(final_span);
+      final_span = document.createElement("span");
+      final_span.setAttribute("id", "final_span");
+      final_span.setAttribute("class", "final");
+      results.appendChild(final_span);
 
-    interim_span = document.createElement("span");
-    interim_span.setAttribute("id", "interim_span");
-    interim_span.setAttribute("class", "interim");
-    results.appendChild(interim_span);
+      interim_span = document.createElement("span");
+      interim_span.setAttribute("id", "interim_span");
+      interim_span.setAttribute("class", "interim");
+      results.appendChild(interim_span);
 
-    right = document.createElement("div");
-    right.setAttribute("class", "right");
-    subtitles.children[number * 2 + 1].appendChild(right);
+      right = document.createElement("div");
+      right.setAttribute("class", "right");
+      subtitles.children[number * 2 + 1].appendChild(right);
 
-    button = document.createElement("button");
-    button.setAttribute("id", "start_button");
-    button.setAttribute("onclick", "startButton(event)");
-    right.appendChild(button);
-    img = document.createElement("img");
-    img.setAttribute("id", "start_img");
-    img.setAttribute("src", "./media/api/mic.gif");
-    img.setAttribute("alt", "Start");
-    button.appendChild(img);
+      button = document.createElement("button");
+      button.setAttribute("id", "start_button");
+      button.setAttribute("onclick", "startButton(event)");
+      right.appendChild(button);
+      img = document.createElement("img");
+      img.setAttribute("id", "start_img");
+      img.setAttribute("src", "./media/api/mic.gif");
+      img.setAttribute("alt", "Start");
+      button.appendChild(img);
 
-    voiceRegnition();
+      voiceRegnition();
 
-    // input = document.getElementById('final_span');
-    // submit = document.getElementById('start_button');
-    console.log("voice recognition on");
+      // input = document.getElementById('final_span');
+      // submit = document.getElementById('start_button');
+      console.log("voice recognition on");
+    }
   }
 
   var toggle = document.getElementById("voiceInput");
