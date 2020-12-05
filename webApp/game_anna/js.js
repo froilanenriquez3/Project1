@@ -12,7 +12,7 @@ function start(){
 
 
   let character ={
-    x: 0, 
+    x: 500, 
     y: 370,
     width: 80,
     height: 80
