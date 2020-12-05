@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="/project1/style/nomWebApp.css">
   <link rel="stylesheet" href="/project1/style/buttons.css">
   <link rel="stylesheet" href="/project1/style/style-navbar.css">
+  <link rel="stylesheet" href="/project1/style/aboutUs.css">
 
   <!-- FONT MONTSERRAT -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -93,7 +94,7 @@
       </div>
 
       <div style="text-align: center;" class="member">
-        <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/froilan-me.jpeg" width="150px" class="rounded-circle" alt="">
         <h3>Froilan Enriquez</h3>
         <p>I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
           and my downtime is spent noodling on the guitar, spending time with my girlfriend, and trying to learn new things. 
@@ -101,11 +102,9 @@
       </div>
 
       <div style="text-align: center;" class="member">
-        <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/anna-me2.jpg" width="150px" class="rounded-circle" alt="">
         <h3>Anna Moreta</h3>
-        <p>Soy criminóloga y estudiante de desarrollo
-          de aplicaciones web, lo que significa que en el 
-          trabajo me confuden con la que arregla impresoras. 
+        <p>Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras. 
           Me gustan los gatos y los juegos de mesa.
         </p>
       </div>
