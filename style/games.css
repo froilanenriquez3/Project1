@@ -3,6 +3,7 @@ body{
     background-color: #C9DBE3;
     /* C8CCF9 */
 }
+
 .container{
     position: absolute;
     right: 0px;
@@ -34,5 +35,9 @@ body{
 
 .card-title{
     font-family: 'Oswald', sans-serif;
+}
+
+.dropdown{
+    display: none;
 }
 

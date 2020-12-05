@@ -57,3 +57,7 @@ body {
 .entrar a{
     color: white;
 }
+
+.dropdown{
+    display: none;
+}

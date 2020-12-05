@@ -17,7 +17,8 @@ let productsFruit = [{ name: "Manzana", img: "img/Fruits/Manzana.png", x: 730, y
 { name: "Plátanos", img: "img/Fruits/Plátanos.png", x: 592, y: 222 }, { name: "Pera", img: "img/Fruits/Pera.png", x: 648, y: 170 }, { name: "Mandarina", img: "img/Fruits/Mandarina.png", x: 800, y: 240 },
 { name: "Zanahoria", img: "img/Fruits/Zanahoria.png", x: 760, y: 55 }, { name: "Cebolla", img: "img/Fruits/Cebolla.png", x: 770, y: 120 },
 { name: "Ciruela", img: "img/Fruits/Ciruela.png", x: 810, y: 60 }, { name: "Pimiento", img: "img/Fruits/Pimiento.png", x: 700, y: 110 },
-{ name: "Tomate", img: "img/Fruits/Tomate.png", x: 820, y: 150 }
+{ name: "Tomate", img: "img/Fruits/Tomate.png", x: 820, y: 150 }, {name: "Berenjena", img: "img/Fruits/Berenjena.png", x: 200, y: 225}, 
+{ name: "Piña", img: "img/Fruits/Piña.png", x: 420, y: 135}
 ];
 
 let productsExtra = ["Turrón artesano", "Mazapán casero", "Jamón Ibérico"];

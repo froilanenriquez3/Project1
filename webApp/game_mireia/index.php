@@ -63,7 +63,9 @@
             <img src="img/Shop.png" id="shop" alt="shop">
             <div id="time"></div>
             <p>Puntos: 0</p>
-            <img id="speak" src="img/speak.png" alt="">
+            <img class="speak" src="img/speak.png" alt="">
+            <!-- <img class="speak" src="img/speak.png" alt="">
+            <img class="speak" src="img/speak.png" alt=""> -->
             <div id="text">
                 <img onclick="closeText()" src="img/cross.png">
                 <div></div>

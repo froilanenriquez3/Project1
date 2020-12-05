@@ -1,3 +1,8 @@
+/* Language dropdown off */
+.dropdown{
+    display: none;
+}
+
 /* CONTAINER */
 
 body{
