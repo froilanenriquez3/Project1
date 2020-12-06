@@ -9,20 +9,29 @@ function start(){
   let isJumping = false;
   let velocidad = 10;
   let up = 5;
+  let right = false;
+  let left = false;
 
 
   let character ={
     x: 500, 
     y: 370,
-    width: 80,
+    width: 60,
     height: 80
   }
 
+  // let box = {
+  //   x: 270,
+  //   y: 300,
+  //   width: 80, 
+  //   height: 80
+  // }
+
   let box = {
-    x: 270,
-    y: 370,
-    width: 80, 
-    height: 80
+    x: 270, 
+    y: 300,
+    width: 120, 
+    height: 50
   }
 
   drawSquare();
@@ -43,10 +52,30 @@ function start(){
   function jump(){
     if (isJumping == true) return;
     let timerUp = setInterval(function(){
+
+      //SALTAR
+      if (square.getAttribute("src") == "img/abuela-right-mario.png" && right == true){
+        square.setAttribute("src", "img/abuela-salto.png");
+      }
+
+      else if(square.getAttribute("src") == "img/abuela-left-mario.png" && left == true){
+        square.setAttribute("src", "img/abuela-salto-left.png");
+      }
+
       if(character.y < 250){
         clearInterval(timerUp);
       
         let timerDown = setInterval(function(){
+
+          //BAJAR
+          if (square.getAttribute("src") == "img/abuela-salto.png" && right == true){
+            square.setAttribute("src", "img/abuela-right-mario.png");
+          }
+
+          else if(square.getAttribute("src") == "img/abuela-salto-left.png" && left == true){
+            square.setAttribute("src", "img/abuela-left-mario.png");
+          }
+
           if (character.y + character.height + up >= 450){
             clearInterval(timerDown);
             isJumping = false; 
@@ -57,11 +86,11 @@ function start(){
       }
 
       isJumping = true;
-      character.y -= 50;
+      character.y -= 10;
       square.style.top = character.y + 'px';
       console.log(character.y);
 
-    }, 25);
+    }, 20);
   }
 
   // function jump(){
@@ -127,50 +156,98 @@ function start(){
 
 
   function control(e) {    
-    if (e.keyCode === 32) {
+    if (e.keyCode == 32) {
       jump(); // si apretamos la barra espaciadora
     } 
+    
+    // if (left == true){
+    //   character.x -= velocidad;
+    //   square.style.left = character.x + 'px';
+    //   console.log(character.x);
+
+    // }
+
+    // if (right == true){
+    //   character.x += velocidad;
+    //   square.style.left = character.x + 'px';
+    //   console.log(character.x);
+
+    // }
 
     //LEFT
-    else if(e.keyCode == 37 && character.x > 0){
+    if(e.keyCode == 37 && character.x > 0){
       // character.x -= velocidad;
       // square.style.left = character.x + "px";
       // console.log(character.x);
       // if (character.x <= box.x + box.width && character.x > box.x){
       //   character.x = box.x + box.width + 10;
+      //   character.y = box.y - character.height;
         
       // }
-      if(character.x - velocidad < box.x + box.width && character.x > box.x){
+      
+
+      
+      //ir hacia la izquierda
+      if (square.getAttribute("src") == "img/abuela-right-mario.png"){
+        square.setAttribute("src", "img/abuela-left-mario.png");
+      }
+
+      if(character.x - velocidad < box.x + box.width && character.x > box.x
+        && character.y < box.y + box.height && character.y + character.height > box.y){
 
       }
       else{
         character.x -= velocidad;
         square.style.left = character.x + 'px';
-        console.log(character.x);
+        left = true;
       }
     
     } 
 
     //RIGHT
-    else if(e.keyCode == 39 && character.x < 810){
+    if(e.keyCode == 39 && character.x < 840){
+      //ir hacia la derecha
+      if (square.getAttribute("src") == "img/abuela-left-mario.png"){
+        square.setAttribute("src", "img/abuela-right-mario.png");
+      }
       // character.x += velocidad;
       // square.style.left = character.x + "px";
       // console.log(character.x);
       // if (character.x + character.width > box.x && character.x + character.width < box.x + box.width){
       //   character.x = box.x - character.width -10;
       // }
-      if(character.x + character.width + velocidad > box.x && character.x + character.width < box.x + box.width){
+
+      if(character.x + character.width + velocidad > box.x && character.x + character.width < box.x + box.width
+        && character.y < box.y + box.height && character.y + character.height > box.y){
 
       }
       else{
         character.x += velocidad;
         square.style.left = character.x + 'px';
-        console.log(character.x);
+
+        right = true;
       }
     }
 
   }
 
+  // function tecla(e){
+    //LEFT
+    // if(e.keyCode == 37 && left == true){
+    //   left = false;
+    //   console.log('funcona');
+    
+    // } 
+
+    //RIGHT
+  //   if(e.keyCode == 39 && right == true){
+  //     right = false;
+  //     console.log('funcona');
+
+  //   }
+  // }
+
   document.addEventListener('keydown', control);
+  // document.addEventListener('keyup', tecla);
 
 };
