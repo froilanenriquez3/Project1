@@ -46,29 +46,29 @@
                     <div class="form-group">
                         <!-- User -->
                         <div class="form-group row">
-                            <label class="col-4" for="username">Usuario</label>
-                            <div class="col-sm-8">
+                            <label class="col-5" for="username">Usuario</label>
+                            <div class="col-sm-7">
                                 <input class="form-control form-control-sm" type="text" id="username" name="username" placeholder="Nombre de usuario" maxlength="16" autofocus required>
                             </div>
                         </div>
                         <!-- Email -->
                         <div class="form-group row">
-                            <label class="col-4" for="email">Email</label>
-                            <div class="col-sm-8">
+                            <label class="col-5" for="email">Email</label>
+                            <div class="col-sm-7">
                                 <input class="form-control form-control-sm" type="text" id="email" name="email" placeholder="Email" maxlength="45"  required>
                             </div>
                         </div>
                         <!-- Password -->
                         <div class="form-group row">
-                            <label class="col-4" for="password">Contraseña</label>
-                            <div class="col-sm-8">
+                            <label class="col-5" for="password">Contraseña</label>
+                            <div class="col-sm-7">
                                 <input class="form-control form-control-sm" type="password" id="password" name="password" minlength="8" placeholder="Contraseña "  required>
                             </div>
                         </div>
                         <!-- Confirm Password -->
                         <div class="form-group row">
-                            <label class="col-4" for="confpassword">Repite tu Contraseña</label>
-                            <div class="col-sm-8">
+                            <label class="col-5" for="confpassword">Repite tu Contraseña</label>
+                            <div class="col-sm-7">
                                 <input class="form-control form-control-sm" type="password" id="confpassword" name="confpassword" minlength="8" placeholder="Repite la contraseña"  required>
                             </div>
                         </div>
