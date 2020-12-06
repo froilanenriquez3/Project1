@@ -42,15 +42,15 @@ html, body {
 }
 
 .recomerçem li:nth-child(1) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/photo1.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/img/photo1.jpg');
 }
 .recomerçem li:nth-child(2) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/photo2.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/img/photo2.jpg');
   animation-delay: 10s; 
 }
 
 .recomerçem li:nth-child(3) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/photo3.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/img/photo3.jpg');
   animation-delay: 20s; 
 }
 
@@ -132,7 +132,7 @@ justify-content: center;
 }
 
 #imgDiv1{
-  background-image: url('/project1/media/divphoto1.jpg');
+  background-image: url('/project1/media/img/divphoto1.jpg');
   background-position: center;
   background-size: cover;
   margin-left: 2%;
@@ -141,7 +141,7 @@ justify-content: center;
 }
 
 #imgDiv2{
-  background-image: url('/project1/media/divphoto2.jpg');
+  background-image: url('/project1/media/img/divphoto2.jpg');
   background-position: center;
   background-size: cover;
   margin-right: 2%;
