@@ -102,7 +102,7 @@
       </div>
 
       <div style="text-align: center;" class="member">
-        <img src="/project1/media/img/anna-me2.jpg" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/anna-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3>Anna Moreta</h3>
         <p>Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras. 
           Me gustan los gatos y los juegos de mesa.
