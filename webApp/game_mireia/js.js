@@ -30,10 +30,13 @@ let list = document.getElementById("list");
 let pointsText = document.querySelector("#interior > p");
 let pointsForObject= Number(document.getElementById("pointsForObject").innerHTML);
 let pointsRest= Number(document.getElementById("pointsRest").innerHTML);
+let speak1= document.getElementsByClassName("sp1")[0];
+let speak2= document.getElementsByClassName("sp2")[0];
+let speak3= document.getElementsByClassName("sp3")[0];
 
 
 const TOTALPRODUCTS = 8;
-let productsFound, points, finished, extraProduct, minutes, seconds, clock, productsToFind, hasExtra;
+let productsFound, points, finished, extraProduct, minutes, seconds, clock, productsToFind, hasExtra, shop;
 
 //Game events
 addCharacterMovement();
@@ -46,7 +49,10 @@ basket.addEventListener("animationend", () => {
     }
 });
 
-document.getElementById("speak").addEventListener("click", createText);
+let conversations= document.querySelectorAll(".speak");
+conversations.forEach(element => {
+    element.addEventListener("click", createText);
+});
 document.querySelector(".play > div >img").addEventListener("click", startGame);
 document.getElementById("shop").addEventListener("click", changeShop);
 
@@ -64,18 +70,23 @@ function startGame() {
     points = 0;
     extraProduct= "";
     hasExtra= false;
+    // reset time
     minutes = 1;
     seconds = 0;
     pointsText.innerHTML = "Puntos: " + points;
     time.innerHTML = "0" + minutes + ":" + seconds;
 
-
-    //Draw objects & character
+    //Draw objects of first shop & character
     drawAll(productsGrocery);
     document.getElementById("gameBack").setAttribute("src", "img/background.png");
     drawLady();
+    shop= 1;
 
-    //Generate list of products
+    //Control the conversation icons
+    checkConversationWhenChanges();
+
+
+    //Generate random list of products
     generateProductsToFind(productsGrocery, 4);
     generateProductsToFind(productsFruit, 3);
     generateRandomExtra();
@@ -86,6 +97,8 @@ function startGame() {
     time();
 }
 
+
+// Functions to control the game time
 function time() {
     time.innerHTML = "0" + minutes + ":" + seconds;
     clock = setInterval(passTime, 1000);
@@ -148,8 +161,8 @@ function drawLady() {
 //Character movement
 
 function addCharacterMovement() {
-    window.addEventListener("keydown", function (button) {
-        let key = button.keyCode;
+    window.addEventListener("keydown", function (e) {
+        let key = e.keyCode;
         if (key == 37 && character.x > 50) {
             // RIGHT
             //if going right, turn left
@@ -167,9 +180,15 @@ function addCharacterMovement() {
             }
             character.x -= 5;
             lady.style.left = character.x + "px";
-            if (character.x == 500) {
-                document.getElementById("speak").style.display = "none";
-            }
+            // Doing the speakIcons appear or disappear if necessary
+            // Speak 1
+            disappearSpeakIcon(1, 500, speak1);
+            //Speak 2
+            disappearSpeakIcon(2, 120, speak2);
+            appearSpeakIcon(2, 350, speak2);
+            // Speak 3
+            disappearSpeakIcon(2, 440, speak3);
+
         } else if (key == 39 && character.x < 530) {
             //LEFT
             if (lady.getAttribute("src") == "img/ladyRight.png" || lady.getAttribute("src") == "img/ladyRight2.png") {
@@ -186,9 +205,14 @@ function addCharacterMovement() {
             }
             character.x += 5;
             lady.style.left = character.x + "px";
-            if (character.x == 500) {
-                document.getElementById("speak").style.display = "inline";
-            }
+             // Doing the speakIcons appear or disappear if necessary
+            // Speak 1
+            appearSpeakIcon(1, 500, speak1);
+            //Speak 2
+            appearSpeakIcon(2, 120, speak2);
+            disappearSpeakIcon(2, 350, speak2);
+            // Speak 3
+            appearSpeakIcon(2, 440, speak3);
 
         }
     });
@@ -206,16 +230,18 @@ function makeSmaller() {
 //Change shop
 function changeShop() {
     eraseProducts();
-    let image = document.getElementById("gameBack");
-    let shopUsed = image.getAttribute("src");
-    console.log(shopUsed);
-    if (shopUsed == "img/background.png") {
+    let image= document.getElementById("gameBack");
+    if (shop === 1) {
         image.setAttribute("src", "img/background2.png");
         drawAll(productsFruit);
+        shop = 2;
     } else {
         image.setAttribute("src", "img/background.png");
         drawAll(productsGrocery);
+        shop = 1;
     }
+
+    checkConversationWhenChanges();
 }
 
 //Functions to drag the objects
@@ -246,8 +272,8 @@ function dragElement(elmnt, products) {
         //put element in front of others
         elmnt.style.zIndex = 1;
         // set the element's new position:
-        //1000 = interior width / 500 = interior height / 60 && 75 = max products width and height
-        if (elmnt.offsetTop - pos2 > 0 && elmnt.offsetLeft - pos1 > 0 && elmnt.offsetTop - pos2 + 60 < 500 && elmnt.offsetLeft - pos1 + 75 < 1000) {
+        
+        if (elmnt.offsetTop - pos2 > 0 && elmnt.offsetLeft - pos1 > 0 && elmnt.offsetTop - pos2 + Number(elmnt.style.height) < 450 && elmnt.offsetLeft - pos1 + Number(elmnt.style.width) < 895) {
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
         }
@@ -341,7 +367,6 @@ function createList() {
         let listEl = document.createElement("li");
         listEl.textContent = element;
         document.querySelector(".divList > ul").appendChild(listEl);
-        console.log(listEl);
     });
 }
 
@@ -353,25 +378,44 @@ function eraseList() {
     });
 }
 
+function appearSpeakIcon(shopNum, numPosition, element){
+    if(shop === shopNum && character.x === numPosition){
+        element.style.display= "inline";
+    }
+}
+
+function disappearSpeakIcon(shopNum, numPosition, element){
+    if(shop === shopNum && character.x === numPosition){
+        element.style.display= "none";
+    }
+}
+
 //Create conversation
-function createText() {
+function createText(e) {
     let text = document.getElementById("text");
     let divText = document.querySelector("#text > div")
-    if (!hasExtra) {
-        divText.innerHTML = "Hola Teresa! Como va todo? Y tu família? Hemos guardado el "+ extraProduct +" que nos pediste! Aquí tienes.";
-        listElemements = document.querySelectorAll("li");
-        listElemements.forEach(element => {
+    let newText= e.target.getAttribute("data-text");
+    if(newText.includes("*")){
+        newText = newText.replace("*", extraProduct.toLowerCase());
+    }
+
+    divText.innerHTML= newText;
+    text.style.display= "inline";
+
+    if(e.target.classList.contains("sp1")){
+        if(!hasExtra){
+            hasExtra= true;
+            e.target.setAttribute("data-text", "Que pases muy buen día!");
+            listElemements = document.querySelectorAll("li");
+            listElemements.forEach(element => {
             if (element.innerHTML === extraProduct) {
                 element.style.textDecoration= "line-through";
                 productsFound.push(extraProduct);
             }});
         points += pointsForObject;
         pointsText.innerHTML = "Puntos: " + points;
-
-    } else {
-        divText.innerHTML = "Que pases muy buen día!";
+        }
     }
-    text.style.display = "Inline";
 }
 
 //Close text
@@ -383,9 +427,31 @@ function closeText() {
     }
 }
 
+// Display the conversation icons needed after restart or change shops
+function checkConversationWhenChanges(){
+    console.log(character.x);
+    // Reseting all first
+        speak1.style.display= "none";
+        speak2.style.display= "none";
+        speak3.style.display= "none";
+    // Adding the ones who we need if character is near
+        if(shop == 1){
+        if(character.x > 500){
+            speak1.style.display= "inline";
+        }
+    } else {
+        if(character.x > 440){
+            speak3.style.display= "inline";
+        }
+
+        if(character.x > 120 && character.x < 350){
+            speak2.style.display= "inline";
+        }
+    }
+}
 
 function eraseProducts() {
-    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(#speak):not(#shop):not(#gameBack)");
+    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(.speak):not(#shop):not(#gameBack)");
     productsImages.forEach(element => {
         interior.removeChild(element);
     });

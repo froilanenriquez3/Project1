@@ -153,17 +153,30 @@ padding-left: 10px;
 
 /* Talk with someone  */
 
-#speak{
+.speak{
     position: absolute;
-    top: 200px;
-    left: 675px;
-    height: 20px;
+    height: 40px;
     background-color: rgb(233, 167, 92);
     border: black 1px solid;
     border-radius: 35px;
     padding: 10px;
     display: none;
     z-index: 2;
+}
+
+.sp1{
+    top: 200px;
+    left: 675px;
+}
+
+.sp2{
+    top: 120px;
+    left: 300px;
+}
+
+.sp3{
+    top: 180px;
+    left: 630px;
 }
 
 #interior > p{
