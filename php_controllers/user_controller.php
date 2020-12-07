@@ -66,7 +66,7 @@ if($add_user){
 
         if(!$currentIsAdmin){
             $user = selectUserByUsername($_POST['username']);
-            header("Location: ../index_anna.php");
+            header("Location: ../index.php");
             $_SESSION['user'] = $user;
           
         }else{

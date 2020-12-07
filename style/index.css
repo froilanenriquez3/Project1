@@ -74,25 +74,6 @@ html, body {
   }
 
 
-/* #buttons{
-    position: fixed;
-    top: 5px;
-    right: 5px;
-    padding: 1em;
-    z-index: 2;
-}
-
-#buttons > .btn{
-    background-color: #ffb35c;
-    color: #2e585a;
-    margin: 0.5em;
-    border: 1px solid #2e585a;
-}
-
-#buttons > .btn:hover{
-  background-color: #ff9b29;
-} */
-
 #recomerçButton{
 display: flex;
 width: 100%;
@@ -186,21 +167,6 @@ h3{
 .fuente{
   font-size: 20px;
 }
-
-
-/* BOTONES */
-/* #buttons{
-  position: fixed;
-  top: 5px;
-  right: 5px;
-  padding: 1em;
-}
-
-#buttons > .btn{
-  background-color: #ffb35c;
-  color: #2e585a;
-  margin: 0.5em;
-} */
 
 .wrapper .main_content{
   width: 100%;

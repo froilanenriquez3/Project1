@@ -16,6 +16,7 @@ if (isset($_SESSION['user'])) {
             <a class="dropdown-item" href="#"><img src="/project1/media/img/spanish.png" alt=""></a>
             <a class="dropdown-item" href="#"><img src="/project1/media/img/catalan.png" alt=""></a>
             <a class="dropdown-item" href="#"><img src="/project1/media/img/english.png" alt=""></a>
+            <a class="dropdown-item" href="#"><img src="/project1/media/img/french.png" alt=""></a>
         </div>
     </div>
 
