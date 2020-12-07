@@ -11,14 +11,15 @@ let productsGrocery = [{ name: "Harina", img: "img/Grocery/Harina.png", x: 385, 
 { name: "Cola", img: "img/Grocery/Cola.png", x: 505, y: 275 }, { name: "Limonada", img: "img/Grocery/Limonada.png", x: 545, y: 277 },
 { name: "Naranjada", img: "img/Grocery/Naranjada.png", x: 599, y: 277 }, { name: "Mayonesa", img: "img/Grocery/mayonesa.png", x: 370, y: 213 }, 
 {name: "Aceite", img: "img/Grocery/Aceite.png", x: 585, y: 190}, {name: "Cacao en polvo", img: "img/Grocery/Cacao en polvo.png", x: 680, y: 221},
-{name: "Olivas", img: "img/Grocery/Olivas.png", x: 535, y: 215}, {name: "Leche", img: "img/Grocery/Leche.png", x: 440, y: 213}, {name: "Panettone", img: "img/Grocery/Panettone.png", x: 783, y: 191}];
+{name: "Olivas", img: "img/Grocery/Olivas.png", x: 535, y: 215}, {name: "Leche", img: "img/Grocery/Leche.png", x: 440, y: 213},
+{name: "Panettone", img: "img/Grocery/Panettone.png", x: 783, y: 191}];
 
 let productsFruit = [{ name: "Manzana", img: "img/Fruits/Manzana.png", x: 730, y: 300 }, { name: "Uva", img: "img/Fruits/Uva.png", x: 650, y: 240 },
 { name: "Plátanos", img: "img/Fruits/Plátanos.png", x: 592, y: 222 }, { name: "Pera", img: "img/Fruits/Pera.png", x: 648, y: 170 }, { name: "Mandarina", img: "img/Fruits/Mandarina.png", x: 800, y: 240 },
 { name: "Zanahoria", img: "img/Fruits/Zanahoria.png", x: 760, y: 55 }, { name: "Cebolla", img: "img/Fruits/Cebolla.png", x: 770, y: 120 },
 { name: "Ciruela", img: "img/Fruits/Ciruela.png", x: 810, y: 60 }, { name: "Pimiento", img: "img/Fruits/Pimiento.png", x: 700, y: 110 },
 { name: "Tomate", img: "img/Fruits/Tomate.png", x: 820, y: 150 }, {name: "Berenjena", img: "img/Fruits/Berenjena.png", x: 200, y: 225}, 
-{ name: "Piña", img: "img/Fruits/Piña.png", x: 420, y: 135}
+{ name: "Piña", img: "img/Fruits/Piña.png", x: 420, y: 135}, {name: "Granada", img: "img/Fruits/Granada.png", x: 495, y: 275}
 ];
 
 let productsExtra = ["Turrón artesano", "Mazapán casero", "Jamón Ibérico"];

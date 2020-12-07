@@ -1,3 +1,4 @@
+
 <div class="sidebar">
     <h2>LOGO</h2>
     <ul>
@@ -21,11 +22,17 @@
                 <p>Sobre Nosotres</p>
             </a>
         </li>
-        <!-- ADMINISTRADOR -->
+        <?php if($user_set){
+            if($_SESSION['user']['isAdmin'] == 1){?>
+
+            <!-- ADMINISTRADOR -->
         <li><a href="/project1/php_views/administration.php"><img src="/project1/media/img/admin.png" width="50px">
                 <p>Administración</p>
             </a>
         </li>
+          <?php  }
+        } ?>
+        
     </ul>
 
     <!-- <div class="social_media">

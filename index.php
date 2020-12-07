@@ -1,6 +1,6 @@
 <?php
   session_start();
-
+  
   $user_set = false;
     if(isset($_SESSION['user'])){
         $user_set = true;
@@ -24,8 +24,9 @@
   <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 
+<!-- Hojas de estilo -->
   <link rel="stylesheet" href="/project1/style/reset.css">
-  <link rel="stylesheet" href="/project1/style/nomWebApp.css">
+  <link rel="stylesheet" href="/project1/style/index.css">
   <link rel="stylesheet" href="/project1/style/buttons.css">
   <link rel="stylesheet" href="/project1/style/style-navbar.css">
   <link rel="stylesheet" href="/project1/style/aboutUs.css">
