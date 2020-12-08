@@ -1,6 +1,5 @@
 <?php
     require_once '../php_libraries/bd.php';
-    session_start();
 
     $modpointlim = isset($_POST['modpointlim']);
 

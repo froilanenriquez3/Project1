@@ -1,7 +1,7 @@
 <?php
 
 require_once '../php_libraries/bd.php';
-session_start();
+
 if(isset($_SESSION['user'])){
     if ($_SESSION['user']['isAdmin'] == 1) {
         $currentIsAdmin = true;
