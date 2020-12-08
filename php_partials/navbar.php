@@ -22,7 +22,7 @@
                 <p>Sobre Nosotres</p>
             </a>
         </li>
-        <?php if($user_set){
+        <?php if(isset($_SESSION['user'])){
             if($_SESSION['user']['isAdmin'] == 1){?>
 
             <!-- ADMINISTRADOR -->
