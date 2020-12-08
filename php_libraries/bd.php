@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 function openDB(){
     $servername = "localhost";
@@ -144,7 +144,9 @@ function selectHighScores($game_id){
 
 //function to add a new user, including entries for user_plays_game for all games
 function insertUser($username, $password, $points, $isAdmin, $email){
-    $games = [1,2,3,4];
+
+    try {
+        $games = [1,2,3,4];
 
     $connection = openDB();
     $connection->beginTransaction();
@@ -175,6 +177,13 @@ function insertUser($username, $password, $points, $isAdmin, $email){
     $connection->commit();
     $connection = closeDB();
 
+    } catch (PDOException $e) {
+        $_SESSION['error'] = $e->getCode() . '-' . $e->getMessage(); 
+    }
+
+
+
+    
 }
 
 //function to insert a new store given the name and description
