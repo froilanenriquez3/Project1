@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', start());
 function start(){
   let square = document.getElementById("square");
   let barrera = document.getElementById("square2");
+  let money = document.getElementById("coin");
   let gravity = 0.9;
   let isJumping = false;
   let velocidad = 10;
@@ -13,7 +14,7 @@ function start(){
   let left = false;
 
 
-  let character ={
+  let character = {
     x: 500, 
     y: 370,
     width: 60,
@@ -34,8 +35,16 @@ function start(){
     height: 50
   }
 
+  let coin = {
+    x: 470, 
+    y: 300,
+    width: 5, 
+    height: 10
+  }
+
   drawSquare();
   drawbox();
+  drawCoin();
 
   // Dibujar personaje
   function drawSquare(){
@@ -48,6 +57,12 @@ function start(){
     barrera.style.left = box.x + 'px';
     barrera.style.top = box.y + 'px';
   }
+
+  // Dibujar moneda
+  function drawCoin(){
+  money.style.left = coin.x + 'px';
+  money.style.top = coin.y + 'px';
+}
 
   function jump(){
     if (isJumping == true) return;
@@ -130,29 +145,6 @@ function start(){
   // }
 
 
-  //CONTROLES
-  // function control(e){
-  //   switch(e.keyCode){
-  //     case 32: 
-  //       jump();
-  //       break;
-  //     case 37: 
-  //       moveLeft();
-  //       // cantidad -=100;
-  //       // setTimeout(() => {
-  //       //   square.style.transform = "translateX(200px)";
-  //       // });
-  //       break;
-  //     case 39: 
-  //       moveRight();
-  //       // setTimeout(() => {
-  //       //   square.style.transform = 'translateX(200px)';
-  //       // });
-  //       break;
-  //   }
-  // }
-
-  console.log(character.y);
 
 
   function control(e) {    
@@ -205,7 +197,7 @@ function start(){
     } 
 
     //RIGHT
-    if(e.keyCode == 39 && character.x < 840){
+    if(e.keyCode == 39 && character.x < 830){
       //ir hacia la derecha
       if (square.getAttribute("src") == "img/abuela-left-mario.png"){
         square.setAttribute("src", "img/abuela-right-mario.png");
@@ -224,9 +216,12 @@ function start(){
       else{
         character.x += velocidad;
         square.style.left = character.x + 'px';
-
         right = true;
       }
+
+      // if (character.x + character.width + velocidad > coin.x && character.x + character.width < coin.x + coin.width){
+      //   money.parentNode.removeChild(money);
+      // }
     }
 
   }
