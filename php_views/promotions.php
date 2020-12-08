@@ -1,7 +1,7 @@
 <?php
 
 require_once '../php_libraries/bd.php';
-session_start();
+
 $promos = selectAllFromTable('promotion');
 $user_promos = selectUserPromos($_SESSION['user']['userid']);
 // $user = $_SESSION['user'];

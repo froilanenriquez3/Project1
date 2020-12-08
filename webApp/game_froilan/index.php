@@ -1,7 +1,7 @@
 
 <?php
     require_once '../../php_libraries/bd.php';
-    session_start();
+
     if (!isset($_SESSION['user'])) {
         header("Location: ../../php_views/login.php");
         exit();  

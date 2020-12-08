@@ -1,6 +1,6 @@
 <?php
     require_once '../php_libraries/bd.php';
-    session_start();
+    
 
     $delete_promo = isset($_POST['deletepromo']);
     $add_promo = isset($_POST['addpromo']);
