@@ -9,20 +9,25 @@
     if($delete_promo){
         deletePromo($_POST['promoid']);
         header("Location: ../php_views/administration.php#promossection");
-        exit();
+    
     }
     
     if($mod_promo){
         modifyPromo($_POST['promoname'], $_POST['promodesc'], $_POST['promocost'],$_POST['storeid'],$_POST['promoid']);
         header("Location: ../php_views/administration.php#promossection");
-        exit();
+        
     }
 
     if($add_promo){
+        
         insertPromo($_POST['promoname'], $_POST['promodesc'], $_POST['promocost'], $_POST['storeid']);
         header("Location: ../php_views/administration.php#promossection");
-        exit();
+      
+        
     }
+
+
+    exit();
 
     
 ?>
