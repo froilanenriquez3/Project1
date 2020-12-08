@@ -1,6 +1,40 @@
 <?php
 session_start();
 
+function errorMessage($exception){
+    if (!empty($exception->errorInfo[1])) {
+        switch ($exception->errorInfo[1]) {
+            case 1062:
+                $message = "Duplicate entry in the database";
+                break;
+            case 1451;
+                $message = "Register with related elements";
+                break;
+            default:
+                $message = $exception->errorInfo[1] . '-' . $exception->errorInfo[2]; 
+                break;
+        }
+    } else{
+        switch($exception->getCode()){
+            case 1044: 
+                $message = "Incorrect username or password";
+                break;
+            case 1049:
+                $message = "Unknown database";
+                break;
+            case 2002:
+                $message = "Could not find the server";
+                break;
+            default:
+                $message = $exception->getCode() . '-' . $exception->getMessage();
+                break;
+        }
+    }
+
+    return $message;
+
+}
+
 function openDB(){
     $servername = "localhost";
     $username = "root";
@@ -175,11 +209,17 @@ function insertUser($username, $password, $points, $isAdmin, $email){
     }
     
     $connection->commit();
-    $connection = closeDB();
 
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getCode() . '-' . $e->getMessage(); 
+    $_SESSION['errorMessage'] = "New user registered succesfully";
+    
+
+    } catch (PDOException $exception) {
+        $_SESSION['error'] = errorMessage($exception); 
+       
     }
+
+
+    $connection = closeDB();
 
 
 
@@ -378,5 +418,3 @@ function deletePromo($promo_id){
 
     $connection = closeDb();
 }
-
-?>

@@ -70,6 +70,10 @@
     <a role="button" class="btn" href="/project1/index.php/#divulgacio">Recomerçem!</a>
   </div>
 
+  <!-- temporary -->
+
+<!-- <?php require_once ('./php_partials/message.php');?> -->
+
   <section id="divulgacio">
     <p data-aos="fade-up" data-aos-duration="1500">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil. 
       Para ayudar en estos momentos críticos nace ‘Recomerçem’.</p>
