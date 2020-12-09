@@ -23,9 +23,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="/project1/style/style-navbar.css">
     <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="css.css"> 
+    <link rel="stylesheet" href="/project1/style/style-navbar.css">
     <title>Game</title>
 </head>
 
@@ -99,7 +99,7 @@
         </div>
     </div>
     </div>
-    <script src="/project1/js/navbar.js"></script>
+    <!-- <script src="/project1/js/navbar.js"></script> -->
     <script src="js.js"></script>
 </body>
 
