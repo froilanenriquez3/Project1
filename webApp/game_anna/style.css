@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 *{
     margin: 0px auto;
     padding: 0px;
+=======
+.background{
+    height: 450px;
+    width: 895px;
+    margin: 20px auto;
+    position: relative;
+    background-image: url("img/background2.png");
+>>>>>>> 6995cfd7c5a2f349657c6b3e4e2edb278f4af7f6
 }
 
 h2{
@@ -23,7 +32,21 @@ h2{
     left: 0px;
 }
 
+<<<<<<< HEAD
 #fondo2{
+=======
+#coin{
+    height: 40px;
+    width: 30px;
+    position: absolute;
+    bottom: 0px;
+}
+
+/* .character-sliding {
+    background-color: red;
+    height: 40px;
+    width: 70px;
+>>>>>>> 6995cfd7c5a2f349657c6b3e4e2edb278f4af7f6
     position: absolute;
     top: 0px;
     left: 1500px;

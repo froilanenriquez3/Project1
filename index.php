@@ -76,12 +76,19 @@
   <section id="aboutUs">
     <div class="main_content">
       <div style="text-align: center;" class="member">
+<<<<<<< HEAD
         <img src="./media/img/aboutUs.png" width="150px" class="rounded-circle" alt="Cinque Terre">
         <h3 class="fuente">Nombre</h3>
         <p>Lorem ipsum dolor sit, amet consectetur<br>
           adipisicing elit. A sed nobis ut exercitationem <br>
           atque accusamus sit natus officiis totam blanditiis <br>
           at eum nemo, nulla et quae eius culpa eveniet.
+=======
+        <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
+        <h3 class="fuente">Alex Cantó</h3>
+        <p>Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
+          Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. 
+>>>>>>> 6995cfd7c5a2f349657c6b3e4e2edb278f4af7f6
         </p>
       </div>
 

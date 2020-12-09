@@ -39,14 +39,26 @@
 
 .sidebar ul{
   text-decoration: none;
+  height: 90%;
   list-style: none;
+  position: fixed;
   padding: 0px;
+  bottom: 0px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6995cfd7c5a2f349657c6b3e4e2edb278f4af7f6
 .sidebar h2{
   margin: auto;
 }
 
+<<<<<<< HEAD
 
 .sidebar ul a > p{
   display: none;
@@ -64,6 +76,23 @@
 
 .sidebar li img{
   display: inline;
+=======
+.sidebar ul a div p {
+  display: inline;
+}
+
+.sidebar img{
+  display: inline;
+  align-self: flex-end;
+  margin-left: 13px;
+}
+
+.sidebar li div{
+  width: 150px;
+  display: inline;
+  text-align: center;
+  margin-top: 20px;
+>>>>>>> 6995cfd7c5a2f349657c6b3e4e2edb278f4af7f6
 }
 
 .sidebar ul > li{
@@ -71,4 +100,23 @@
   background-color: #2e585a;
   padding: 20px 20px;
   box-sizing: border-box;
+<<<<<<< HEAD
 }
+=======
+  position: relative;
+  left: -160px;
+  transition: 0.3s; 
+} 
+
+.sidebar ul > li:hover {
+  left: 0px;
+}
+
+
+
+.sidebar ul a{
+  text-decoration: none;
+  color: #ffb35c;
+  display: flex;
+}
+>>>>>>> 6995cfd7c5a2f349657c6b3e4e2edb278f4af7f6

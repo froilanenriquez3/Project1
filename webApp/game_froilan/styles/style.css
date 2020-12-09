@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+=======
+* {
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+html {
+  background-color: #C9DBE3;
+}
+
+.dropdown {
+  display: none;
+}
+
+>>>>>>> 6995cfd7c5a2f349657c6b3e4e2edb278f4af7f6
 body {
   display: -webkit-box;
   display: -ms-flexbox;
