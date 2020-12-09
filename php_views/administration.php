@@ -44,12 +44,12 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                 <h1>Administration</h1>
             </div>
             <div class="card-body">
-                <ul class="list-unstyled">
+                <!-- <ul class="list-unstyled">
                     <li><a href="#adminssection">Manage admins</a></li>
                     <li><a href="#userssection">Manage users</a></li>
                     <li><a href="#promossection">Manage promos</a></li>
                     <li><a href="#pointssection">Manage points</a></li>
-                </ul>
+                </ul> -->
 
                 <p>Here is where you can manage the administrators, users, promotions, and points</p>
                 <ul class="list-group" id="adminssection">

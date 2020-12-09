@@ -26,7 +26,7 @@
             if($_SESSION['user']['isAdmin'] == 1){?>
 
             <!-- ADMINISTRADOR -->
-        <li><a href="/project1/php_views/administration.php"><img src="/project1/media/img/admin.png" width="50px">
+        <li><a href="/project1/php_views/administration2.php"><img src="/project1/media/img/admin.png" width="50px">
                 <p>Administración</p>
             </a>
         </li>
