@@ -57,7 +57,9 @@
   box-sizing: border-box;
   position: relative;
   left: -160px;
-  transition: 0.3s; 
+  transition: 0.3s;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
 } 
 
 .sidebar ul > li:hover {

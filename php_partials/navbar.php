@@ -1,3 +1,6 @@
+ <?php
+require_once dirname( __DIR__ )."/php_libraries/bd.php";
+?> 
 
 <div class="sidebar">
     <h2>LOGO</h2>
