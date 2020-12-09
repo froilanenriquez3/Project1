@@ -1,6 +1,6 @@
 <?php
 require_once '../php_libraries/bd.php';
-
+session_start();
 $all_users = selectAllFromTable('user');
 $all_promos = selectAllFromTable('promotion');
 $all_games = selectAllFromTable('game');

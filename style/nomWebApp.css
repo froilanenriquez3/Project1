@@ -1,0 +1,242 @@
+/*  ffb35c groc rgb(255, 179, 92)
+    ddfff5 fondo
+    ffc6d9
+
+    2e585a fosc
+*/
+
+/* RECOMERÇEM */
+
+html, body {
+    height: 100%;
+    margin: 0;
+  } 
+  
+.recomerçem{
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(22, 9, 9);
+}
+
+
+.recomerçem> li { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 30s linear infinite; 
+  }
+
+  .recomerçem li:nth-child(1) { 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/photo1.jpg');
+  }
+  .recomerçem li:nth-child(2) { 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/photo2.jpg');
+    animation-delay: 10s; 
+  }
+  .recomerçem li:nth-child(3) { 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../media/photo3.jpg');
+    animation-delay: 20s; 
+  }
+
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    2% {
+      opacity: 1;
+      
+    }
+    28% {
+        
+      opacity: 1;  
+      animation-timing-function: ease-in; 
+    }
+    33% {
+      opacity: 0;    
+    }
+  }
+
+
+/* #buttons{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    padding: 1em;
+    z-index: 2;
+}
+
+#buttons > .btn{
+    background-color: #ffb35c;
+    color: #2e585a;
+    margin: 0.5em;
+    border: 1px solid #2e585a;
+}
+
+#buttons > .btn:hover{
+  background-color: #ff9b29;
+} */
+
+#recomerçButton{
+display: flex;
+width: 100%;
+justify-content: center;
+}
+
+#recomerçButton > .btn{
+    background-color: #ffb35c;
+    color: #2e585a;
+    position: absolute;
+    bottom: 2em;
+    border: #2e585a 1px solid;
+}
+
+#recomerçButton > .btn:hover{
+  background-color: #ff9b29;
+}
+
+/* DIVULGATION */
+
+#divulgacio{
+    background-color: #ddfff5;
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+#divulgacio > p {
+  padding: 5%;
+}
+
+#imgDiv1{
+  background-image: url('../media/divphoto1.jpg');
+  background-position: center;
+  background-size: cover;
+  margin-left: 2%;
+
+}
+
+#imgDiv2{
+  background-image: url('../media/divphoto2.jpg');
+  background-position: center;
+  background-size: cover;
+  margin-right: 2%;
+}
+
+/* STORY */
+
+#story{
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  background-color: #ffb35c;
+}
+
+
+/* ABOUT US */
+
+#aboutUs{
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h3{
+  padding: 15px;
+  font-size: 20px;
+}
+
+.fuente{
+  font-size: 20px;
+}
+
+
+/* BOTONES */
+/* #buttons{
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  padding: 1em;
+}
+
+#buttons > .btn{
+  background-color: #ffb35c;
+  color: #2e585a;
+  margin: 0.5em;
+} */
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 100px;
+  height: 100%;
+  background: #2E585A;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar ul li{
+  text-align: center;
+  padding: 35px 0px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #E3F2E6;
+  opacity: 0.5;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+  margin-right: 100px;
+  margin-top: 100px;
+}
+
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+.main_content{
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;
+}

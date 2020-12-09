@@ -1,39 +1,5 @@
 <?php
-session_start();
 
-function errorMessage($exception){
-    if (!empty($exception->errorInfo[1])) {
-        switch ($exception->errorInfo[1]) {
-            case 1062:
-                $message = "Duplicate entry in the database";
-                break;
-            case 1451;
-                $message = "Register with related elements";
-                break;
-            default:
-                $message = $exception->errorInfo[1] . '-' . $exception->errorInfo[2]; 
-                break;
-        }
-    } else{
-        switch($exception->getCode()){
-            case 1044: 
-                $message = "Incorrect username or password";
-                break;
-            case 1049:
-                $message = "Unknown database";
-                break;
-            case 2002:
-                $message = "Could not find the server";
-                break;
-            default:
-                $message = $exception->getCode() . '-' . $exception->getMessage();
-                break;
-        }
-    }
-
-    return $message;
-
-}
 
 function openDB(){
     $servername = "localhost";
@@ -145,31 +111,23 @@ function selectUserGameInfo($user_id) {
 
 }
 
-<<<<<<< HEAD
-=======
-//** INSERT FUNCTIONS **
-
-//function to add a new user, including entries for user_plays_game for all games
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
 function insertUser($username, $password, $points, $isAdmin, $email){
+    $games = [1,2,3,4];
 
-    try {
-        $games = [1,2,3,4];
+    $connection = openDB();
+    $connection->beginTransaction();
 
-        $connection = openDB();
-        $connection->beginTransaction();
+    $mySQLsentence = "INSERT INTO user VALUE(null, :username, :usepassword, :points, :isAdmin, :email)";
 
-        $mySQLsentence = "INSERT INTO user VALUE(null, :username, :usepassword, :points, :isAdmin, :email)";
+    $mySQLsentence= $connection ->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":username",$username);
+    $mySQLsentence->bindParam(":usepassword",$password);  
+    $mySQLsentence->bindParam(":points",$points); 
+    $mySQLsentence->bindParam(":isAdmin",$isAdmin); 
+    $mySQLsentence->bindParam(":email",$email); 
 
-        $mySQLsentence= $connection ->prepare($mySQLsentence);
-        $mySQLsentence->bindParam(":username",$username);
-        $mySQLsentence->bindParam(":usepassword",$password);  
-        $mySQLsentence->bindParam(":points",$points); 
-        $mySQLsentence->bindParam(":isAdmin",$isAdmin); 
-        $mySQLsentence->bindParam(":email",$email); 
-
-        $mySQLsentence->execute();
-        $lastId = $connection->lastInsertId();
+    $mySQLsentence->execute();
+    $lastId = $connection->lastInsertId();
 
     foreach ($games as $game){
 
@@ -183,153 +141,71 @@ function insertUser($username, $password, $points, $isAdmin, $email){
     }
     
     $connection->commit();
-
-    $_SESSION['errorMessage'] = "New user registered succesfully";
-    
-
-    } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
-       
-    }
-
-
     $connection = closeDB();
 
 }
 
-//function to insert a new store given the name and description
 function insertStore($name, $desc){
-
-    try {
-        $connection = openDB();
-        $connection->beginTransaction();
-
-        $mySQLsentence = "INSERT INTO store VALUES(null, :storename, :storedesc)";
-
-        $mySQLsentence = $connection ->prepare($mySQLsentence);
-
-        $mySQLsentence->bindParam(":storename", $name);
-        $mySQLsentence->bindParam(":storedesc", $desc);
-
-        $mySQLsentence->execute();
-
-        $connection->commit();
-        $_SESSION['errorMessage'] = "New store added succesfully";
-
-    } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
-    }
-    
-    $connection = closeDB();
-}
-
-//function to insert a new promo, given name, description, the cost in points, and the id of the store it belongs to 
-function insertPromo($name, $desc, $point_cost, $store_id){
-
-    try {
-        $connection = openDB();
-        $connection->beginTransaction();
-
-        $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid)";
-
-        $mySQLsentence = $connection ->prepare($mySQLsentence);
-
-        $mySQLsentence->bindParam(":promname", $name);
-        $mySQLsentence->bindParam(":promdesc", $desc);
-        $mySQLsentence->bindParam(":pointcost", $point_cost);
-        $mySQLsentence->bindParam(":storeid", $store_id);
-
-        $mySQLsentence->execute();
-
-        $connection->commit();
-
-        $_SESSION['errorMessage'] = "New promotion added succesfully";
-    } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
-    }
-    
-    $connection = closeDB();
-}
-
-function insertUserHasPromo($user_id, $promos){
-
-    try {
-        $connection = openDB();
-        $connection->beginTransaction();
-    
-        $mySQLsentence2 = "DELETE FROM user_has_promotion WHERE user_userid =:userid;";
-        $mySQLsentence2 = $connection->prepare($mySQLsentence2);
-        $mySQLsentence2->bindParam(':userid', $user_id);
-        $mySQLsentence2->execute(); 
-    
-        foreach($promos as $promo){
-            $mySQLsentence = "INSERT INTO user_has_promotion VALUES(:userid, :promoid)";
-    
-            $mySQLsentence = $connection->prepare($mySQLsentence);
-    
-            $mySQLsentence->bindParam(":userid", $user_id);
-            $mySQLsentence->bindParam(":promoid", $promo);
-    
-            $mySQLsentence->execute();
-        }
-    
-        $connection->commit();
-
-        $_SESSION['errorMessage'] = "New promotion added to user succesfully";
-    } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
-    }
-
-    $connection = closeDB();
-
-}
-
-<<<<<<< HEAD
-=======
-function insertUserPlaysGame($user_id, $game_id){
-
-    try {
-        $connection = openDB();
-        $connection->beginTransaction();
-    
-        $mySQLsentence = "INSERT INTO user_plays_game values(:userid, :gameid, 0, 0)";
-        $mySQLsentence = $connection->prepare($mySQLsentence);
-        $mySQLsentence->bindParam(":userid", $user_id);
-        $mySQLsentence->bindParam(":gameid", $game_id);
-    
-        $mySQLsentence->execute();
-    
-        $connection->commit();
-
-        $_SESSION['errorMessage'] = "New user game session added succesfully";
-    } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
-    }
-
-    
-    $connection = closeDB();
-
-}
-
-
-// **UPDATE FUNCTIONS **
-
-function modifyPointSave($user_id, $game_id){
     $connection = openDB();
     $connection->beginTransaction();
 
-    $mySQLsentence = "UPDATE user_plays_game SET pointSave=1 WHERE users_userid = :userid AND games_idgame = :gameid";
-    $mySQLsentence = $connection->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":userid", $user_id);
-    $mySQLsentence->bindParam(":gameid", $game_id);
+    $mySQLsentence = "INSERT INTO store VALUES(null, :storename, :storedesc)";
+
+    $mySQLsentence = $connection ->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":storename", $name);
+    $mySQLsentence->bindParam(":storedesc", $desc);
 
     $mySQLsentence->execute();
 
     $connection->commit();
     $connection = closeDB();
+}
+
+function insertPromo($name, $desc, $point_cost, $store_id){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid)";
+
+    $mySQLsentence = $connection ->prepare($mySQLsentence);
+
+    $mySQLsentence->bindParam(":promname", $name);
+    $mySQLsentence->bindParam(":promdesc", $desc);
+    $mySQLsentence->bindParam(":pointcost", $point_cost);
+    $mySQLsentence->bindParam(":storeid", $store_id);
+
+    $mySQLsentence->execute();
+
+    $connection->commit();
+    $connection = closeDB();
+}
+
+function insertUserHasPromo($user_id, $promos){
+    $connection = openDB();
+    $connection->beginTransaction();
+
+    $mySQLsentence2 = "DELETE FROM user_has_promotion WHERE user_userid =:userid;";
+    $mySQLsentence2 = $connection->prepare($mySQLsentence2);
+    $mySQLsentence2->bindParam(':userid', $user_id);
+    $mySQLsentence2->execute(); 
+
+    foreach($promos as $promo){
+        $mySQLsentence = "INSERT INTO user_has_promotion VALUES(:userid, :promoid)";
+
+        $mySQLsentence = $connection->prepare($mySQLsentence);
+
+        $mySQLsentence->bindParam(":userid", $user_id);
+        $mySQLsentence->bindParam(":promoid", $promo);
+
+        $mySQLsentence->execute();
+    }
+
+    $connection->commit();
+    $connection = closeDB();
 
 }
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
+
 
 function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
     $connection = openDB();
@@ -388,9 +264,6 @@ function modifyGamePointLimit($game_limit, $game_id){
 
 }
 
-
-// ** DELETE FUNCTIONS**
-
 function deleteUser($user_id){
     $connection = openDb();
     
@@ -425,3 +298,5 @@ function deletePromo($promo_id){
 
     $connection = closeDb();
 }
+
+?>

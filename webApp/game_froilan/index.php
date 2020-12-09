@@ -1,15 +1,7 @@
 
 <?php
     require_once '../../php_libraries/bd.php';
-<<<<<<< HEAD
     session_start();
-=======
-
-    if (!isset($_SESSION['user'])) {
-        header("Location: ../../php_views/login.php");
-        exit();  
-    }
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
     $games = selectAllFromTable('game');
     $limit = $games['2']['pointLimit'];
 ?>
@@ -20,21 +12,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="/project1/style/style-navbar.css">
     <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="styles/style.css">
-<<<<<<< HEAD
-=======
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="../../style/language.css"> -->
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
     <link href="./styles/all.min.css" rel="stylesheet">
 
 
@@ -45,27 +27,14 @@
     <?php
         require_once '../../php_partials/navbar.php';
         require_once '../../php_partials/buttons.php';
-<<<<<<< HEAD
-=======
-        // require_once '../../php_partials/language.php';
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
     ?>
     <div class="gameContainer">
     <div id="game">
         <div class="startscreen">
             <div class="text">
-<<<<<<< HEAD
                 <h1>Welcome to Froilan's Fantastic Fitting Room!</h1>
                 <h2>Help me buy clothes for my grandson, Marco</h2>
                 <p>Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
-=======
-                <h1 id="screenHeader" >Welcome to Froilan's Fantastic Fitting Room!</h1>
-                <br>
-                <h4>Help me buy clothes for my grandson, Marco. I'll just warn you right now... he's kind of picky.</h4>
-                
-                
-                <p>How to play: Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
                     If your combo works, you earn points! If it doesn't, try again with something different. 
                     You can earn up to <?= $limit ?> points. Let's go!
                 </p>
@@ -309,15 +278,6 @@
     <script src="/project1/js/navbar.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
-<<<<<<< HEAD
-=======
-    <script src="scripts/submit.js"></script>
-
-  <!--   <script src="../../lang/ESP.js"></script>
-    <script src="../../lang/ENG.js"></script>
-    <script src="../../lang/CAT.js"></script>
-    <script src="../../lang/language.js"></script> -->
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
 </body>
 
 </html>

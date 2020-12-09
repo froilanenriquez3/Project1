@@ -23,12 +23,6 @@ if (isset($_SESSION['logged'])) {
 </head>
 
 <body>
-<<<<<<< HEAD
-=======
-    <div class="home">
-        <a href="/project1/index.php"><img src="/project1/media/img/home-icon-blue.png" width="70px"></a>
-    </div>
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
     <div class="container">
         <div class="card mt-2">
             <div class="card-header bg-secondary text-white">

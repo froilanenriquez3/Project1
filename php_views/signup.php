@@ -20,10 +20,6 @@
 </head>
 
 <body>
-    <div class="home">
-        <a href="/project1/index.php"><img src="/project1/media/img/home-icon-blue.png" width="70px"></a>
-    </div>    
-    
     <div class="container">
         <div class="card mt-2">
             <div class="card-header bg-secondary text-white">
@@ -35,7 +31,6 @@
                     <div class="form-group">
                         <!-- User -->
                         <div class="form-group row">
-<<<<<<< HEAD
                             <label class="col-2" for="username">Usuario</label>
                             <input class="col-10 form-control" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" maxlength="16" autofocus required>
                         </div>
@@ -53,33 +48,6 @@
                         <div class="form-group row">
                             <label class="col-2" for="confpassword">Repite tu Contraseña</label>
                             <input class="col-10 form-control" type="password" id="confpassword" name="confpassword" minlength="8" placeholder="Introduce tu contraseña"  required>
-=======
-                            <label class="col-5" for="username">Usuario</label>
-                            <div class="col-sm-7">
-                                <input class="form-control form-control-sm" type="text" id="username" name="username" placeholder="Nombre de usuario" maxlength="16" autofocus required>
-                            </div>
-                        </div>
-                        <!-- Email -->
-                        <div class="form-group row">
-                            <label class="col-5" for="email">Email</label>
-                            <div class="col-sm-7">
-                                <input class="form-control form-control-sm" type="text" id="email" name="email" placeholder="Email" maxlength="45"  required>
-                            </div>
-                        </div>
-                        <!-- Password -->
-                        <div class="form-group row">
-                            <label class="col-5" for="password">Contraseña</label>
-                            <div class="col-sm-7">
-                                <input class="form-control form-control-sm" type="password" id="password" name="password" minlength="8" placeholder="Contraseña "  required>
-                            </div>
-                        </div>
-                        <!-- Confirm Password -->
-                        <div class="form-group row">
-                            <label class="col-5" for="confpassword">Repite tu Contraseña</label>
-                            <div class="col-sm-7">
-                                <input class="form-control form-control-sm" type="password" id="confpassword" name="confpassword" minlength="8" placeholder="Repite la contraseña"  required>
-                            </div>
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
                         </div>
                         <!-- Boton de submit -->
                         <div class="btn-group float-right">
@@ -89,9 +57,7 @@
                 </form>
             </div>
         </div>
-        <?php  require_once ('../php_partials/message.php')?>
     </div>
-   
     <script src="../js/signup.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

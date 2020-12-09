@@ -1,15 +1,11 @@
 *{
   margin: 0;
-<<<<<<< HEAD
 
   padding: 0;
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
   font-family: 'Josefin Sans', sans-serif;
-=======
-  /* font-family: 'Montserrat', sans-serif; */
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
 } 
 
 /* body{
@@ -39,7 +35,6 @@
   box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
   margin: 0px 0px;
-  z-index: 2;
 }
 
 .sidebar ul{

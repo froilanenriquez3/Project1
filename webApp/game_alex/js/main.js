@@ -211,7 +211,6 @@ function playLastxmas() {
   }
 
   function voiceInputFunc(number) {
-<<<<<<< HEAD
     if (stopped == true) {
       /* Setting up voice recognition */
       console.log("running voice input");
@@ -252,46 +251,6 @@ function playLastxmas() {
       // submit = document.getElementById('start_button');
       console.log("voice recognition on");
     }
-=======
-    /* Setting up voice recognition */
-    console.log("running voice input");
-
-    var subtitles = document.getElementById("subtitles");
-    subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
-    results = document.createElement("div");
-    results.setAttribute("id", "results");
-    subtitles.children[number * 2 + 1].appendChild(results);
-
-    final_span = document.createElement("span");
-    final_span.setAttribute("id", "final_span");
-    final_span.setAttribute("class", "final");
-    results.appendChild(final_span);
-
-    interim_span = document.createElement("span");
-    interim_span.setAttribute("id", "interim_span");
-    interim_span.setAttribute("class", "interim");
-    results.appendChild(interim_span);
-
-    right = document.createElement("div");
-    right.setAttribute("class", "right");
-    subtitles.children[number * 2 + 1].appendChild(right);
-
-    button = document.createElement("button");
-    button.setAttribute("id", "start_button");
-    button.setAttribute("onclick", "startButton(event)");
-    right.appendChild(button);
-    img = document.createElement("img");
-    img.setAttribute("id", "start_img");
-    img.setAttribute("src", "./media/api/mic.gif");
-    img.setAttribute("alt", "Start");
-    button.appendChild(img);
-
-    voiceRegnition();
-
-    // input = document.getElementById('final_span');
-    // submit = document.getElementById('start_button');
-    console.log("voice recognition on");
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
   }
 
   var toggle = document.getElementById("voiceInput");

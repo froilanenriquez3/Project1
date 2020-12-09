@@ -1,7 +1,6 @@
 body{
     background-color: #e2f3e7;
 }
-
 .container{
     position: absolute;
     right: 0px;
@@ -29,17 +28,4 @@ body{
 
 .container a:hover {
     text-decoration: none;
-<<<<<<< HEAD
 }
-=======
-}
-
-.card-title{
-    font-family: 'Oswald', sans-serif;
-}
-
-.dropdown{
-    display: none;
-}
-
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987

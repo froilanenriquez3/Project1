@@ -4,7 +4,6 @@
     // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-<<<<<<< HEAD
         {
             "type": "chrome",
             "request": "launch",
@@ -12,14 +11,5 @@
             "url": "http://localhost:80/project1/webApp/game_alex/index.html",
             "webRoot": "${workspaceFolder}"
         }
-=======
-       {
-           "name": "Launch Chrome",
-           "request": "launch",
-           "type": "pwa-chrome",
-           "url": "http://localhost:8080/project1/index.php",
-           "webRoot": "${workspaceFolder}"
-       }
->>>>>>> 416453652ecc64bf07267e8d69d6d947736dd987
     ]
 }
