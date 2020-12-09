@@ -93,7 +93,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 <div class="card-body">
                                     <p class="">Grant user admin priveleges by ID</p>
                                     <form class="" action="../php_controllers/user_controller.php" method="post">
-                                        <div class="form-group row ">
+                                        <div class="form-group row">
                                             <label class="m-1" for="newadmin">ID</label>
                                             <input class="m-1" type="number" name="newadmin" id="newadmin" min="1">
                                             <button class="btn" type="submit" id="addadmin" name="addadmin">Add admin</button>
@@ -213,7 +213,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <?php }
 
                         if (isset($_SESSION['no_user_results']) && isset($_SESSION['usersearch'])) {
-                            echo "<p class='m-5'>There are no users with the name " . $_SESSION['usersearch'] . "</p> ";
+                            echo "<p class='m-5'>There are no users with the name " . $_SESSION['usersearch'] . ".</p> ";
                         }
                         unset($_SESSION['result_user']);
                         unset($_SESSION['no_user_results'])
@@ -318,8 +318,81 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                     </li>
 
+
+
+
+
+
+
+
                     <li class="list-group-item" id="promossection">
                         <h2>Manage promos</h2>
+
+                        <form action="../php_controllers/promo_search.php" method="POST">
+                            <label for="promosearch">Search for promo by name</label>
+                            <div class="form-group row">
+                                <input type="text" name="promosearch" id="promosearch" class="col-4 form-control ml-2">
+                                <button type="submit" class="btn ">Search</button>
+                            </div>
+                        </form>
+
+                        <form action="../php_controllers/promo_search.php" method="POST">
+                            <button type="submit" class="btn m-2" id="see_all_promos" name="see_all_promos">See All Promotions</button>
+                        </form>
+
+                        <?php 
+                        if(isset($_SESSION['result_promo'])){
+                            $promo = $_SESSION['result_promo'];
+
+                        ?>
+                            
+                            
+                            <div class="card col-12">
+                                    <form action="../php_controllers/promo_controller.php" method="post">
+                                        <div class="card-body">
+                                            <p><?= "Promo ID-" . $promo['idpromotion'] . ": " . $promo['name'] ?></p>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromoname">Name</label>
+                                                <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?= $promo['name'] ?>" maxlength="45">
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromodesc">Description</label>
+                                                <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?= $promo['promo_desc'] ?>" maxlength="45">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromocost">Cost</label>
+                                                <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modstoreid">Store ID</label>
+                                                <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
+                                            </div>
+
+
+                                            <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+
+                                            <input type="number" value=<?= $promo['idpromotion'] ?> style="display:none" id="promoid" name="promoid">
+                                            <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                     
+
+                        <?php }
+
+                        if (isset($_SESSION['no_promo_results']) && isset($_SESSION['promosearch'])) {
+                            echo "<p class='m-5'>There are no promotions with the name " . $_SESSION['promosearch'] . ".</p> ";
+                        }
+                        unset($_SESSION['result_promo']);
+                        unset($_SESSION['no_promo_results'])
+
+                        ?>
+
                         <div class="row d-flex align-items-stretch ">
 
                             <?php
@@ -327,6 +400,8 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 echo " <p cass='m-5'>There are no promotions.</p>";
                             }
 
+                            if(isset($_SESSION['see_all_promos'])){
+                            
                             foreach ($all_promos as $promo) { ?>
 
                                 <div class="card col-12">
@@ -363,11 +438,13 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                                 </div>
 
-                            <?php } ?>
+                            <?php } }
+                            unset($_SESSION['see_all_promos']);
+                            ?>
 
 
                         </div>
-                        <div class="row ">
+                        
                             <div class="card col-12">
 
                                 <div class="card-body">
@@ -399,7 +476,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 </div>
 
                             </div>
-                        </div>
+              
 
 
                     </li>
