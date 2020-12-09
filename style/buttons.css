@@ -1,14 +1,17 @@
+
+
 #buttons{
     position: fixed;
     top: 5px;
     right: 5px;
     padding: 1em;
     z-index: 100;
+    display: flex;
 }
 
 #buttons > .btn{
     background-color: #ffb35c;
-    color: #2e585a;
+    color: black;
     margin: 0.5em;
     border: 1px solid #2e585a;
 }
@@ -21,4 +24,43 @@
 
 #buttons > .btn:hover{
   background-color: #ff9b29;
+}
+
+/* Language Button */
+
+.language > button{
+    background-color: #ffb35c;
+    padding: 4px 8px;
+    margin: 0.5em;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    border: #2e585a 1px solid;
+    height: 30.67px;
+   
+  }
+  
+  .language img{
+     height: 20px;
+     margin-top: 2px;
+  }
+
+  .dropdown-menu{
+      text-align: center;
+      background-color: #2e585a;
+      padding: 10px;
+  }
+
+  .dropdown-item{
+      display: inline;
+      padding: 0.3em;
+  }
+
+  .dropdown-item:hover{
+      background-color: #2e585a;
+  }
+  
+  .dropdown-item img:hover{
+    background-color: #2e585a;
+    transform: scale(1.3);
 }

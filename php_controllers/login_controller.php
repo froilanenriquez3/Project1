@@ -1,6 +1,5 @@
 <?php
 require_once '../php_libraries/bd.php';
-session_start();
 
 if (isset($_POST['login'])){
     $user = selectUserByUsername($_POST['username']);
@@ -11,7 +10,7 @@ if (isset($_POST['login'])){
        
     } else{
         $_SESSION['user'] = $user;
-        header("Location: ../index_anna.php");
+        header("Location: ../index.php");
     }
     
 }

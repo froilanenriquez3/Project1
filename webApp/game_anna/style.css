@@ -1,36 +1,35 @@
-*{
-    margin: 0px auto;
-    padding: 0px;
+.background{
+    height: 450px;
+    width: 895px;
+    margin: 20px auto;
+    position: relative;
+    background-image: url("img/landscape.jpg");
 }
 
-h2{
-    font: bold;
-    text-align: center;
-}
 
-#visor{
+#square {
+    /* background-color: red; */
+    height: 80px;
+    width: 60px;
     position: absolute;
-    top: 100px;
-    left: 200px;
-    width: 1000px;
-    height: 500px;
-    overflow: hidden;
+    bottom: 0px;
 }
 
-#fondo1{
+#square2{
+    /* background-color: red; */
+    /* height: 80px;
+    width: 80px; */
+    height: 50px;
+    width: 120px;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    bottom: 0px;
 }
 
-#fondo2{
+/* .character-sliding {
+    background-color: red;
+    height: 40px;
+    width: 70px;
     position: absolute;
-    top: 0px;
-    left: 1500px;
-}
+    bottom: 0px;
+} */
 
-#personaje{
-    position: absolute;
-    top: 380px;
-    left: 120px;
-}

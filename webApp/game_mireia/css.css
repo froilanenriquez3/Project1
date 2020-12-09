@@ -1,3 +1,8 @@
+/* Language dropdown off */
+.dropdown{
+    display: none;
+}
+
 /* CONTAINER */
 
 body{
@@ -16,7 +21,7 @@ body{
 
 #instructions{
     background-color: #ffb35c;
-    color: #2e585a;
+    color: black;
     z-index: 50;
     position: relative;
     height: 100%;
@@ -24,6 +29,12 @@ body{
     text-align: center;
     padding: 5px;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#instructions > h2{
+    font-family: 'Oswald', sans-serif;
+    color: #2e585a;
 }
 
 #instructionsInfo{
@@ -136,6 +147,7 @@ body{
 padding-top: 5px;
 position: relative;
 padding-left: 10px;
+font-family: 'Montserrat', sans-serif;
 }
 
 .divList > ul{
@@ -148,17 +160,30 @@ padding-left: 10px;
 
 /* Talk with someone  */
 
-#speak{
+.speak{
     position: absolute;
-    top: 200px;
-    left: 675px;
-    height: 20px;
+    height: 40px;
     background-color: rgb(233, 167, 92);
     border: black 1px solid;
     border-radius: 35px;
     padding: 10px;
     display: none;
     z-index: 2;
+}
+
+.sp1{
+    top: 200px;
+    left: 675px;
+}
+
+.sp2{
+    top: 120px;
+    left: 300px;
+}
+
+.sp3{
+    top: 180px;
+    left: 630px;
 }
 
 #interior > p{
@@ -173,16 +198,15 @@ padding-left: 10px;
 
 #text{
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    margin: auto;
+    bottom: 0px;
+    width: 100%;
     font-size: large;
     background-color: rgb(233, 167, 92);
     display: none;
     padding: 5px;
     border: 1px solid black;
     z-index: 50;
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 #text > div {
