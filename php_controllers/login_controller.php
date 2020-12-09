@@ -1,6 +1,5 @@
 <?php
 require_once '../php_libraries/bd.php';
-session_start();
 
 if (isset($_POST['login'])){
     $user = selectUserByUsername($_POST['username']);

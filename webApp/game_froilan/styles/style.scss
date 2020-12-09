@@ -15,6 +15,15 @@
     background-size: contain;
 }
 
+
+*{
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+html{
+    background-color: #C9DBE3;
+}
+
 .dropdown{
     display: none;
 }
@@ -43,7 +52,7 @@ button {
     // margin-top: 10%;
 
     //height: 450px;
-    height: 520px;
+    height: 550px;
     //width: 75%;
     width: 895px;
     //min-width: 1068px;
@@ -60,7 +69,7 @@ button {
     background-size: cover;
 
     box-sizing: border-box;
-    height: 500px;
+    height: 530px;
     width: 875px;
 
     padding-left: 40px;
@@ -74,22 +83,22 @@ button {
     background-color: white;
     margin-top: 70px;
     padding: 20px;
-    text-align: center;
+    // text-align: center;
     h1{
-        font-size: 50px;
-        margin: 10px;
-    }
-    h2{
+        position: relative;
+        font-size: 32px;
         margin: 10px;
     }
     p{
-        margin: 10px;
+        padding-top: 10px;
     }
+    
+  
 }
 
 .startbutton {
     width:100px;
-    margin: 30px;
+    margin: 10px;
     font-size: 30px;
     border-radius: 10px;
     background-color: greenyellow;
@@ -109,7 +118,7 @@ button {
 
 .topbar {
     box-sizing: border-box;
-    height: 50px;
+    height: 80px;
     background-color: white;
     color: black;
     display: grid;
@@ -122,9 +131,10 @@ button {
         background-color: whitesmoke;
         display: grid;
         grid-template-columns: 0.75fr 1fr 1fr 1fr;
-        height: 50px;
+        height: 100%;
         border-right: solid black 3px;
-        padding-top: 10px;
+        padding-top: 27px;
+        vertical-align: center;
         p {
             border: solid black 3px;
             border-radius: 20px;
@@ -165,7 +175,8 @@ button {
         box-sizing: border-box;
         display: grid;
         padding: 10px;
-        height: 50px;
+        padding-top: 24px;
+        height: 100%;
         grid-template-columns: 1fr 1fr;
         background-color: aliceblue;
         border-left: solid black 3px;

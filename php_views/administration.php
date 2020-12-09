@@ -1,6 +1,6 @@
 <?php
 require_once '../php_libraries/bd.php';
-session_start();
+
 $all_users = selectAllFromTable('user');
 $all_promos = selectAllFromTable('promotion');
 $all_games = selectAllFromTable('game');
@@ -26,30 +26,30 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
     <!-- FONT MONTSERRAT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
     <title>Restore</title>
 </head>
 
 <body>
 
-<?php
+    <?php
     require_once "../php_partials/buttons.php";
     require_once "../php_partials/navbar.php";
 
-?>
+    ?>
     <div class="container">
         <div class="card">
             <div class="card-header">
                 <h1>Administration</h1>
             </div>
             <div class="card-body">
-                <ul class="list-unstyled">
+                <!-- <ul class="list-unstyled">
                     <li><a href="#adminssection">Manage admins</a></li>
                     <li><a href="#userssection">Manage users</a></li>
                     <li><a href="#promossection">Manage promos</a></li>
                     <li><a href="#pointssection">Manage points</a></li>
-                </ul>
+                </ul> -->
 
                 <p>Here is where you can manage the administrators, users, promotions, and points</p>
                 <ul class="list-group" id="adminssection">
@@ -93,12 +93,12 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 <div class="card-body">
                                     <p class="">Grant user admin priveleges by ID</p>
                                     <form class="" action="../php_controllers/user_controller.php" method="post">
-                                        <div class="form-group row ">
+                                        <div class="form-group row">
                                             <label class="m-1" for="newadmin">ID</label>
                                             <input class="m-1" type="number" name="newadmin" id="newadmin" min="1">
                                             <button class="btn" type="submit" id="addadmin" name="addadmin">Add admin</button>
                                         </div>
-                                        
+
                                     </form>
                                 </div>
 
@@ -111,11 +111,119 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                     <li class="list-group-item" id="userssection">
                         <h2>Manage users</h2>
 
+                    <!-- Search user by their username-->
+
+                        <form action="../php_controllers/user_search.php" method="POST">
+                            <label for="usersearch">Search for user by name</label>
+                            <div class="form-group row">
+                                <input type="text" name="usersearch" id="usersearch" class="col-4 form-control ml-2">
+                                <button type="submit" class="btn ">Search</button>
+                            </div>
+                        </form>
+
+                        <form action="../php_controllers/user_search.php" method="POST">
+                            <button type="submit" class="btn m-2" id="see_all_users" name="see_all_users">See All Users</button>
+                        </form>
+
+
                         <?php
 
                         if (empty($all_users)) {
                             echo "<p class='m-5'>There are no users.</p> ";
                         }
+
+                        if (isset($_SESSION['result_user'])) {
+                            $user = $_SESSION['result_user']; ?>
+                            <div class="card">
+                                <div class="card-body">
+                                    <form enctype="multipart/form-data" action="../php_controllers/user_controller.php" method="post">
+                                        <p><?= "User ID-" . $user['userid'] ?></p>
+                                        <input class="m-1" type="number" name="userid" id="userid" min="0" style="display:none" value="<?= $user['userid'] ?>">
+
+                                        <div class="form-group row">
+                                            <label class="col-2" for="username">Username</label>
+                                            <input class="col-10 form-control" type="text" id="username" name="username" value="<?= $user['username'] ?>">
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-2" for="password">Password</label>
+                                            <input class="col-10 form-control" type="password" id="password" name="password" minlength="8" value="<?= $user['password'] ?>" required>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="points" class="col-2">Points</label>
+                                            <input type="number" class="col-10 form-control" id="points" name="points" value="<?= $user['points'] ?>" min="0">
+
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="email" class="col-2">Email</label>
+                                            <input type="text" class="col-10 form-control" id="email" name="email" value="<?= $user['email'] ?>">
+                                        </div>
+
+
+
+                                        <div class="form-group row">
+
+                                            <label class="col-2 form-check-label">Promotions</label>
+                                            <div class="col-10">
+                                                <?php
+
+                                                $user_promos = selectUserPromos($user['userid']);
+
+                                                $counter = 0;
+                                                foreach ($all_promos as $promo) {
+
+                                                ?>
+
+                                                    <div class="custom-checkbox form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" id="promotion<?= $counter + 1 ?>" name="promotions[]" value="<?php echo $promo['idpromotion'] ?>" <?php
+                                                            $same = false;
+
+                                                            foreach ($user_promos as $user_promo) {
+                                                                if ($user_promo['name'] == $promo['name']) {
+                                                                    $same = true;
+                                                                }
+                                                            }
+                                                            if ($same) {
+                                                                echo "checked";
+                                                            }
+
+                                                            ?>>
+
+                                                        <label class="form-check-label" for="type<?= $counter + 1 ?>"> <?= $promo['name'] ?></label>
+                                                    </div>
+
+                                                <?php
+                                                }
+                                                ?>
+
+                                            </div>
+
+                                        </div>
+
+                                        <button type="submit" class="btn m-2" name="modifyuser" id="modifyuser">Save</button>
+                                        <button type="submit" class="btn m-2" name="deleteuser" id="deleteuser">Delete</button>
+                                    </form>
+
+                                </div>
+                            </div>
+
+
+                        <?php }
+
+                        if (isset($_SESSION['no_user_results']) && isset($_SESSION['usersearch'])) {
+                            echo "<p class='m-5'>There are no users with the name " . $_SESSION['usersearch'] . ".</p> ";
+                        }
+                        unset($_SESSION['result_user']);
+                        unset($_SESSION['no_user_results'])
+
+                        ?>
+
+                        <!-- See all the users-->
+
+                        <?php
+                        if(isset($_SESSION['see_all_users'])){
 
                         foreach ($all_users as $user) { ?>
                             <div class="card">
@@ -145,7 +253,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                             <input type="text" class="col-10 form-control" id="email" name="email" value="<?= $user['email'] ?>">
                                         </div>
 
-                                       
+
                                         <!-- Promotions -->
                                         <div class="form-group row">
 
@@ -154,40 +262,39 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                 <?php
 
                                                 $user_promos = selectUserPromos($user['userid']);
-                                               
+
                                                 $counter = 0;
                                                 foreach ($all_promos as $promo) {
 
                                                 ?>
 
                                                     <div class="custom-checkbox form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="promotion<?= $counter + 1 ?>" name="promotions[]" value="<?php echo $promo['idpromotion'] ?>" 
-                                                        <?php 
+                                                        <input class="form-check-input" type="checkbox" id="promotion<?= $counter + 1 ?>" name="promotions[]" value="<?php echo $promo['idpromotion'] ?>" <?php
                                                             $same = false;
-                                                           
-                                                            foreach($user_promos as $user_promo){
-                                                                if($user_promo['name'] == $promo['name']){
+
+                                                            foreach ($user_promos as $user_promo) {
+                                                                if ($user_promo['name'] == $promo['name']) {
                                                                     $same = true;
                                                                 }
                                                             }
-                                                            if($same){
+                                                            if ($same) {
                                                                 echo "checked";
                                                             }
 
-                                                        ?>  >
+                                                            ?>>
 
                                                         <label class="form-check-label" for="type<?= $counter + 1 ?>"> <?= $promo['name'] ?></label>
                                                     </div>
 
                                                 <?php
                                                     $counter++;
-                                                } 
+                                                }
 
                                                 ?>
 
                                             </div>
 
-                                            </div>
+                                        </div>
 
                                         <button type="submit" class="btn m-2" name="modifyuser" id="modifyuser">Save</button>
                                         <button type="submit" class="btn m-2" name="deleteuser" id="deleteuser">Delete</button>
@@ -197,15 +304,95 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                             </div>
 
 
-                        <?php } ?>
+                        <?php }}
+                        
+                            unset($_SESSION['see_all_users']);
+                        
+                        ?>
+
+
+
                         <button class="btn m-2" name="adduser" id="adduser">
                             <a href="signup.php">Register a new user</a>
                         </button>
 
                     </li>
-                    <!-- not finished -->
+
+
+
+
+
+
+
+
                     <li class="list-group-item" id="promossection">
                         <h2>Manage promos</h2>
+
+                        <form action="../php_controllers/promo_search.php" method="POST">
+                            <label for="promosearch">Search for promo by name</label>
+                            <div class="form-group row">
+                                <input type="text" name="promosearch" id="promosearch" class="col-4 form-control ml-2">
+                                <button type="submit" class="btn ">Search</button>
+                            </div>
+                        </form>
+
+                        <form action="../php_controllers/promo_search.php" method="POST">
+                            <button type="submit" class="btn m-2" id="see_all_promos" name="see_all_promos">See All Promotions</button>
+                        </form>
+
+                        <?php 
+                        if(isset($_SESSION['result_promo'])){
+                            $promo = $_SESSION['result_promo'];
+
+                        ?>
+                            
+                            
+                            <div class="card col-12">
+                                    <form action="../php_controllers/promo_controller.php" method="post">
+                                        <div class="card-body">
+                                            <p><?= "Promo ID-" . $promo['idpromotion'] . ": " . $promo['name'] ?></p>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromoname">Name</label>
+                                                <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?= $promo['name'] ?>" maxlength="45">
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromodesc">Description</label>
+                                                <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?= $promo['promo_desc'] ?>" maxlength="45">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromocost">Cost</label>
+                                                <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modstoreid">Store ID</label>
+                                                <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
+                                            </div>
+
+
+                                            <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+
+                                            <input type="number" value=<?= $promo['idpromotion'] ?> style="display:none" id="promoid" name="promoid">
+                                            <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                     
+
+                        <?php }
+
+                        if (isset($_SESSION['no_promo_results']) && isset($_SESSION['promosearch'])) {
+                            echo "<p class='m-5'>There are no promotions with the name " . $_SESSION['promosearch'] . ".</p> ";
+                        }
+                        unset($_SESSION['result_promo']);
+                        unset($_SESSION['no_promo_results'])
+
+                        ?>
+
                         <div class="row d-flex align-items-stretch ">
 
                             <?php
@@ -213,47 +400,51 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 echo " <p cass='m-5'>There are no promotions.</p>";
                             }
 
+                            if(isset($_SESSION['see_all_promos'])){
+                            
                             foreach ($all_promos as $promo) { ?>
 
                                 <div class="card col-12">
                                     <form action="../php_controllers/promo_controller.php" method="post">
-                                    <div class="card-body">
-                                        <p><?= "Promo ID-".$promo['idpromotion'].": ".$promo['name'] ?></p>
+                                        <div class="card-body">
+                                            <p><?= "Promo ID-" . $promo['idpromotion'] . ": " . $promo['name'] ?></p>
 
 
-                                        <div class="form-group row">
-                                            <label class="col-2" for="modpromoname">Name</label>
-                                            <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?=$promo['name']?>" maxlength="45">
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromoname">Name</label>
+                                                <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?= $promo['name'] ?>" maxlength="45">
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromodesc">Description</label>
+                                                <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?= $promo['promo_desc'] ?>" maxlength="45">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modpromocost">Cost</label>
+                                                <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2" for="modstoreid">Store ID</label>
+                                                <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
+                                            </div>
+
+
+                                            <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+
+                                            <input type="number" value=<?= $promo['idpromotion'] ?> style="display:none" id="promoid" name="promoid">
+                                            <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
                                         </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-2" for="modpromodesc">Description</label>
-                                            <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?=$promo['promo_desc']?>" maxlength="45">
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-2" for="modpromocost">Cost</label>
-                                            <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?=$promo['pointCost']?>">
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-2" for="modstoreid">Store ID</label>
-                                            <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?=$promo['store_idstore']?>">
-                                        </div>
-
-
-                                        <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
-
-                                        <input type="number" value=<?=$promo['idpromotion']?> style="display:none" id="promoid" name="promoid">
-                                        <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
-                                    </div>
                                     </form>
 
                                 </div>
 
-                            <?php } ?>
-                            
-                            
+                            <?php } }
+                            unset($_SESSION['see_all_promos']);
+                            ?>
+
+
                         </div>
-                        <div class="row ">
+                        
                             <div class="card col-12">
 
                                 <div class="card-body">
@@ -278,34 +469,34 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                         </div>
 
 
-                                    <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Add promo</button>
+                                        <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Add promo</button>
                                     </form>
 
-                                    
+
                                 </div>
-                                
+
                             </div>
-                        </div>
-                        
-                        
+              
+
+
                     </li>
-                
+
                     <!-- not finished -->
-                    
+
                     <li class="list-group-item" id="pointssection">
                         <h2>Manage points</h2>
                         <?php foreach ($all_games as $game) { ?>
 
                             <div class="card">
                                 <div class="card-body">
-                                    <p><?= "Game ID-".$game['idgame'].": ".$game['name'] ?></p>
+                                    <p><?= "Game ID-" . $game['idgame'] . ": " . $game['name'] ?></p>
                                     <form action="../php_controllers/game_controller.php" method="post">
 
                                         <div class="form-group row">
 
                                             <label class="col-2" for="pointlimit">Maximum points</label>
                                             <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0">
-                                            <input type="num" id="gameid" name="gameid" value="<?=$game['idgame']?>" style="display:none"> 
+                                            <input type="num" id="gameid" name="gameid" value="<?= $game['idgame'] ?>" style="display:none">
 
                                             <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Save</button>
                                         </div>

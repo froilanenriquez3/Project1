@@ -20,11 +20,12 @@
         <li><a href="/project1/index.php/#aboutUs"><div><p>Sobre Nosotres</p></div><img src="/project1/media/img/aboutUs.png" width="50px">
             </a>
         </li>
-        <?php if($user_set){
+        <?php if(isset($_SESSION['user'])){
             if($_SESSION['user']['isAdmin'] == 1){?>
 
             <!-- ADMINISTRADOR -->
         <li><a href="/project1/php_views/administration.php"><div><p>Administración</p></div><img src="/project1/media/img/admin.png" width="50px">
+
             </a>
         </li>
           <?php  }

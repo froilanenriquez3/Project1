@@ -1,6 +1,6 @@
 <?php 
     require_once '../php_libraries/bd.php';
-    session_start();
+   
 
     $user_game = selectUserGameInfo($_SESSION['user']['userid'], $_POST['gameId']);
     print_r($user_game);
