@@ -91,10 +91,8 @@
       <div style="text-align: center;" class="member">
         <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
         <h3 class="fuente">Alex Cantó</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. A sed nobis ut exercitationem 
-          atque accusamus sit natus officiis totam blanditiis 
-          at eum nemo, nulla et quae eius culpa eveniet.
+        <p>Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
+          Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. 
         </p>
       </div>
 

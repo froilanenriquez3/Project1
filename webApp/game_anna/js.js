@@ -15,22 +15,15 @@ function start(){
 
 
   let character = {
-    x: 500, 
+    x: 0, 
     y: 370,
     width: 60,
     height: 80
   }
 
-  // let box = {
-  //   x: 270,
-  //   y: 300,
-  //   width: 80, 
-  //   height: 80
-  // }
-
   let box = {
     x: 270, 
-    y: 300,
+    y: 270,
     width: 120, 
     height: 50
   }
@@ -97,6 +90,7 @@ function start(){
           }
           character.y += up;
           square.style.top = character.y + 'px';
+         
         }, 20);
       }
 
@@ -104,7 +98,6 @@ function start(){
       character.y -= 10;
       square.style.top = character.y + 'px';
       console.log(character.y);
-
     }, 20);
   }
 
@@ -144,7 +137,11 @@ function start(){
     
   // }
 
-
+  // if(){
+  //   document.getElementsByClassName('background')[0].removeChild(money);
+  // }
+  
+  
 
 
   function control(e) {    
@@ -152,48 +149,28 @@ function start(){
       jump(); // si apretamos la barra espaciadora
     } 
     
-    // if (left == true){
-    //   character.x -= velocidad;
-    //   square.style.left = character.x + 'px';
-    //   console.log(character.x);
-
-    // }
-
-    // if (right == true){
-    //   character.x += velocidad;
-    //   square.style.left = character.x + 'px';
-    //   console.log(character.x);
-
-    // }
-
+    
     //LEFT
     if(e.keyCode == 37 && character.x > 0){
-      // character.x -= velocidad;
-      // square.style.left = character.x + "px";
-      // console.log(character.x);
-      // if (character.x <= box.x + box.width && character.x > box.x){
-      //   character.x = box.x + box.width + 10;
-      //   character.y = box.y - character.height;
-        
-      // }
-      
-
-      
+     
       //ir hacia la izquierda
       if (square.getAttribute("src") == "img/abuela-right-mario.png"){
         square.setAttribute("src", "img/abuela-left-mario.png");
       }
 
-      if(character.x - velocidad < box.x + box.width && character.x > box.x
-        && character.y < box.y + box.height && character.y + character.height > box.y){
+      if(character.x - velocidad >= box.x+ box.width || character.x <= box.x){
+        if (character.y > box.y - box.height){
+          
+          // console.log(box.height);
+          character.x -= velocidad;
+          square.style.left = character.x + 'px';
+          left = true;
+        }
+      }
 
-      }
-      else{
-        character.x -= velocidad;
-        square.style.left = character.x + 'px';
-        left = true;
-      }
-    
+      console.log(character.y);
+      console.log(box.y - box.height);
+
     } 
 
     //RIGHT
@@ -202,47 +179,20 @@ function start(){
       if (square.getAttribute("src") == "img/abuela-left-mario.png"){
         square.setAttribute("src", "img/abuela-right-mario.png");
       }
-      // character.x += velocidad;
-      // square.style.left = character.x + "px";
-      // console.log(character.x);
-      // if (character.x + character.width > box.x && character.x + character.width < box.x + box.width){
-      //   character.x = box.x - character.width -10;
-      // }
 
-      if(character.x + character.width + velocidad > box.x && character.x + character.width < box.x + box.width
-        && character.y < box.y + box.height && character.y + character.height > box.y){
-
-      }
-      else{
+      if (character.x + character.width + velocidad <= box.x || character.x + character.width >= box.x + box.width
+        || character.y >= box.y - box.height){
         character.x += velocidad;
         square.style.left = character.x + 'px';
         right = true;
       }
 
-      // if (character.x + character.width + velocidad > coin.x && character.x + character.width < coin.x + coin.width){
-      //   money.parentNode.removeChild(money);
-      // }
+
     }
 
   }
 
-  // function tecla(e){
-    //LEFT
-    // if(e.keyCode == 37 && left == true){
-    //   left = false;
-    //   console.log('funcona');
-    
-    // } 
-
-    //RIGHT
-  //   if(e.keyCode == 39 && right == true){
-  //     right = false;
-  //     console.log('funcona');
-
-  //   }
-  // }
 
   document.addEventListener('keydown', control);
-  // document.addEventListener('keyup', tecla);
 
 };
