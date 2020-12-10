@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-//or some other equivalent feedback code here
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
