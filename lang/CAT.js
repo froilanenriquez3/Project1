@@ -14,7 +14,7 @@ let cat={
     navAbout:"Sobre Nosaltres",
     navAdmin:"Administració",
 
-    aboutUs_Al: "",
+    aboutUs_Al: "Estudiant de desenvolupament d'aplicacions web durant el dia, àvid consumidor de Netflix durant la nit. M'agrada l'esquí, tocar el piano i moelstar la meva gata quan tinc temps lliure.",
     aboutUs_Fr: "",
     aboutUs_An: "Sóc criminòloga i estudiant de desenvolupament d'aplicacions web, el que significa que a la feina em comfonen amb la que arregla impressores. M'agraden els gats i els jocs de taula.", 
     aboutUs_Mi: "Després de diplomar-me en turisme, vaig decidir canviar d'aires i em vaig embarcar a l'aventura de ser desenvolupadora web. Ara els meus dilluns són menys dilluns si tinc un te, música de fons i un projecte de javascript entre mans."
