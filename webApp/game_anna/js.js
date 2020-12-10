@@ -1,11 +1,10 @@
 //MAIN
 window.addEventListener('DOMContentLoaded', start());
 
-
 function start(){
   let square = document.getElementById("square");
   let barrera = document.getElementById("square2");
-  let money = document.getElementById("coin");
+  // let money = document.getElementById("coin");
   let gravity = 0.9;
   let isJumping = false;
   let velocidad = 10;
@@ -28,18 +27,24 @@ function start(){
     height: 50
   }
 
-  let coin = {
-    x: 470, 
-    y: 300,
-    width: 5, 
-    height: 10
-  }
+  // let coin = {
+  //   x: 470, 
+  //   y: 300,
+  //   width: 5, 
+  //   height: 10
+  // }
   
-
+  document.remov
   drawSquare();
   drawbox();
-  drawCoin();
-  // moveCoin();
+  //drawCoin();
+  moveCoin();
+
+  setInterval(moveCoin, 5000);
+  // setTimeout(function(){
+  //   coin.remove();
+  // }, 5000);
+  
 
   // Dibujar personaje
   function drawSquare(){
@@ -54,22 +59,26 @@ function start(){
   }
 
   //Dibujar moneda
-  function drawCoin(){
-  money.style.left = coin.x + 'px';
-  money.style.top = coin.y + 'px';
-  }
-
-  // function moveCoin(){
-  //   let x = Math.floor((Math.random() * 100) + 1);
-  //   let y = Math.floor((Math.random() * 200) + 1);
-
-  //   x *= Math.round(Math.random()) ? 1 : -1;
-  //   y*= Math.round(Math.random()) ? 1 : -1;
-
-  //   let coin = document.getElementById('coin');
-  //   coin.style.transform = `translate(${x}px, ${y}px)`;
-
+  // function drawCoin(){
+  // money.style.left = coin.x + 'px';
+  // money.style.top = coin.y + 'px';
   // }
+
+
+  
+
+  function moveCoin(){
+    let x = Math.floor((Math.random() * 860));
+    let y = Math.floor((Math.random() * 420));
+    
+    let coin = document.getElementById('coin');
+    width = coin.style.width;
+    height = coin.style.height;
+
+    //Adjudicamos valores a la posición de la moneda
+    coin.style.left = x + 'px';
+    coin.style.top = y + 'px';
+  }
 
   function jump(){
     if (isJumping == true) return;
