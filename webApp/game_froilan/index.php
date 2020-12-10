@@ -52,6 +52,7 @@
                     If your combo works, you earn points! If it doesn't, try again with something different. 
                     You can earn up to <?= $limit ?> points. Let's go!
                 </p>
+                <p class="vanity"><i>music by Froilan Enriquez</i></p>
             </div>
             <button class='startbutton' onclick="startGame()">Start</button>
 
