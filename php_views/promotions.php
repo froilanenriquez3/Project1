@@ -41,7 +41,6 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                             <div class="card-body">
                                 <h4 class="card-title"><?php echo $promo['name'] ?></h4>
                                 <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
-                                <a class="btn btn-primary">Canjear</a>
                             </div>
                         </div>
                     </div>
@@ -56,9 +55,15 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
             </div>
             <div class="card-body" id="available">
                 <?php
-                foreach ($promos as $promo) { ?>
+                foreach ($promos as $promo) {
+                    $taken = false;
+                    foreach ($user_promos as $user_promo) {
+                        if ($user_promo['idpromotion'] == $promo['idpromotion']) {
+                            $taken = true;
+                        }
+                    } ?>
                     <?php
-                    if ($_SESSION['user']['points'] >= $promo['pointCost']) {
+                    if ($_SESSION['user']['points'] >= $promo['pointCost'] && !$taken) {
                     ?>
                         <div class="col-md-3" id="<?php echo $promo['idpromotion'] ?>" style="float:left">
                             <div class="card mb-2">
@@ -66,7 +71,11 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $promo['name'] ?></h4>
                                     <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
-                                    <a class="btn btn-primary" id="redeem<?php echo $promo['idpromotion'] ?>" onclick="redeemAvailable(this.id)">Canjear</a>
+
+                                    <form enctype="multipart/form-data" action="../php_controllers/promopage_controller.php" method="post">
+                                        <input type="number" style="display:none" name="promoid" id="promoid" value="<?php echo $promo['idpromotion'] ?>">
+                                        <input class="btn btn-block" type="submit" value="Canjear" name="submitpromo" id="submitpromo">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +85,7 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
             </div>
         </div>
     </div>
-    <script src="../js/promotions.js"></script>
+    <script src=" ../js/promotions.js"> </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -157,4 +157,6 @@ INSERT INTO promotion VALUES(null, "Not much", "Buy 3 get 3", 250, 1, "/project1
 INSERT INTO promotion VALUES(null, "Supermix", "Buy 1 get 3", 500, 2, "/project1/media/img/promociones.png");
 INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 500, 2, "/project1/media/img/promociones.png");
 
+DELETE FROM user_has_promotion WHERE  user_userid = 1;
+
 /*INSERT INTO user_has_promotion VALUES(1,1);*/
