@@ -84,7 +84,8 @@
 
   </section>
   <section id="story">
-
+    <img src="/project1/media/img/Storytelling1.png" alt="">
+    <img src="/project1/media/img/Storytelling2.png" alt="">
   </section>
   <section id="aboutUs">
     <div class="main_content">
