@@ -88,7 +88,7 @@
   <section id="aboutUs">
     <div class="main_content">
       <div style="text-align: center;" class="member">
-        <img src="/project1/media/img/alex-me.png" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/alex-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3 class="fuente">Alex Cantó</h3>
         <p class="translate" id="aboutUs_Al">Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
           Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. 
@@ -125,7 +125,8 @@
   <script src="/project1/js/navbar.js"></script>
   <script src="/project1/lang/ESP.js"></script>
   <script src="/project1/lang/ENG.js"></script>
-  <script src="/project1/lang/CAT.js"></script>    
+  <script src="/project1/lang/CAT.js"></script>
+  <script src="/project1/lang/FR.js"></script>
   <script src="/project1/lang/language.js"></script> 
 </body>
 
