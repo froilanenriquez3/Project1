@@ -34,7 +34,7 @@ button {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: auto;
-  height: 550px;
+  height: 546px;
   width: 895px;
   border: solid grey 10px;
 }
@@ -106,7 +106,7 @@ button {
 .topbar {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: 80px;
+  height: 76px;
   background-color: white;
   color: black;
   display: -ms-grid;
