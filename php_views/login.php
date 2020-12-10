@@ -6,7 +6,7 @@ if (isset($_SESSION['logged'])) {
 
 
     if (!$_SESSION['logged']) {
-        echo "<p>Your password was incorrect.</p>";
+        echo "<p>La contraseña es incorrecta</p>";
     }
 }
 ?>
