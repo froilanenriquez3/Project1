@@ -11,7 +11,7 @@ let esp={
     navRestore:"Restore",
     navGame:"Juegos",
     navPoints:"Puntos y Promociones",
-    navAbout:"Sobre Nosotros",
+    navAbout:"Sobre Nosotres",
     navAdmin:"Administración",
 
     aboutUs_Al: "Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. ",
