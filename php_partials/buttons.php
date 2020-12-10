@@ -21,31 +21,45 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
 
-    <a role="button" class="btn btn-sm" href=<?php if ($user_set) {
+    <a id="<?php
+        if ($user_set) {
+            echo 'logout';
+        } else {
+            echo 'login';
+        }
+        ?>" role="button" class="btn btn-sm translate" href=<?php if ($user_set) {
          $_SESSION['logmeout'] = true;
              echo "/project1/php_controllers/login_controller.php";
             } else {
              echo "/project1/php_views/login.php";
             } ?>>
         <?php if ($user_set) {
-            echo "Log out";
+            echo "Cerrar sesión";
         } else {
-            echo "Log in";
+            echo "Iniciar sesión";
         } ?>
     </a>
 
-    <a role="button" class="btn btn-sm" <?php
+    <a id="<?php
+        if ($user_set) {
+            echo 'welcome';
+        } else {
+            echo 'register';
+        }
+        ?>" role="button" class="btn btn-sm translate" <?php
         if (!$user_set) {
             echo "href=" . "/project1/php_views/signup.php";
         } else {
             echo "style='pointer-events:none; cursor: default;'";
         }
     ?>>
-        <?php
+    <?php
         if ($user_set) {
-            echo 'Welcome, ' . $_SESSION['user']['username'];
+            echo 'Bienvenida';
         } else {
-            echo 'Register';
+            echo 'Registrar';
         }
-        ?></a>
+        ?>
+
+        </a>
 </div>
