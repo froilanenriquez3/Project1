@@ -23,7 +23,7 @@ function start(){
 
   let box = {
     x: 270, 
-    y: 270,
+    y: 370,
     width: 120, 
     height: 50
   }
@@ -34,10 +34,12 @@ function start(){
     width: 5, 
     height: 10
   }
+  
 
   drawSquare();
   drawbox();
   drawCoin();
+  // moveCoin();
 
   // Dibujar personaje
   function drawSquare(){
@@ -51,11 +53,23 @@ function start(){
     barrera.style.top = box.y + 'px';
   }
 
-  // Dibujar moneda
+  //Dibujar moneda
   function drawCoin(){
   money.style.left = coin.x + 'px';
   money.style.top = coin.y + 'px';
-}
+  }
+
+  // function moveCoin(){
+  //   let x = Math.floor((Math.random() * 100) + 1);
+  //   let y = Math.floor((Math.random() * 200) + 1);
+
+  //   x *= Math.round(Math.random()) ? 1 : -1;
+  //   y*= Math.round(Math.random()) ? 1 : -1;
+
+  //   let coin = document.getElementById('coin');
+  //   coin.style.transform = `translate(${x}px, ${y}px)`;
+
+  // }
 
   function jump(){
     if (isJumping == true) return;
@@ -68,6 +82,10 @@ function start(){
 
       else if(square.getAttribute("src") == "img/abuela-left-mario.png" && left == true){
         square.setAttribute("src", "img/abuela-salto-left.png");
+      }
+
+      else if (square.getAttribute("src") == "img/abuela-right-mario.png"){
+        square.setAttribute("src", "img/abuela-salto.png");
       }
 
       if(character.y < 250){
@@ -84,12 +102,17 @@ function start(){
             square.setAttribute("src", "img/abuela-left-mario.png");
           }
 
+          else if (square.getAttribute("src") == "img/abuela-salto.png"){
+            square.setAttribute("src", "img/abuela-right-mario.png");
+          }
+          
+
           if (character.y + character.height + up >= 450){
             clearInterval(timerDown);
             isJumping = false; 
           }
-          character.y += up;
-          square.style.top = character.y + 'px';
+          fall();
+
          
         }, 20);
       }
@@ -99,6 +122,16 @@ function start(){
       square.style.top = character.y + 'px';
       console.log(character.y);
     }, 20);
+  }
+
+
+
+  function fall(){
+
+    if(character.y >= box.x - box.height){
+      character.y += up;
+      square.style.top = character.y + 'px';
+    }
   }
 
   // function jump(){
@@ -158,18 +191,14 @@ function start(){
         square.setAttribute("src", "img/abuela-left-mario.png");
       }
 
-      if(character.x - velocidad >= box.x+ box.width || character.x <= box.x){
-        if (character.y > box.y - box.height){
+      if (character.x - velocidad >= box.x+ box.width || character.x <= box.x ||
+        box.y + box.height <= character.y || box.y >= character.y + character.height){
           
-          // console.log(box.height);
-          character.x -= velocidad;
-          square.style.left = character.x + 'px';
-          left = true;
-        }
+        character.x -= velocidad;
+        square.style.left = character.x + 'px';
+        left = true;
+        
       }
-
-      console.log(character.y);
-      console.log(box.y - box.height);
 
     } 
 
@@ -180,8 +209,8 @@ function start(){
         square.setAttribute("src", "img/abuela-right-mario.png");
       }
 
-      if (character.x + character.width + velocidad <= box.x || character.x + character.width >= box.x + box.width
-        || character.y >= box.y - box.height){
+      if (character.x + character.width + velocidad <= box.x || character.x + character.width > box.x ||
+        box.y + box.height <= character.y || box.y >= character.y + character.height){
         character.x += velocidad;
         square.style.left = character.x + 'px';
         right = true;
