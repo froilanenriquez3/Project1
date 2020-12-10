@@ -67,3 +67,6 @@ body {
     color: red;
 }
 
+.message{
+    display: none;
+}
