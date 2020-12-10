@@ -5,12 +5,9 @@
     if(isset($_SESSION['user'])){
         $user_set = true;
     }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <!-- Bootstrap -->
@@ -125,10 +122,10 @@
   </section>
   <script src="/project1/js/nomWebApp.js"></script>
   <script src="/project1/js/navbar.js"></script>
-  <script src="./lang/ESP.js"></script>
-    <script src="./lang/ENG.js"></script>
-    <script src="./lang/CAT.js"></script>
-    <script src="./lang/language.js"></script> 
+  <script src="/project1/lang/ESP.js"></script>
+  <script src="/project1/lang/ENG.js"></script>
+  <script src="/project1/lang/CAT.js"></script>    
+  <script src="/project1/lang/language.js"></script> 
 </body>
 
 </html>
