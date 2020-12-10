@@ -1,16 +1,6 @@
 <?php
 session_start();
 
-//or some other equivalent feedback code here
-if (isset($_SESSION['logged'])) {
-
-
-    if (!$_SESSION['logged']) {
-        echo "<p>La contraseña es incorrecta</p>";
-    }
-}
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +64,16 @@ if (isset($_SESSION['logged'])) {
             </div>
         </div>
     </div>
+    <div class="wrongPassword">
+    <?php 
+        if (isset($_SESSION['logged'])) {
+
+        if (!$_SESSION['logged']) {
+            echo "<p>Your username or password was incorrect!</p>";
+        }}?>
+    </div>
+    
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

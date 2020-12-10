@@ -60,4 +60,10 @@ body {
 .dropdown{
     display: none;
 }
- 
+.wrongPassword{
+    display:flex;
+    margin: 10px;
+    justify-content: center;
+    color: red;
+}
+
