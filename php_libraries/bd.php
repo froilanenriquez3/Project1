@@ -112,6 +112,29 @@ function selectUserByUsername($username){
     return $result;
 }
 
+//function to return a promo given the name
+function selectPromoByName($name){
+    $connection = openDB();
+
+    $mySQLsentence = "SELECT * FROM promotion WHERE name = :name";
+
+    $mySQLsentence= $connection ->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":name",$name); 
+
+    $mySQLsentence->execute();
+
+    $result = $mySQLsentence->fetch();
+
+    $connection = closeDB();
+
+    return $result;
+}
+
+
+
+
+
+
 //function to return all the promos that a user has given their user id
 function selectUserPromos($user_id){
     $connection = openDB();

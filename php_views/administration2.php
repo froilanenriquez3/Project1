@@ -8,7 +8,7 @@ $all_games = selectAllFromTable('game');
 //$_SESSION['user']['isAdmin'] = 1; // REMOVE ME Setting user to admin
 //Checking if user is an admin
 if ($_SESSION['user']['isAdmin'] == 0) {
-    header("Location: ../index_anna.php");
+    header("Location: ../index.php");
     exit();
 }
 ?>
