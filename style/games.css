@@ -41,3 +41,17 @@ body{
     display: none;
 }
 
+/*Subject to change: Styles to be applied to games that are locked*/
+
+.locked .card {
+    background-color: #f8ca95;
+
+}
+
+.locked a{
+    pointer-events: none;
+}
+
+.locked img{
+    opacity: 0.2;
+}
