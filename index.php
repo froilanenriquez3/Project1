@@ -68,7 +68,7 @@
   </div> -->
  
   <div id="recomerçButton">
-    <a role="button" class="btn" href="/project1/index.php/#divulgacio">Recomerçem!</a>
+    <a role="button" class="btn translate" href="/project1/index.php/#divulgacio" id="restoreExclamation">Recomerçem!</a>
   </div>
 
   <!-- temporary -->
