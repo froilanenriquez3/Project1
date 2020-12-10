@@ -3,7 +3,7 @@ require_once dirname( __DIR__ )."/php_libraries/bd.php";
 ?> 
 
 <div class="sidebar">
-    <h2>LOGO</h2>
+    <img class="logo" src="/project1/media/img/logo.png" width="70px">
     <ul>
         <!-- RECOMERÇEM -->
 
@@ -35,11 +35,4 @@ require_once dirname( __DIR__ )."/php_libraries/bd.php";
         } ?>
         
     </ul>
-
-    <!-- <div class="social_media">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div> -->
-
 </div>
