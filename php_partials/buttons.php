@@ -13,10 +13,11 @@ if (isset($_SESSION['user'])) {
             <img src="/project1/media/img/planet.png" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#"><img src="/project1/media/img/spanish.png" alt=""></a>
-            <a class="dropdown-item" href="#"><img src="/project1/media/img/catalan.png" alt=""></a>
-            <a class="dropdown-item" href="#"><img src="/project1/media/img/english.png" alt=""></a>
-            <a class="dropdown-item" href="#"><img src="/project1/media/img/french.png" alt=""></a>
+        
+            <a class="dropdown-item" id="spanish"  onclick='changeLangEsp()'><img src="/project1/media/img/spanish.png" alt=""></a>
+            <a class="dropdown-item" id="catalan" onclick='changeLangCat()'><img src="/project1/media/img/catalan.png" alt=""></a>
+            <a class="dropdown-item" id="english" onclick='changeLangEng()'><img src="/project1/media/img/english.png" alt=""></a>
+            <a class="dropdown-item" id="french" onclick='changeLangFr()'><img src="/project1/media/img/french.png" alt=""></a>
         </div>
     </div>
 
