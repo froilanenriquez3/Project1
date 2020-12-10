@@ -5,12 +5,9 @@
     if(isset($_SESSION['user'])){
         $user_set = true;
     }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <!-- Bootstrap -->
@@ -42,6 +39,7 @@
 
 <body>
   <?php
+
   $logState;
   if($user_set){
     require_once 'php_partials/navbar.php';
@@ -67,7 +65,7 @@
   </div> -->
  
   <div id="recomerçButton">
-    <a role="button" class="btn" href="/project1/index.php/#divulgacio">Recomerçem!</a>
+    <a role="button" class="btn translate" href="/project1/index.php/#divulgacio" id="restoreExclamation">Recomerçem!</a>
   </div>
 
   <!-- temporary -->
@@ -75,11 +73,11 @@
 <!-- <?php require_once ('./php_partials/message.php');?> -->
 
   <section id="divulgacio">
-    <p data-aos="fade-up" data-aos-duration="1500">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil. 
+    <p data-aos="fade-up" data-aos-duration="1500" id="divulgation1" class="translate">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil. 
       Para ayudar en estos momentos críticos nace ‘Recomerçem’.</p>
     <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv1"></div>
     <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv2"></div>
-    <p data-aos="fade-up" data-aos-duration="1500">‘Recomerçem’ es un proyecto que pretende potenciar las compras en comercios locales en Barcelona. Para ello hemos creado cuatro juegos, mediante los que se pueden acumular puntos para acceder a promociones y descuentos en diferentes tiendas. 
+    <p data-aos="fade-up" data-aos-duration="1500" id="divulgation2" class="translate">‘Recomerçem’ es un proyecto que pretende potenciar las compras en comercios locales en Barcelona. Para ello hemos creado cuatro juegos, mediante los que se pueden acumular puntos para acceder a promociones y descuentos en diferentes tiendas. 
       ¿Te apuntas? ¡Sigue hacia abajo para conocer a Teresa y descubrir su historia!</p>
 
   </section>
@@ -90,9 +88,9 @@
   <section id="aboutUs">
     <div class="main_content">
       <div style="text-align: center;" class="member">
-        <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/alex-me.png" width="150px" class="rounded-circle" alt="">
         <h3 class="fuente">Alex Cantó</h3>
-        <p>Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
+        <p class="translate" id="aboutUs_Al">Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
           Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. 
         </p>
       </div>
@@ -100,7 +98,7 @@
       <div style="text-align: center;" class="member">
         <img src="/project1/media/img/froilan-me.jpeg" width="150px" class="rounded-circle" alt="">
         <h3>Froilan Enriquez</h3>
-        <p>I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
+        <p class="translate" id="aboutUs_Fr">I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
           and my downtime is spent noodling on the guitar, spending time with my girlfriend, and trying to learn new things. 
         </p>
       </div>
@@ -108,7 +106,7 @@
       <div style="text-align: center;" class="member">
         <img src="/project1/media/img/anna-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3>Anna Moreta</h3>
-        <p>Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras. 
+        <p class="translate" id="aboutUs_An">Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras. 
           Me gustan los gatos y los juegos de mesa.
         </p>
       </div>
@@ -116,7 +114,7 @@
       <div style="text-align: center;" class="member">
         <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
         <h3>Mireia Sánchez</h3>
-        <p>Después de diplomarme en turismo, decidí cambiar de aires y me embarqué en la aventura de ser desarrolladora web.
+        <p class="translate" id="aboutUs_Mi">Después de diplomarme en turismo, decidí cambiar de aires y me embarqué en la aventura de ser desarrolladora web.
           Ahora mis lunes son menos lunes si tengo un té, música de fondo y un proyecto de javascript entre manos.
         </p>
       </div>
@@ -125,6 +123,10 @@
   </section>
   <script src="/project1/js/nomWebApp.js"></script>
   <script src="/project1/js/navbar.js"></script>
+  <script src="/project1/lang/ESP.js"></script>
+  <script src="/project1/lang/ENG.js"></script>
+  <script src="/project1/lang/CAT.js"></script>    
+  <script src="/project1/lang/language.js"></script> 
 </body>
 
 </html>

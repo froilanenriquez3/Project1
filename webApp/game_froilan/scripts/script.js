@@ -6,6 +6,8 @@ let shoes;
 
 let pointLimit = document.querySelector('#counter').dataset.limit;
 
+let previousNum =0;
+
 let triesLimit = 5;
 
 let myMusic;
@@ -130,7 +132,12 @@ function displayUpdateScore() {
 
 
 function snarkTextGenerator() {
-  let num = Math.floor((Math.random() * 12) + 1);
+  let num;
+  do {
+    num = Math.floor((Math.random() * 12) + 1);
+  } while (window.previousNum == num);
+
+  window.previousNum = num;
 
   let message;
 

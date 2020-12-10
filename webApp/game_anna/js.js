@@ -1,11 +1,10 @@
 //MAIN
 window.addEventListener('DOMContentLoaded', start());
 
-
 function start(){
   let square = document.getElementById("square");
   let barrera = document.getElementById("square2");
-  let money = document.getElementById("coin");
+  // let money = document.getElementById("coin");
   let gravity = 0.9;
   let isJumping = false;
   let velocidad = 10;
@@ -23,21 +22,29 @@ function start(){
 
   let box = {
     x: 270, 
-    y: 270,
+    y: 370,
     width: 120, 
     height: 50
   }
 
-  let coin = {
-    x: 470, 
-    y: 300,
-    width: 5, 
-    height: 10
-  }
-
+  // let coin = {
+  //   x: 470, 
+  //   y: 300,
+  //   width: 5, 
+  //   height: 10
+  // }
+  
+  document.remov
   drawSquare();
   drawbox();
-  drawCoin();
+  //drawCoin();
+  moveCoin();
+
+  setInterval(moveCoin, 5000);
+  // setTimeout(function(){
+  //   coin.remove();
+  // }, 5000);
+  
 
   // Dibujar personaje
   function drawSquare(){
@@ -51,11 +58,27 @@ function start(){
     barrera.style.top = box.y + 'px';
   }
 
-  // Dibujar moneda
-  function drawCoin(){
-  money.style.left = coin.x + 'px';
-  money.style.top = coin.y + 'px';
-}
+  //Dibujar moneda
+  // function drawCoin(){
+  // money.style.left = coin.x + 'px';
+  // money.style.top = coin.y + 'px';
+  // }
+
+
+  
+
+  function moveCoin(){
+    let x = Math.floor((Math.random() * 860));
+    let y = Math.floor((Math.random() * 420));
+    
+    let coin = document.getElementById('coin');
+    width = coin.style.width;
+    height = coin.style.height;
+
+    //Adjudicamos valores a la posición de la moneda
+    coin.style.left = x + 'px';
+    coin.style.top = y + 'px';
+  }
 
   function jump(){
     if (isJumping == true) return;
@@ -68,6 +91,10 @@ function start(){
 
       else if(square.getAttribute("src") == "img/abuela-left-mario.png" && left == true){
         square.setAttribute("src", "img/abuela-salto-left.png");
+      }
+
+      else if (square.getAttribute("src") == "img/abuela-right-mario.png"){
+        square.setAttribute("src", "img/abuela-salto.png");
       }
 
       if(character.y < 250){
@@ -84,12 +111,17 @@ function start(){
             square.setAttribute("src", "img/abuela-left-mario.png");
           }
 
+          else if (square.getAttribute("src") == "img/abuela-salto.png"){
+            square.setAttribute("src", "img/abuela-right-mario.png");
+          }
+          
+
           if (character.y + character.height + up >= 450){
             clearInterval(timerDown);
             isJumping = false; 
           }
-          character.y += up;
-          square.style.top = character.y + 'px';
+          fall();
+
          
         }, 20);
       }
@@ -99,6 +131,16 @@ function start(){
       square.style.top = character.y + 'px';
       console.log(character.y);
     }, 20);
+  }
+
+
+
+  function fall(){
+
+    if(character.y >= box.x - box.height){
+      character.y += up;
+      square.style.top = character.y + 'px';
+    }
   }
 
   // function jump(){
@@ -158,18 +200,14 @@ function start(){
         square.setAttribute("src", "img/abuela-left-mario.png");
       }
 
-      if(character.x - velocidad >= box.x+ box.width || character.x <= box.x){
-        if (character.y > box.y - box.height){
+      if (character.x - velocidad >= box.x+ box.width || character.x <= box.x ||
+        box.y + box.height <= character.y || box.y >= character.y + character.height){
           
-          // console.log(box.height);
-          character.x -= velocidad;
-          square.style.left = character.x + 'px';
-          left = true;
-        }
+        character.x -= velocidad;
+        square.style.left = character.x + 'px';
+        left = true;
+        
       }
-
-      console.log(character.y);
-      console.log(box.y - box.height);
 
     } 
 
@@ -180,8 +218,8 @@ function start(){
         square.setAttribute("src", "img/abuela-right-mario.png");
       }
 
-      if (character.x + character.width + velocidad <= box.x || character.x + character.width >= box.x + box.width
-        || character.y >= box.y - box.height){
+      if (character.x + character.width + velocidad <= box.x || character.x + character.width > box.x ||
+        box.y + box.height <= character.y || box.y >= character.y + character.height){
         character.x += velocidad;
         square.style.left = character.x + 'px';
         right = true;
