@@ -279,7 +279,7 @@ function insertPromo($name, $desc, $point_cost, $store_id){
         $connection = openDB();
         $connection->beginTransaction();
 
-        $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid)";
+        $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid, null)";
 
         $mySQLsentence = $connection ->prepare($mySQLsentence);
 
