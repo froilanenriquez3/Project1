@@ -1,27 +1,29 @@
 <?php
+
   require_once 'php_libraries/bd.php';
   
   $user_set = false;
     if(isset($_SESSION['user'])){
         $user_set = true;
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Bootstrap -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<!-- AOS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- AOS -->
   <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 
-<!-- Hojas de estilo -->
+  <!-- Hojas de estilo -->
   <link rel="stylesheet" href="/project1/style/reset.css">
   <link rel="stylesheet" href="/project1/style/index.css">
   <link rel="stylesheet" href="/project1/style/buttons.css">
@@ -30,7 +32,7 @@
 
   <!-- FONT MONTSERRAT -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 
   <title>Restore</title>
@@ -41,15 +43,15 @@
   <?php
 
   $logState;
-  if($user_set){
+  if ($user_set) {
     require_once 'php_partials/navbar.php';
-    $logState= "logged";
+    $logState = "logged";
   } else {
-    $logState= "no logged";
+    $logState = "no logged";
   }
-?>
+  ?>
 
-  <p id="logState"><?php echo $logState?></p>
+  <p id="logState"><?php echo $logState ?></p>
 
   <ul class="recomerçem">
     <li></li>
@@ -57,16 +59,16 @@
     <li></li>
   </ul>
   <?php
-    require_once 'php_partials/buttons.php';
+  require_once 'php_partials/buttons.php';
   ?>
- 
+
   <div id="recomerçButton">
     <a role="button" class="btn translate" href="/project1/index.php/#divulgacio" id="restoreExclamation">Recomerçem!</a>
   </div>
 
   <!-- temporary -->
 
-<!-- <?php require_once ('./php_partials/message.php');?> -->
+  <!-- <?php require_once('./php_partials/message.php'); ?> -->
 
   <section id="divulgacio">
     <p data-aos="fade-up" data-aos-duration="1500" id="divulgation1" class="translate">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil. 
@@ -86,8 +88,8 @@
   <section id="aboutUs">
     <div class="main_content">
       <div style="text-align: center;" class="member">
-        <img src="/project1/media/img/alex-me.png" width="150px" class="rounded-circle" alt="">
-        <h3 class="fuente">Alex Cantó</h3>
+        <img src="/project1/media/img/alex-me.jpg" width="150px" class="rounded-circle" alt="">
+        <h3 class="fuente">Àlex Cantó</h3>
         <p class="translate" id="aboutUs_Al">Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
           Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. 
         </p>
@@ -123,7 +125,8 @@
   <script src="/project1/js/navbar.js"></script>
   <script src="/project1/lang/ESP.js"></script>
   <script src="/project1/lang/ENG.js"></script>
-  <script src="/project1/lang/CAT.js"></script>    
+  <script src="/project1/lang/CAT.js"></script>
+  <script src="/project1/lang/FR.js"></script>
   <script src="/project1/lang/language.js"></script> 
 </body>
 
