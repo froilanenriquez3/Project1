@@ -355,7 +355,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                     ?> 
 
                                         <div class="card col-12">
-                                            <form action="../php_controllers/promo_controller.php" method="post">
+                                            <form enctype="multipart/form-data" action="../php_controllers/promo_controller.php" method="post">
                                                 <div class="card-body">
                                                     <p><?= "Promo ID-" . $promo['idpromotion'] . ": " . $promo['name'] ?></p>
 
@@ -375,6 +375,14 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                     <div class="form-group row">
                                                         <label class="col-2" for="modstoreid">Store ID</label>
                                                         <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                    <label class="col-2" for="image">Image</label>
+                                                        <div class="col-10 custom-file">
+                                                            <label class="custom-file-label" for="modImage">Select file</label>
+                                                            <input class="custom-file-input" type="file" id="modImage" name="modImage">
+                                                        </div>
                                                     </div>
 
 
@@ -406,7 +414,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                         foreach ($all_promos as $promo) { ?>
 
                                             <div class="card col-12">
-                                                <form action="../php_controllers/promo_controller.php" method="post">
+                                                <form enctype="multipart/form-data" action="../php_controllers/promo_controller.php" method="post">
                                                     <div class="card-body">
                                                         <p><?= "Promo ID-" . $promo['idpromotion'] . ": " . $promo['name'] ?></p>
 
@@ -427,6 +435,14 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                         <div class="form-group row">
                                                             <label class="col-2" for="modstoreid">Store ID</label>
                                                             <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                        <label class="col-2" for="image">Image</label>
+                                                        <div class="col-10 custom-file">
+                                                            <label class="custom-file-label" for="modImage">Select file</label>
+                                                            <input class="custom-file-input" type="file" id="modImage" name="modImage">
+                                                        </div>
                                                         </div>
 
 
