@@ -5,12 +5,11 @@ body{
     /* C8CCF9 */
 }
 
-.container{
-    position: absolute;
-    right: 0px;
-    width: calc(100% - 100px);
+.container-fluid{
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 0px;
     box-sizing: border-box;
-    padding: 2em;
     padding-top: 4.5em;
     height: 100%;
     text-align: center;
@@ -25,12 +24,12 @@ body{
     z-index: -1;
 }
 
-.container a{
+.container-fluid a{
     text-decoration: none;
     color: #2e585a;
 }
 
-.container a:hover {
+.container-fluid a:hover {
     text-decoration: none;
 }
 

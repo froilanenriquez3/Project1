@@ -24,3 +24,6 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+#display_points{
+  float: right;
+}
