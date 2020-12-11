@@ -275,6 +275,8 @@ function insertStore($name, $desc){
 //function to insert a new promo, given name, description, the cost in points, and the id of the store it belongs to 
 function insertPromo($name, $desc, $point_cost, $store_id, $img_src){
 
+    $img_src = "/Project1/media/img/".$img_src;
+
     try {
         $connection = openDB();
         $connection->beginTransaction();
