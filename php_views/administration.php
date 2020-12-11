@@ -447,7 +447,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                     <div class="card col-12">
                                         <div class="card-body">
                                             <h5>New promo</h5>
-                                            <form action="../php_controllers/promo_controller.php" method="post">
+                                            <form enctype="multipart/form-data" action="../php_controllers/promo_controller.php" method="post">
                                                 <div class="form-group row">
                                                     <label class="col-2" for="promoname">Name</label>
                                                     <input class="col-10 form-control" type="text" id="promoname" name="promoname" maxlength="45">
