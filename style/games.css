@@ -8,7 +8,8 @@ body{
 .container{
     position: absolute;
     right: 0px;
-    width: calc(100% - 100px);
+    width: 100%;
+    margin-left: 100px;
     box-sizing: border-box;
     padding: 2em;
     padding-top: 4.5em;
