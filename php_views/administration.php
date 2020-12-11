@@ -458,6 +458,15 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                     <input class="col-10 form-control" type="number" id="storeid" name="storeid" min="1">
                                                 </div>
 
+
+                                                <div class="form-group row">
+                                                    <label class="col-2" for="image">Image</label>
+                                                        <div class="col-10 custom-file">
+                                                            <label class="custom-file-label" for="image">Select file</label>
+                                                            <input class="custom-file-input" type="file" id="image" name="image">
+                                                        </div>
+                                                    </div>
+
                                                 <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Add promo</button>
                                             </form>
                                         </div>
