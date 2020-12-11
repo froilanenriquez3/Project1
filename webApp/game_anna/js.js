@@ -9,11 +9,14 @@ let velocidad = 10;
 let up = 5;
 let right = false;
 let left = false;
+let score = document.querySelector("p");
+
+
 // Variable global
 timeCoin = setInterval(moveCoin, 5000);
 points = 0;
-minute = 1;
-second = 0;
+minutes = 1;
+seconds = 0;
 
 let character = {
   x: 0, 
@@ -45,58 +48,56 @@ function start(){
   drawbox();
   drawCoin();
   moveCoin();
+  timer();
 
 } 
+
+// Dibujar personaje
+function drawSquare(){
+  square.style.left = character.x + 'px';
+  square.style.top = character.y + 'px';
+}
+
+// Dibujar plataformas
+function drawbox(){
+  barrera.style.left = box.x + 'px';
+  barrera.style.top = box.y + 'px';
+}
+
+//Dibujar moneda
+function drawCoin(){
+money.style.left = coin.x + 'px';
+money.style.top = coin.y + 'px';
+}
+
   
-  //Esta función para el intervalo de los 5s. Luego mueve la moneda para que no vuelva a colisionar con el personaje y vuelve a poner en marcha el intervalo. 
-  function stopCoin(){
-    clearInterval(timeCoin);
-    moveCoin();
-    timeCoin = setInterval(moveCoin, 5000);
-  }
+//Esta función para el intervalo de los 5s. Luego mueve la moneda para que no vuelva a colisionar con el personaje y vuelve a poner en marcha el intervalo. 
+function stopCoin(){
+  clearInterval(timeCoin);
+  moveCoin();
+  timeCoin = setInterval(moveCoin, 5000);
+}
 
 
-  // Dibujar personaje
-  function drawSquare(){
-    square.style.left = character.x + 'px';
-    square.style.top = character.y + 'px';
-  }
 
-  // Dibujar plataformas
-  function drawbox(){
-    barrera.style.left = box.x + 'px';
-    barrera.style.top = box.y + 'px';
-  }
-
-  //Dibujar moneda
-  function drawCoin(){
-  money.style.left = coin.x + 'px';
-  money.style.top = coin.y + 'px';
-  }
-
+  //Función para delimitar cuando la abuela se encuentra la moneda
   function coinCollision(){
     if((character.x <= coin.x + coin.width && character.x + character.width >= coin.x)
     && (character.y + character.height >= coin.y && character.y <= coin.y + coin.height)){
       //document.getElementById('coin').style.backgroundColor = "red";
-      console.log('entrando');
       stopCoin();
-
-      
-      
-      //clearInterval
-      //moveCoin
-    }
-    else{
-      document.getElementById('coin').style.backgroundColor = 'pink';
+      points += 20;
+      score.innerHTML = "Puntos: " + points;
+      console.log(score);
     }
     
   }
 
  
-
+  //FUNCIÓN PARA MOVER LA MONEDA
   function moveCoin(){
     let x = Math.floor((Math.random() * 860));
-    let y = Math.floor((Math.random() * 420));
+    let y = Math.floor((Math.random() * 410));
 
     
     //Adjudicamos valores a la posición de la moneda
@@ -107,6 +108,7 @@ function start(){
     money.style.top = y + 'px';
   }
 
+  //FUNCIÓN PARA SALTAR
   function jump(){
     if (isJumping == true) return;
     let timerUp = setInterval(function(){
@@ -163,7 +165,7 @@ function start(){
   }
 
 
-
+  //FUNCIÓN PARA CAER
   function fall(){
     character.y += up;
     square.style.top = character.y + 'px';
@@ -172,6 +174,7 @@ function start(){
   }
 
   // function jump(){
+    
   //   //Para evitar el doble salto, de modo que solo llama a la función de saltar si no está saltando
   //   //Si es true, devolverá la función y no hará nada. Solo actuará cuando detecte el false, que indica que bottom es más pequeño que 0
   //   if (isJumping == true) return;
@@ -213,7 +216,7 @@ function start(){
   
   
 
-
+  //FUNCIÓN PARA LOS CONTROLES
   function control(e) {    
     if (e.keyCode == 32) {
       jump(); // si apretamos la barra espaciadora
