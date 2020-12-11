@@ -59,10 +59,6 @@
   <?php
     require_once 'php_partials/buttons.php';
   ?>
-  <!-- <div id="buttons">
-    <a role="button" class="btn btn-sm" href="php_views/login.php">Log in</a>
-    <a role="button" class="btn btn-sm" href="php_views/signup.php">Registrarse</a>
-  </div> -->
  
   <div id="recomerçButton">
     <a role="button" class="btn translate" href="/project1/index.php/#divulgacio" id="restoreExclamation">Recomerçem!</a>
@@ -82,8 +78,10 @@
 
   </section>
   <section id="story">
+    <div><p class="translate" id="storyTelling1">Quedan muy pocos días para Navidad y la Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Pero antes de ir a comprar tendrá que conseguir dinero.</p></div>
     <img src="/project1/media/img/Storytelling1.png" alt="">
     <img src="/project1/media/img/Storytelling2.png" alt="">
+    <div><p class="translate" id="storyTelling2">Además, quiere comprar algunos discos de Villancicos para ambientar la comida familiar. Hablando de la comida… aún tiene que comprar algunos ingredientes que le faltan para prepararla! Regístrate para ayudarla a través de diferentes juegos, con los que ganarás puntos para acceder a descuentos y promociones exclusivas y, como Teresa, fomentar el comercio local.</p></div>
   </section>
   <section id="aboutUs">
     <div class="main_content">
