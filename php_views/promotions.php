@@ -47,6 +47,7 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                             <div class="card-body">
                                 <h4 class="card-title"><?php echo $promo['name'] ?></h4>
                                 <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
+                                <p class="card-text"><?= $promo['pointCost']?> puntos</p>
                             </div>
                         </div>
                     </div>
@@ -58,6 +59,7 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
         <div class="card">
             <div class="card-header">
                 Promociones Disponibles!
+                <p id="display_points">Puntos: <?= $_SESSION['user']['points'] ?>  </p>
             </div>
             <div class="card-body" id="available">
                 <?php
@@ -77,9 +79,11 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $promo['name'] ?></h4>
                                     <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
+                                    <p class="card-text"><?= $promo['pointCost']?> puntos</p>
 
                                     <form enctype="multipart/form-data" action="../php_controllers/promopage_controller.php" method="post">
                                         <input type="number" style="display:none" name="promoid" id="promoid" value="<?php echo $promo['idpromotion'] ?>">
+                                        <input type="number" id="point_cost" name="point_cost" style="display:none" value ='<?= $promo['pointCost']?>'>
                                         <input class="btn btn-block" type="submit" value="Canjear" name="submitpromo" id="submitpromo">
                                     </form>
                                 </div>

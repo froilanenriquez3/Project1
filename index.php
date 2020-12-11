@@ -79,15 +79,22 @@
       ¿Te apuntas? ¡Sigue hacia abajo para conocer a Teresa y descubrir su historia!</p>
 
   </section>
+
+  <!-- STORYTELLING -->
   <section id="story">
+    <div data-aos="zoom-in" data-aos-duration="1500" class="part1">
     <div><p class="translate" id="storyTelling1">Quedan muy pocos días para Navidad y la Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Pero antes de ir a comprar tendrá que conseguir dinero.</p></div>
-    <img src="/project1/media/img/Storytelling1.png" alt="">
+    <img src="/project1/media/img/Storytelling1.png" alt=""></div>
+    <div data-aos="zoom-in" data-aos-duration="1500" class="part2">
     <img src="/project1/media/img/Storytelling2.png" alt="">
     <div><p class="translate" id="storyTelling2">Además, quiere comprar algunos discos de Villancicos para ambientar la comida familiar. Hablando de la comida… aún tiene que comprar algunos ingredientes que le faltan para prepararla! Regístrate para ayudarla a través de diferentes juegos, con los que ganarás puntos para acceder a descuentos y promociones exclusivas y, como Teresa, fomentar el comercio local.</p></div>
+    </div>
   </section>
+
+  <!-- ABOUT US -->
   <section id="aboutUs">
     <div class="main_content">
-      <div style="text-align: center;" class="member">
+      <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
         <img src="/project1/media/img/alex-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3 class="fuente">Àlex Cantó</h3>
         <p class="translate" id="aboutUs_Al">Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
@@ -95,15 +102,14 @@
         </p>
       </div>
 
-      <div style="text-align: center;" class="member">
+      <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
         <img src="/project1/media/img/froilan-me.jpeg" width="150px" class="rounded-circle" alt="">
         <h3>Froilan Enriquez</h3>
-        <p class="translate" id="aboutUs_Fr">I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
-          and my downtime is spent noodling on the guitar, spending time with my girlfriend, and trying to learn new things. 
+        <p class="translate" id="aboutUs_Fr">Soy un estudiante de desarrollo de aplicaciones web de Estados Unidos pero resido en Barcelona. Toco el órgano para el coro de mi iglesia y en mi tiempo libre toco la guitarra, paso tiempo con mi novia e intento aprender cosas nuevas. 
         </p>
       </div>
 
-      <div style="text-align: center;" class="member">
+      <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
         <img src="/project1/media/img/anna-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3>Anna Moreta</h3>
         <p class="translate" id="aboutUs_An">Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras. 
@@ -111,7 +117,7 @@
         </p>
       </div>
 
-      <div style="text-align: center;" class="member">
+      <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
         <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
         <h3>Mireia Sánchez</h3>
         <p class="translate" id="aboutUs_Mi">Después de diplomarme en turismo, decidí cambiar de aires y me embarqué en la aventura de ser desarrolladora web.
