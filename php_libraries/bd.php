@@ -402,11 +402,13 @@ function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
 
 }
 
-function modifyPromo($promo_name, $promo_desc, $point_cost, $store_id, $promo_id){
+function modifyPromo($promo_name, $promo_desc, $point_cost, $store_id, $promo_id, $img_src){
+    $img_src = "/Project1/media/img/".$img_src;
+
     $connection = openDB();
     $connection->beginTransaction();
 
-    $mySQLsentence = "UPDATE promotion SET name =:promoname, promo_desc=:promodesc, pointCost =:pointcost, store_idstore =:store_idstore WHERE idpromotion =:id_promo";
+    $mySQLsentence = "UPDATE promotion SET name =:promoname, promo_desc=:promodesc, pointCost =:pointcost, store_idstore =:store_idstore, img=:img_src WHERE idpromotion =:id_promo";
     $mySQLsentence = $connection->prepare($mySQLsentence);
 
     $mySQLsentence->bindParam(":promoname", $promo_name);
@@ -414,6 +416,7 @@ function modifyPromo($promo_name, $promo_desc, $point_cost, $store_id, $promo_id
     $mySQLsentence->bindParam(":pointcost", $point_cost);
     $mySQLsentence->bindParam(":store_idstore", $store_id);
     $mySQLsentence->bindParam(":id_promo", $promo_id);
+    $mySQLsentence->bindParam(":img_src", $img_src);
 
     $mySQLsentence->execute();
 
