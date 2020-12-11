@@ -1,49 +1,52 @@
 //MAIN
-window.addEventListener('DOMContentLoaded', start());
+
+let square = document.getElementById("character");
+let barrera = document.getElementById("cloud");
+let money = document.getElementById("coin");
+let gravity = 0.9;
+let isJumping = false;
+let velocidad = 10;
+let up = 5;
+let right = false;
+let left = false;
+// Variable global
+timeCoin = setInterval(moveCoin, 5000);
+points = 0;
+minute = 1;
+second = 0;
+
+let character = {
+  x: 0, 
+  y: 370,
+  width: 60,
+  height: 80
+}
+
+let box = {
+  x: 270, 
+  y: 370,
+  width: 120, 
+  height: 50
+}
+
+let coin = {
+  x: 470, 
+  y: 300,
+  width: 30, 
+  height: 40
+}
+
+//window.addEventListener('DOMContentLoaded', start());
+start();
 
 function start(){
-  let square = document.getElementById("character");
-  let barrera = document.getElementById("cloud");
-  let money = document.getElementById("coin");
-  let gravity = 0.9;
-  let isJumping = false;
-  let velocidad = 10;
-  let up = 5;
-  let right = false;
-  let left = false;
-  // Variable global
-  timeCoin = setInterval(moveCoin, 5000);
-  points = 0;
-  minute = 1;
-  second = 0;
-
-  let character = {
-    x: 0, 
-    y: 370,
-    width: 60,
-    height: 80
-  }
-
-  let box = {
-    x: 270, 
-    y: 370,
-    width: 120, 
-    height: 50
-  }
-
-  let coin = {
-    x: 470, 
-    y: 300,
-    width: 30, 
-    height: 40
-  }
   
   drawSquare();
   drawbox();
   drawCoin();
   moveCoin();
 
-  
+} 
   
   //Esta función para el intervalo de los 5s. Luego mueve la moneda para que no vuelva a colisionar con el personaje y vuelve a poner en marcha el intervalo. 
   function stopCoin(){
@@ -258,4 +261,3 @@ function start(){
 
   document.addEventListener('keydown', control);
 
-};
