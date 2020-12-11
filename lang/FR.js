@@ -8,7 +8,7 @@ let fr={
     register: "Inscription/Créer un compte",
     welcome: "Bienvenue",
 
-    navRestore:"Restore",
+    navRestore:"Recomerçem",
     navGame:"Jeux",
     navPoints:"Points et Promotions",
     navAbout:"Qui sommes-nous?",
