@@ -17,11 +17,10 @@
 
 .sidebar ul{
   text-decoration: none;
-  height: 85%;
+  height: 82%;
   list-style: none;
   position: fixed;
   padding: 0px;
-  bottom: 0px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -38,10 +37,15 @@
 }
 
 .logo{
-  display: inline;
-  align-self: flex-end;
+  /* display: inline;
+  align-self: flex-end; */
   margin-left: 13px;
   margin-top: 20px;
+}
+
+.sidebar > #logoDiv{
+  height: 18%;
+  box-sizing: border-box;
 }
 
 .sidebar img{

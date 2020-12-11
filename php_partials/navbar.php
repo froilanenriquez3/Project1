@@ -3,7 +3,9 @@ require_once dirname( __DIR__ )."/php_libraries/bd.php";
 ?> 
 
 <div class="sidebar">
+    <div id="logoDiv">
     <img class="logo" src="/project1/media/img/logo.png" width="70px">
+    </div>
     <ul>
         <!-- RECOMERÇEM -->
 
