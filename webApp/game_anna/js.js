@@ -39,7 +39,15 @@ function start(){
   drawCoin();
   moveCoin();
 
-  setInterval(moveCoin, 5000);
+  // Variable global
+  timeCoin = setInterval(moveCoin, 5000);
+  
+  //Esta función para el intervalo de los 5s. Luego mueve la moneda para que no vuelva a colisionar con el personaje y vuelve a poner en marcha el intervalo. 
+  function stopCoin(){
+    clearInterval(timeCoin);
+    moveCoin();
+    timeCoin = setInterval(moveCoin, 5000);
+  }
 
 
   // Dibujar personaje
@@ -64,6 +72,10 @@ function start(){
     if((character.x <= coin.x + coin.width && character.x + character.width >= coin.x)
     && (character.y + character.height >= coin.y && character.y <= coin.y + coin.height)){
       //document.getElementById('coin').style.backgroundColor = "red";
+      console.log('entrando');
+      stopCoin();
+
+      
       
       //clearInterval
       //moveCoin
@@ -73,21 +85,18 @@ function start(){
     }
     
   }
-  
+
+ 
 
   function moveCoin(){
     let x = Math.floor((Math.random() * 860));
     let y = Math.floor((Math.random() * 420));
-    console.log(x);
-    console.log(y);
 
     
     //Adjudicamos valores a la posición de la moneda
     coin.x = x;
-    console.log(coin.x);
     
     coin.y = y;
-    console.log(coin.y);
     money.style.left = x + 'px';
     money.style.top = y + 'px';
   }
@@ -141,7 +150,6 @@ function start(){
       isJumping = true;
       character.y -= 150;
       square.style.top = character.y + 'px';
-      console.log(character.y);
       coinCollision();
 
     }, 50);
