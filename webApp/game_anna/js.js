@@ -40,10 +40,7 @@ function start(){
   moveCoin();
 
   setInterval(moveCoin, 5000);
-  // setTimeout(function(){
 
-  // }, 5000);
-  
 
   // Dibujar personaje
   function drawSquare(){
@@ -66,7 +63,10 @@ function start(){
   function coinCollision(){
     if((character.x <= coin.x + coin.width && character.x + character.width >= coin.x)
     && (character.y + character.height >= coin.y && character.y <= coin.y + coin.height)){
-      document.getElementById('coin').style.backgroundColor = "red";
+      //document.getElementById('coin').style.backgroundColor = "red";
+      
+      //clearInterval
+      //moveCoin
     }
     else{
       document.getElementById('coin').style.backgroundColor = 'pink';
