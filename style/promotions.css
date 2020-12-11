@@ -6,6 +6,12 @@
   text-align: center;
 }
 
+.card-body{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .container > .card > .card-body {
   display: flex;
   flex-direction: row;
