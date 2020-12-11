@@ -8,7 +8,7 @@ $all_games = selectAllFromTable('game');
 //$_SESSION['user']['isAdmin'] = 1; // REMOVE ME Setting user to admin
 //Checking if user is an admin
 if ($_SESSION['user']['isAdmin'] == 0) {
-    header("Location: ../index_anna.php");
+    header("Location: ../index.php");
     exit();
 }
 ?>
@@ -23,6 +23,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
     <link rel="stylesheet" href="../style/all.min.css">
     <link rel="stylesheet" href="../style/style-navbar.css">
     <link rel="stylesheet" href="../style/buttons.css">
+    <link rel="stylesheet" href="../style/administration.css">
 
     <!-- FONT MONTSERRAT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">

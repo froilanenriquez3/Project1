@@ -82,10 +82,10 @@ justify-content: center;
 
 #recomerçButton > .btn{
     background-color: #ffb35c;
-    color: #2e585a;
+    color: black;
     position: absolute;
     bottom: 2em;
-    border: #2e585a 1px solid;
+    border: black 1px solid;
 }
 
 #recomerçButton > .btn:hover{
@@ -139,6 +139,10 @@ justify-content: center;
   width: 100%;
   background-color: #ffb35c;
   z-index: -1;
+}
+
+#story > img {
+  height: 300px;
 }
 
 

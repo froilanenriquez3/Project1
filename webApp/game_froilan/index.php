@@ -1,4 +1,3 @@
-
 <?php
     require_once '../../php_libraries/bd.php';
 
@@ -301,7 +300,7 @@
     <script src="scripts/eventListeners.js"></script>
     <script src="scripts/submit.js"></script>
 
-  <!--   <script src="../../lang/ESP.js"></script>
+  <!--<script src="../../lang/ESP.js"></script>
     <script src="../../lang/ENG.js"></script>
     <script src="../../lang/CAT.js"></script>
     <script src="../../lang/language.js"></script> -->
