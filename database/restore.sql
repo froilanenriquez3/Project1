@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS `restore`.`promotion` ;
 
 CREATE TABLE IF NOT EXISTS `restore`.`promotion` (
   `idpromotion` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL,
+  `name` VARCHAR(45) UNIQUE NULL,
   `promo_desc` VARCHAR(45) NULL,
   `pointCost` INT NULL,
   `store_idstore` INT NOT NULL,
