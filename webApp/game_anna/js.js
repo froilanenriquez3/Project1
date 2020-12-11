@@ -11,7 +11,11 @@ function start(){
   let up = 5;
   let right = false;
   let left = false;
-
+  // Variable global
+  timeCoin = setInterval(moveCoin, 5000);
+  points = 0;
+  minute = 1;
+  second = 0;
 
   let character = {
     x: 0, 
@@ -39,8 +43,7 @@ function start(){
   drawCoin();
   moveCoin();
 
-  // Variable global
-  timeCoin = setInterval(moveCoin, 5000);
+  
   
   //Esta función para el intervalo de los 5s. Luego mueve la moneda para que no vuelva a colisionar con el personaje y vuelve a poner en marcha el intervalo. 
   function stopCoin(){
