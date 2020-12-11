@@ -75,19 +75,13 @@
   <!-- <?php require_once('./php_partials/message.php'); ?> -->
 
   <section id="divulgacio">
-<<<<<<< HEAD
-    <p data-aos="fade-up" data-aos-duration="1500">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil.
-      Para ayudar en estos momentos críticos nace ‘Recomerçem’.</p>
-    <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv1"></div>
-    <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv2"></div>
-    <p data-aos="fade-up" data-aos-duration="1500">‘Recomerçem’ es un proyecto que pretende potenciar las compras en comercios locales en Barcelona. Para ello hemos creado cuatro juegos, mediante los que se pueden acumular puntos para acceder a promociones y descuentos en diferentes tiendas.
-=======
+
     <p data-aos="fade-up" data-aos-duration="1500" id="divulgation1" class="translate">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil. 
       Para ayudar en estos momentos críticos nace ‘Recomerçem’.</p>
     <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv1"></div>
     <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv2"></div>
     <p data-aos="fade-up" data-aos-duration="1500" id="divulgation2" class="translate">‘Recomerçem’ es un proyecto que pretende potenciar las compras en comercios locales en Barcelona. Para ello hemos creado cuatro juegos, mediante los que se pueden acumular puntos para acceder a promociones y descuentos en diferentes tiendas. 
->>>>>>> main
+
       ¿Te apuntas? ¡Sigue hacia abajo para conocer a Teresa y descubrir su historia!</p>
 
   </section>
@@ -99,39 +93,30 @@
     <div class="main_content">
       <div style="text-align: center;" class="member">
         <img src="/project1/media/img/alex-me.jpg" width="150px" class="rounded-circle" alt="">
-<<<<<<< HEAD
+
         <h3 class="fuente">Àlex Cantó</h3>
-        <p>Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche.
-          Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre.
-=======
-        <h3 class="fuente">Alex Cantó</h3>
         <p class="translate" id="aboutUs_Al">Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
           Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. 
->>>>>>> main
+
         </p>
       </div>
 
       <div style="text-align: center;" class="member">
         <img src="/project1/media/img/froilan-me.jpeg" width="150px" class="rounded-circle" alt="">
         <h3>Froilan Enriquez</h3>
-<<<<<<< HEAD
-        <p>I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
-          and my downtime is spent noodling on the guitar, spending time with my girlfriend, and trying to learn new things.
-=======
+
         <p class="translate" id="aboutUs_Fr">I am a web app development student from the US but newly a resident of Barcelona. I play the organ for the choir at my church
           and my downtime is spent noodling on the guitar, spending time with my girlfriend, and trying to learn new things. 
->>>>>>> main
+
         </p>
       </div>
 
       <div style="text-align: center;" class="member">
         <img src="/project1/media/img/anna-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3>Anna Moreta</h3>
-<<<<<<< HEAD
-        <p>Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras.
-=======
+
         <p class="translate" id="aboutUs_An">Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras. 
->>>>>>> main
+
           Me gustan los gatos y los juegos de mesa.
         </p>
       </div>
