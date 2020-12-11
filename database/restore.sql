@@ -155,7 +155,11 @@ INSERT INTO promotion VALUES(null, "Supercombo", "Buy 3 get 2", 250, 1, "/projec
 INSERT INTO promotion VALUES(null, "Extracombo", "Buy nothin get nothin", 300, 1, "/project1/media/img/promociones.png");
 INSERT INTO promotion VALUES(null, "Not much", "Buy 3 get 3", 250, 1, "/project1/media/img/promociones.png");
 INSERT INTO promotion VALUES(null, "Supermix", "Buy 1 get 3", 500, 2, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 500, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 300, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Supermix", "Buy 1 get 3", 200, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 100, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Supermix", "Buy 1 get 3", 200, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 300, 2, "/project1/media/img/promociones.png");
 
 DELETE FROM user_has_promotion WHERE  user_userid = 1;
 
