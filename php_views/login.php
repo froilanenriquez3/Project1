@@ -64,13 +64,16 @@ session_start();
             </div>
         </div>
     </div>
-    <div class="wrongPassword">
+    <div class="<?php if (isset($_SESSION['logged'])){ echo "wrongPassword";} else{
+        echo "message";}?>">
     <?php 
         if (isset($_SESSION['logged'])) {
 
         if (!$_SESSION['logged']) {
             echo "<p>Your username or password was incorrect!</p>";
-        }}?>
+        }}
+        unset($_SESSION['logged']);
+        ?>
     </div>
     
 

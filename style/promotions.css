@@ -1,3 +1,26 @@
+
+.card-body .card-body {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container > .card > .card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 body{
     font-family: 'Montserrat', sans-serif;
 }
+
