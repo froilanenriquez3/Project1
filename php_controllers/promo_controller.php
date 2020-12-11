@@ -20,7 +20,7 @@
 
     if($add_promo){
         
-        insertPromo($_POST['promoname'], $_POST['promodesc'], $_POST['promocost'], $_POST['storeid']);
+        insertPromo($_POST['promoname'], $_POST['promodesc'], $_POST['promocost'], $_POST['storeid'], $_POST['image']);
         header("Location: ../php_views/administration.php#promossection");
       
         

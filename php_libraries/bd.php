@@ -273,13 +273,13 @@ function insertStore($name, $desc){
 }
 
 //function to insert a new promo, given name, description, the cost in points, and the id of the store it belongs to 
-function insertPromo($name, $desc, $point_cost, $store_id){
+function insertPromo($name, $desc, $point_cost, $store_id, $img_src){
 
     try {
         $connection = openDB();
         $connection->beginTransaction();
 
-        $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid, null)";
+        $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid, :img_src)";
 
         $mySQLsentence = $connection ->prepare($mySQLsentence);
 
@@ -287,6 +287,8 @@ function insertPromo($name, $desc, $point_cost, $store_id){
         $mySQLsentence->bindParam(":promdesc", $desc);
         $mySQLsentence->bindParam(":pointcost", $point_cost);
         $mySQLsentence->bindParam(":storeid", $store_id);
+        $mySQLsentence->bindParam(":img_src", $img_src);
+
 
         $mySQLsentence->execute();
 
