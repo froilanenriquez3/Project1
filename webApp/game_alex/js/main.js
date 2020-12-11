@@ -94,6 +94,7 @@ function playLastxmas() {
     // Stopping Audio function
     // Stop music function
     audio.pause();
+    // audio.currentTime = syncData[questionNumber * 2].end; //setting currentTime to last verse's endtime
     play.style.backgroundColor = "#d7ebf7";
   }
 
@@ -142,17 +143,6 @@ function playLastxmas() {
     }
   }
 
-  audio.addEventListener("timeupdate", function (e) {
-    syncData.forEach(function (element, index, array) {
-      if (
-        audio.currentTime >= element.start &&
-        audio.currentTime <= element.end
-      ) {
-        subtitles.children[index * 2].style.background = "lime";
-      }
-    });
-  });
-
   /* Appending answer spans */
   for (i = 0; i < 4; ++i) {
     element = document.createElement("span");
@@ -165,14 +155,25 @@ function playLastxmas() {
 
   /* Stop music when reach input point */
   audio.addEventListener("timeupdate", function (e) {
-    //console.log(audio.currentTime);
+    syncData.forEach(function (element, index, array) {
+      if (
+        audio.currentTime >= element.start &&
+        audio.currentTime <= element.end
+      ) {
+        subtitles.children[index * 2].style.backgroundColor = "lime";
+      }
+    });
+    // console.log(audio.currentTime);
     if (
       (audio.currentTime >= 21.5 && audio.currentTime <= 21.8) ||
       (audio.currentTime >= 30.75 && audio.currentTime <= 31.019) ||
       (audio.currentTime >= 76.15 && audio.currentTime <= 76.45) ||
       (audio.currentTime >= 80.85 && audio.currentTime <= 81.15)
     ) {
-      if (stopped == false) {
+      console.log(questionNumber);
+      /* Check music is stopped and previous verse is played before stopping and asking for input */
+      var previousSpan = subtitles.children[questionNumber * 2].style;
+      if (stopped == false && previousSpan.backgroundColor == "lime") {
         stopAudio();
         console.log("parado musica");
         stopped = true;
@@ -184,9 +185,9 @@ function playLastxmas() {
           } else {
             inputTypeFunc = voiceInputFunc;
           }
-          setTimeout(inputTypeFunc(questionNumber), 500);
+          inputTypeFunc(questionNumber);
         });
-        setTimeout(inputTypeFunc(questionNumber), 500);
+        inputTypeFunc(questionNumber);
       }
     }
   });
@@ -196,56 +197,60 @@ function playLastxmas() {
   var submit = document.createElement("input");
 
   function textInputFunc(number) {
-    console.log("running text input");
-    var subtitles = document.getElementById("subtitles");
-    subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
-    input = document.createElement("input");
-    input.setAttribute("type", "text");
-    subtitles.children[number * 2 + 1].appendChild(input);
-    submit.setAttribute("type", "submit");
-    submit.setAttribute("value", "Check");
-    subtitles.children[number * 2 + 1].appendChild(submit);
+    if (stopped == true) {
+      console.log("running text input");
+      var subtitles = document.getElementById("subtitles");
+      subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
+      input = document.createElement("input");
+      input.setAttribute("type", "text");
+      subtitles.children[number * 2 + 1].appendChild(input);
+      submit.setAttribute("type", "submit");
+      submit.setAttribute("value", "Check");
+      subtitles.children[number * 2 + 1].appendChild(submit);
+    }
   }
 
   function voiceInputFunc(number) {
-    /* Setting up voice recognition */
-    console.log("running voice input");
+    if (stopped == true) {
+      /* Setting up voice recognition */
+      console.log("running voice input");
 
-    var subtitles = document.getElementById("subtitles");
-    subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
-    results = document.createElement("div");
-    results.setAttribute("id", "results");
-    subtitles.children[number * 2 + 1].appendChild(results);
+      var subtitles = document.getElementById("subtitles");
+      subtitles.children[number * 2 + 1].innerHTML = ""; // erasing previous input type
+      results = document.createElement("div");
+      results.setAttribute("id", "results");
+      subtitles.children[number * 2 + 1].appendChild(results);
 
-    final_span = document.createElement("span");
-    final_span.setAttribute("id", "final_span");
-    final_span.setAttribute("class", "final");
-    results.appendChild(final_span);
+      final_span = document.createElement("span");
+      final_span.setAttribute("id", "final_span");
+      final_span.setAttribute("class", "final");
+      results.appendChild(final_span);
 
-    interim_span = document.createElement("span");
-    interim_span.setAttribute("id", "interim_span");
-    interim_span.setAttribute("class", "interim");
-    results.appendChild(interim_span);
+      interim_span = document.createElement("span");
+      interim_span.setAttribute("id", "interim_span");
+      interim_span.setAttribute("class", "interim");
+      results.appendChild(interim_span);
 
-    right = document.createElement("div");
-    right.setAttribute("class", "right");
-    subtitles.children[number * 2 + 1].appendChild(right);
+      right = document.createElement("div");
+      right.setAttribute("class", "right");
+      subtitles.children[number * 2 + 1].appendChild(right);
 
-    button = document.createElement("button");
-    button.setAttribute("id", "start_button");
-    button.setAttribute("onclick", "startButton(event)");
-    right.appendChild(button);
-    img = document.createElement("img");
-    img.setAttribute("id", "start_img");
-    img.setAttribute("src", "./media/api/mic.gif");
-    img.setAttribute("alt", "Start");
-    button.appendChild(img);
+      button = document.createElement("button");
+      button.setAttribute("id", "start_button");
+      button.setAttribute("onclick", "startButton(event)");
+      right.appendChild(button);
+      img = document.createElement("img");
+      img.setAttribute("id", "start_img");
+      img.setAttribute("src", "./media/api/mic.gif");
+      img.setAttribute("alt", "Start");
+      button.appendChild(img);
 
-    voiceRegnition();
+      voiceRegnition();
 
-    // input = document.getElementById('final_span');
-    // submit = document.getElementById('start_button');
-    console.log("voice recognition on");
+      // input = document.getElementById('final_span');
+      // submit = document.getElementById('start_button');
+      console.log("voice recognition on");
+    }
   }
 
   var toggle = document.getElementById("voiceInput");
