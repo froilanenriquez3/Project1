@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recomençem-Jocs</title>
+  <title>Recomerçem-Jocs</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
   integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="/project1/style/style-navbar.css">
@@ -70,7 +70,7 @@
     <div class="card-body">
       <h5 class="card-title">Juego 3</h5>
     </div>
-    <img src="../media/img/game4screenshot.png" class="card-img-bottom h-80" alt="game3">
+    <img src="../media/img/game3screenshot.png" class="card-img-bottom h-80" alt="game3">
   </div>
       </a>
   </div>
