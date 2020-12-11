@@ -36,7 +36,7 @@
 ?>  
 
 
-<div class="container">
+<div class="container-fluid">
 <div class="row">
   <div class="col-lg-6 pt-2 pb-2">
     <a href="../webApp/game_anna/index.html">
