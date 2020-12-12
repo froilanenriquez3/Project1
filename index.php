@@ -83,7 +83,7 @@
   <!-- STORYTELLING -->
   <section id="story">
     <div data-aos="zoom-in" data-aos-duration="1500" class="part1">
-    <div><p class="translate" id="storyTelling1">Quedan muy pocos días para Navidad y la Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Pero antes de ir a comprar tendrá que conseguir dinero.</p></div>
+    <div><p class="translate" id="storyTelling1">Quedan muy pocos días para Navidad y la Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Sin embargo, antes de ir a comprar tendrá que conseguir dinero.</p></div>
     <img src="/project1/media/img/Storytelling1.png" alt=""></div>
     <div data-aos="zoom-in" data-aos-duration="1500" class="part2">
     <img src="/project1/media/img/Storytelling2.png" alt="">
@@ -118,7 +118,7 @@
       </div>
 
       <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
-        <img src="/project1/media/img/aboutUs.png" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/mireia-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3>Mireia Sánchez</h3>
         <p class="translate" id="aboutUs_Mi">Después de diplomarme en turismo, decidí cambiar de aires y me embarqué en la aventura de ser desarrolladora web.
           Ahora mis lunes son menos lunes si tengo un té, música de fondo y un proyecto de javascript entre manos.

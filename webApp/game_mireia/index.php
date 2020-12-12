@@ -88,9 +88,10 @@
         <div id="afterGame">
             <h1></h1>
             <h3>Quieres canjear tus puntos?</h3>
-            <form action="" method="POST">
-            <button class="btn">Canjear</button>
-            <input hidden value="4" type="number">
+            <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
+            <input hidden id="gameId" name="gameId" value="4" type="number">
+            <input hidden id="finalPoints" name="finalPoints" value="" type="number">
+            <button onclick="savePoints()" class="btn">Canjear</button>   
             </form>
             <div id="replay">
                 <img src="img/Refresh.png" alt="">
