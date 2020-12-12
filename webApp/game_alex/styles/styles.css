@@ -177,7 +177,7 @@ body {
   height: 350px;
 }
 
-#interim_span{
+#interim_span {
   display: none;
 }
 
@@ -337,10 +337,12 @@ body {
   text-align: justify;
 }
 
-#maininfo p span:first-child {
+#maininfo p span:first-of-type {
   padding-left: 4px;
   font-size: 14px;
   text-decoration: underline;
+  width: 100%;
+  text-align: center;
 }
 
 #points {
@@ -418,4 +420,43 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* End of toggle button */
+
+#songEnd {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 885px;
+  height: 490px;
+  background-image: url("../media/img/musicabg1-2.png");
+}
+
+#songEnd h1 {
+  margin-left: 100px;
+  text-align: center;
+  width: 50%;
+  padding: 5px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  background-color: #d7ebf7;
+  border-radius: 20px;
+  border: black 2px solid;
+  font-size: 30px;
+}
+
+#songEnd button {
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 15px;
+  margin-left: 100px;
+  background-color: #d7ebf7;
+  border-radius: 50px;
+  border: solid black 2px;
+}
+
+#songEnd button:hover {
+  background-color: lime;
 }
