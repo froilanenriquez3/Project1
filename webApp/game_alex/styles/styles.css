@@ -1,8 +1,6 @@
 body {
-  display: flex;
-  justify-content: center;
   background-color: lightgray;
-  padding-top: 100px;
+
   font-family: Verdana, Arial, sans-serif;
   color: black;
 }
@@ -11,8 +9,20 @@ body {
   width: 895px;
   height: 500px;
   background-color: black;
-  justify-content: center;
   background-image: url("../media/img/libreria4.png");
+  background-repeat: no-repeat;
+  background-size: 895px 500px;
+}
+
+.gameContainer {
+  position: absolute;
+  right: 0px;
+  width: calc(100% - 100px);
+  margin-top: 7%;
+  z-index: -1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .grid-container {
