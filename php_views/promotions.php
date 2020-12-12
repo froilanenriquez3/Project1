@@ -1,6 +1,7 @@
 <?php
 
 require_once '../php_libraries/bd.php';
+$_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
 
 $promos = selectAllFromTable('promotion');
 $user_promos = selectUserPromos($_SESSION['user']['userid']);
@@ -41,9 +42,9 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
 
                 <?php
                 foreach ($user_promos as $promo) { ?>
-                    <div class="col-md-3" id="<?php echo $promo['idpromotion'] ?>">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap">
+                    <div class="col-md-3 " id="<?php echo $promo['idpromotion'] ?>">
+                        <div class="card mb-2 d-flex align-items-stretch">
+                            <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap" height=215px>
                             <div class="card-body">
                                 <h4 class="card-title"><?php echo $promo['name'] ?></h4>
                                 <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
@@ -74,8 +75,8 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                     if ($_SESSION['user']['points'] >= $promo['pointCost'] && !$taken) {
                     ?>
                         <div class="col-md-3" id="<?php echo $promo['idpromotion'] ?>">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap">
+                            <div class="card mb-2 d-flex align-items-stretch">
+                                <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap" height=215px>
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $promo['name'] ?></h4>
                                     <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
