@@ -4,6 +4,7 @@
     margin: 20px auto;
     position: relative;
     background-image: url("img/background2.png");
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -39,4 +40,16 @@
     position: absolute;
     bottom: 0px;
 } */
+
+.points{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+#time{
+    padding-left: 10px;
+    font-weight: bold;
+}
+
 
