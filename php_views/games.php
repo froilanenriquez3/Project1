@@ -38,50 +38,55 @@
 
 <div class="container-fluid">
 <div class="row">
-  <div class="col-lg-6 pt-2 pb-2">
-    <a href="../webApp/game_anna/index.html">
-  <div class="card mx-auto">
+  <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-end">
+  <a href="../webApp/game_anna/index.html">
+  <div class="card">
     <div class="card-body">
       <h5 class="card-title">Juego 1</h5>
-    </div>
-    <img src="../media/img/game4screenshot.png" class="card-img-bottom h-80" alt="game1" id="game_mireia">
+    <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game1" id="game_mireia">
   </div>
-    </a>
+  </div>
+  </a>
   </div>
 
-  <div class="col-lg-6 pt-2 pb-2  <?php if($game_info1['pointSave'] == 0){ echo "locked";}?> " id="game_froilan">
-    <a href="../webApp/game_froilan/index.php">
-    <div class="card mx-auto">
+  <div class="col-lg-6 pt-2 pb-2 <?php if($game_info1['pointSave'] == 0){ echo "locked";}?>" id="game_froilan">
+  <a href="../webApp/game_froilan/index.php">
+    <div class="card">
       <div class="card-body">
         <h5 class="card-title">Juego 2</h5>
-    
+        <div class="lockImg">
+      <img src="../media/img/game2screenshot.png" class="card-img-bottom" alt="game2">
       </div>
-      <img src="../media/img/game2screenshot.png" class="card-img-bottom h-80" alt="game2">
+      </div>
     </div>
     </a>
   </div>
-</div>
 
 <div class="row">
 
-    <div class="col-lg-6 pt-2 pb-2 <?php if($game_info2['pointSave'] == 0){ echo "locked";}?>" id="game_alex">
-      <a href="../webApp/game_alex/index.html">
-  <div class="card mx-auto">
+    <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-end <?php if($game_info2['pointSave'] == 0){ echo "locked";}?>" id="game_alex">
+    <a href="../webApp/game_alex/index.html">
+  <div class="card">
     <div class="card-body">
       <h5 class="card-title">Juego 3</h5>
+      <div class="lockImg">
+    <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game3">
     </div>
-    <img src="../media/img/game3screenshot.png" class="card-img-bottom h-80" alt="game3">
-  </div>
-      </a>
+    </div>
+  </div> 
+  </a>
   </div>
 
+
   <div class="col-lg-6 pt-2 pb-2 <?php if($game_info3['pointSave'] == 0){ echo "locked";}?>" id="game_mireia">
-    <a href="../webApp/game_mireia/index.php">
-    <div class="card mx-auto">
+  <a href="../webApp/game_mireia/index.php">
+    <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Juego 4</h5>
+      <h5 class="card-title">Compras con prisas</h5>
+      <div class="lockImg">
+      <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game4">
       </div>
-      <img src="../media/img/game4screenshot.png" class="card-img-bottom h-80" alt="game4">
+      </div>
     </div>
     </a>
   </div>

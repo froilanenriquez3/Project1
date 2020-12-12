@@ -468,3 +468,9 @@ function endGame() {
     document.querySelector("#afterGame > h1").innerHTML = "Felicidades, Has conseguido " + points + " puntos!";
     document.getElementById("replay").addEventListener("click", startGame);
 }
+
+// Save points to database
+function savePoints(){
+    document.querySelector('#finalPoints').value = points;
+    document.querySelector('#gameForm').submit();
+}
