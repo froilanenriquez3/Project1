@@ -64,6 +64,7 @@
     </a>
   </div>
 
+</div>
 <div class="row">
 
     <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-end <?php if($game_info2['pointSave'] == 0){ echo "locked";}?>" id="game_alex">
@@ -99,4 +100,3 @@
 <script src="../js/navbar.js"></script>
 </body>
 </html>
- -->
