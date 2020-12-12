@@ -1,6 +1,10 @@
 <?php
 require_once '../php_libraries/bd.php';
 
+// echo $_SERVER['HTTP_REFERER'];
+// echo "<br>";
+// echo $_SESSION['url'];
+
 $all_users = selectAllFromTable('user');
 $all_promos = selectAllFromTable('promotion');
 $all_games = selectAllFromTable('game');
@@ -52,13 +56,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
                                         Mantenimiento de administradores
                                     </button>
                                 </h2>
                             </div>
                             
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#admin-accordion">
+                            <div id="collapseOne" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == 'admin')){
+                                            echo 'show';
+                                        }
+                                    ?> " aria-labelledby="headingOne" data-parent="#admin-accordion">
                                 <div class="card-body">
                                     <div class="row d-flex align-items-stretch ">
                                         <?php
@@ -114,13 +122,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo">
                                     Mantener usuarios
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#admin-accordion">
+                            <div id="collapseTwo" class="collapse   <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == '../php_controllers/user_controller.php'  || $_SESSION['url'] == '../php_controllers/user_search.php' )){
+                                            echo 'show';
+                                        }
+                                    ?> " aria-labelledby="headingTwo" data-parent="#admin-accordion">
                                 <div class="card-body">
 
                                     <!-- Search user by their username-->
@@ -328,13 +340,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"  aria-controls="collapseThree">
                                     Mantener promociones
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#admin-accordion">
+                            <div id="collapseThree" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == '../php_controllers/promo_controller.php' || $_SESSION['url'] == '../php_controllers/promo_search.php')){
+                                            echo 'show';
+                                        } 
+                                    ?>" aria-labelledby="headingThree" data-parent="#admin-accordion">
                                 <div class="card-body">
                                     <form action="../php_controllers/promo_search.php" method="POST">
                                         <label for="promosearch">Search for promo by name</label>
@@ -406,7 +422,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                                         <?php
                                         if (empty($all_promos)) {
-                                            echo " <p cass='m-5'>There are no promotions.</p>";
+                                            echo " <p class='m-3'>There are no promotions.</p>";
                                         }
 
                                         if(isset($_SESSION['see_all_promos'])){
@@ -503,13 +519,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingFour">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">
                                     Mantener puntos
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#admin-accordion">
+                            <div id="collapseFour" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && $_SESSION['url'] == '../php_controllers/game_controller.php'){
+                                            echo 'show';
+                                        } 
+                                    ?>" aria-labelledby="headingFour" data-parent="#admin-accordion">
                                 <div class="card-body">                
                                     <?php foreach ($all_games as $game) { ?>
                                         <div class="card">
@@ -520,7 +540,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                     <div class="form-group row">
 
                                                         <label class="col-2" for="pointlimit">Maximum points</label>
-                                                        <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0">
+                                                        <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0" step="100">
                                                         <input type="num" id="gameid" name="gameid" value="<?= $game['idgame'] ?>" style="display:none">
 
                                                         <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Save</button>

@@ -6,6 +6,8 @@
         exit();  
     }
     $games = selectAllFromTable('game');
+    $game_info2 = selectUserGameInfo($_SESSION['user']['userid'],2);
+
     $limit = $games['1']['pointLimit'];
 ?>
 
@@ -73,7 +75,7 @@
     
                 </div>
                 <div id="buttonsbox">
-                    <button class="endgame" onclick="endScreen()">EXIT</button>
+                    <button class="endgame" onclick="endScreen()"  <?php if($game_info2['pointSave'] == 1){ echo "disabled";}?> >EXIT</button>
 
                     <div class="music">
                     <i class="music fas fa-volume-mute"></i>
@@ -277,8 +279,10 @@
             </div>
             
             <div>
+                
                 <button class='startbutton' onclick="startGame()">Try for more points!</button>
                 <button class='startbutton redeem' onclick="savePoints()">Redeem my points!</button>
+
                 <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
                      <input type="number" style="display:none" id="finalPoints" name="finalPoints">
                      <input type="number" style="display:none" id="gameId" name="gameId" value="2">

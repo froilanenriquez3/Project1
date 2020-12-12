@@ -87,7 +87,7 @@
         
     }
 
-
+    $_SESSION['url'] = '../php_controllers/promo_controller.php';
     exit();
 
     

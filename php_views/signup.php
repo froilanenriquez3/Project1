@@ -1,11 +1,5 @@
 <?php
     session_start();
-    if(isset($_SESSION['password_conf']))
-    {
-        if(!$_SESSION['password_conf']){
-            echo "Your password must match in both fields.";
-        }
-    }
   
 ?>
 
@@ -82,10 +76,26 @@
                 <div class="entrar">
                     <a href="./login.php">¿Ya estás registrado?</a>
                 </div>
+                
             </div>
         </div>
-        <?php  require_once ('../php_partials/message.php')?>
+        <?php  //require_once ('../php_partials/message.php')?>
     </div>
+
+    <div class = "<?php if (isset($_SESSION['password_conf'])){ echo "wrongPassword";} else{
+        echo "message";}?>">
+        <?php 
+            if(isset($_SESSION['password_conf']))
+            {
+                if(!$_SESSION['password_conf']){
+                    echo "Your password must match in both fields.";
+                    unset($_SESSION['password_conf']);
+            }}
+        ?>
+
+    </div>
+
+    
    
     <script src="../js/signup.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

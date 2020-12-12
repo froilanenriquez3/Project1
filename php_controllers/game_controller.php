@@ -6,8 +6,9 @@
     if($modpointlim){
         modifyGamePointLimit($_POST['pointlimit'],$_POST['gameid']);
         header("Location: ../php_views/administration.php#pointssection");
-        exit();
+        
     }
-
+    $_SESSION['url'] = '../php_controllers/game_controller.php';
+    exit();
     
 ?>
