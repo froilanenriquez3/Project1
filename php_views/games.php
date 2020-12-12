@@ -5,6 +5,8 @@
   $game_info3 = selectUserGameInfo($_SESSION['user']['userid'],3);
   $game_info4 = selectUserGameInfo($_SESSION['user']['userid'],4);
 
+  $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
+
 ?>
 
 <!DOCTYPE html>
