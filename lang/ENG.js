@@ -3,8 +3,8 @@ let eng={
     divulgation1: "96% of small businesses consider that the crisis caused by the coronavirus pandemic will affect their activity in a negative or very negative way. The capacity restrictions and temporary closure of some of these businesses resulted in many of them finding themselves in a difficult economic situation. To help in these critical times, Restore is born." ,
     divulgation2: "Restore is a project that aims to promote shopping in local businesses. For this reason, we have created four games through which players can accumulate points in order to win promotions and discounts in different stores. Would you like to sign up? Scroll down to meet Teresa and discover her story!",
 
-    storyTelling1: "",
-    storyTelling2: "", 
+    storyTelling1: "There are only a few days left until Christmas and Teresa still has many errands to run before then. She just remembered that she still has not bought any presents for Marco, her most spoiled grandson. However, before she goes shopping she needs to get some money.",
+    storyTelling2: "In addition, she wants to buy some Christmas CDs to set the mood for the family dinner. Speaking of food... she still needs to get some of the ingredients to prepare the meal! Sign up to help her through the different games, where you will earn points to access exclusive discounts and promotions so that, like Teresa you can promote local businesses", 
     
     login: "Log in",
     logout: "Log out",
