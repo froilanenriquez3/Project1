@@ -1,6 +1,10 @@
 <?php
 require_once '../php_libraries/bd.php';
 
+// echo $_SERVER['HTTP_REFERER'];
+// echo "<br>";
+// echo $_SESSION['url'];
+
 $all_users = selectAllFromTable('user');
 $all_promos = selectAllFromTable('promotion');
 $all_games = selectAllFromTable('game');
@@ -58,7 +62,11 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                 </h2>
                             </div>
                             
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#admin-accordion">
+                            <div id="collapseOne" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == 'admin')){
+                                            echo 'show';
+                                        }
+                                    ?> " aria-labelledby="headingOne" data-parent="#admin-accordion">
                                 <div class="card-body">
                                     <div class="row d-flex align-items-stretch ">
                                         <?php
@@ -114,20 +122,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" 
-                                    <?php 
-                                        if (isset($_SERVER['HTTP_REFERER']) && ($_SERVER['HTTP_REFERER'] == '../php_controllers/user_controller'  || $_SERVER['HTTP_REFERER'] == '../php_controllers/user_search' )){
-                                            echo 'aria-expanded="true"';
-                                        } else{
-                                            echo 'aria-expanded="false"';
-                                        }
-                                    ?>  aria-controls="collapseTwo">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo">
                                     Mantener usuarios
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#admin-accordion">
+                            <div id="collapseTwo" class="collapse   <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == '../php_controllers/user_controller.php'  || $_SESSION['url'] == '../php_controllers/user_search.php' )){
+                                            echo 'show';
+                                        }
+                                    ?> " aria-labelledby="headingTwo" data-parent="#admin-accordion">
                                 <div class="card-body">
 
                                     <!-- Search user by their username-->
@@ -335,21 +340,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" 
-                                    <?php 
-                                        if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] == '../php_controllers/promo_controller'){
-                                            echo 'aria-expanded="true"';
-                                        } else{
-                                            echo 'aria-expanded="false"';
-                                        }
-                                    ?>
-                                    aria-controls="collapseThree">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"  aria-controls="collapseThree">
                                     Mantener promociones
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#admin-accordion">
+                            <div id="collapseThree" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == '../php_controllers/promo_controller.php' || $_SESSION['url'] == '../php_controllers/promo_search.php')){
+                                            echo 'show';
+                                        } 
+                                    ?>" aria-labelledby="headingThree" data-parent="#admin-accordion">
                                 <div class="card-body">
                                     <form action="../php_controllers/promo_search.php" method="POST">
                                         <label for="promosearch">Search for promo by name</label>
@@ -518,23 +519,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingFour">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" 
-                                    
-                                    <?php 
-                                        if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] == '../php_controllers/game_controller'){
-                                            echo 'aria-expanded="true"';
-                                        } else{
-                                            echo 'aria-expanded="false"';
-                                        }
-                                    ?>
-                                    
-                                    aria-controls="collapseFour">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">
                                     Mantener puntos
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#admin-accordion">
+                            <div id="collapseFour" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && $_SESSION['url'] == '../php_controllers/game_controller.php'){
+                                            echo 'show';
+                                        } 
+                                    ?>" aria-labelledby="headingFour" data-parent="#admin-accordion">
                                 <div class="card-body">                
                                     <?php foreach ($all_games as $game) { ?>
                                         <div class="card">

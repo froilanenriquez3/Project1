@@ -22,6 +22,6 @@ if(isset($_SESSION['logmeout'])){
         header("Location: ../index.php");
     }
 }
-
+$_SESSION['url'] = '../php_controllers/login_controller.php';
 exit();
 ?>

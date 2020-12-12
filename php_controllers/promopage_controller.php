@@ -16,5 +16,5 @@ if (isset($_POST['promoid'])) {
 
     header("Location: ../php_views/promotions.php");
 }
-
+$_SESSION['url'] = '../php_controllers/promopage_controller.php';
 exit();

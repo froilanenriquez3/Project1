@@ -14,6 +14,8 @@
     }
     }
 
+    $_SESSION['url'] = '../php_controllers/user_search.php';
+
     header("Location: ../php_views/administration.php#userssection");
 
     exit();

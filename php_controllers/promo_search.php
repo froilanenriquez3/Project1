@@ -13,9 +13,9 @@
         $_SESSION['no_promo_results'] = true;
     }
     }
-
+ 
     header("Location: ../php_views/administration.php#promossection");
-
+    $_SESSION['url'] = '../php_controllers/promo_search.php';
     exit();
 
 

@@ -10,7 +10,7 @@
         $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);   
         echo "Points saved<br>";
     }
-   
+    $_SESSION['url'] = '../php_controllers/save_points_controller.php';
     header("Location: ../php_views/games.php");
     exit();
 
