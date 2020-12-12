@@ -337,15 +337,15 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#admin-accordion">
                                 <div class="card-body">
                                     <form action="../php_controllers/promo_search.php" method="POST">
-                                        <label for="promosearch">Search for promo by name</label>
+                                        <label for="promosearch">Buscar promoción por nombre</label>
                                         <div class="form-group row">
                                             <input type="text" name="promosearch" id="promosearch" class="col-4 form-control ml-2">
-                                            <button type="submit" class="btn ">Search</button>
+                                            <button type="submit" class="btn ">Buscar</button>
                                         </div>
                                     </form>
 
                                     <form action="../php_controllers/promo_search.php" method="POST">
-                                        <button type="submit" class="btn m-2" id="see_all_promos" name="see_all_promos">See All Promotions</button>
+                                        <button type="submit" class="btn m-2" id="see_all_promos" name="see_all_promos">Ver todas las promociones</button>
                                     </form>
 
                                     <?php 
@@ -360,36 +360,36 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                     <p><?= "Promo ID-" . $promo['idpromotion'] . ": " . $promo['name'] ?></p>
 
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modpromoname">Name</label>
+                                                        <label class="col-2" for="modpromoname">Nombre</label>
                                                         <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?= $promo['name'] ?>" maxlength="45">
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modpromodesc">Description</label>
+                                                        <label class="col-2" for="modpromodesc">Descripción</label>
                                                         <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?= $promo['promo_desc'] ?>" maxlength="45">
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modpromocost">Cost</label>
+                                                        <label class="col-2" for="modpromocost">Precio</label>
                                                         <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modstoreid">Store ID</label>
+                                                        <label class="col-2" for="modstoreid">ID</label>
                                                         <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
                                                     </div>
 
                                                     <div class="form-group row">
-                                                    <label class="col-2" for="image">Image</label>
+                                                    <label class="col-2" for="image">Imagen</label>
                                                         <div class="col-10 custom-file">
-                                                            <label class="custom-file-label" for="modImage">Select file</label>
+                                                            <label class="custom-file-label" for="modImage">Seleccionar archivo</label>
                                                             <input class="custom-file-input" type="file" id="modImage" name="modImage">
                                                         </div>
                                                     </div>
 
 
-                                                    <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+                                                    <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Guardar cambios</button>
 
                                                     <input type="number" value=<?= $promo['idpromotion'] ?> style="display:none" id="promoid" name="promoid">
-                                                    <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
+                                                    <button type="submit" name="deletepromo" id="deletepromo" class="btn">Eliminar promoción</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -420,36 +420,36 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
 
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modpromoname">Name</label>
+                                                            <label class="col-2" for="modpromoname">Nombre</label>
                                                             <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?= $promo['name'] ?>" maxlength="45">
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modpromodesc">Description</label>
+                                                            <label class="col-2" for="modpromodesc">Descripción</label>
                                                             <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?= $promo['promo_desc'] ?>" maxlength="45">
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modpromocost">Cost</label>
+                                                            <label class="col-2" for="modpromocost">Precio</label>
                                                             <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modstoreid">Store ID</label>
+                                                            <label class="col-2" for="modstoreid">ID</label>
                                                             <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
                                                         </div>
 
                                                         <div class="form-group row">
-                                                        <label class="col-2" for="image">Image</label>
+                                                        <label class="col-2" for="image">Imagen</label>
                                                         <div class="col-10 custom-file">
-                                                            <label class="custom-file-label" for="modImage">Select file</label>
+                                                            <label class="custom-file-label" for="modImage">Seleccionar archivo</label>
                                                             <input class="custom-file-input" type="file" id="modImage" name="modImage">
                                                         </div>
                                                         </div>
 
 
-                                                        <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+                                                        <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Guardar cambios</button>
 
                                                         <input type="number" value=<?= $promo['idpromotion'] ?> style="display:none" id="promoid" name="promoid">
-                                                        <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
+                                                        <button type="submit" name="deletepromo" id="deletepromo" class="btn">Eliminar promoción</button>
                                                     </div>
                                                 </form>
 
@@ -462,36 +462,36 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                                     <div class="card col-12">
                                         <div class="card-body">
-                                            <h5>New promo</h5>
+                                            <h5>Nueva promoción</h5>
                                             <form enctype="multipart/form-data" action="../php_controllers/promo_controller.php" method="post">
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="promoname">Name</label>
+                                                    <label class="col-2" for="promoname">Nombre</label>
                                                     <input class="col-10 form-control" type="text" id="promoname" name="promoname" maxlength="45">
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="promodesc">Description</label>
+                                                    <label class="col-2" for="promodesc">Descripción</label>
                                                     <input class="col-10 form-control" type="text" id="promodesc" name="promodesc" maxlength="45">
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="promocost">Cost</label>
+                                                    <label class="col-2" for="promocost">Precio</label>
                                                     <input class="col-10 form-control" type="number" id="promocost" name="promocost" min="0">
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="storeid">Store ID</label>
+                                                    <label class="col-2" for="storeid">ID</label>
                                                     <input class="col-10 form-control" type="number" id="storeid" name="storeid" min="1">
                                                 </div>
 
 
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="image">Image</label>
+                                                    <label class="col-2" for="image">Imagen</label>
                                                         <div class="col-10 custom-file">
-                                                            <label class="custom-file-label" for="image">Select file</label>
+                                                            <label class="custom-file-label" for="image">Seleccionar archivo</label>
                                                             <input class="custom-file-input" type="file" id="image" name="image">
                                                         </div>
                                                     </div>
 
-                                                <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Add promo</button>
+                                                <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Añadir promoción</button>
                                             </form>
                                         </div>
                                     </div>
@@ -514,16 +514,16 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                     <?php foreach ($all_games as $game) { ?>
                                         <div class="card">
                                             <div class="card-body">
-                                                <p><?= "Game ID-" . $game['idgame'] . ": " . $game['name'] ?></p>
+                                                <p><?= "Juego ID-" . $game['idgame'] . ": " . $game['name'] ?></p>
                                                 <form action="../php_controllers/game_controller.php" method="post">
 
                                                     <div class="form-group row">
 
-                                                        <label class="col-2" for="pointlimit">Maximum points</label>
+                                                        <label class="col-2" for="pointlimit">Puntos máximos</label>
                                                         <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0">
                                                         <input type="num" id="gameid" name="gameid" value="<?= $game['idgame'] ?>" style="display:none">
 
-                                                        <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Save</button>
+                                                        <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Guardar</button>
                                                     </div>
                                                 </form>
                                             </div>

@@ -9,14 +9,25 @@ let velocidad = 10;
 let up = 5;
 let right = false;
 let left = false;
-let score = document.querySelector("p");
-
+let score = document.querySelector(".info > p");
+// let info = document.getElementsByClassName("info");
+let seconds = 10;
+let countdownTimer;
+let finalCoundown = false;
 
 // Variable global
 timeCoin = setInterval(moveCoin, 5000);
 points = 0;
-minutes = 1;
-seconds = 0;
+// minutes = 1;
+// seconds = 0;
+
+
+// let data = {
+//   x: 0, 
+//   y: 0, 
+//   width: 90, 
+//   height: 50
+// }
 
 let character = {
   x: 0, 
@@ -40,17 +51,72 @@ let coin = {
 }
 
 //window.addEventListener('DOMContentLoaded', start());
-start();
+startGame();
 
-function start(){
+function startGame(){
   
   drawSquare();
   drawbox();
   drawCoin();
   moveCoin();
-  timer();
+  // timer();
+  points = 0;
+  score.innerHTML = "Puntos: " + points;
 
+  //set music
+  mySound = new sound("./img/sound.mp3")
+
+  //set time
+  gameTimer();
 } 
+
+// function time() {
+//   time.innerHTML = "0" + minutes + ":" + seconds;
+//   clock = setInterval(passTime, 1000);
+// }
+
+// function passTime() {
+//   let secondsView;
+//   if (seconds > 0) {
+//       seconds--;
+//   }
+//   if (seconds == 0) {
+//       if (minutes > 0) {
+//           minutes--;
+//           seconds = 59;
+//       } else {
+//           endGame();
+//       }
+//   }
+
+//FUNCIONES PARA EL TIEMPO DEL JUEGO
+function gameTimer(){
+  let minutes = Math.round((seconds - 30) / 60);
+  let remainingSeconds = seconds % 60 ;
+
+  if(remainingSeconds < 10){
+    remainingSeconds = "0" + remainingSeconds;
+  }
+
+  document.getElementById('time').innerHTML = minutes + ":" + remainingSeconds;
+
+  if(seconds == 0){
+    if(finalCoundown){
+      clearInterval(countdownTimer);
+    }
+
+    else{
+      finalCoundown = true;
+      console.log('final');
+    }
+  }
+
+  else{
+    seconds --;
+  }
+
+}
+countdownTimer = setInterval(gameTimer, 1000);
 
 // Dibujar personaje
 function drawSquare(){
@@ -69,6 +135,11 @@ function drawCoin(){
 money.style.left = coin.x + 'px';
 money.style.top = coin.y + 'px';
 }
+
+// function drawInfo(){
+//   info.style.left = data.x + 'px';
+//   info.style.top = data.y + 'px';
+// }
 
   
 //Esta función para el intervalo de los 5s. Luego mueve la moneda para que no vuelva a colisionar con el personaje y vuelve a poner en marcha el intervalo. 
@@ -89,6 +160,32 @@ function stopCoin(){
       points += 20;
       score.innerHTML = "Puntos: " + points;
       console.log(score);
+
+      //sound
+      mySound.play();
+    }
+    // else if(data.x + data.width >= coin.x && data.y + data.height <= coin.y){
+    //   moveCoin();
+    // }
+    
+  }
+
+
+  //FUNCIÓN PARA PONER SONIDO A LA MONEDA
+  function sound(src){
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+
+    this.stop = function(){
+      this.sound.pause();
     }
     
   }
@@ -110,7 +207,10 @@ function stopCoin(){
 
   //FUNCIÓN PARA SALTAR
   function jump(){
+    //Para evitar el doble salto, de modo que solo llama a la función de saltar si no está saltando
+    //Si es true, devolverá la función y no hará nada. Solo actuará cuando detecte el false, que indica que bottom es más pequeño que 0
     if (isJumping == true) return;
+    //Establecemos un intervalo de 20 milisegundos
     let timerUp = setInterval(function(){
 
       //SALTAR
@@ -128,7 +228,7 @@ function stopCoin(){
 
       if(character.y < 250){
         clearInterval(timerUp);
-      
+        //Hacemos una función para que el cuadrado baje
         let timerDown = setInterval(function(){
 
           //BAJAR
@@ -144,9 +244,10 @@ function stopCoin(){
             square.setAttribute("src", "img/abuela-right-mario.png");
           }
           
-
+          //Si no lo paramos, sigue bajando hasta el infierno así que hay que poner un controlador
           if (character.y + character.height + up >= 450){
             clearInterval(timerDown);
+            //Si está en el suelo (bottom es más pequeño que 0), sí podremos volver a saltar
             isJumping = false; 
           }
           fall();
@@ -154,8 +255,9 @@ function stopCoin(){
          
         }, 20);
       }
-
+      //Si ya está saltando, no podrá volver a saltar y no ascenderá 30px del suelo
       isJumping = true;
+      //Cada vez que pulsamos la tecla sube 30px del suelo
       character.y -= 150;
       square.style.top = character.y + 'px';
       coinCollision();
@@ -172,49 +274,6 @@ function stopCoin(){
     coinCollision();
     
   }
-
-  // function jump(){
-    
-  //   //Para evitar el doble salto, de modo que solo llama a la función de saltar si no está saltando
-  //   //Si es true, devolverá la función y no hará nada. Solo actuará cuando detecte el false, que indica que bottom es más pequeño que 0
-  //   if (isJumping == true) return;
-  //   //Establecemos un intervalo de 20 milisegundos
-  //   let timerUp = setInterval(function(){
-
-  //     //Cuando llega a 250px se para
-  //     if (bottom > 250){
-  //       clearInterval(timerUp);
-
-  //       //Hacemos una función para que el cuadrado baje
-  //       let timerDown = setInterval(function(){
-  //         //Si no lo paramos, sigue bajando hasta el infierno así que hay que poner un controlador
-  //         if (bottom <  5){
-  //           clearInterval(timerDown);
-  //           //Si está en el suelo (bottom es más pequeño que 0), sí podremos volver a saltar
-  //           isJumping = false;
-  //         }
-  //         //fall();
-  //           bottom -= 5;
-  //           square.style.bottom = bottom + 'px';
-  //       }, 20);
-  //     }
-
-  //     //Si ya está saltando, no podrá volver a saltar y no ascenderá 30px del suelo
-  //     isJumping = true;
-  //     //Cada vez que pulsamos la tecla sube 30px del suelo
-  //     bottom += 30;
-  //     //Se multiplica constrantemente y cada vez la velocidad es menor para dar un efecto de gravedad
-  //     bottom = bottom * gravity;
-  //     square.style.bottom = bottom + 'px';
-  //   }, 20);
-    
-  // }
-
-  // if(){
-  //   document.getElementsByClassName('background')[0].removeChild(money);
-  // }
-  
-  
 
   //FUNCIÓN PARA LOS CONTROLES
   function control(e) {    
@@ -255,6 +314,7 @@ function stopCoin(){
         right = true;
 
       }
+      console.log(character.x + character.width);
 
 
     }

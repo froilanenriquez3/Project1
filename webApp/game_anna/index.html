@@ -1,21 +1,59 @@
+<!-- <?php
+  require_once '../../php_libraries/bd.php';
+  $games= selectAllFromTable("game");
+  $points_limit= $gameInfo[0]["limit"];
+?> -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLESHEETS -->
     <link rel="stylesheet" href="style.css">
-    <title>Jueguito</title>
+    <!-- <link rel="stylesheet" href="/project1/style/style-navbar.css">
+    <link rel="stylesheet" href="/project1/style/buttons.css"> -->
+
+
+    <!-- FONT MONTSERRAT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <title>Money Game</title>
   </head>
 
 
   <body>
-    <div class="background">
-      <img id="character" src="img/abuela-right-mario.png" alt="">
-      <img id="cloud" src="img/nube.png" alt="">
-      <img id="coin" src="img/coin.png" alt="">
-      <p>Puntos: 0</p>
-      <div class="time">00:00</div>
-    </div>
+
+    <!-- <?php 
+      include '../../php_partials/navbar.php';
+      include '../../php_partials/buttons.php';
+    ?> -->
+    <div class="contenedor">
+      <!-- INSTRUCCIONES -->
+      <!-- <div class="intructions">
+        <h4>¡Ayúdame a conseguir dinero para poder comprar todo lo que necesito para celebrar esta Navidad!</h4>
+        <p>Tienes que recoger el máximo número de monedas que puedas durante 1 minuto. Por cada moneda que consigas
+          recibirás 200 puntos. 
+        </p>
+        <p>Pulsa la barra espaciadora para saltar</p>
+        <p>Puedes moverte con las flechas de izquierda y derecha</p>
+        <p>Máxima puntuación: <!-- <span><?php echo $points_limit ?></span> --></p>
+        <!-- <button class="buttonStart" onclick="startGame()">Jugar</button> 
+      </div> -->
+
+      <!-- JUEGO -->
+      <div class="background">
+        <img id="character" src="img/abuela-right-mario.png" alt="">
+        <img id="cloud" src="img/nube.png" alt="">
+        <img id="coin" src="img/coin.png" alt="">
+        <div class="info">
+          <p class="points">Puntos: 0</p>
+          <div id="time"></div>
+        </div>  
+      </div>
+    </div>  
   </body>
 <script src="./js.js"></script>
 </html>
