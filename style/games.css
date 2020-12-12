@@ -17,11 +17,17 @@ body{
 
 
 .card{
-    height: 250px;
-    width: 400px;
+    width: 20em;
     background-color: #ffb35c;
     position: relative;
     z-index: -1;
+    box-sizing: border-box;
+}
+
+.card-body{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
 }
 
 .container-fluid a{
@@ -43,15 +49,21 @@ body{
 
 /*Subject to change: Styles to be applied to games that are locked*/
 
-.locked .card {
-    background-color: #f8ca95;
-
-}
-
 .locked a{
     pointer-events: none;
 }
 
+
 .locked img{
     opacity: 0.2;
+}
+
+.locked .lockImg{
+    background-image: url(../media/img/locked.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    position: relative;
 }
