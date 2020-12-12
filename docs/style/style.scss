@@ -7,10 +7,20 @@ body{
 }
 
 ul{
-  padding-top: 10px;
+
   list-style: none;
   li{
     margin: 10px;
+
+    a{
+      text-decoration: none;
+      color: lightblue;
+      font-weight: bold;
+
+      &:hover{
+        color: white;
+      }
+    }
   }
 }
 
@@ -37,7 +47,14 @@ header{
 aside{
   border:solid black 1px;
   border-right: none;
-  background-color: #ffb35c;
+  background-color: #2E585A;
+  
+ h2{
+   color: white;
+   margin: 20px;
+ }
+
+  
 }
 
 main{
@@ -47,10 +64,17 @@ main{
   grid-template-columns: 1fr;
   justify-items: center;
   background-color: #C9DBE3;
+
+  a[href="#top_page"]{
+    text-decoration: none;
+    color: blue;
+  }
   article{
+    background-color: #ffb35c;
     border: solid black 1px;
     width: 90%;
     padding: 5px;
+    padding-left: 20px;
     
     div{
       display: flex;
@@ -59,5 +83,17 @@ main{
 
     }
 
+  }
+}
+
+
+#games_container{
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  div{
+    display: block;
+    padding: 20px;
   }
 }

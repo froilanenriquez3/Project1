@@ -7,12 +7,21 @@ body {
 }
 
 ul {
-  padding-top: 10px;
   list-style: none;
 }
 
 ul li {
   margin: 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: lightblue;
+  font-weight: bold;
+}
+
+ul li a:hover {
+  color: white;
 }
 
 #logo {
@@ -44,7 +53,12 @@ header h1 {
 aside {
   border: solid black 1px;
   border-right: none;
-  background-color: #ffb35c;
+  background-color: #2E585A;
+}
+
+aside h2 {
+  color: white;
+  margin: 20px;
 }
 
 main {
@@ -58,10 +72,17 @@ main {
   background-color: #C9DBE3;
 }
 
+main a[href="#top_page"] {
+  text-decoration: none;
+  color: blue;
+}
+
 main article {
+  background-color: #ffb35c;
   border: solid black 1px;
   width: 90%;
   padding: 5px;
+  padding-left: 20px;
 }
 
 main article div {
@@ -72,5 +93,20 @@ main article div {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 10px;
+}
+
+#games_container {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#games_container div {
+  display: block;
+  padding: 20px;
 }
 /*# sourceMappingURL=style.css.map */
