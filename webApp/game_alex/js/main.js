@@ -49,7 +49,21 @@ function dragDrop() {
 
 var played = [false, false, false, false, false]; // Array for knowing if the songs (0-4) have been played
 
+/* Background music */
+var bgmusic = document.getElementById("bgmusic");
+var bgVolume = document.getElementById("main-volume-control"); // Setting up volume control
+bgVolume.addEventListener("change", function (e) {
+  bgmusic.bgVolume = e.currentTarget.value / 100;
+});
+
+// let volume = document.getElementById("volume-control"); // Setting up volume control
+// volume.addEventListener("change", function (e) {
+//   audio.volume = e.currentTarget.value / 100;
+// });
+
+/* When CD dragged to cd player */
 function launchMusic() {
+  bgmusic.pause();
   document.getElementsByClassName("grid-container")[0].style.display = "none"; // Removing background display
 
   var music = document.getElementById("song");
@@ -102,6 +116,7 @@ var onePointScore = pointLimit / 20;
 function enterStore() {
   document.getElementById("start").style.display = "none";
   document.getElementsByClassName("grid-container")[0].style.display = "grid";
+  bgmusic.play();
 }
 
 /* Points functions */
@@ -1539,6 +1554,7 @@ function backToStore() {
   audio = document.getElementById("audio");
   audio.pause();
   audio.currentTime = 0;
+  bgmusic.play();
   document.getElementById("song").style.display = "none";
   document.getElementsByClassName("grid-container")[0].style.display = "grid";
   document.getElementById("songEnd").style.display = "none";

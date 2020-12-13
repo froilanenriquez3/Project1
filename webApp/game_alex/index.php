@@ -26,8 +26,8 @@ $limit = $games['2']['pointLimit'];
     <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/styles.css?v=1237">
-    <link rel="stylesheet" href="./styles/voicestyles.css?v=1236">
+    <link rel="stylesheet" href="./styles/styles.css?v=1236">
+    <link rel="stylesheet" href="./styles/voicestyles.css?v=1235">
 </head>
 
 <body>
@@ -184,7 +184,8 @@ $limit = $games['2']['pointLimit'];
         </div>
     </div>
     <audio id="audio" type="audio/mpeg"></audio>
-    <script src="./js/main.js?v=1236"></script>
+    <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3"></audio>
+    <script src="./js/main.js?v=1235"></script>
     <script src="/project1/js/navbar.js"></script>
 </body>
 
