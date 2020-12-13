@@ -44,7 +44,7 @@
   <a href="../webApp/game_anna/index.html">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Juego 1</h5>
+      <h5 class="card-title">Monedas al vuelo</h5>
     <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game1" id="game_mireia">
   </div>
   </div>

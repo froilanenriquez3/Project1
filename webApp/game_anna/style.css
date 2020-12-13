@@ -1,11 +1,53 @@
-.background{
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #C9DBE3;
+}
+
+.container{
+    position: absolute;
+    right: 0px;
+    width: calc(100% - 100px);
+    margin-top: 7%;
+    z-index: -1;
+}
+
+.instructions{
+    background-color: #ffb35c;
+    z-index: 50;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.play > img{
+    background-color: #2e585a;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+/* .gamePlay {
+    display: none;
+} */
+
+.game{
     height: 450px;
     width: 895px;
     margin: 20px auto;
     position: relative;
-    background-image: url("img/background2.png");
-    font-family: 'Montserrat', sans-serif;
 }
+
+
+.background{
+    background-image: url("img/background2.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
 
 
 #character {
@@ -33,13 +75,6 @@
     bottom: 0px;
 }
 
-/* .character-sliding {
-    background-color: red;
-    height: 40px;
-    width: 70px;
-    position: absolute;
-    bottom: 0px;
-} */
 
 .points{
     padding-top: 10px;
@@ -52,4 +87,7 @@
     font-weight: bold;
 }
 
+.finishGame{
+    display: none;
+}
 
