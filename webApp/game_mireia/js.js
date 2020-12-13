@@ -34,7 +34,8 @@ let pointsRest= Number(document.getElementById("pointsRest").innerHTML);
 let speak1= document.getElementsByClassName("sp1")[0];
 let speak2= document.getElementsByClassName("sp2")[0];
 let speak3= document.getElementsByClassName("sp3")[0];
-
+let myMusic;
+let paused= false;
 
 const TOTALPRODUCTS = 8;
 let productsFound, points, finished, extraProduct, minutes, seconds, clock, productsToFind, hasExtra, shop;
@@ -56,10 +57,12 @@ conversations.forEach(element => {
 });
 document.querySelector(".play > div >img").addEventListener("click", startGame);
 document.getElementById("shop").addEventListener("click", changeShop);
+document.getElementById("music").addEventListener("click", musicControl);
 
 
 
 function startGame() {
+    console.log(paused);
     //ocult instructions or afterGame & show interior
     document.querySelector("#background > #instructions").style.display = "none";
     document.querySelector("#background > #afterGame").style.display = "none";
@@ -96,6 +99,12 @@ function startGame() {
 
     //set Time
     time();
+
+    //Play music
+    window.myMusic = new sound("mp3/Lay Low.mp3");
+    if(!paused){
+        window.myMusic.play();
+    }
 }
 
 
@@ -119,15 +128,12 @@ function passTime() {
         }
     }
 
-
     if (seconds < 10) {
         secondsView = "0" + seconds;
         document.getElementById("time").innerHTML = "0" + minutes + ":" + secondsView;
     } else {
         document.getElementById("time").innerHTML = "0" + minutes + ":" + seconds;
     }
-
-
 }
 
 //Draw all draggable objects
@@ -452,7 +458,7 @@ function checkConversationWhenChanges(){
 }
 
 function eraseProducts() {
-    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(.speak):not(#shop):not(#gameBack)");
+    let productsImages = document.querySelectorAll("#interior > img:not(#basket):not(#list):not(#lady):not(.speak):not(#shop):not(#gameBack):not(#music)");
     productsImages.forEach(element => {
         interior.removeChild(element);
     });
@@ -460,6 +466,7 @@ function eraseProducts() {
 
 
 function endGame() {
+    window.myMusic.stop();
     window.clearInterval(clock);
     interior.style.display = "none";
     eraseProducts();
@@ -467,6 +474,36 @@ function endGame() {
     afterGame.style.display = "inline-block";
     document.querySelector("#afterGame > h1").innerHTML = "Felicidades, Has conseguido " + points + " puntos!";
     document.getElementById("replay").addEventListener("click", startGame);
+}
+
+// Create music element
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+
+// onClick icons
+function musicControl() {
+    let img= document.getElementById("music");
+ if(paused){
+     window.myMusic.play();
+     paused= false;
+     img.setAttribute("src", "img/moff.png");
+ } else {
+     window.myMusic.stop();
+     paused= true;
+     img.setAttribute("src", "img/mon.png");
+ }
 }
 
 // Save points to database
