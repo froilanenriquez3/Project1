@@ -1,25 +1,25 @@
 let character = { x: 50, y: 140 };
-let productsGrocery = [{ name: "Harina", img: "img/Grocery/Harina.png", x: 385, y: -1 },
-{ name: "Masa pastel", img: "img/Grocery/Masa pastel.png", x: 510, y: -1 }, { name: "Azúcar", img: "img/Grocery/Azúcar.png", x: 390, y: 64 },
-{ name: "Huevos", img: "img/Grocery/Huevos.png", x: 482, y: 76 }, { name: "Salsa de tomate", img: "img/Grocery/Salsa de tomate.png", x: 630, y: 9 },
-{ name: "Galletas", img: "img/Grocery/Galletas.png", x: 760, y: 71 }, { name: "Polvorones", img: "img/Grocery/Polvorones.png", x: 640, y: 70 },
-{ name: "Láminas para canelones", img: "img/Grocery/Láminas para canelones.png", x: 689, y: 9 }, { name: "Galets", img: "img/Grocery/Galets.png", x: 790, y: 7 },
-{ name: "Miel", img: "img/Grocery/Miel.png", x: 470, y: 138 }, { name: "Ketchup", img: "img/Grocery/Ketchup.png", x: 535, y: 134 },
-{ name: "Mermelada", img: "img/Grocery/Mermelada.png", x: 388, y: 144 }, { name: "Té", img: "img/Grocery/Té.png", x: 645, y: 121 },
-{ name: "Café", img: "img/Grocery/Café.png", x: 790, y: 132 }, { name: "Vino Blanco", img: "img/Grocery/Vino Blanco.png", x: 400, y: 275 },
-{ name: "Vino Tinto", img: "img/Grocery/Vino Tinto.png", x: 355, y: 275 }, { name: "Cava", img: "img/Grocery/Cava.png", x: 455, y: 276 },
-{ name: "Cola", img: "img/Grocery/Cola.png", x: 505, y: 275 }, { name: "Limonada", img: "img/Grocery/Limonada.png", x: 545, y: 277 },
-{ name: "Naranjada", img: "img/Grocery/Naranjada.png", x: 599, y: 277 }, { name: "Mayonesa", img: "img/Grocery/mayonesa.png", x: 370, y: 213 }, 
-{name: "Aceite", img: "img/Grocery/Aceite.png", x: 585, y: 190}, {name: "Cacao en polvo", img: "img/Grocery/Cacao en polvo.png", x: 680, y: 221},
-{name: "Olivas", img: "img/Grocery/Olivas.png", x: 535, y: 215}, {name: "Leche", img: "img/Grocery/Leche.png", x: 440, y: 213},
-{name: "Panettone", img: "img/Grocery/Panettone.png", x: 783, y: 191}];
+let productsGrocery = [{ name: "Harina", img: "img/Grocery/Harina.png", x: 395, y: 6 },
+{ name: "Masa pastel", img: "img/Grocery/Masa pastel.png", x: 535, y: 7 }, { name: "Azúcar", img: "img/Grocery/Azúcar.png", x: 415, y: 78},
+{ name: "Huevos", img: "img/Grocery/Huevos.png", x: 489, y: 114 }, { name: "Salsa de tomate", img: "img/Grocery/Salsa de tomate.png", x: 673, y: 42 },
+{ name: "Galletas", img: "img/Grocery/Galletas.png", x: 763, y: 89 }, { name: "Polvorones", img: "img/Grocery/Polvorones.png", x: 665, y: 83 },
+{ name: "Láminas para canelones", img: "img/Grocery/Láminas para canelones.png", x: 720, y: 46 }, { name: "Galets", img: "img/Grocery/Galets.png", x: 820, y: 30 },
+{ name: "Miel", img: "img/Grocery/Miel.png", x: 505, y: 158 }, { name: "Ketchup", img: "img/Grocery/Ketchup.png", x: 567, y: 154 },
+{ name: "Mermelada", img: "img/Grocery/Mermelada.png", x: 426, y: 176 }, { name: "Té", img: "img/Grocery/Té.png", x: 668, y: 164 },
+{ name: "Café", img: "img/Grocery/Café.png", x: 825, y: 142 }, { name: "Vino Blanco", img: "img/Grocery/Vino Blanco.png", x: 440, y: 280 },
+{ name: "Vino Tinto", img: "img/Grocery/Vino Tinto.png", x: 392, y: 276 }, { name: "Cava", img: "img/Grocery/Cava.png", x: 490, y: 280 },
+{ name: "Cola", img: "img/Grocery/Cola.png", x: 535, y: 285 }, { name: "Limonada", img: "img/Grocery/Limonada.png", x: 580, y: 288 },
+{ name: "Naranjada", img: "img/Grocery/Naranjada.png", x: 631, y: 289 }, { name: "Mayonesa", img: "img/Grocery/mayonesa.png", x: 412, y: 258 }, 
+{name: "Aceite", img: "img/Grocery/Aceite.png", x: 640, y: 202}, {name: "Cacao en polvo", img: "img/Grocery/Cacao en polvo.png", x: 715, y: 248},
+{name: "Olivas", img: "img/Grocery/Olivas.png", x: 570, y: 240}, {name: "Leche", img: "img/Grocery/Leche.png", x: 470, y: 228},
+{name: "Panettone", img: "img/Grocery/Panettone.png", x: 805, y: 209}];
 
-let productsFruit = [{ name: "Manzana", img: "img/Fruits/Manzana.png", x: 730, y: 300 }, { name: "Uva", img: "img/Fruits/Uva.png", x: 650, y: 240 },
-{ name: "Plátanos", img: "img/Fruits/Plátanos.png", x: 592, y: 222 }, { name: "Pera", img: "img/Fruits/Pera.png", x: 648, y: 170 }, { name: "Mandarina", img: "img/Fruits/Mandarina.png", x: 800, y: 240 },
-{ name: "Zanahoria", img: "img/Fruits/Zanahoria.png", x: 760, y: 55 }, { name: "Cebolla", img: "img/Fruits/Cebolla.png", x: 770, y: 120 },
-{ name: "Ciruela", img: "img/Fruits/Ciruela.png", x: 810, y: 60 }, { name: "Pimiento", img: "img/Fruits/Pimiento.png", x: 700, y: 110 },
-{ name: "Tomate", img: "img/Fruits/Tomate.png", x: 820, y: 150 }, {name: "Berenjena", img: "img/Fruits/Berenjena.png", x: 200, y: 225}, 
-{ name: "Piña", img: "img/Fruits/Piña.png", x: 420, y: 135}, {name: "Granada", img: "img/Fruits/Granada.png", x: 495, y: 275}
+let productsFruit = [{ name: "Manzana", img: "img/Fruits/Manzana.png", x: 760, y: 325 }, { name: "Uva", img: "img/Fruits/Uva.png", x: 690, y: 260 },
+{ name: "Plátanos", img: "img/Fruits/Plátanos.png", x: 625, y: 256 }, { name: "Pera", img: "img/Fruits/Pera.png", x: 700, y: 190 }, { name: "Mandarina", img: "img/Fruits/Mandarina.png", x: 820, y: 250 },
+{ name: "Zanahoria", img: "img/Fruits/Zanahoria.png", x: 810, y: 75 }, { name: "Cebolla", img: "img/Fruits/Cebolla.png", x: 810, y: 160 },
+{ name: "Ciruela", img: "img/Fruits/Ciruela.png", x: 870, y: 100 }, { name: "Pimiento", img: "img/Fruits/Pimiento.png", x: 740, y: 140 },
+{ name: "Tomate", img: "img/Fruits/Tomate.png", x: 870, y: 198 }, {name: "Berenjena", img: "img/Fruits/Berenjena.png", x: 230, y: 265}, 
+{ name: "Piña", img: "img/Fruits/Piña.png", x: 423, y: 142}, {name: "Granada", img: "img/Fruits/Granada.png", x: 505, y: 280}, { name: "Limón", img: "img/Fruits/Limón.png", x: 740, y: 220} 
 ];
 
 let productsExtra = ["Turrón artesano", "Mazapán casero", "Jamón Ibérico"];
@@ -55,7 +55,7 @@ let conversations= document.querySelectorAll(".speak");
 conversations.forEach(element => {
     element.addEventListener("click", createText);
 });
-document.querySelector(".play > div >img").addEventListener("click", startGame);
+document.getElementById("play").addEventListener("click", startGame);
 document.getElementById("shop").addEventListener("click", changeShop);
 document.getElementById("music").addEventListener("click", musicControl);
 
@@ -306,7 +306,9 @@ function dragElement(elmnt, products) {
 //Check if element in basket is correct.
 function checkBasket(elmnt, products) {
     let found = false;
-    if (elmnt.offsetTop + 60 > basket.offsetTop && basket.offsetLeft < elmnt.offsetLeft + 60) {
+    console.log(elmnt.naturalHeight);
+    console.log(elmnt.clientHeight);
+    if (elmnt.offsetTop + elmnt.naturalHeight -20 > basket.offsetTop && elmnt.offsetLeft + elmnt.naturalWidth - 20 > basket.offsetLeft) {
         listElemements = document.querySelectorAll("li");
         listElemements.forEach(element => {
             if (element.innerHTML === elmnt.id) {
@@ -329,12 +331,17 @@ function checkBasket(elmnt, products) {
             elmnt.style.top = elementInProducts.y + "px";
             elmnt.style.left = elementInProducts.x + "px";
             basket.classList.add("animationClassRed");
-            if (points > 0) {
+            if (points >= pointsRest) {
                 points -= pointsRest;
-                pointsText.innerHTML = "Puntos: " + points;
+                document.onmouseup = null;
+                document.onmousemove = null;
+            } else {
+                points= 0;
                 document.onmouseup = null;
                 document.onmousemove = null;
             }
+
+            pointsText.innerHTML = "Puntos: " + points;
         }
     }
 }
@@ -436,7 +443,6 @@ function closeText() {
 
 // Display the conversation icons needed after restart or change shops
 function checkConversationWhenChanges(){
-    console.log(character.x);
     // Reseting all first
         speak1.style.display= "none";
         speak2.style.display= "none";
