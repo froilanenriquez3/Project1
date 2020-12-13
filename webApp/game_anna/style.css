@@ -3,7 +3,7 @@ body{
     background-color: #C9DBE3;
 }
 
-.container{
+#container{
     position: absolute;
     right: 0px;
     width: calc(100% - 100px);
@@ -11,12 +11,12 @@ body{
     z-index: -1;
 }
 
-.instructions{
+#instructions{
     background-color: #ffb35c;
     z-index: 50;
     position: relative;
-    height: 100%;
-    width: 100%;
+    /* height: 450px;
+    width: 895px; */
     text-align: center;
     padding: 5px;
     box-sizing: border-box;
@@ -28,11 +28,11 @@ body{
     border-radius: 7px;
 }
 
-/* .gamePlay {
+#gamePlay {
     display: none;
-} */
+}
 
-.game{
+#game{
     height: 450px;
     width: 895px;
     margin: 20px auto;
@@ -40,7 +40,7 @@ body{
 }
 
 
-.background{
+#background{
     background-image: url("img/background2.png");
     width: 100%;
     height: 100%;
@@ -59,9 +59,6 @@ body{
 }
 
 #cloud{
-    /* background-color: red; */
-    /* height: 80px;
-    width: 80px; */
     height: 50px;
     width: 120px;
     position: absolute;

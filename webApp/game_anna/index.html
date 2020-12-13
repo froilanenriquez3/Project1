@@ -30,10 +30,10 @@
       include '../../php_partials/navbar.php';
       include '../../php_partials/buttons.php';
     ?> -->
-    <div class="container">
-      <div class="game">
+    <div id="container">
+      <div id="game">
         <!-- INSTRUCCIONES -->
-        <div class="instructions">
+        <div id="instructions">
           <h3>¡Ayúdame a conseguir dinero para poder comprar todo lo que necesito para celebrar esta Navidad!</h3>
           <p>Tienes que recoger el máximo número de monedas que puedas durante 1 minuto. Por cada moneda que consigas
             recibirás 200 puntos. 
@@ -46,8 +46,8 @@
         </div>
 
         <!-- JUEGO -->
-        <div class="gamePlay">
-          <div class="background">
+        <div id="gamePlay">
+          <div id="background">
             <img id="character" src="img/abuela-right-mario.png" alt="">
             <img id="cloud" src="img/nube.png" alt="">
             <img id="coin" src="img/coin.png" alt="">
@@ -59,7 +59,7 @@
         </div>
 
         <!-- AL ACABAR EL JUEGO -->
-        <div class="finishGame">
+        <div id="finishGame">
           <p>¿Quieres canjear tus puntos o prefieres volver a jugar para conseguir más?</p>
           <button class="play" onclick="startGame()">¡Volver a jugar!</button>
           <button class="redeem" onclick="savePoints()">¡Canjear puntos!</button>

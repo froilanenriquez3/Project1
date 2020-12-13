@@ -56,9 +56,9 @@ document.querySelector(".play > img").addEventListener('click', startGame);
 function startGame(){
   console.log('startgame');
   //esconder instrucciones para que aparezca el juego
-  document.querySelector('.instructions').style.display = "none";
-  document.querySelector('.finishGame').style.display = "none";
-  document.querySelector('.gamePlay').style.display = "block";
+  document.getElementById("instructions").style.display = "none";
+  document.getElementById("finishGame").style.display = "none";
+  document.getElementById("gamePlay").style.display = "block";
 
   drawSquare();
   drawbox();
