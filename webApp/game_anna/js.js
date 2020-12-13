@@ -11,15 +11,15 @@ let right = false;
 let left = false;
 let score = document.querySelector(".info > p");
 // let info = document.getElementsByClassName("info");
-let seconds = 10;
+let seconds;
 let countdownTimer;
 let finalCoundown = false;
+document.addEventListener('keydown', control);
+
 
 // Variable global
 timeCoin = setInterval(moveCoin, 5000);
 points = 0;
-// minutes = 1;
-// seconds = 0;
 
 
 // let data = {
@@ -50,18 +50,25 @@ let coin = {
   height: 40
 }
 
-//window.addEventListener('DOMContentLoaded', start());
-startGame();
+// startGame();
+document.querySelector(".play > img").addEventListener('click', startGame);
 
 function startGame(){
-  
+  console.log('startgame');
+  //esconder instrucciones para que aparezca el juego
+  document.getElementById("instructions").style.display = "none";
+  document.getElementById("finishGame").style.display = "none";
+  document.getElementById("gamePlay").style.display = "block";
+
   drawSquare();
   drawbox();
   drawCoin();
   moveCoin();
   // timer();
   points = 0;
+  seconds = 10;
   score.innerHTML = "Puntos: " + points;
+  time.innerHTML = "0" + ":" + seconds;
 
   //set music
   mySound = new sound("./img/sound.mp3")
@@ -70,24 +77,6 @@ function startGame(){
   gameTimer();
 } 
 
-// function time() {
-//   time.innerHTML = "0" + minutes + ":" + seconds;
-//   clock = setInterval(passTime, 1000);
-// }
-
-// function passTime() {
-//   let secondsView;
-//   if (seconds > 0) {
-//       seconds--;
-//   }
-//   if (seconds == 0) {
-//       if (minutes > 0) {
-//           minutes--;
-//           seconds = 59;
-//       } else {
-//           endGame();
-//       }
-//   }
 
 //FUNCIONES PARA EL TIEMPO DEL JUEGO
 function gameTimer(){
@@ -96,9 +85,10 @@ function gameTimer(){
 
   if(remainingSeconds < 10){
     remainingSeconds = "0" + remainingSeconds;
+    document.getElementById('time').innerHTML = minutes + ":" + remainingSeconds;
+
   }
 
-  document.getElementById('time').innerHTML = minutes + ":" + remainingSeconds;
 
   if(seconds == 0){
     if(finalCoundown){
@@ -107,6 +97,7 @@ function gameTimer(){
 
     else{
       finalCoundown = true;
+      gameOver();
       console.log('final');
     }
   }
@@ -262,65 +253,68 @@ function stopCoin(){
       square.style.top = character.y + 'px';
       coinCollision();
 
-    }, 50);
+    }, 20);
     
   }
 
 
-  //FUNCIÓN PARA CAER
-  function fall(){
-    character.y += up;
-    square.style.top = character.y + 'px';
-    coinCollision();
-    
-  }
-
-  //FUNCIÓN PARA LOS CONTROLES
-  function control(e) {    
-    if (e.keyCode == 32) {
-      jump(); // si apretamos la barra espaciadora
-    } 
-    
-    
-    //LEFT
-    if(e.keyCode == 37 && character.x > 0){
-     
-      //ir hacia la izquierda
-      if (square.getAttribute("src") == "img/abuela-right-mario.png"){
-        square.setAttribute("src", "img/abuela-left-mario.png");
-      }
-
-      if (character.x - velocidad >= box.x + box.width || character.x <= box.x ||
-        box.y + box.height <= character.y || box.y >= character.y + character.height){
-          
-        character.x -= velocidad;
-        square.style.left = character.x + 'px';
-        left = true;
-      }
-
-    } 
-
-    //RIGHT
-    if(e.keyCode == 39 && character.x < 830){
-      //ir hacia la derecha
-      if (square.getAttribute("src") == "img/abuela-left-mario.png"){
-        square.setAttribute("src", "img/abuela-right-mario.png");
-      }
-
-      if (character.x + character.width + velocidad <= box.x || character.x + character.width > box.x ||
-        box.y + box.height <= character.y || box.y >= character.y + character.height){
-        character.x += velocidad;
-        square.style.left = character.x + 'px';
-        right = true;
-
-      }
-      console.log(character.x + character.width);
-
-
+//FUNCIÓN PARA CAER
+function fall(){
+  character.y += up;
+  square.style.top = character.y + 'px';
+  coinCollision();
+  
+}
+//FUNCIÓN PARA LOS CONTROLES
+function control(e) {    
+  if (e.keyCode == 32) {
+    jump(); // si apretamos la barra espaciadora
+  } 
+  
+  
+  //LEFT
+  if(e.keyCode == 37 && character.x > 0){
+   
+    //ir hacia la izquierda
+    if (square.getAttribute("src") == "img/abuela-right-mario.png"){
+      square.setAttribute("src", "img/abuela-left-mario.png");
     }
-    coinCollision();
+    if (character.x - velocidad >= box.x + box.width || character.x <= box.x ||
+      box.y + box.height <= character.y || box.y >= character.y + character.height){
+        
+      character.x -= velocidad;
+      square.style.left = character.x + 'px';
+      left = true;
+    }
+  } 
+  //RIGHT
+  if(e.keyCode == 39 && character.x < 830){
+    //ir hacia la derecha
+    if (square.getAttribute("src") == "img/abuela-left-mario.png"){
+      square.setAttribute("src", "img/abuela-right-mario.png");
+    }
+    if (character.x + character.width + velocidad <= box.x || character.x + character.width > box.x ||
+      box.y + box.height <= character.y || box.y >= character.y + character.height){
+      character.x += velocidad;
+      square.style.left = character.x + 'px';
+      right = true;
+    }
+    console.log(character.x + character.width);
   }
+  coinCollision();
+}
+
+//GUARDAR PUNTOS
+function savePoints(){
+  document.querySelector('#finalPoints').value = points;
+  document.querySelector('#gameForm').submit();
+
+}
 
 
-  document.addEventListener('keydown', control);
-
+//FUNCIÓN PARA ACABAR EL JUEGO
+function gameOver(){
+  window.clearInterval(countdownTimer);
+  console.log('countdownTimer');
+  
+}

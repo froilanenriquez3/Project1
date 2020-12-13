@@ -30,29 +30,46 @@
       include '../../php_partials/navbar.php';
       include '../../php_partials/buttons.php';
     ?> -->
-    <div class="contenedor">
-      <!-- INSTRUCCIONES -->
-      <!-- <div class="intructions">
-        <h4>¡Ayúdame a conseguir dinero para poder comprar todo lo que necesito para celebrar esta Navidad!</h4>
-        <p>Tienes que recoger el máximo número de monedas que puedas durante 1 minuto. Por cada moneda que consigas
-          recibirás 200 puntos. 
-        </p>
-        <p>Pulsa la barra espaciadora para saltar</p>
-        <p>Puedes moverte con las flechas de izquierda y derecha</p>
-        <p>Máxima puntuación: <!-- <span><?php echo $points_limit ?></span> --></p>
-        <!-- <button class="buttonStart" onclick="startGame()">Jugar</button> 
-      </div> -->
+    <div id="container">
+      <div id="game">
+        <!-- INSTRUCCIONES -->
+        <div id="instructions">
+          <h3>¡Ayúdame a conseguir dinero para poder comprar todo lo que necesito para celebrar esta Navidad!</h3>
+          <p>Tienes que recoger el máximo número de monedas que puedas durante 1 minuto. Por cada moneda que consigas
+            recibirás 200 puntos. 
+          </p>
+          <p>Pulsa la barra espaciadora para saltar</p>
+          <p>Puedes moverte con las flechas de izquierda y derecha</p>
+          <p>Máxima puntuación: <!-- <span><?php echo $points_limit ?></span> --></p>
+          <div class="play">
+            <img src="./img/jugar2.png" width="100px">
+        </div>
 
-      <!-- JUEGO -->
-      <div class="background">
-        <img id="character" src="img/abuela-right-mario.png" alt="">
-        <img id="cloud" src="img/nube.png" alt="">
-        <img id="coin" src="img/coin.png" alt="">
-        <div class="info">
-          <p class="points">Puntos: 0</p>
-          <div id="time"></div>
-        </div>  
-      </div>
+        <!-- JUEGO -->
+        <div id="gamePlay">
+          <div id="background">
+            <img id="character" src="img/abuela-right-mario.png" alt="">
+            <img id="cloud" src="img/nube.png" alt="">
+            <img id="coin" src="img/coin.png" alt="">
+            <div class="info">
+              <p class="points">Puntos: 0</p>
+              <div id="time"></div>
+            </div>          
+          </div>  
+        </div>
+
+        <!-- AL ACABAR EL JUEGO -->
+        <div id="finishGame">
+          <p>¿Quieres canjear tus puntos o prefieres volver a jugar para conseguir más?</p>
+          <button class="play" onclick="startGame()">¡Volver a jugar!</button>
+          <button class="redeem" onclick="savePoints()">¡Canjear puntos!</button>
+
+          <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
+            <input type="number" style="display:none" id="finalPoints" name="finalPoints">
+            <input type="number" style="display:none" id="gameId" name="gameId" value="0">
+          </form>
+        </div>
+      </div>  
     </div>  
   </body>
 <script src="./js.js"></script>
