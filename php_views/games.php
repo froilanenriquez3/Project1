@@ -55,7 +55,7 @@
   <a href="../webApp/game_froilan/index.php">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Canta con Teresa</h5>
+        <h5 class="card-title">Juego2</h5>
         <div class="lockImg">
       <img src="../media/img/game2screenshot.png" class="card-img-bottom" alt="game2">
       </div>
@@ -71,7 +71,7 @@
     <a href="../webApp/game_alex/index.html">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Juego 3</h5>
+      <h5 class="card-title">Canta con Teresa</h5>
       <div class="lockImg">
     <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game3">
     </div>
