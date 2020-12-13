@@ -1,3 +1,15 @@
+<?php
+require_once '../../php_libraries/bd.php';
+
+if (!isset($_SESSION['user'])) {
+    header("Location: ../../php_views/login.php");
+    exit();
+}
+$games = selectAllFromTable('game');
+$game_info3 = selectUserGameInfo($_SESSION['user']['userid'], 3);
+$limit = $games['2']['pointLimit'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +26,8 @@
     <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/voicestyles.css">
+    <link rel="stylesheet" href="./styles/styles.css?v=1236">
+    <link rel="stylesheet" href="./styles/voicestyles.css?v=1236">
 </head>
 
 <body>
@@ -27,13 +39,24 @@
     <div class="gameContainer">
         <div id="game">
             <div id="start">
-
+                <p id="title">Canta con Teresa!</p>
+                <h1>Ey! Voy de camino a comprar unos CDs navideños para ambientar la reunión familiar de esta noche...</h1>
+                <h1>He oído que en 'Barna Records' hay buenas promociones si consigues completar las letras de algunas canciones!</h1>
+                <h1>Estoy un poco viejita ya para esas cosas, ¿te importaría venir conmigo y ayudarme?</h1>
+                <div id="startGameOptions">
+                    <div id="startGameBt" onclick="enterStore()">
+                        <p>Ayudarla</p>
+                    </div>
+                    <div id="exitGameBt" onclick="exitGame()">
+                        <p>Ignorar anciana</p>
+                    </div>
+                </div>
             </div>
             <div id="song">
                 <div id="buttons">
                     <div id="play">
                         <p>Start Music</p>
-                        <img id="botonPlay" src="./media/img/play.png" height="50px" width="50px">
+                        <img id="botonPlay" src="/project1/webApp/game_alex/media/img/play.png" height="50px" width="50px">
                     </div>
 
                     <div id="input">
@@ -101,7 +124,20 @@
                 <div id="box2"></div>
                 <div id="box3"></div>
                 <div id="box4"></div>
-                <div id="box5"></div>
+                <div id="box5">
+                    <div id="bottomPanel">
+                        <div id="mainvolume">
+                            <p>Volume</p>
+                            <input type="range" id="main-volume-control">
+                        </div>
+                        <div id="pointsCounter" data-points=0 data-limit="<?= $limit ?>">
+                            <p>Points: <span id="pointsCount">0</span></p>
+                        </div>
+                        <div id="exit" onclick="exitGame()">
+                            <p>Exit</p>
+                        </div>
+                    </div>
+                </div>
                 <div id="box6"></div>
                 <div id="box7">
                     <div class="cd" draggable="true"></div>
@@ -128,10 +164,27 @@
                 </div>
                 <div id="box18"></div>
             </div>
+            <div id="endScreen">
+                <h1>¡Enhorabuena, has completado el juego con una puntuación de <span id="finalScore"></span> sobre <?= $limit ?> puntos posibles!</h1>
+                <h1>Escoge, ¿Quieres canjear tus puntos, volver a jugar o salir?</h1>
+                <h1>¡¡¡Recuerda que solo puedes canjear tus puntos una sola vez!!!</h1>
+                <div id="endButtons">
+                    <button id='replay' onclick="replayGame()">Volver a jugar</button>
+                    <button id='redeem' onclick="redeemPoints() <?php if ($game_info3['pointSave'] == 1) {
+                                                                    echo "disabled";
+                                                                } ?>">Canjear puntos</button>
+                    <button id='exitGame' onclick="exitGame()">Salir</button>
+
+                    <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
+                        <input type="number" style="display:none" id="finalPoints" name="finalPoints">
+                        <input type="number" style="display:none" id="gameId" name="gameId" value="3">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <audio id="audio" type="audio/mpeg"></audio>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js?v=1237"></script>
     <script src="/project1/js/navbar.js"></script>
 </body>
 

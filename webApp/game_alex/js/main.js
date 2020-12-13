@@ -96,6 +96,48 @@ var submit = document.createElement("input");
 submit.setAttribute("type", "submit");
 var voiceinput;
 var textinput;
+var pointLimit = document.getElementById("pointsCounter").dataset.limit;
+var onePointScore = pointLimit / 20;
+
+function enterStore() {
+  document.getElementsByClassName("grid-container")[0].style.display = "grid";
+}
+
+/* Points functions */
+function increasePoints(points) {
+  let score = +document.getElementById("pointsCounter").dataset.points;
+
+  if (score < pointLimit) {
+    score += points * onePointScore;
+  }
+  document.getElementById("pointsCounter").dataset.points = score;
+  displayUpdateScore();
+}
+
+function displayUpdateScore() {
+  let score = document.getElementById("pointsCounter").dataset.points;
+  if (score == pointLimit) {
+    document.getElementById("pointsCount").innerHTML = score + " (Point limit)";
+  } else {
+    document.getElementById("pointsCount").innerHTML = score;
+  }
+}
+
+/* End menu functions */
+function replayGame() {
+  location.reload();
+  return false;
+}
+
+function exitGame() {
+  window.location.href = "/Project1/php_views/games.php";
+}
+
+function redeemPoints() {
+  let points = document.getElementById("pointsCount").dataset.points;
+  document.querySelector("#finalPoints").value = points;
+  document.querySelector("#gameForm").submit();
+}
 
 /* LasxMas song function: */
 function playLastxmas() {
@@ -109,6 +151,9 @@ function playLastxmas() {
   function updatePoints() {
     showpoints.innerHTML = points.toString() + " / 4";
   }
+
+  buttons = document.querySelector("#song #buttons"); // Display song buttons
+  buttons.style.display = "flex";
 
   /* Creating the music player */
   var play = document.getElementById("play");
@@ -289,7 +334,7 @@ function playLastxmas() {
     right.appendChild(button);
     img = document.createElement("img");
     img.setAttribute("id", "start_img");
-    img.setAttribute("src", "../media/api/mic.gif");
+    img.setAttribute("src", "/Project1/webApp/game_alex/media/api/mic.gif");
     img.setAttribute("alt", "Start");
     button.appendChild(img);
 
@@ -375,6 +420,9 @@ function playAlliwantforxmas() {
   function updatePoints() {
     showpoints.innerHTML = points.toString() + " / 4";
   }
+
+  buttons = document.querySelector("#song #buttons"); // Display song buttons
+  buttons.style.display = "flex";
 
   /* Creating the music player */
   var play = document.getElementById("play");
@@ -558,7 +606,7 @@ function playAlliwantforxmas() {
     right.appendChild(button);
     img = document.createElement("img");
     img.setAttribute("id", "start_img");
-    img.setAttribute("src", "../media/api/mic.gif");
+    img.setAttribute("src", "/Project1/webApp/game_alex/media/api/mic.gif");
     img.setAttribute("alt", "Start");
     button.appendChild(img);
 
@@ -644,6 +692,9 @@ function playRudolph() {
   function updatePoints() {
     showpoints.innerHTML = points.toString() + " / 4";
   }
+
+  buttons = document.querySelector("#song #buttons"); // Display song buttons
+  buttons.style.display = "flex";
 
   /* Creating the music player */
   var play = document.getElementById("play");
@@ -824,7 +875,7 @@ function playRudolph() {
     right.appendChild(button);
     img = document.createElement("img");
     img.setAttribute("id", "start_img");
-    img.setAttribute("src", "../media/api/mic.gif");
+    img.setAttribute("src", "/Project1/webApp/game_alex/media/api/mic.gif");
     img.setAttribute("alt", "Start");
     button.appendChild(img);
 
@@ -910,6 +961,9 @@ function playFeliznavidad() {
   function updatePoints() {
     showpoints.innerHTML = points.toString() + " / 4";
   }
+
+  buttons = document.querySelector("#song #buttons"); // Display song buttons
+  buttons.style.display = "flex";
 
   /* Creating the music player */
   var play = document.getElementById("play");
@@ -1093,7 +1147,7 @@ function playFeliznavidad() {
     right.appendChild(button);
     img = document.createElement("img");
     img.setAttribute("id", "start_img");
-    img.setAttribute("src", "../media/api/mic.gif");
+    img.setAttribute("src", "/Project1/webApp/game_alex/media/api/mic.gif");
     img.setAttribute("alt", "Start");
     button.appendChild(img);
 
@@ -1180,6 +1234,9 @@ function playCampana() {
     showpoints.innerHTML = points.toString() + " / 4";
   }
 
+  buttons = document.querySelector("#song #buttons"); // Display song buttons
+  buttons.style.display = "flex";
+
   /* Creating the music player */
   var play = document.getElementById("play");
 
@@ -1238,7 +1295,7 @@ function playCampana() {
     { end: "32.5", start: "31.5", text: "Belén" },
     //{ end: "34", start: "32.8", text: "Campanas de Belén" },
     { end: "36.5", start: "34.5", text: "Que los ángeles tocan" },
-    //{ end: "38", start: "37", text: "Qué nueva me traéis" }
+    //{ end: "38", start: "37", text: "Qué nuevas me traéis" }
   ];
 
   /* Defining correct answers array */
@@ -1246,7 +1303,7 @@ function playCampana() {
     "Y sobre campana una",
     "Verás el Niño en la cuna",
     "Campanas de Belén",
-    "Qué nueva me traéis",
+    "Qué nuevas me traéis",
   ];
 
   createSubtitle();
@@ -1362,7 +1419,7 @@ function playCampana() {
     right.appendChild(button);
     img = document.createElement("img");
     img.setAttribute("id", "start_img");
-    img.setAttribute("src", "../media/api/mic.gif");
+    img.setAttribute("src", "/Project1/webApp/game_alex/media/api/mic.gif");
     img.setAttribute("alt", "Start");
     button.appendChild(img);
 
@@ -1438,6 +1495,9 @@ function playCampana() {
 
 /* Display song score and thank you */
 function songEndScreen(song, points) {
+  increasePoints(points);
+  buttons = document.querySelector("#song #buttons");
+  buttons.style.display = "none";
   songEnd = document.getElementById("songEnd");
   songEnd.style.display = "flex";
   songName = document.getElementById("songName");
@@ -1455,6 +1515,19 @@ function songEndScreen(song, points) {
   );
   document.querySelector("#voiceinfo p:first-child").style.visibility =
     "hidden";
+
+  let done = played.every((value) => {
+    return value == true;
+  });
+
+  // let done = played.some((value) => {
+  //   return value == true;
+  // });
+
+  if (done) {
+    displayEndScreen();
+  }
+
   // playbutton.style.backgroundColor = "#d7ebf7 !important";
   // playbutton.style.pointerEvents = "all !important";
   // playbutton.style.cursor = "pointer";
@@ -1468,6 +1541,13 @@ function backToStore() {
   document.getElementById("song").style.display = "none";
   document.getElementsByClassName("grid-container")[0].style.display = "grid";
   document.getElementById("songEnd").style.display = "none";
+}
+
+function displayEndScreen() {
+  document.getElementById("song").style.display = "none";
+  document.getElementById("endScreen").style.display = "inline-block";
+  let score = document.getElementById("pointsCounter").dataset.points;
+  document.getElementById("finalScore").innerHTML = score;
 }
 
 function checkAnswer(number, text) {
@@ -1518,17 +1598,17 @@ function voiceRegnition() {
     recognition.onstart = function () {
       recognizing = true;
       showInfo("info_speak_now");
-      start_img.src = "../media/api/mic-animate.gif";
+      start_img.src = "/Project1/webApp/game_alex/media/api/mic-animate.gif";
     };
 
     recognition.onerror = function (event) {
       if (event.error == "no-speech") {
-        start_img.src = "../media/api/mic.gif";
+        start_img.src = "/Project1/webApp/game_alex/media/api/mic.gif";
         showInfo("info_no_speech");
         ignore_onend = true;
       }
       if (event.error == "audio-capture") {
-        start_img.src = "../media/api/mic.gif";
+        start_img.src = "/Project1/webApp/game_alex/media/api/mic.gif";
         showInfo("info_no_microphone");
         ignore_onend = true;
       }
@@ -1547,7 +1627,7 @@ function voiceRegnition() {
       if (ignore_onend) {
         return;
       }
-      start_img.src = "../media/api/mic.gif";
+      start_img.src = "/Project1/webApp/game_alex/media/api/mic.gif";
       if (!final_transcript) {
         showInfo("info_start");
         return;
@@ -1603,7 +1683,7 @@ function voiceRegnition() {
     ignore_onend = false;
     final_span.innerHTML = "";
     interim_span.innerHTML = "";
-    start_img.src = "../media/api/mic-slash.gif";
+    start_img.src = "/Project1/webApp/game_alex/media/api/mic-slash.gif";
     showInfo("info_allow");
     start_timestamp = event.timeStamp;
   };
