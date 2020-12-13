@@ -48,7 +48,6 @@
                 <img src="img/instructions3.png" alt="">
                 <p>Puedes mover a Teresa con las flechas de dirección para acercarte y hablar con las
                     personas! Aprieta el símbolo que aparecerá al acercarte a ellas.</p>
-
                 <img src="img/plus.png" alt="">
                 <p>Por cada ingrediente correcto ganarás <span id="pointsForObject"><?php echo round($pointsLimit/8, 0, PHP_ROUND_HALF_DOWN) ?></span> puntos.</p>
                 <img src="img/minus.png" alt="">
@@ -80,6 +79,7 @@
                 <img onclick="closeText()" src="img/cross.png">
                 <div></div>
             </div>
+            <img id="music" src="img/moff.png" alt="">
             <img id="basket" src="img/basket.png" alt="">
             <img id="lady" src="img/ladyLeft.png" alt="">
         </div>
