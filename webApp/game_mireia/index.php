@@ -40,26 +40,68 @@
         <!-- Instructions -->
         <div id="instructions">
             <h2>Ayuda a Teresa a acabar la compra para la comida de Navidad</h2>
-            <div id="instructionsInfo">
+            <div class="container-fluid" id="instructionsInfo">
+                <div class="row">
+                    <div class="col-2">
                 <img src="img/instructions1.png" alt="">
-                <p>Aprieta al icono de lista cada vez que necesites consultar los ingredientes a comprar!</p>
+                </div>
+                <div class="col-10">
+                <p>Aprieta al icono de lista para consultar los ingredientes a comprar.</p>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-2">
                 <img src="img/instructions2.png" alt="">
-                <p>Arrastra los ingredientes correctos a la cesta de la compra!</p>
+                </div>
+                <div class="col-10">
+                <p>Arrastra los ingredientes correctos a la cesta de la compra.</p>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-2">
                 <img src="img/instructions3.png" alt="">
+                </div>
+                <div class="col-10">
                 <p>Puedes mover a Teresa con las flechas de dirección para acercarte y hablar con las
-                    personas! Aprieta el símbolo que aparecerá al acercarte a ellas.</p>
+                    personas! Aprieta el símbolo que aparecerá al acercarte a ellas. Tal vez te puedan ayudar.</p>
+                </div>
+                </div>
+                <div class="row special">
+                <div class="col-1">
                 <img src="img/plus.png" alt="">
+                </div>
+                <div class="col-5">
                 <p>Por cada ingrediente correcto ganarás <span id="pointsForObject"><?php echo round($pointsLimit/8, 0, PHP_ROUND_HALF_DOWN) ?></span> puntos.</p>
+                </div>
+                <div class="col-1">
                 <img src="img/minus.png" alt="">
+                </div>
+                <div class="col-5">
                 <p>Si te equivocas perderás <span id="pointsRest"><?php echo round(($pointsLimit/8)/2, 0, PHP_ROUND_HALF_DOWN)?></span> puntos.</p>
+                </div>
             </div>
-            <div class="play">
-                <h4>Máxima puntuación: <span><?php echo $pointsLimit ?></span></h4>
-                <div>
-                <h3>JUEGA</h3>
-                <img src="img/playGame.png" alt="">
+            <div class="row">
+            <div class="col-6 last-left mt-4">
+                <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+            <h4>Máxima puntuación: <span><?php echo $pointsLimit ?></span></h4>
+            </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                <div id="play">
+                <h3 class="pr-1">JUEGA</h3>
+                <img class="pl-1" src="img/playGame.png" alt="">
+                </div>
             </div>
             </div>
+            </div>
+            <div class="col-6 last-right mt-2">
+                <img src="img/instructionsImg1.png" alt="">
+                <img src="img/instructionsImg2.png" alt="">
+                <img src="img/instructionsImg3.png" alt="">
+                <img src="img/instructionsImg4.png" alt="">
+            </div>
+            </div>
+        </div>
         </div>
 
         <!-- Game -->

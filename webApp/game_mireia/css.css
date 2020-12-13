@@ -35,19 +35,50 @@ body{
 #instructions > h2{
     font-family: 'Oswald', sans-serif;
     color: #2e585a;
+    margin-bottom: 20px;
 }
 
-#instructionsInfo{
-    display: grid;
-    padding: 10px;
-    grid-template-columns: 25% 75%;
-    justify-content: space-around;
+#instructionsInfo {
+    text-align: left;
 }
 
-#instructionsInfo > img {
+#instructionsInfo img {
     width: 55px;
     padding: 2px;
+    border-radius: 10px;
 }
+
+.special{
+    background-color: #2e585a;
+    border-radius: 10px;
+    color: white;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/* .last-left{
+    margin: 5px 5px;
+} */
+
+.last-left h3{
+    font-weight: bolder;
+    color: #2e585a;
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+}
+
+.last-right img{
+    width: 100px !important;
+}
+
+.last-right{
+    padding-left: 0px;
+}
+
 
 .play{
     display: flex;
@@ -74,7 +105,21 @@ body{
 #interior{
     display:none;
   }
-  
+
+
+#play {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#play{
+    transition: 0.3s;
+}
+
+#play:hover{
+    transform: scale(1.2);
+}
 
 
 /* GAME */
