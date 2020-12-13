@@ -647,10 +647,20 @@ input:checked + .slider:before {
   background-repeat: no-repeat;
   background-position-x: -0.6px;
   font-size: 18px;
-  padding-top: 170px;
+  padding-top: 33px;
 }
 
 #title {
+  width: 94.5%;
+  margin-left: 2.15%;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #e0c7f0ec;
+  border: solid black 1px;
+  padding: 5px;
+  margin-bottom: 90px;
+  text-align: center;
+  border-radius: 2px;
 }
 
 #start h1 {

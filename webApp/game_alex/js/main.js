@@ -100,6 +100,7 @@ var pointLimit = document.getElementById("pointsCounter").dataset.limit;
 var onePointScore = pointLimit / 20;
 
 function enterStore() {
+  document.getElementById("start").style.display = "none";
   document.getElementsByClassName("grid-container")[0].style.display = "grid";
 }
 
