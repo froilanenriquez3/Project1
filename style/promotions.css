@@ -1,3 +1,10 @@
+body{
+  background-color:  #C9DBE3;
+}
+
+.card{
+  border: none;
+}
 
 .card-body .card-body {
   display: flex;
@@ -10,9 +17,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background-color: #C9DBE3;
 }
 
-.container > .card > .card-body {
+.container-fluid > .card > .card-body {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -26,4 +34,19 @@ body{
 
 #display_points{
   float: right;
+}
+
+.container-fluid{
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 0px;
+  padding-top: 4.5em;
+}
+
+.card-header{
+  font-family: 'Oswald', sans-serif;
+  color: #2e585a;
+  background-color: #FFB35C;
+  font-size: 20px;
+
 }
