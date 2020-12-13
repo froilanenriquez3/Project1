@@ -28,7 +28,7 @@
 
 #voiceinfo {
   height: 20px;
-  font-size: 13.5px;
+  font-size: 12.4px;
   text-align: center;
   color: black;
   visibility: hidden;
@@ -37,7 +37,7 @@
 #voiceinfo p:first-child {
   visibility: hidden;
   padding-left: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   margin-top: -5px;
   font-size: 14px;
   text-decoration: underline;
