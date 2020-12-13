@@ -87,7 +87,8 @@ body{
 }
 
 #interior > p {
-    position: absolute;
+    width: 15%;
+    top: 2px;
 }
 
 #gameBack{
@@ -315,4 +316,18 @@ font-family: 'Montserrat', sans-serif;
     border: black 1px solid;
     padding: 5px;
     border-radius: 4px;
+}
+
+/* Music icons */
+
+#music{
+    height: 40px;
+    background-color: rgb(233, 167, 92);
+    border: black 1px solid;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    z-index: 1;
 }

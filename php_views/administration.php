@@ -1,6 +1,10 @@
 <?php
 require_once '../php_libraries/bd.php';
 
+// echo $_SERVER['HTTP_REFERER'];
+// echo "<br>";
+// echo $_SESSION['url'];
+
 $all_users = selectAllFromTable('user');
 $all_promos = selectAllFromTable('promotion');
 $all_games = selectAllFromTable('game');
@@ -52,13 +56,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
                                         Mantenimiento de administradores
                                     </button>
                                 </h2>
                             </div>
                             
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#admin-accordion">
+                            <div id="collapseOne" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == 'admin')){
+                                            echo 'show';
+                                        }
+                                    ?> " aria-labelledby="headingOne" data-parent="#admin-accordion">
                                 <div class="card-body">
                                     <div class="row d-flex align-items-stretch ">
                                         <?php
@@ -114,13 +122,17 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo">
                                     Mantener usuarios
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#admin-accordion">
+                            <div id="collapseTwo" class="collapse   <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == '../php_controllers/user_controller.php'  || $_SESSION['url'] == '../php_controllers/user_search.php' )){
+                                            echo 'show';
+                                        }
+                                    ?> " aria-labelledby="headingTwo" data-parent="#admin-accordion">
                                 <div class="card-body">
 
                                     <!-- Search user by their username-->
@@ -328,24 +340,28 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"  aria-controls="collapseThree">
                                     Mantener promociones
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#admin-accordion">
+                            <div id="collapseThree" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && ($_SESSION['url'] == '../php_controllers/promo_controller.php' || $_SESSION['url'] == '../php_controllers/promo_search.php')){
+                                            echo 'show';
+                                        } 
+                                    ?>" aria-labelledby="headingThree" data-parent="#admin-accordion">
                                 <div class="card-body">
                                     <form action="../php_controllers/promo_search.php" method="POST">
-                                        <label for="promosearch">Search for promo by name</label>
+                                        <label for="promosearch">Buscar promoción por nombre</label>
                                         <div class="form-group row">
                                             <input type="text" name="promosearch" id="promosearch" class="col-4 form-control ml-2">
-                                            <button type="submit" class="btn ">Search</button>
+                                            <button type="submit" class="btn ">Buscar</button>
                                         </div>
                                     </form>
 
                                     <form action="../php_controllers/promo_search.php" method="POST">
-                                        <button type="submit" class="btn m-2" id="see_all_promos" name="see_all_promos">See All Promotions</button>
+                                        <button type="submit" class="btn m-2" id="see_all_promos" name="see_all_promos">Ver todas las promociones</button>
                                     </form>
 
                                     <?php 
@@ -360,36 +376,36 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                     <p><?= "Promo ID-" . $promo['idpromotion'] . ": " . $promo['name'] ?></p>
 
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modpromoname">Name</label>
+                                                        <label class="col-2" for="modpromoname">Nombre</label>
                                                         <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?= $promo['name'] ?>" maxlength="45">
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modpromodesc">Description</label>
+                                                        <label class="col-2" for="modpromodesc">Descripción</label>
                                                         <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?= $promo['promo_desc'] ?>" maxlength="45">
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modpromocost">Cost</label>
+                                                        <label class="col-2" for="modpromocost">Precio</label>
                                                         <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modstoreid">Store ID</label>
+                                                        <label class="col-2" for="modstoreid">ID</label>
                                                         <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
                                                     </div>
 
                                                     <div class="form-group row">
-                                                    <label class="col-2" for="image">Image</label>
+                                                    <label class="col-2" for="image">Imagen</label>
                                                         <div class="col-10 custom-file">
-                                                            <label class="custom-file-label" for="modImage">Select file</label>
+                                                            <label class="custom-file-label" for="modImage">Seleccionar archivo</label>
                                                             <input class="custom-file-input" type="file" id="modImage" name="modImage">
                                                         </div>
                                                     </div>
 
 
-                                                    <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+                                                    <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Guardar cambios</button>
 
                                                     <input type="number" value=<?= $promo['idpromotion'] ?> style="display:none" id="promoid" name="promoid">
-                                                    <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
+                                                    <button type="submit" name="deletepromo" id="deletepromo" class="btn">Eliminar promoción</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -406,7 +422,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                                         <?php
                                         if (empty($all_promos)) {
-                                            echo " <p cass='m-5'>There are no promotions.</p>";
+                                            echo " <p class='m-3'>There are no promotions.</p>";
                                         }
 
                                         if(isset($_SESSION['see_all_promos'])){
@@ -420,36 +436,36 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
 
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modpromoname">Name</label>
+                                                            <label class="col-2" for="modpromoname">Nombre</label>
                                                             <input class="col-10 form-control" type="text" id="modpromoname" name="promoname" value="<?= $promo['name'] ?>" maxlength="45">
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modpromodesc">Description</label>
+                                                            <label class="col-2" for="modpromodesc">Descripción</label>
                                                             <input class="col-10 form-control" type="text" id="modpromodesc" name="promodesc" value="<?= $promo['promo_desc'] ?>" maxlength="45">
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modpromocost">Cost</label>
+                                                            <label class="col-2" for="modpromocost">Precio</label>
                                                             <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modstoreid">Store ID</label>
+                                                            <label class="col-2" for="modstoreid">ID</label>
                                                             <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
                                                         </div>
 
                                                         <div class="form-group row">
-                                                        <label class="col-2" for="image">Image</label>
+                                                        <label class="col-2" for="image">Imagen</label>
                                                         <div class="col-10 custom-file">
-                                                            <label class="custom-file-label" for="modImage">Select file</label>
+                                                            <label class="custom-file-label" for="modImage">Seleccionar archivo</label>
                                                             <input class="custom-file-input" type="file" id="modImage" name="modImage">
                                                         </div>
                                                         </div>
 
 
-                                                        <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Save changes</button>
+                                                        <button type="submit" id="modifypromo" name="modifypromo" class="btn m-2">Guardar cambios</button>
 
                                                         <input type="number" value=<?= $promo['idpromotion'] ?> style="display:none" id="promoid" name="promoid">
-                                                        <button type="submit" name="deletepromo" id="deletepromo" class="btn">Delete promo</button>
+                                                        <button type="submit" name="deletepromo" id="deletepromo" class="btn">Eliminar promoción</button>
                                                     </div>
                                                 </form>
 
@@ -462,36 +478,36 @@ if ($_SESSION['user']['isAdmin'] == 0) {
 
                                     <div class="card col-12">
                                         <div class="card-body">
-                                            <h5>New promo</h5>
+                                            <h5>Nueva promoción</h5>
                                             <form enctype="multipart/form-data" action="../php_controllers/promo_controller.php" method="post">
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="promoname">Name</label>
+                                                    <label class="col-2" for="promoname">Nombre</label>
                                                     <input class="col-10 form-control" type="text" id="promoname" name="promoname" maxlength="45">
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="promodesc">Description</label>
+                                                    <label class="col-2" for="promodesc">Descripción</label>
                                                     <input class="col-10 form-control" type="text" id="promodesc" name="promodesc" maxlength="45">
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="promocost">Cost</label>
+                                                    <label class="col-2" for="promocost">Precio</label>
                                                     <input class="col-10 form-control" type="number" id="promocost" name="promocost" min="0">
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="storeid">Store ID</label>
+                                                    <label class="col-2" for="storeid">ID</label>
                                                     <input class="col-10 form-control" type="number" id="storeid" name="storeid" min="1">
                                                 </div>
 
 
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="image">Image</label>
+                                                    <label class="col-2" for="image">Imagen</label>
                                                         <div class="col-10 custom-file">
-                                                            <label class="custom-file-label" for="image">Select file</label>
+                                                            <label class="custom-file-label" for="image">Seleccionar archivo</label>
                                                             <input class="custom-file-input" type="file" id="image" name="image">
                                                         </div>
                                                     </div>
 
-                                                <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Add promo</button>
+                                                <button type="submit" id="addpromo" name="addpromo" class="btn m-2">Añadir promoción</button>
                                             </form>
                                         </div>
                                     </div>
@@ -503,27 +519,31 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                         <div class="card">
                             <div class="card-header" id="headingFour">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">
                                     Mantener puntos
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#admin-accordion">
+                            <div id="collapseFour" class="collapse  <?php 
+                                        if (isset($_SESSION['url']) && $_SESSION['url'] == '../php_controllers/game_controller.php'){
+                                            echo 'show';
+                                        } 
+                                    ?>" aria-labelledby="headingFour" data-parent="#admin-accordion">
                                 <div class="card-body">                
                                     <?php foreach ($all_games as $game) { ?>
                                         <div class="card">
                                             <div class="card-body">
-                                                <p><?= "Game ID-" . $game['idgame'] . ": " . $game['name'] ?></p>
+                                                <p><?= "Juego ID-" . $game['idgame'] . ": " . $game['name'] ?></p>
                                                 <form action="../php_controllers/game_controller.php" method="post">
 
                                                     <div class="form-group row">
 
-                                                        <label class="col-2" for="pointlimit">Maximum points</label>
+                                                        <label class="col-2" for="pointlimit">Puntos máximos</label>
                                                         <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0">
                                                         <input type="num" id="gameid" name="gameid" value="<?= $game['idgame'] ?>" style="display:none">
 
-                                                        <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Save</button>
+                                                        <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Guardar</button>
                                                     </div>
                                                 </form>
                                             </div>

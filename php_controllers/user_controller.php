@@ -24,6 +24,7 @@ if($remove_admin){
     modifyUser($_POST['adminid'], $admin['username'], $admin['password'], $admin['points'], 0, $admin['email']);
 
     header("Location: ../php_views/administration.php#adminssection");
+    $_SESSION['url'] = 'admin';
 
 }
 
@@ -33,12 +34,11 @@ if($add_admin){
     modifyUser($_POST['newadmin'], $admin['username'], $admin['password'], $admin['points'], 1, $admin['email']);
 
     header("Location: ../php_views/administration.php#adminssection");
-  
-   
-    
+    $_SESSION['url'] = 'admin';
 }
 
 if($modify_user){
+    $_SESSION['url'] = '../php_controllers/user_controller.php';
     $user = selectUserById($_POST['userid']);
 
     modifyUser($_POST['userid'], $_POST['username'], $_POST['password'], $_POST['points'], $user['isAdmin'], $_POST['email']);
@@ -50,6 +50,7 @@ if($modify_user){
 }
 
 if($delete_user){
+    $_SESSION['url'] = '../php_controllers/user_controller.php';
     $user = selectUserById($_POST['userid']);
 
     deleteUser($_POST['userid']);
@@ -60,6 +61,7 @@ if($delete_user){
 
 
 if($add_user){
+    $_SESSION['url'] = '../php_controllers/user_controller.php';
 
     /*Check that the passwords are the same. Then check if there was an error in inserting user. 
     Finally, check if the user is an administrator registering a user or a new customer signing up */
