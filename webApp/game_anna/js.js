@@ -14,7 +14,11 @@ let score = document.querySelector(".info > p");
 let seconds;
 let countdownTimer;
 let finalCoundown = false;
-document.addEventListener('keydown', control)
+
+//BOTONES PARA CONTROLAR A TERESA
+document.addEventListener('keydown', control);
+
+//BOTONES PARA LA PANTALLA FINAL
 document.getElementById('replay').addEventListener('click', startGame);
 document.getElementById('redeem').addEventListener('click', savePoints);
 
@@ -78,6 +82,8 @@ function startGame(){
   mySound = new sound("./img/sound.mp3")
 
   //set time
+  countdownTimer = setInterval(gameTimer, 1000);
+
   gameTimer();
 } 
 
@@ -130,7 +136,7 @@ function gameTimer(){
   }
 
 }
-countdownTimer = setInterval(gameTimer, 1000);
+// countdownTimer = setInterval(gameTimer, 1000);
 
 // Dibujar personaje
 function drawSquare(){
@@ -362,7 +368,11 @@ function savePoints(){
 
 //FUNCIÓN PARA ACABAR EL JUEGO
 function gameOver(){
-  window.clearInterval(countdownTimer);
   console.log('countdownTimer');
+  document.getElementById("gamePlay").style.display = "none";
+  let finishGame = document.getElementById('finishGame');
+  finishGame.style.display = "block";
+  document.getElementById('finalPoints').innerHTML = points + " puntos"
+
   
 }

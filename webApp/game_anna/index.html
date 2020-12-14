@@ -112,15 +112,28 @@
 
         <!-- AL ACABAR EL JUEGO -->
         <div id="finishGame">
-          <p>¡Genial! Has conseguido <span id="finalPoints"></span></p>
+          <p>¡Genial! Has conseguido <span id="finalPoints"></span>.</p>
           <p>¿Quieres canjear tus puntos o prefieres volver a jugar para conseguir más?</p>
-          <p>Recuerda que podrás canjear tus puntos una sola vez.</p>
-          <div id="replay">
-            <img src="./img/jugar.png" width="70px">
-          </div>  
+          <div class="container-fluid" id="gameOverInfo">
+            <div class="row">
+              <div class="col-1">
+                <img src="img/abuela-final.png" width= "100px" id="abuela-final" alt="">
+              </div>
+            
+              <div class="col-11">
+                <p>Recuerda que podrás canjear tus puntos una sola vez</p>
+              </div>
+            </div>  
+          <!-- <img src="img/abuela-final.png" id="abuela-final" width="80px">
+          <p class="remember">Recuerda que podrás canjear tus puntos una sola vez</p> -->
+          <div class="final-buttons">
+            <div id="replay">
+              <img src="./img/jugar.png" width="70px">
+            </div>  
 
-          <div id="redeem">
-            <img src="./img/canjear.png" width="100px">
+            <div id="redeem">
+              <img src="./img/canjear.png" width="100px">
+            </div>  
           </div>  
           <!-- </div> onclick="startGame()">Volver a jugar</button> -->
           <!-- <button class="redeem" onclick="savePoints()">Canjear</button> -->
