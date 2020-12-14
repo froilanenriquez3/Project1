@@ -280,7 +280,7 @@ function dragElement(elmnt, products) {
         elmnt.style.zIndex = 1;
         // set the element's new position:
         
-        if (elmnt.offsetTop - pos2 > 0 && elmnt.offsetLeft - pos1 > 0 && elmnt.offsetTop - pos2 + Number(elmnt.style.height) < 450 && elmnt.offsetLeft - pos1 + Number(elmnt.style.width) < 895) {
+        if (elmnt.offsetTop - pos2 > 0 && elmnt.offsetLeft - pos1 > 0 && elmnt.offsetTop - pos2 + elmnt.clientHeight < 450 && elmnt.offsetLeft - pos1 + elmnt.clientWidth < 895) {
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
         }
@@ -308,6 +308,7 @@ function checkBasket(elmnt, products) {
     let found = false;
     console.log(elmnt.naturalHeight);
     console.log(elmnt.clientHeight);
+    // -20 cause if it just desapears when collide it seems that is not still in the basket visually.
     if (elmnt.offsetTop + elmnt.naturalHeight -20 > basket.offsetTop && elmnt.offsetLeft + elmnt.naturalWidth - 20 > basket.offsetLeft) {
         listElemements = document.querySelectorAll("li");
         listElemements.forEach(element => {
@@ -470,7 +471,7 @@ function eraseProducts() {
     });
 }
 
-
+// Display the endgame and & stop music and time
 function endGame() {
     window.myMusic.stop();
     window.clearInterval(clock);

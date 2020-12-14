@@ -46,15 +46,15 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Monedas al vuelo</h5>
-              <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game1" id="game_mireia">
+              <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game1">
             </div>
           </div>
         </a>
       </div>
 
-      <div class="col-lg-6 pt-2 pb-2 <?php if ($game_info1['pointSave'] == 0) {
-                                        echo "locked";
-                                      } ?>" id="game_froilan">
+      <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-start <?php if ($game_info1['pointSave'] == 0) {
+                                                              echo "locked";
+                                                            } ?>">
         <a href="../webApp/game_froilan/index.php">
           <div class="card">
             <div class="card-body">
@@ -72,7 +72,7 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
 
       <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-end <?php if ($game_info2['pointSave'] == 0) {
                                                                   echo "locked";
-                                                                } ?>" id="game_alex">
+                                                                } ?>">
         <a href="../webApp/game_alex/index.php">
           <div class="card">
             <div class="card-body">
@@ -86,9 +86,9 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
       </div>
 
 
-      <div class="col-lg-6 pt-2 pb-2 <?php if ($game_info3['pointSave'] == 0) {
-                                        echo "locked";
-                                      } ?>" id="game_mireia">
+      <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-start <?php if ($game_info3['pointSave'] == 0) {
+                                                                    echo "locked";
+                                                                  } ?>">
         <a href="../webApp/game_mireia/index.php">
           <div class="card">
             <div class="card-body">
@@ -102,13 +102,15 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
       </div>
 
     </div>
-
-  </div>
-
-  <div id="stats">
-    <button class="btn btn-sm" id="statsButton" type="button">
-      <a href="./gamestats.php">Statistics</a>
-    </button>
+    <div class="row">
+      <div class="col-12 statsDiv">
+    <div id="stats">
+      <button class="btn btn-sm" id="statsButton" type="button">
+        <a href="./gamestats.php">Statistics</a>
+      </button>
+      </div>
+    </div>
+    </div>
   </div>
   <script src="../js/navbar.js"></script>
 </body>
