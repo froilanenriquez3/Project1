@@ -478,7 +478,7 @@ function endGame() {
     eraseProducts();
     afterGame = document.getElementById("afterGame");
     afterGame.style.display = "inline-block";
-    document.querySelector("#afterGame > h1").innerHTML = "Felicidades, Has conseguido " + points + " puntos!";
+    document.querySelector("#afterGame > h1").innerHTML = "Has conseguido " + points + " puntos!";
     document.getElementById("replay").addEventListener("click", startGame);
 }
 
