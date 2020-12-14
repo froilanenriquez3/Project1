@@ -92,7 +92,7 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                                     <form enctype="multipart/form-data" action="../php_controllers/promopage_controller.php" method="post">
                                         <input type="number" style="display:none" name="promoid" id="promoid" value="<?php echo $promo['idpromotion'] ?>">
                                         <input type="number" id="point_cost" name="point_cost" style="display:none" value ='<?= $promo['pointCost']?>'>
-                                        <input class="btn btn-block" type="submit" value="Canjear" name="submitpromo" id="submitpromo">
+                                        <input class="btn botonPromo" type="submit" value="Canjear" name="submitpromo" id="submitpromo">
                                     </form>
                                 </div>
                             </div>

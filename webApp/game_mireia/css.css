@@ -317,6 +317,30 @@ font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     height: 450px;
     width: 895px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#imageEnd{
+    position: absolute;
+    bottom: 0px;
+    height: 60%;
+    right: 40px;
+}
+
+#afterGame > h1{
+    font-family: 'Oswald', sans-serif;
+    color: #2e585a;
+    margin: 20px 0px;
+}
+
+#afterGame > h3{
+    padding-top: 20px;
+}
+
+.canjeo{
+    margin-top: 20px;
+    background-color: #2e585a;
+    color: white;
 }
 
 #replay{

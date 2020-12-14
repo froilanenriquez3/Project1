@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-function errorMessage($exception){
+function errorMessage($exception)
+{
     if (!empty($exception->errorInfo[1])) {
         switch ($exception->errorInfo[1]) {
             case 1062:
@@ -11,12 +12,12 @@ function errorMessage($exception){
                 $message = "Register with related elements";
                 break;
             default:
-                $message = $exception->errorInfo[1] . '-' . $exception->errorInfo[2]; 
+                $message = $exception->errorInfo[1] . '-' . $exception->errorInfo[2];
                 break;
         }
-    } else{
-        switch($exception->getCode()){
-            case 1044: 
+    } else {
+        switch ($exception->getCode()) {
+            case 1044:
                 $message = "Incorrect username or password";
                 break;
             case 1049:
@@ -32,24 +33,24 @@ function errorMessage($exception){
     }
 
     return $message;
-
 }
 
-function openDB(){
+function openDB()
+{
     $servername = "localhost";
     $username = "root";
     $password = "";
 
-    $connection = new PDO("mysql:host=$servername;dbname=restore", $username, $password); 
+    $connection = new PDO("mysql:host=$servername;dbname=restore", $username, $password);
 
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $connection->exec("set names utf8");
 
     return $connection;
-
 }
 
-function closeDB(){
+function closeDB()
+{
     return null;
 }
 
@@ -57,13 +58,14 @@ function closeDB(){
 // **SELECT FUNCTIONS**
 
 //Function to select all items from a given table
-function selectAllFromTable($table_name){
+function selectAllFromTable($table_name)
+{
 
     $connection = openDB();
 
-    $mySQLsentence = "SELECT * FROM ".$table_name;
+    $mySQLsentence = "SELECT * FROM " . $table_name;
 
-    $mySQLsentence = $connection ->prepare($mySQLsentence);
+    $mySQLsentence = $connection->prepare($mySQLsentence);
     $mySQLsentence->execute();
 
     $result = $mySQLsentence->fetchAll();
@@ -71,18 +73,18 @@ function selectAllFromTable($table_name){
     $connection = closeDB();
 
     return $result;
-
 }
 
 //Function to return a user given their user id number
-function selectUserById($user_id){
+function selectUserById($user_id)
+{
 
     $connection = openDB();
 
     $mySQLsentence = "SELECT * FROM user WHERE userid = :userid";
 
-    $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":userid",$user_id); 
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":userid", $user_id);
 
     $mySQLsentence->execute();
 
@@ -91,17 +93,17 @@ function selectUserById($user_id){
     $connection = closeDB();
 
     return $result;
-
 }
 
 //function to return a user given their username
-function selectUserByUsername($username){
+function selectUserByUsername($username)
+{
     $connection = openDB();
 
     $mySQLsentence = "SELECT * FROM user WHERE username = :username";
 
-    $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":username",$username); 
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":username", $username);
 
     $mySQLsentence->execute();
 
@@ -113,13 +115,14 @@ function selectUserByUsername($username){
 }
 
 //function to return a promo given the name
-function selectPromoByName($name){
+function selectPromoByName($name)
+{
     $connection = openDB();
 
     $mySQLsentence = "SELECT * FROM promotion WHERE name = :name";
 
-    $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":name",$name); 
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":name", $name);
 
     $mySQLsentence->execute();
 
@@ -136,7 +139,8 @@ function selectPromoByName($name){
 
 
 //function to return all the promos that a user has given their user id
-function selectUserPromos($user_id){
+function selectUserPromos($user_id)
+{
     $connection = openDB();
 
     $mySQLsentence = "select promotion.* from promotion 
@@ -144,8 +148,8 @@ function selectUserPromos($user_id){
     join user on user_has_promotion.user_userid = user.userid
     where user_userid = :userid";
 
-    $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":userid",$user_id); 
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":userid", $user_id);
 
     $mySQLsentence->execute();
 
@@ -157,14 +161,15 @@ function selectUserPromos($user_id){
 }
 
 //Function to return all the info of a user playing a game based on the id of the user
-function selectUserGameInfo($user_id, $game_id) {
+function selectUserGameInfo($user_id, $game_id)
+{
     $connection = openDB();
 
     $mySQLsentence = "SELECT * FROM user_plays_game WHERE users_userid = :userid AND games_idgame = :gameid";
 
-    $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":userid",$user_id); 
-    $mySQLsentence->bindParam(":gameid",$game_id); 
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":userid", $user_id);
+    $mySQLsentence->bindParam(":gameid", $game_id);
 
     $mySQLsentence->execute();
 
@@ -173,17 +178,17 @@ function selectUserGameInfo($user_id, $game_id) {
     $connection = closeDB();
 
     return $result;
-
 }
 
 //function that returns the highest score of all the users given a certain game id 
-function selectHighScores($game_id){
+function selectHighScores($game_id)
+{
     $connection = openDB();
 
-    $mySQLsentence = "SELCT user_plays_game.highScore FROM user_plays_game JOIN user ON userid = users_userid WHERE games_gameid = :gameid;";
+    $mySQLsentence = "SELECT MAX(user_plays_game.highScore), user_plays_game.users_userid, user.username FROM user_plays_game JOIN user ON userid = users_userid WHERE games_idgame = :idgame;";
 
-    $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":gameid",$game_id); 
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":idgame", $game_id);
 
 
     $mySQLsentence->execute();
@@ -193,61 +198,57 @@ function selectHighScores($game_id){
     $connection = closeDB();
 
     return $result;
-
-
 }
 
 //** INSERT FUNCTIONS **
 
 //function to add a new user, including entries for user_plays_game for all games
-function insertUser($username, $password, $points, $isAdmin, $email){
+function insertUser($username, $password, $points, $isAdmin, $email)
+{
 
     try {
-        $games = [1,2,3,4];
+        $games = [1, 2, 3, 4];
 
         $connection = openDB();
         $connection->beginTransaction();
 
         $mySQLsentence = "INSERT INTO user VALUE(null, :username, :usepassword, :points, :isAdmin, :email)";
 
-        $mySQLsentence= $connection ->prepare($mySQLsentence);
-        $mySQLsentence->bindParam(":username",$username);
-        $mySQLsentence->bindParam(":usepassword",$password);  
-        $mySQLsentence->bindParam(":points",$points); 
-        $mySQLsentence->bindParam(":isAdmin",$isAdmin); 
-        $mySQLsentence->bindParam(":email",$email); 
+        $mySQLsentence = $connection->prepare($mySQLsentence);
+        $mySQLsentence->bindParam(":username", $username);
+        $mySQLsentence->bindParam(":usepassword", $password);
+        $mySQLsentence->bindParam(":points", $points);
+        $mySQLsentence->bindParam(":isAdmin", $isAdmin);
+        $mySQLsentence->bindParam(":email", $email);
 
         $mySQLsentence->execute();
         $lastId = $connection->lastInsertId();
 
-    foreach ($games as $game){
+        foreach ($games as $game) {
 
-        $mySQLsentence2 = "INSERT INTO user_plays_game VALUES(:userid, :gameid, 0, 0)";
+            $mySQLsentence2 = "INSERT INTO user_plays_game VALUES(:userid, :gameid, 0, 0)";
 
-        $mySQLsentence2 = $connection ->prepare($mySQLsentence2);
+            $mySQLsentence2 = $connection->prepare($mySQLsentence2);
 
-        $mySQLsentence2->bindParam(":userid",$lastId);
-        $mySQLsentence2->bindParam(":gameid",$game);
-        $mySQLsentence2->execute();
-    }
-    
-    $connection->commit();
+            $mySQLsentence2->bindParam(":userid", $lastId);
+            $mySQLsentence2->bindParam(":gameid", $game);
+            $mySQLsentence2->execute();
+        }
 
-    $_SESSION['errorMessage'] = "New user registered succesfully";
-    
+        $connection->commit();
 
+        $_SESSION['errorMessage'] = "New user registered succesfully";
     } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
-       
+        $_SESSION['error'] = errorMessage($exception);
     }
 
 
     $connection = closeDB();
-
 }
 
 //function to insert a new store given the name and description
-function insertStore($name, $desc){
+function insertStore($name, $desc)
+{
 
     try {
         $connection = openDB();
@@ -255,7 +256,7 @@ function insertStore($name, $desc){
 
         $mySQLsentence = "INSERT INTO store VALUES(null, :storename, :storedesc)";
 
-        $mySQLsentence = $connection ->prepare($mySQLsentence);
+        $mySQLsentence = $connection->prepare($mySQLsentence);
 
         $mySQLsentence->bindParam(":storename", $name);
         $mySQLsentence->bindParam(":storedesc", $desc);
@@ -264,18 +265,18 @@ function insertStore($name, $desc){
 
         $connection->commit();
         $_SESSION['errorMessage'] = "New store added succesfully";
-
     } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
+        $_SESSION['error'] = errorMessage($exception);
     }
-    
+
     $connection = closeDB();
 }
 
 //function to insert a new promo, given name, description, the cost in points, and the id of the store it belongs to 
-function insertPromo($name, $desc, $point_cost, $store_id, $img_src){
+function insertPromo($name, $desc, $point_cost, $store_id, $img_src)
+{
 
-    $img_src = "/Project1/media/img/".$img_src;
+    $img_src = "/Project1/media/img/" . $img_src;
 
     try {
         $connection = openDB();
@@ -283,7 +284,7 @@ function insertPromo($name, $desc, $point_cost, $store_id, $img_src){
 
         $mySQLsentence = "INSERT INTO promotion VALUES(null, :promname, :promdesc, :pointcost, :storeid, :img_src)";
 
-        $mySQLsentence = $connection ->prepare($mySQLsentence);
+        $mySQLsentence = $connection->prepare($mySQLsentence);
 
         $mySQLsentence->bindParam(":promname", $name);
         $mySQLsentence->bindParam(":promdesc", $desc);
@@ -298,79 +299,81 @@ function insertPromo($name, $desc, $point_cost, $store_id, $img_src){
 
         $_SESSION['errorMessage'] = "New promotion added succesfully";
     } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
+        $_SESSION['error'] = errorMessage($exception);
     }
-    
+
     $connection = closeDB();
 }
 
-function insertUserHasPromo($user_id, $promos){
+function insertUserHasPromo($user_id, $promos)
+{
 
     try {
         $connection = openDB();
         $connection->beginTransaction();
-    
+
         $mySQLsentence2 = "DELETE FROM user_has_promotion WHERE user_userid =:userid;";
         $mySQLsentence2 = $connection->prepare($mySQLsentence2);
         $mySQLsentence2->bindParam(':userid', $user_id);
-        $mySQLsentence2->execute(); 
-    
-        foreach($promos as $promo){
+        $mySQLsentence2->execute();
+
+        foreach ($promos as $promo) {
             $mySQLsentence = "INSERT INTO user_has_promotion VALUES(:userid, :promoid)";
-    
+
             $mySQLsentence = $connection->prepare($mySQLsentence);
-    
+
             $mySQLsentence->bindParam(":userid", $user_id);
             $mySQLsentence->bindParam(":promoid", $promo);
-    
+
             $mySQLsentence->execute();
         }
-    
+
         $connection->commit();
 
         $_SESSION['errorMessage'] = "New promotion added to user succesfully";
     } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
+        $_SESSION['error'] = errorMessage($exception);
     }
 
     $connection = closeDB();
-
 }
 
-function insertUserPlaysGame($user_id, $game_id){
+function insertUserPlaysGame($user_id, $game_id)
+{
 
     try {
         $connection = openDB();
         $connection->beginTransaction();
-    
+
         $mySQLsentence = "INSERT INTO user_plays_game values(:userid, :gameid, 0, 0)";
         $mySQLsentence = $connection->prepare($mySQLsentence);
         $mySQLsentence->bindParam(":userid", $user_id);
         $mySQLsentence->bindParam(":gameid", $game_id);
-    
+
         $mySQLsentence->execute();
-    
+
         $connection->commit();
 
         $_SESSION['errorMessage'] = "New user game session added succesfully";
     } catch (PDOException $exception) {
-        $_SESSION['error'] = errorMessage($exception); 
+        $_SESSION['error'] = errorMessage($exception);
     }
 
-    
-    $connection = closeDB();
 
+    $connection = closeDB();
 }
 
 
 // **UPDATE FUNCTIONS **
 
-function modifyPointSave($user_id, $game_id){
+function modifyPointSave($user_id, $game_id, $high_score)
+{
     $connection = openDB();
     $connection->beginTransaction();
 
-    $mySQLsentence = "UPDATE user_plays_game SET pointSave=1 WHERE users_userid = :userid AND games_idgame = :gameid";
+    $mySQLsentence = "UPDATE user_plays_game SET pointSave=1, highScore =:highScore WHERE users_userid = :userid AND games_idgame = :gameid";
     $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":highScore", $high_score);
     $mySQLsentence->bindParam(":userid", $user_id);
     $mySQLsentence->bindParam(":gameid", $game_id);
 
@@ -378,10 +381,10 @@ function modifyPointSave($user_id, $game_id){
 
     $connection->commit();
     $connection = closeDB();
-
 }
 
-function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
+function modifyUser($user_id, $username, $password, $points, $isAdmin, $email)
+{
     $connection = openDB();
     $connection->beginTransaction();
 
@@ -399,11 +402,11 @@ function modifyUser($user_id, $username, $password, $points, $isAdmin, $email){
 
     $connection->commit();
     $connection = closeDB();
-
 }
 
-function modifyPromo($promo_name, $promo_desc, $point_cost, $store_id, $promo_id, $img_src){
-    $img_src = "/Project1/media/img/".$img_src;
+function modifyPromo($promo_name, $promo_desc, $point_cost, $store_id, $promo_id, $img_src)
+{
+    $img_src = "/Project1/media/img/" . $img_src;
 
     $connection = openDB();
     $connection->beginTransaction();
@@ -424,7 +427,8 @@ function modifyPromo($promo_name, $promo_desc, $point_cost, $store_id, $promo_id
     $connection = closeDB();
 }
 
-function modifyGamePointLimit($game_limit, $game_id){
+function modifyGamePointLimit($game_limit, $game_id)
+{
     $connection = openDB();
     $connection->beginTransaction();
 
@@ -438,15 +442,15 @@ function modifyGamePointLimit($game_limit, $game_id){
 
     $connection->commit();
     $connection = closeDB();
-
 }
 
 
 // ** DELETE FUNCTIONS**
 
-function deleteUser($user_id){
+function deleteUser($user_id)
+{
     $connection = openDb();
-    
+
     $mySQLsentence = "DELETE FROM user WHERE userid=:userid";
 
     $mySQLsentence = $connection->prepare($mySQLsentence);
@@ -459,12 +463,12 @@ function deleteUser($user_id){
 
 
     $connection = closeDb();
-
 }
 
-function deletePromo($promo_id){
+function deletePromo($promo_id)
+{
     $connection = openDb();
-    
+
     $mySQLsentence = "DELETE FROM promotion WHERE idpromotion=:id_promotion";
 
     $mySQLsentence = $connection->prepare($mySQLsentence);
