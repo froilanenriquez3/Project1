@@ -96,16 +96,21 @@ main article div {
 }
 
 #games_container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  font-weight: bold;
 }
 
 #games_container div {
+  border: solid black 1px;
+  background-color: white;
   display: block;
   padding: 20px;
 }

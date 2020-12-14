@@ -88,11 +88,16 @@ main{
 
 
 #games_container{
+  box-sizing: border-box;
   width: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  font-weight: bold;
+
   div{
+    border: solid black 1px;
+    background-color: white;
     display: block;
     padding: 20px;
   }
