@@ -112,7 +112,7 @@ function increasePoints() {
   let score = +document.querySelector('#counter').dataset.points;
 
   if (score < pointLimit) {
-    score += 100;
+    score += pointLimit/10;
 
   }
   document.querySelector('#counter').dataset.points = score;
