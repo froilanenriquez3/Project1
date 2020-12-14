@@ -55,7 +55,7 @@
   <a href="../webApp/game_froilan/index.php">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Juego2</h5>
+        <h5 class="card-title">Probador Fantástico</h5>
         <div class="lockImg">
       <img src="../media/img/game2screenshot.png" class="card-img-bottom" alt="game2">
       </div>
@@ -68,7 +68,7 @@
 <div class="row">
 
     <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-end <?php if($game_info2['pointSave'] == 0){ echo "locked";}?>" id="game_alex">
-    <a href="../webApp/game_alex/index.html">
+    <a href="../webApp/game_alex/index.php">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Canta con Teresa</h5>

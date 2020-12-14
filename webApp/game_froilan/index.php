@@ -45,7 +45,7 @@
     <div id="game">
         <div class="startscreen">
             <div class="text">
-                <h1 id="screenHeader" >Welcome to Froilan's Fantastic Fitting Room!</h1>
+                <h1 id="screenHeader" >Welcome to the Fantastic Fitting Room!</h1>
                 <br>
                 <h4>Help me buy clothes for my grandson, Marco. I'll just warn you right now... he's kind of picky.</h4>
                 
