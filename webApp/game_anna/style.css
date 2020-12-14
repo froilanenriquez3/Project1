@@ -15,17 +15,42 @@ body{
     background-color: #ffb35c;
     z-index: 50;
     position: relative;
-    /* height: 450px;
-    width: 895px; */
+    height: 450px;
+    width: 895px;
     text-align: center;
     padding: 5px;
     box-sizing: border-box;
+}
+
+h3{
+    font-family: 'Oswald', sans-serif;
+    color: #2e585a;
+    padding: 30px;
+}
+
+#instructions img{
+    margin-left: 50px;
+}
+
+#instructions p{
+    margin-left: 30px;
+    padding-right: 80px;
+    text-align: left
+}
+
+.play{
+    margin-top: 50px;
+    margin-right: 55px;
 }
 
 .play > img{
     background-color: #2e585a;
     padding: 15px;
     border-radius: 7px;
+}
+
+.play img:hover{
+    transform:scale(1.25);
 }
 
 #gamePlay {
@@ -41,7 +66,7 @@ body{
 
 
 #background{
-    background-image: url("img/background2.png");
+    background-image: url("img/fondito.png");
     width: 100%;
     height: 100%;
     position: absolute;
@@ -56,6 +81,7 @@ body{
     width: 60px;
     position: absolute;
     bottom: 0px;
+    z-index: 100;
 }
 
 #cloud{

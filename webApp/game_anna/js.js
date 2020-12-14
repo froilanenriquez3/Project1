@@ -38,7 +38,7 @@ let character = {
 
 let box = {
   x: 270, 
-  y: 370,
+  y: 270,
   width: 120, 
   height: 50
 }
@@ -161,6 +161,25 @@ function stopCoin(){
     
   }
 
+  // cloudCollision();
+
+  function cloudCollision(){
+  
+    let colision = false;
+
+    if((character.x + velocidad <= box.x + box.width && character.x + character.width - velocidad >= box.x)
+    && (character.y + character.height >= box.y + (box.height/2) && character.y <= box.y + box.height)){
+        //document.getElementById('cloud').style.backgroundColor = "red";
+        colision = true;
+        isJumping = false;
+    }
+    else{
+      //document.getElementById('cloud').style.backgroundColor = "pink";
+    }
+
+    return colision;
+  }
+
 
   //FUNCIÓN PARA PONER SONIDO A LA MONEDA
   function sound(src){
@@ -249,22 +268,31 @@ function stopCoin(){
       //Si ya está saltando, no podrá volver a saltar y no ascenderá 30px del suelo
       isJumping = true;
       //Cada vez que pulsamos la tecla sube 30px del suelo
-      character.y -= 150;
+      character.y -= 50;
       square.style.top = character.y + 'px';
       coinCollision();
+      cloudCollision();
 
-    }, 20);
+    }, 30);
     
   }
 
 
 //FUNCIÓN PARA CAER
 function fall(){
-  character.y += up;
-  square.style.top = character.y + 'px';
+  if (cloudCollision() == false){
+    character.y += up;
+    square.style.top = character.y + 'px';
+    
+  }
+
+
   coinCollision();
+  //cloudCollision();
   
 }
+
+
 //FUNCIÓN PARA LOS CONTROLES
 function control(e) {    
   if (e.keyCode == 32) {
@@ -279,13 +307,13 @@ function control(e) {
     if (square.getAttribute("src") == "img/abuela-right-mario.png"){
       square.setAttribute("src", "img/abuela-left-mario.png");
     }
-    if (character.x - velocidad >= box.x + box.width || character.x <= box.x ||
-      box.y + box.height <= character.y || box.y >= character.y + character.height){
+    // if (character.x - velocidad >= box.x + box.width || character.x <= box.x ||
+    //   box.y + box.height <= character.y || box.y >= character.y + character.height){
         
       character.x -= velocidad;
       square.style.left = character.x + 'px';
       left = true;
-    }
+    // }
   } 
   //RIGHT
   if(e.keyCode == 39 && character.x < 830){
@@ -293,15 +321,16 @@ function control(e) {
     if (square.getAttribute("src") == "img/abuela-left-mario.png"){
       square.setAttribute("src", "img/abuela-right-mario.png");
     }
-    if (character.x + character.width + velocidad <= box.x || character.x + character.width > box.x ||
-      box.y + box.height <= character.y || box.y >= character.y + character.height){
+    // if (character.x + character.width + velocidad <= box.x || character.x + character.width > box.x ||
+    //   box.y + box.height <= character.y || box.y >= character.y + character.height){
       character.x += velocidad;
       square.style.left = character.x + 'px';
       right = true;
-    }
-    console.log(character.x + character.width);
+    // }
+    // console.log(character.x + character.width);
   }
   coinCollision();
+  cloudCollision();
 }
 
 //GUARDAR PUNTOS
