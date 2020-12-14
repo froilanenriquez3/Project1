@@ -1,6 +1,9 @@
 <?php 
     require_once '../php_libraries/bd.php';
-
+    $high1 = selectHighScores(1);
+    $high2 = selectHighScores(2);
+    $high3 = selectHighScores(3);
+    $high4 = selectHighScores(4);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +25,24 @@
         <div class="card">
             <div class="card-header">Statistics</div>
             <div class="card-body">
+
+                <div class="row">
+                    <div class="col">
+                        <p>Game number 1</p>
+                        <?php echo $high1[0][1]."-".$high1[0][0] ?>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <?php echo $high2[0][1]."-".$high2[0][0] ?>
+                </div>
+                <div class="row">
+                    <?php echo $high3[0][1]."-".$high3[0][0] ?>
+                </div>
+                <div class="row">
+                    <?php echo $high4[0][1]."-".$high4[0][0] ?>
+                </div>
+                
                 
             </div>
         </div>
