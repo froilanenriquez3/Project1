@@ -14,8 +14,9 @@ let score = document.querySelector(".info > p");
 let seconds;
 let countdownTimer;
 let finalCoundown = false;
-document.addEventListener('keydown', control);
-
+document.addEventListener('keydown', control)
+document.getElementById('replay').addEventListener('click', startGame);
+document.getElementById('redeem').addEventListener('click', savePoints);
 
 // Variable global
 timeCoin = setInterval(moveCoin, 5000);
@@ -50,8 +51,11 @@ let coin = {
   height: 40
 }
 
-// startGame();
+
+
+
 document.querySelector(".play > img").addEventListener('click', startGame);
+
 
 function startGame(){
   console.log('startgame');
@@ -76,6 +80,25 @@ function startGame(){
   //set time
   gameTimer();
 } 
+
+
+//MOVIMIENTO LUCES
+let image_tracker = 'white';
+let timer = setInterval('change();', 1000);
+
+function change(){
+  let image = document.getElementById('data');
+  if (image_tracker == 'white'){
+    image.src = 'img/byellow2.png';
+    image_tracker = 'yellow';
+  }
+
+  else{
+    image.src = 'img/bwhite.png';
+    image_tracker = 'white';
+  }
+}
+
 
 
 //FUNCIONES PARA EL TIEMPO DEL JUEGO
@@ -164,14 +187,14 @@ function stopCoin(){
   // cloudCollision();
 
   function cloudCollision(){
-  
     let colision = false;
-
+    //en el eje de la y tenemos que controlar que siempre lo mida todo desde los pies porque sino al bajar de la nube, se queda volando
     if((character.x + velocidad <= box.x + box.width && character.x + character.width - velocidad >= box.x)
-    && (character.y + character.height >= box.y + (box.height/2) && character.y <= box.y + box.height)){
+    && (character.y + character.height >= box.y + (box.height/2) && character.y + character.height <= box.y + box.height)){
         //document.getElementById('cloud').style.backgroundColor = "red";
-        colision = true;
-        isJumping = false;
+      colision = true;
+      isJumping = false;
+      character.y < 150;
     }
     else{
       //document.getElementById('cloud').style.backgroundColor = "pink";
@@ -271,7 +294,7 @@ function stopCoin(){
       character.y -= 50;
       square.style.top = character.y + 'px';
       coinCollision();
-      cloudCollision();
+      // cloudCollision();
 
     }, 30);
     
@@ -285,11 +308,7 @@ function fall(){
     square.style.top = character.y + 'px';
     
   }
-
-
-  coinCollision();
-  //cloudCollision();
-  
+  coinCollision();  
 }
 
 
@@ -330,7 +349,7 @@ function control(e) {
     // console.log(character.x + character.width);
   }
   coinCollision();
-  cloudCollision();
+  // cloudCollision();
 }
 
 //GUARDAR PUNTOS

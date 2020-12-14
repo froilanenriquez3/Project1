@@ -9,7 +9,7 @@ let cat={
     login: "Iniciar Sessió",
     logout: "Tancar Sessió",
     register: "Registre",
-    welcome: "Benvingut",
+    welcome: "Benvingudi",
 
     navRestore:"Recomerçem",
     navGame:"Jocs",
