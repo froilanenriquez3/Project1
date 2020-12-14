@@ -180,10 +180,10 @@ function selectUserGameInfo($user_id, $game_id) {
 function selectHighScores($game_id){
     $connection = openDB();
 
-    $mySQLsentence = "SELCT user_plays_game.highScore FROM user_plays_game JOIN user ON userid = users_userid WHERE games_gameid = :gameid;";
+    $mySQLsentence = "SELECT MAX(user_plays_game.highScore), user.username FROM user_plays_game JOIN user ON userid = users_userid WHERE games_idgame = :idgame;";
 
     $mySQLsentence= $connection ->prepare($mySQLsentence);
-    $mySQLsentence->bindParam(":gameid",$game_id); 
+    $mySQLsentence->bindParam(":idgame",$game_id); 
 
 
     $mySQLsentence->execute();
