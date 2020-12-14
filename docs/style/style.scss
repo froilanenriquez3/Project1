@@ -6,11 +6,17 @@ body{
   margin:0px;
 }
 
-ul{
+h2{
+  font-weight: bolder;
 
+}
+
+ul{
   list-style: none;
+
   li{
-    margin: 10px;
+
+    margin: 40px;
 
     a{
       text-decoration: none;
@@ -41,18 +47,33 @@ header{
 
 .content{
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 aside{
+  display: inline-block;
+  text-align: center;
   border:solid black 1px;
   border-right: none;
-  background-color: #2E585A;
+
+  div{
+    background-color: #2E585A;
+    position: sticky;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    padding-top: 20px;
+    ul{
+      text-align: left;
+      margin-right: 20px;
+    }
+   h2{
+     color: white;
+     font-weight: bolder;
   
- h2{
-   color: white;
-   margin: 20px;
- }
+   }
+  }
+ 
 
   
 }
