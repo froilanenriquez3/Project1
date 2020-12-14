@@ -1,69 +1,93 @@
-body{
-    /* background-color: #D6E4EA; */
-    background-color: #C9DBE3;
-    font-family: 'Montserrat', sans-serif;
-    /* C8CCF9 */
+body {
+  background-color: #c9dbe3;
+  font-family: "Montserrat", sans-serif;
 }
 
-.container-fluid{
-    width: 100%;
-    padding-left: 100px;
-    padding-right: 0px;
-    box-sizing: border-box;
-    padding-top: 4.5em;
-    height: 100%;
-    text-align: center;
+.container-fluid {
+  width: 100%;
+  min-width: 100%;
+  margin: 0px;
+  padding-left: 100px;
+  padding-right: 0px;
+  box-sizing: border-box;
+  padding-top: 4.5em;
+  height: 100%;
+  text-align: center;
+  
 }
 
-
-.card{
-    width: 20em;
-    background-color: #ffb35c;
-    position: relative;
-    z-index: -1;
-    box-sizing: border-box;
+.card {
+  width: 20em;
+  background-color: #ffb35c;
+  position: relative;
+  z-index: -1;
+  box-sizing: border-box;
 }
 
-.card-body{
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+.card-body {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
 }
 
-.container-fluid a{
-    text-decoration: none;
-    color: #2e585a;
+.container-fluid a {
+  text-decoration: none;
+  color: #2e585a;
 }
 
 .container-fluid a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.card-title{
-    font-family: 'Oswald', sans-serif;
+.card-title {
+  font-family: "Oswald", sans-serif;
 }
 
-.dropdown{
-    display: none;
+.dropdown {
+  display: none;
 }
 
 /*Subject to change: Styles to be applied to games that are locked*/
 
-.locked a{
-    pointer-events: none;
+.locked a {
+  pointer-events: none;
 }
 
-
-.locked img{
-    opacity: 0.2;
+.locked img {
+  opacity: 0.2;
 }
 
-.locked .lockImg{
-    background-image: url(../media/img/locked.png);
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    z-index: 1;
-    position: relative;
+.locked .lockImg {
+  background-image: url(../media/img/locked.png);
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  position: relative;
+}
+
+/* #stats {
+  position: fixed;
+  margin-bottom: 5px;
+  margin-right: 5px;
+} */
+
+#statsButton {
+  background-color: #ffb35c;
+  margin: 0.5em;
+  border: black 1px solid;
+  font-weight: bolder;
+  font-family: "Montserrat", sans-serif;
+  margin-right: 10%;
+}
+
+.statsDiv{
+  text-align: right;
+}
+
+#statsButton a {
+  width: 100%;
+  height: 100%;
+  color: black;
 }

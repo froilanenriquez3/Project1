@@ -26,7 +26,7 @@ function startGame() {
   document.querySelector('.endscreen').style.display = "none";
   document.querySelector('.mainscreen').style.display = "block";
 
-  window.myMusic = new sound("img/gamemusic.mp3");
+  window.myMusic = new sound("img/gamemusic3.mp3");
   window.myMusic.play();
 
 }
@@ -89,7 +89,7 @@ function increaseTries(callback1) {
 
   if (callback1()) {
     attempts++;
-    console.log(attempts);
+    //console.log(attempts);
     checkCombo();
   }
 
@@ -112,7 +112,7 @@ function increasePoints() {
   let score = +document.querySelector('#counter').dataset.points;
 
   if (score < pointLimit) {
-    score += 100;
+    score += pointLimit/10;
 
   }
   document.querySelector('#counter').dataset.points = score;
@@ -384,7 +384,7 @@ function newCombo(callback1, callback2, callback3) {
     default:
       break;
   }
-  console.log(window.hat + " " + window.shirt + " " + window.pants + " " + window.shoes); //DELETE ME
+  //console.log(window.hat + " " + window.shirt + " " + window.pants + " " + window.shoes); //DELETE ME
 
   callback1();
   callback2();
