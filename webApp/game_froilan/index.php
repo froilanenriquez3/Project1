@@ -299,7 +299,7 @@
 
 
     </div>
-    <script src="/project1/js/navbar.js"></script>
+    
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
     <script src="scripts/submit.js"></script>
