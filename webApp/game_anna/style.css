@@ -11,7 +11,7 @@ body{
     z-index: -1;
 }
 
-#instructions{
+#instructions, #finishGame{
     background-color: #ffb35c;
     z-index: 50;
     position: relative;
@@ -117,7 +117,31 @@ h3{
     font-weight: bold;
 }
 
-.finishGame{
+#finishGame{
     display: none;
+    padding-top: 50px;
 }
 
+#finishGame > p:first-child{
+    font-weight: bold;
+}
+
+#abuela-final{
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+#gameOverInfo p{
+    margin-top: 50px;
+    margin-right: 350px;
+    padding: 10px;
+    margin-left: 200px;
+    text-align: left;
+    border: 2px solid #2e585a;
+    border-radius: 10px;
+}
+
+.final-buttons{
+    display: flex;
+    flex-direction: row;
+}
