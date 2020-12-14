@@ -365,12 +365,13 @@ function insertUserPlaysGame($user_id, $game_id){
 
 // **UPDATE FUNCTIONS **
 
-function modifyPointSave($user_id, $game_id){
+function modifyPointSave($user_id, $game_id, $high_score){
     $connection = openDB();
     $connection->beginTransaction();
 
-    $mySQLsentence = "UPDATE user_plays_game SET pointSave=1 WHERE users_userid = :userid AND games_idgame = :gameid";
+    $mySQLsentence = "UPDATE user_plays_game SET pointSave=1, highScore =:highScore WHERE users_userid = :userid AND games_idgame = :gameid";
     $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":highScore", $high_score);
     $mySQLsentence->bindParam(":userid", $user_id);
     $mySQLsentence->bindParam(":gameid", $game_id);
 
