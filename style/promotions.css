@@ -11,6 +11,8 @@ body{
   flex-direction: column;
   align-content: center;
   text-align: center;
+  background-color: white;
+  border-radius: 4px;
 }
 
 .card-body{
@@ -48,6 +50,7 @@ body{
   color: #2e585a;
   background-color: #FFB35C;
   font-size: 20px;
+  height: 55px;
 
 }
 
