@@ -62,7 +62,7 @@
                 <img src="img/instructions3.png" alt="">
                 </div>
                 <div class="col-10">
-                <p>Puedes mover a Teresa con las flechas de dirección para acercarte y hablar con las
+                <p>Puedes mover a Teresa con las flechas de dirección para acercarte y ¡hablar con las
                     personas! Aprieta el símbolo que aparecerá al acercarte a ellas. Tal vez te puedan ayudar.</p>
                 </div>
                 </div>
@@ -129,7 +129,7 @@
         <!-- After Game -->
         <div id="afterGame">
             <h1></h1>
-            <h3>Quieres canjear tus puntos?</h3>
+            <h3>¿Quieres canjear tus puntos?</h3>
             <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
             <input hidden id="gameId" name="gameId" value="4" type="number">
             <input hidden id="finalPoints" name="finalPoints" value="" type="number">

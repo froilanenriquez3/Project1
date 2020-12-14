@@ -96,6 +96,10 @@
         <!-- JUEGO -->
         <div id="gamePlay">
           <div id="background">
+            <div id="image-data">
+              <img src="img/bwhite.png" alt="fondo" id="data">
+            </div>  
+
             <img id="character" src="img/abuela-right-mario.png" alt="">
             <img id="cloud" src="img/nube.png" alt="">
             <img id="coin" src="img/coin.png" alt="">
@@ -108,9 +112,18 @@
 
         <!-- AL ACABAR EL JUEGO -->
         <div id="finishGame">
+          <p>¡Genial! Has conseguido <span id="finalPoints"></span></p>
           <p>¿Quieres canjear tus puntos o prefieres volver a jugar para conseguir más?</p>
-          <button class="play" onclick="startGame()">¡Volver a jugar!</button>
-          <button class="redeem" onclick="savePoints()">¡Canjear puntos!</button>
+          <p>Recuerda que podrás canjear tus puntos una sola vez.</p>
+          <div id="replay">
+            <img src="./img/jugar.png" width="70px">
+          </div>  
+
+          <div id="redeem">
+            <img src="./img/canjear.png" width="100px">
+          </div>  
+          <!-- </div> onclick="startGame()">Volver a jugar</button> -->
+          <!-- <button class="redeem" onclick="savePoints()">Canjear</button> -->
 
           <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
             <input type="number" style="display:none" id="finalPoints" name="finalPoints">

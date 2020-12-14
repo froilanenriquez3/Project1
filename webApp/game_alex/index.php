@@ -39,9 +39,9 @@ $limit = $games['2']['pointLimit'];
     <div class="gameContainer">
         <div id="game">
             <div id="start">
-                <p id="title">Canta con Teresa!</p>
-                <h1>Ey! Voy de camino a comprar unos CDs navideños para ambientar la reunión familiar de esta noche...</h1>
-                <h1>He oído que en 'Barna Records' hay buenas promociones si consigues completar las letras de algunas canciones!</h1>
+                <p id="title">¡Canta con Teresa!</p>
+                <h1>¡Ey! Voy de camino a comprar unos CDs navideños para ambientar la reunión familiar de esta noche...</h1>
+                <h1>¡He oído que en 'Barna Records' hay buenas promociones si consigues completar las letras de algunas canciones!</h1>
                 <h1>Estoy un poco viejita ya para esas cosas, ¿te importaría venir conmigo y ayudarme?</h1>
                 <div id="startGameOptions">
                     <div id="startGameBt" onclick="enterStore()">
