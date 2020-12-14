@@ -73,7 +73,7 @@
     <div class="card-body">
       <h5 class="card-title">Canta con Teresa</h5>
       <div class="lockImg">
-    <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game3">
+    <img src="../media/img/game3screenshot.png" class="card-img-bottom" alt="game3">
     </div>
     </div>
   </div> 
