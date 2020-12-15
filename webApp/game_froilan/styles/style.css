@@ -76,11 +76,16 @@ button {
 .text h1 {
   position: relative;
   font-size: 32px;
-  margin: 10px;
+  text-align: center;
+}
+
+.text h4 {
+  text-align: center;
 }
 
 .text p {
   padding-top: 10px;
+  text-align: justify;
 }
 
 .startbutton {
