@@ -14,8 +14,8 @@
     header("Location: ../php_views/games.php");
     exit();
 
-   /*  $id = $_SESSION['user']['userid']; 
-    $_SESSION['user'] = selectUserById($id);
-    echo $_SESSION['user']['points']."<br>";
-    echo $user_game['pointSave']; */
+    // $id = $_SESSION['user']['userid']; 
+    // $_SESSION['user'] = selectUserById($id);
+    // echo $_SESSION['user']['points']."<br>";
+    // echo $user_game['pointSave'];
 ?>
