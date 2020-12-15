@@ -1,10 +1,7 @@
 <?php
     require_once '../../php_libraries/bd.php';
-
-    if (!isset($_SESSION['user'])) {
-        header("Location: ../../php_views/login.php");
-        exit();  
-    }
+    require_once '../../php_partials/redirect.php';
+    
     $games = selectAllFromTable('game');
     $game_info2 = selectUserGameInfo($_SESSION['user']['userid'],2);
 
