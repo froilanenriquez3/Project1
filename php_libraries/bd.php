@@ -185,7 +185,7 @@ function selectHighScores($game_id)
 {
     $connection = openDB();
 
-    $mySQLsentence = "SELECT MAX(user_plays_game.highScore), user_plays_game.users_userid, user.username FROM user_plays_game JOIN user ON userid = users_userid WHERE games_idgame = :idgame;";
+    $mySQLsentence ="SELECT MAX(user_plays_game.highScore), user_plays_game.users_userid, user.username FROM user_plays_game JOIN user ON user.userid = user_plays_game.users_userid WHERE games_idgame = :idgame AND user_plays_game.highScore = (SELECT MAX(user_plays_game.highScore) FROM user_plays_game WHERE games_idgame = :idgame) ;";
 
     $mySQLsentence = $connection->prepare($mySQLsentence);
     $mySQLsentence->bindParam(":idgame", $game_id);
