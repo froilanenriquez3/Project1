@@ -143,17 +143,15 @@ justify-content: center;
   background-color: #ffb35c;
   z-index: -1;
   line-height: 2em;
-}
-
-#story img {
-  height: 300px;
-}
-
-#story{
   grid-template-rows: 50% 50%;
 }
 
-.part1{
+#story img {
+  height: 100%;
+}
+
+.part1, .part2{
+  height: 50%;
   display: flex;
   font-size: 18px;
   align-items: center;
@@ -161,13 +159,6 @@ justify-content: center;
   font-weight: bolder;
 }
 
-.part2{
-  display: flex;
-  font-size: 18px;
-  align-items: center;
-  text-align: justify;
-  font-weight: bolder;
-}
 
 .part1 > div{
   padding: 5%;

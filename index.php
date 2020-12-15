@@ -1,15 +1,16 @@
 <?php
 
-  require_once 'php_libraries/bd.php';
-  
-  $user_set = false;
-    if(isset($_SESSION['user'])){
-        $user_set = true;
-    }
+require_once 'php_libraries/bd.php';
+
+$user_set = false;
+if (isset($_SESSION['user'])) {
+  $user_set = true;
+}
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <!-- Bootstrap -->
@@ -71,11 +72,11 @@
   <!-- <?php require_once('./php_partials/message.php'); ?> -->
 
   <section id="divulgacio">
-    <p data-aos="fade-up" data-aos-duration="1500" id="divulgation1" class="translate">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil. 
+    <p data-aos="fade-up" data-aos-duration="1500" id="divulgation1" class="translate">El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil.
       Para ayudar en estos momentos críticos nace ‘Recomerçem’.</p>
     <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv1"></div>
     <div data-aos="fade-up" data-aos-duration="1500" id="imgDiv2"></div>
-    <p data-aos="fade-up" data-aos-duration="1500" id="divulgation2" class="translate">‘Recomerçem’ es un proyecto que pretende potenciar las compras en comercios locales en Barcelona. Para ello hemos creado cuatro juegos, mediante los que se pueden acumular puntos para acceder a promociones y descuentos en diferentes tiendas. 
+    <p data-aos="fade-up" data-aos-duration="1500" id="divulgation2" class="translate">‘Recomerçem’ es un proyecto que pretende potenciar las compras en comercios locales en Barcelona. Para ello hemos creado cuatro juegos, mediante los que se pueden acumular puntos para acceder a promociones y descuentos en diferentes tiendas.
       ¿Te apuntas? ¡Sigue hacia abajo para conocer a Teresa y descubrir su historia!</p>
 
   </section>
@@ -83,11 +84,16 @@
   <!-- STORYTELLING -->
   <section id="story">
     <div data-aos="zoom-in" data-aos-duration="1500" class="part1">
-    <div><p class="translate" id="storyTelling1">Quedan muy pocos días para Navidad y la Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Sin embargo, antes de ir a comprar tendrá que conseguir dinero.</p></div>
-    <img src="/project1/media/img/Storytelling1.png" alt=""></div>
+      <div>
+        <p class="translate" id="storyTelling1">Quedan muy pocos días para Navidad y la Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Sin embargo, antes de ir a comprar tendrá que conseguir dinero.</p>
+      </div>
+      <img src="/project1/media/img/Storytelling1.png" alt="">
+    </div>
     <div data-aos="zoom-in" data-aos-duration="1500" class="part2">
-    <img src="/project1/media/img/Storytelling2.png" alt="">
-    <div><p class="translate" id="storyTelling2">Además, quiere comprar algunos discos de Villancicos para ambientar la comida familiar. Hablando de la comida… aún tiene que comprar algunos ingredientes que le faltan para prepararla! Regístrate para ayudarla a través de diferentes juegos, con los que ganarás puntos para acceder a descuentos y promociones exclusivas y, como Teresa, fomentar el comercio local.</p></div>
+      <img src="/project1/media/img/Storytelling2.png" alt="">
+      <div>
+        <p class="translate" id="storyTelling2">Además, quiere comprar algunos discos de Villancicos para ambientar la comida familiar. Hablando de la comida… aún tiene que comprar algunos ingredientes que le faltan para prepararla! Regístrate para ayudarla a través de diferentes juegos, con los que ganarás puntos para acceder a descuentos y promociones exclusivas y, como Teresa, fomentar el comercio local.</p>
+      </div>
     </div>
   </section>
 
@@ -97,22 +103,22 @@
       <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
         <img src="/project1/media/img/alex-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3 class="fuente">Àlex Cantó</h3>
-        <p class="translate" id="aboutUs_Al">Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche. 
-          Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre. 
+        <p class="translate" id="aboutUs_Al">Estudiante de desarrollo de aplicaciones web durante el día, ávido consumidor de Netflix durante la noche.
+          Me gusta el esquí, tocar el piano y molestar a mi gata en mi tiempo libre.
         </p>
       </div>
 
       <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
         <img src="/project1/media/img/froilan-me.jpeg" width="150px" class="rounded-circle" alt="">
         <h3>Froilan Enriquez</h3>
-        <p class="translate" id="aboutUs_Fr">Soy un estudiante de desarrollo de aplicaciones web de Estados Unidos pero resido en Barcelona. Toco el órgano para el coro de mi iglesia y en mi tiempo libre toco la guitarra, paso tiempo con mi novia e intento aprender cosas nuevas. 
+        <p class="translate" id="aboutUs_Fr">Soy un estudiante de desarrollo de aplicaciones web de Estados Unidos pero resido en Barcelona. Toco el órgano para el coro de mi iglesia y en mi tiempo libre toco la guitarra, paso tiempo con mi novia e intento aprender cosas nuevas.
         </p>
       </div>
 
       <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
         <img src="/project1/media/img/anna-me.jpg" width="150px" class="rounded-circle" alt="">
         <h3>Anna Moreta</h3>
-        <p class="translate" id="aboutUs_An">Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras. 
+        <p class="translate" id="aboutUs_An">Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras.
           Me gustan los gatos y los juegos de mesa.
         </p>
       </div>
@@ -133,7 +139,7 @@
   <script src="/project1/lang/ENG.js"></script>
   <script src="/project1/lang/CAT.js"></script>
   <script src="/project1/lang/FR.js"></script>
-  <script src="/project1/lang/language.js"></script> 
+  <script src="/project1/lang/language.js"></script>
 </body>
 
 </html>
