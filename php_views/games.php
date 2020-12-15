@@ -1,5 +1,7 @@
 <?php
 require_once '../php_libraries/bd.php';
+require_once '../php_partials/redirect.php';
+
 $game_info1 = selectUserGameInfo($_SESSION['user']['userid'], 1);
 $game_info2 = selectUserGameInfo($_SESSION['user']['userid'], 2);
 $game_info3 = selectUserGameInfo($_SESSION['user']['userid'], 3);
@@ -42,7 +44,7 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6 pt-2 pb-2 d-flex justify-content-end">
-        <a href="../webApp/game_anna/index.html">
+        <a href="../webApp/game_anna/index.php">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Monedas al vuelo</h5>
