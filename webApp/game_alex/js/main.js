@@ -150,7 +150,7 @@ function exitGame() {
 }
 
 function redeemPoints() {
-  let points = document.getElementById("pointsCount").dataset.points;
+  let points = document.getElementById("pointsCounter").dataset.points;
   document.querySelector("#finalPoints").value = points;
   document.querySelector("#gameForm").submit();
 }
@@ -183,7 +183,7 @@ function playLastxmas() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -452,7 +452,7 @@ function playAlliwantforxmas() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -724,7 +724,7 @@ function playRudolph() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -993,7 +993,7 @@ function playFeliznavidad() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -1033,9 +1033,9 @@ function playFeliznavidad() {
     //{ end: "18.5", start: "16", text: "Feliz Navidad" },
     { end: "21", start: "20", text: "Feliz Navidad" },
     //{ end: "25", start: "21.3", text: "Próspero año y felicidad" },
-    { end: "42", start: "39.5", text: "I wanna wish you a Merry Christmas" },
-    //{ end: "46", start: "43", text: "I wanna wish you a Merry Christmas" },
-    { end: "48.5", start: "46.5", text: "I wanna wish you a Merry Christmas" },
+    { end: "42", start: "39.5", text: "I want to wish you a Merry Christmas" },
+    //{ end: "46", start: "43", text: "I want to wish you a Merry Christmas" },
+    { end: "48.5", start: "46.5", text: "I want to wish you a Merry Christmas" },
     //{ end: "53", start: "49", text: "From the bottom of my heart" }
   ];
 
@@ -1043,7 +1043,7 @@ function playFeliznavidad() {
   answers = [
     "Feliz Navidad",
     "Próspero año y felicidad",
-    "I wanna wish you a Merry Christmas",
+    "I want to wish you a Merry Christmas",
     "From the bottom of my heart",
   ];
 
@@ -1095,7 +1095,7 @@ function playFeliznavidad() {
         subtitles.children[questionNumber * 2].style.backgroundColor == "lime"
       ) {
         stopAudio();
-        if (questionNumber == 3) {
+        if (questionNumber == 2) {
           voiceLanguage = "en-US";
         }
         console.log("parado musica");
@@ -1267,7 +1267,7 @@ function playCampana() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   }
 
   var audio = document.getElementById("audio");
@@ -1307,7 +1307,7 @@ function playCampana() {
     },
     //{ end: "23", start: "19", text: "Y sobre campana una" },
     { end: "27", start: "23.5", text: "Asómate a la ventana" },
-    //{ end: "31", start: "28", text: "Verás el Niño en la cuna" },
+    //{ end: "31", start: "28", text: "Verás al Niño en la cuna" },
     { end: "32.5", start: "31.5", text: "Belén" },
     //{ end: "34", start: "32.8", text: "Campanas de Belén" },
     { end: "36.5", start: "34.5", text: "Que los ángeles tocan" },
@@ -1317,7 +1317,7 @@ function playCampana() {
   /* Defining correct answers array */
   answers = [
     "Y sobre campana una",
-    "Verás el Niño en la cuna",
+    "Verás al Niño en la cuna",
     "Campanas de Belén",
     "Qué nuevas me traéis",
   ];

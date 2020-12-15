@@ -17,5 +17,5 @@
     // $id = $_SESSION['user']['userid']; 
     // $_SESSION['user'] = selectUserById($id);
     // echo $_SESSION['user']['points']."<br>";
-    // echo $user_game['pointSave'];
+    // echo $user_game['pointSave']; 
 ?>
