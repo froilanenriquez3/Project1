@@ -1,5 +1,7 @@
 <?php
 require_once '../php_libraries/bd.php';
+require_once '../php_partials/redirect.php';
+
 $game_info1 = selectUserGameInfo($_SESSION['user']['userid'], 1);
 $game_info2 = selectUserGameInfo($_SESSION['user']['userid'], 2);
 $game_info3 = selectUserGameInfo($_SESSION['user']['userid'], 3);
