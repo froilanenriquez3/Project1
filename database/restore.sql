@@ -145,7 +145,7 @@ INSERT INTO game VALUES(null, "Game4", 1000);
 
 INSERT INTO user_plays_game values(1, 1, 1, 0);
 INSERT INTO user_plays_game values(1, 2, 1, 0);
-INSERT INTO user_plays_game values(1, 3, 1, 0);
+INSERT INTO user_plays_game values(1, 3, 0, 0);
 INSERT INTO user_plays_game values(1, 4, 0, 0);
 
 INSERT INTO store VALUES(null, "Store1", "COol store");

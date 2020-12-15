@@ -170,9 +170,9 @@ $limit = $games['2']['pointLimit'];
                 <h1>¡¡¡Recuerda que solo puedes canjear tus puntos una sola vez!!!</h1>
                 <div id="endButtons">
                     <button id='replay' onclick="replayGame()">Volver a jugar</button>
-                    <button id='redeem' onclick="redeemPoints() <?php if ($game_info3['pointSave'] == 1) {
+                    <button id='redeem' onclick="redeemPoints()" <?php if ($game_info3['pointSave'] == 1) {
                                                                     echo "disabled";
-                                                                } ?>">Canjear puntos</button>
+                                                                } ?>>Canjear puntos</button>
                     <button id='exitGame' onclick="exitGame()">Salir</button>
 
                     <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
@@ -185,7 +185,7 @@ $limit = $games['2']['pointLimit'];
     </div>
     <audio id="audio" type="audio/mpeg"></audio>
     <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3"></audio>
-    <script src="./js/main.js?v=1235"></script>
+    <script src="./js/main.js?v=1236"></script>
     <script src="/project1/js/navbar.js"></script>
 </body>
 
