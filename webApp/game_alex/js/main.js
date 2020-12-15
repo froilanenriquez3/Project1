@@ -53,13 +53,8 @@ var played = [false, false, false, false, false]; // Array for knowing if the so
 var bgmusic = document.getElementById("bgmusic");
 var bgVolume = document.getElementById("main-volume-control"); // Setting up volume control
 bgVolume.addEventListener("change", function (e) {
-  bgmusic.bgVolume = e.currentTarget.value / 100;
+  bgmusic.volume = e.currentTarget.value / 100;
 });
-
-// let volume = document.getElementById("volume-control"); // Setting up volume control
-// volume.addEventListener("change", function (e) {
-//   audio.volume = e.currentTarget.value / 100;
-// });
 
 /* When CD dragged to cd player */
 function launchMusic() {

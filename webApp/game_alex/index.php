@@ -182,7 +182,7 @@ $limit = $games['2']['pointLimit'];
         </div>
     </div>
     <audio id="audio" type="audio/mpeg"></audio>
-    <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3"></audio>
+    <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3" autoplay></audio>
     <script src="./js/main.js?v=1237"></script>
     <script src="/project1/js/navbar.js"></script>
 </body>
