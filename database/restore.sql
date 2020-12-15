@@ -133,14 +133,13 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-/*Inserts for testing - REMOVE LATER!  pretty please - */
+/*Inserts for testing*/
 
 INSERT INTO user VALUES(null, "Alex", "1234pass", 300, true, "alxcant@whatev.com");
 
 INSERT INTO game VALUES(null, "Game1", 1000);
 INSERT INTO game VALUES(null, "Game2", 1000);
 INSERT INTO game VALUES(null, "Game3", 1000);
-
 INSERT INTO game VALUES(null, "Game4", 1000);
 
 INSERT INTO user_plays_game values(1, 1, 1, 0);
@@ -148,16 +147,13 @@ INSERT INTO user_plays_game values(1, 2, 1, 0);
 INSERT INTO user_plays_game values(1, 3, 1, 0);
 INSERT INTO user_plays_game values(1, 4, 0, 0);
 
-INSERT INTO store VALUES(null, "Store1", "COol store");
-INSERT INTO store VALUES(null, "Store2", "SuperCOol store");
+INSERT INTO store VALUES(null, "Johnny's Bakery", "Local bakery");
+INSERT INTO store VALUES(null, "Pat and Mat's Music Place", "New music available!");
 
-INSERT INTO promotion VALUES(null, "Supercombo", "Buy 3 get 2", 250, 1, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Extracombo", "Buy nothin get nothin", 300, 1, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Not much", "Buy 3 get 3", 250, 1, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Supermix", "Buy 1 get 3", 500, 2, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Extra", "Buy everything", 300, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Johnny's Big Deal", "With a purchase of $20 get a free baguette", 250, 1, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Fantastic Offer 2020", "Buy one roll get a second one free", 750, 1, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Johnny's Great Bargain", "Anything in the store, for 75% the price!", 500, 1, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "CD BOGO", "Buy 1 CD get 1 free!", 500, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Pat and Mat's Music Place Giveaway", "Spend $30, get 2 free CD's of your choice!", 750, 2, "/project1/media/img/promociones.png");
+INSERT INTO promotion VALUES(null, "Music Lover's Deal", "5 free records with any purchase of $100!", 1000, 2, "/project1/media/img/promociones.png");
 
-
-DELETE FROM user_has_promotion WHERE  user_userid = 1;
-
-/*INSERT INTO user_has_promotion VALUES(1,1);*/
