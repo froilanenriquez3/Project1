@@ -83,14 +83,14 @@
               </div>
 
               <div class="col-11">
-                <p>Máxima puntuación: <!-- <span><?php echo $points_limit ?></span> -->.</p>
+                <p>Máxima puntuación: <span><?php echo $limit ?></span>.</p>
               </div>
             </div>  
           </div>
 
           <!-- BOTÓN JUGAR -->
-          <button class="play" onclick="startGame()">
-            <img src="./img/jugar2.png" width="100px">
+          <button id="play" onclick="startGame()">
+            <!-- <img src="./img/jugar2.png" width="100px"> -->
           </button>  
         </div>
 
@@ -129,13 +129,13 @@
           <p class="remember">Recuerda que podrás canjear tus puntos una sola vez</p> -->
           <div class="final-buttons">
             <button id="replay" onclick="startGame()">
-              <img src="./img/jugar.png" width="70px">
+              <!-- <img src="./img/jugar.png" width="70px"> -->
             </button>  
 
             <button id="redeem" onclick="savePoints()" <?php if($game_info1['pointSave'] == 1){ echo "disabled";}?>> 
               <img src="./img/canjear.png" width="100px">
             </button>  
-            
+          </div>  
 
           <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
             <input type="number" style="display:none" id="finalPoints" name="finalPoints">

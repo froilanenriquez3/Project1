@@ -1,5 +1,4 @@
 //MAIN
-
 let square = document.getElementById("character");
 let barrera = document.getElementById("cloud");
 let money = document.getElementById("coin");
@@ -19,21 +18,10 @@ let finalCoundown = false;
 //BOTONES PARA CONTROLAR A TERESA
 document.addEventListener('keydown', control);
 
-//BOTONES PARA LA PANTALLA FINAL
-// document.getElementById('replay').addEventListener('click', startGame);
-// document.getElementById('redeem').addEventListener('click', savePoints);
-
 // Variable global
 timeCoin = setInterval(moveCoin, 5000);
 points = 0;
-
-
-// let data = {
-//   x: 0, 
-//   y: 0, 
-//   width: 90, 
-//   height: 50
-// }
+floor = 450;
 
 let character = {
   x: 0, 
@@ -57,11 +45,6 @@ let coin = {
 }
 
 
-
-
-document.querySelector(".play > img").addEventListener('click', startGame);
-
-
 function startGame(){
   console.log('startgame');
   //esconder instrucciones para que aparezca el juego
@@ -76,12 +59,13 @@ function startGame(){
   // timer();
   points = 0;
   seconds = 10;
-  remainingSeconds = 0;
+
   score.innerHTML = "Puntos: " + points;
   time.innerHTML = "0" + ":" + seconds;
 
   //set music
   mySound = new sound("./img/sound.mp3")
+  setInterval('change();', 1000);
 
   //set time
   countdownTimer = setInterval(gameTimer, 1000);
@@ -89,12 +73,12 @@ function startGame(){
   // gameTimer();
 } 
 
-
+// console.log(box.y + box.height/2);
 //MOVIMIENTO LUCES
 let image_tracker = 'white';
-let timer = setInterval('change();', 1000);
 
 function change(){
+  console.log('luces');
   let image = document.getElementById('data');
   if (image_tracker == 'white'){
     image.src = 'img/byellow2.png';
@@ -202,7 +186,8 @@ function stopCoin(){
         //document.getElementById('cloud').style.backgroundColor = "red";
       colision = true;
       isJumping = false;
-      character.y < 150;
+      floor = 295;
+      
     }
     else{
       //document.getElementById('cloud').style.backgroundColor = "pink";
@@ -267,7 +252,7 @@ function stopCoin(){
         square.setAttribute("src", "img/abuela-salto.png");
       }
 
-      if(character.y < 250){
+      if(character.y < floor - 200){
         clearInterval(timerUp);
         //Hacemos una función para que el cuadrado baje
         let timerDown = setInterval(function(){
@@ -286,7 +271,9 @@ function stopCoin(){
           }
           
           //Si no lo paramos, sigue bajando hasta el infierno así que hay que poner un controlador
-          if (character.y + character.height + up >= 450){
+          if (character.y + character.height + up > 450){
+            character.y = 365;
+            floor = 450;
             clearInterval(timerDown);
             //Si está en el suelo (bottom es más pequeño que 0), sí podremos volver a saltar
             isJumping = false; 
