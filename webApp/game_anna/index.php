@@ -49,7 +49,7 @@
           <div class="container-fluid" id="instructionsList">
             <div class="row">
               <div class="col-1">
-                <img src="img/list.png" width= "20px" alt="">
+                <img src="img/list.png" width= "20px" alt="" >
               </div>
             
               <div class="col-11">
@@ -84,14 +84,14 @@
               </div>
 
               <div class="col-11">
-                <p>Máxima puntuación: <span><?php echo $limit ?></span>.</p>
+                <p>Máxima puntuación: <span><?php echo $limit ?></span></p>
               </div>
             </div>  
           </div>
 
           <!-- BOTÓN JUGAR -->
           <button id="play" onclick="startGame()">
-            <!-- <img src="./img/jugar2.png" width="100px"> -->
+            <img src="./img/jugar2.png" width="">
           </button>  
         </div>
 
@@ -104,6 +104,8 @@
 
             <img id="character" src="img/abuela-right-mario.png" alt="">
             <img id="cloud" src="img/nube.png" alt="">
+            <img id="cloud2" src="img/nube.png" alt="">
+            <img id="cloud3" src="img/nube.png" alt="">
             <img id="coin" src="img/coin.png" alt="">
             <div class="info">
               <p class="points" id="counter" data-points=0 data-limit = "<?=$limit?>">Puntos: 0</p>
@@ -130,7 +132,7 @@
           <p class="remember">Recuerda que podrás canjear tus puntos una sola vez</p> -->
           <div class="final-buttons">
             <button id="replay" onclick="startGame()">
-              <!-- <img src="./img/jugar.png" width="70px"> -->
+              <img src="./img/jugar.png" width="80px">
             </button>  
 
             <button id="redeem" onclick="savePoints()" <?php if($game_info1['pointSave'] == 1){ echo "disabled";}?>> 
