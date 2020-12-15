@@ -15,12 +15,13 @@ let seconds;
 let countdownTimer;
 let finalCoundown = false;
 
+
 //BOTONES PARA CONTROLAR A TERESA
 document.addEventListener('keydown', control);
 
 //BOTONES PARA LA PANTALLA FINAL
-document.getElementById('replay').addEventListener('click', startGame);
-document.getElementById('redeem').addEventListener('click', savePoints);
+// document.getElementById('replay').addEventListener('click', startGame);
+// document.getElementById('redeem').addEventListener('click', savePoints);
 
 // Variable global
 timeCoin = setInterval(moveCoin, 5000);
@@ -75,6 +76,7 @@ function startGame(){
   // timer();
   points = 0;
   seconds = 10;
+  remainingSeconds = 0;
   score.innerHTML = "Puntos: " + points;
   time.innerHTML = "0" + ":" + seconds;
 
@@ -84,7 +86,7 @@ function startGame(){
   //set time
   countdownTimer = setInterval(gameTimer, 1000);
 
-  gameTimer();
+  // gameTimer();
 } 
 
 
@@ -301,7 +303,7 @@ function stopCoin(){
       square.style.top = character.y + 'px';
       coinCollision();
       // cloudCollision();
-
+      console.log(character.y + character.height);
     }, 30);
     
   }
@@ -358,11 +360,13 @@ function control(e) {
   // cloudCollision();
 }
 
+
 //GUARDAR PUNTOS
 function savePoints(){
-  document.querySelector('#finalPoints').value = points;
+  document.querySelector('#counter').dataset.points = points;
+  let finalPoints = document.querySelector('#counter').dataset.points;
+  document.querySelector('input#finalPoints').value = finalPoints;
   document.querySelector('#gameForm').submit();
-
 }
 
 
@@ -372,7 +376,7 @@ function gameOver(){
   document.getElementById("gamePlay").style.display = "none";
   let finishGame = document.getElementById('finishGame');
   finishGame.style.display = "block";
-  document.getElementById('finalPoints').innerHTML = points + " puntos"
+  document.getElementById('accumulatedPoints').innerHTML = points + " puntos";
 
   
 }
