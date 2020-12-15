@@ -3,6 +3,14 @@ body{
     background-color: #C9DBE3;
 }
 
+.container{
+    padding-top: 4.5em;
+}
+
+/* .container > .card > .card-body:not(.accordion){
+    border: solid black 1px;
+} */
+
 .container > .card > .card-header > .card-body{
     background-color: #C9DBE3;
 }
