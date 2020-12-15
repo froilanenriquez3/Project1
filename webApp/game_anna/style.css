@@ -28,36 +28,29 @@ h3{
     padding: 30px;
 }
 
-#instructions img{
-    margin-left: 50px;
+.row img{
+    margin-left: 100px;
 }
 
-#instructions p{
-    margin-left: 30px;
-    padding-right: 80px;
+.row p{
+    margin-left: 80px;
+    padding-right: 120px;
     text-align: left
 }
 
-#play{
-    background-image: url("/project1/webApp/game_anna/img/jugar.png") !important;
-    margin-top: 50px;
-    margin-right: 55px;
-    width: 100px;
-    
-    background-repeat: no-repeat;
-    margin-left: 0px;
-    height: 40px;
-}
-
-.play > img{
+#play, #replay, #redeem{
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #2e585a;
-    padding: 15px;
+    padding: 7px 10px;
     border-radius: 7px;
 }
 
-.play img:hover{
-    transform:scale(1.25);
+#play:hover, #replay:hover, #redeem:hover{
+    transform: scale(1.1);
 }
+
 
 
 #gamePlay {
@@ -73,7 +66,6 @@ h3{
 
 
 #background{
-    /* background-image: url("img/background-white.png"); */
     width: 100%;
     height: 100%;
     position: relative;
@@ -90,7 +82,7 @@ h3{
     z-index: 100;
 }
 
-#cloud{
+#cloud, #cloud2, #cloud3{
     height: 50px;
     width: 120px;
     position: absolute;
@@ -134,26 +126,22 @@ h3{
 }
 
 #abuela-final{
-    margin-left: 150px;
+    margin-left: 210px;
     margin-top: 50px;
 }
 
 #gameOverInfo p{
     margin-top: 50px;
-    margin-right: 350px;
+    margin-right: 320px;
     padding: 10px;
-    margin-left: 200px;
+    margin-left: 270px;
     text-align: left;
     border: 2px solid #2e585a;
     border-radius: 10px;
 }
 
-.final-buttons{
-    display: flex;
-    flex-direction: row;
-    margin-left: 33%;
-    margin-top: 50px;
-    
+#replay{
+    margin-left: 10px;
 }
 
 #redeem{
