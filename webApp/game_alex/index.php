@@ -24,8 +24,9 @@ $limit = $games['2']['pointLimit'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/project1/style/style-navbar.css">
     <link rel="stylesheet" href="/project1/style/buttons.css">
+      <!-- FONT MONTSERRAT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css?v=1236">
     <link rel="stylesheet" href="./styles/voicestyles.css?v=1235">
 </head>
@@ -185,7 +186,7 @@ $limit = $games['2']['pointLimit'];
     </div>
     <audio id="audio" type="audio/mpeg"></audio>
     <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3"></audio>
-    <script src="./js/main.js?v=1236"></script>
+    <script src="./js/main.js?v=1237"></script>
     <script src="/project1/js/navbar.js"></script>
 </body>
 

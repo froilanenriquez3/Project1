@@ -183,7 +183,7 @@ function playLastxmas() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -452,7 +452,7 @@ function playAlliwantforxmas() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -724,7 +724,7 @@ function playRudolph() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -993,7 +993,7 @@ function playFeliznavidad() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   });
 
   var audio = document.getElementById("audio");
@@ -1267,7 +1267,7 @@ function playCampana() {
     document.querySelector("#voiceinfo p:first-child").style.visibility =
       "visible";
     document.querySelector("#maininfo p span:first-of-type").style.paddingLeft =
-      "33px";
+      "40px";
   }
 
   var audio = document.getElementById("audio");
