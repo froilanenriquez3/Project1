@@ -1,8 +1,9 @@
-<!-- <?php
+<?php
   require_once '../../php_libraries/bd.php';
   $games= selectAllFromTable("game");
-  // $points_limit= $gameInfo[0]["limit"];
-?> -->
+  $game_info1 = selectUserGameInfo($_SESSION['user']['userid'], 1);
+  $limit = $games['0']['pointLimit'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="/project1/style/style-navbar.css">
-    <link rel="stylesheet" href="/project1/style/buttons.css"> -->
+    <link rel="stylesheet" href="/project1/style/style-navbar.css">
+    <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="style.css">
     
     <!-- FONT MONTSERRAT -->
@@ -34,10 +35,10 @@
 
   <body>
 
-    <!-- <?php 
+    <?php 
       include '../../php_partials/navbar.php';
       include '../../php_partials/buttons.php';
-    ?>  -->
+    ?> 
 
     <div id="container">
       <div id="game">
@@ -88,9 +89,9 @@
           </div>
 
           <!-- BOTÓN JUGAR -->
-          <div class="play">
+          <button class="play" onclick="startGame()">
             <img src="./img/jugar2.png" width="100px">
-          </div>  
+          </button>  
         </div>
 
         <!-- JUEGO -->
@@ -104,7 +105,7 @@
             <img id="cloud" src="img/nube.png" alt="">
             <img id="coin" src="img/coin.png" alt="">
             <div class="info">
-              <p class="points">Puntos: 0</p>
+              <p class="points" id="counter" data-points=0 data-limit = "<?=$limit?>">Puntos: 0</p>
               <div id="time"></div>
             </div>          
           </div>  
@@ -112,7 +113,7 @@
 
         <!-- AL ACABAR EL JUEGO -->
         <div id="finishGame">
-          <p>¡Genial! Has conseguido <span id="finalPoints"></span>.</p>
+          <p>¡Genial! Has conseguido <span id="accumulatedPoints"></span>.</p>
           <p>¿Quieres canjear tus puntos o prefieres volver a jugar para conseguir más?</p>
           <div class="container-fluid" id="gameOverInfo">
             <div class="row">
@@ -127,21 +128,20 @@
           <!-- <img src="img/abuela-final.png" id="abuela-final" width="80px">
           <p class="remember">Recuerda que podrás canjear tus puntos una sola vez</p> -->
           <div class="final-buttons">
-            <div id="replay">
+            <button id="replay" onclick="startGame()">
               <img src="./img/jugar.png" width="70px">
-            </div>  
+            </button>  
 
-            <div id="redeem">
+            <button id="redeem" onclick="savePoints()" <?php if($game_info1['pointSave'] == 1){ echo "disabled";}?>> 
               <img src="./img/canjear.png" width="100px">
-            </div>  
-          </div>  
-          <!-- </div> onclick="startGame()">Volver a jugar</button> -->
-          <!-- <button class="redeem" onclick="savePoints()">Canjear</button> -->
+            </button>  
+            
 
           <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
             <input type="number" style="display:none" id="finalPoints" name="finalPoints">
-            <input type="number" style="display:none" id="gameId" name="gameId" value="0">
+            <input type="number" style="display:none" id="gameId" name="gameId" value="1">
           </form>
+          
         </div>
       </div>  
     </div>  
