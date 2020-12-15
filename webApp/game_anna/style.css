@@ -38,9 +38,15 @@ h3{
     text-align: left
 }
 
-.play{
+#play{
+    background-image: url("/project1/webApp/game_anna/img/jugar.png") !important;
     margin-top: 50px;
     margin-right: 55px;
+    width: 100px;
+    
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    height: 40px;
 }
 
 .play > img{
@@ -52,6 +58,7 @@ h3{
 .play img:hover{
     transform:scale(1.25);
 }
+
 
 #gamePlay {
     display: none;
@@ -144,4 +151,11 @@ h3{
 .final-buttons{
     display: flex;
     flex-direction: row;
+    margin-left: 33%;
+    margin-top: 50px;
+    
+}
+
+#redeem{
+    margin-left: 50px;
 }
