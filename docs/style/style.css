@@ -32,6 +32,10 @@ ul li a:hover {
   color: white;
 }
 
+p {
+  text-align: justify;
+}
+
 #logo {
   margin-top: 10px;
 }
