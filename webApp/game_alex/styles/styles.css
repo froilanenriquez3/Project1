@@ -1,6 +1,6 @@
 body {
   background-color: #c9dbe3;
-  font-family: Verdana, Arial, sans-serif;
+  font-family: 'Montserrat', Verdana, Arial, sans-serif;
   color: black;
 }
 
@@ -341,7 +341,7 @@ body {
   font-weight: bold;
   font-size: 16px;
   margin-right: 10px;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 #song #buttons {
@@ -376,7 +376,7 @@ body {
   font-weight: bold;
   font-size: 16px;
   margin-right: 10px;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 #volume-control {
@@ -436,7 +436,7 @@ body {
 }
 
 #maininfo p span:first-of-type {
-  padding-left: 4px;
+  padding-left: 14px;
   font-size: 14px;
   text-decoration: underline;
   width: 100%;
@@ -455,7 +455,7 @@ body {
 #points p {
   margin-top: 15px;
   margin-right: 10px;
-  margin-left: 35px;
+  margin-left: 45px;
 }
 
 #score {
@@ -666,8 +666,8 @@ input:checked + .slider:before {
 #start h1 {
   width: 75%;
   margin-left: 25px;
-  font-size: 19.5px;
-  font-weight: bold;
+  font-size: 18.5px;
+  font-weight: bolder;
   background-color: rgba(255, 255, 255, 0.884);
   border: solid black 1px;
   padding: 5px;

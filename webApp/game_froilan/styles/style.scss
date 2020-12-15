@@ -87,10 +87,15 @@ button {
     h1{
         position: relative;
         font-size: 32px;
-        margin: 10px;
+        text-align: center;
+    }
+    h4{
+        text-align: center;
+
     }
     p{
         padding-top: 10px;
+        text-align: justify;
     }
     
   
@@ -393,7 +398,7 @@ button {
             @include bodyImage("../img/shirts/dwight.png");
         }
         #dragshirt3 {
-            @include bodyImage("../img/shirts/shrek.png");
+            @include bodyImage("../img/shirts/sweater.png");
         }
         .center {
             .dropzone {

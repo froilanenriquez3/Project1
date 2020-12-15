@@ -1,5 +1,6 @@
 <?php
     require_once '../../php_libraries/bd.php';
+    require_once '../../php_partials/redirect.php';
     $gameInfo= selectAllFromTable("game");
     $pointsLimit= $gameInfo[3]["pointLimit"];
 ?>

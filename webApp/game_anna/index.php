@@ -1,5 +1,6 @@
 <?php
   require_once '../../php_libraries/bd.php';
+  require_once '../../php_partials/redirect.php';
   $games= selectAllFromTable("game");
   $game_info1 = selectUserGameInfo($_SESSION['user']['userid'], 1);
   $limit = $games['0']['pointLimit'];
