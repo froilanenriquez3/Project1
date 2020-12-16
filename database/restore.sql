@@ -151,7 +151,7 @@ INSERT INTO user_plays_game values(1, 3, 0, 0);
 INSERT INTO user_plays_game values(1, 4, 0, 0);
 
 /*GAIA*/
-INSERT INTO user_plays_game values(2, 1, 1, 0);
+INSERT INTO user_plays_game values(2, 1, 0, 0);
 INSERT INTO user_plays_game values(2, 2, 0, 0);
 INSERT INTO user_plays_game values(2, 3, 0, 0);
 INSERT INTO user_plays_game values(2, 4, 0, 0);

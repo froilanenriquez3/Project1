@@ -144,7 +144,7 @@
         </div>
     </div>
     </div>
-    <!-- <script src="/project1/js/navbar.js"></script> -->
+
     <script src="js.js"></script>
 </body>
 
