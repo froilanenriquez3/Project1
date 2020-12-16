@@ -9,6 +9,10 @@ body{
     background-color: #C9DBE3;
 }
 
+#background{
+    border: 2px solid rgb(32, 32, 32);
+}
+
 .gameContainer{
     position: absolute;
     right: 0px;
@@ -152,7 +156,7 @@ body{
 #basket{
     position: absolute;
     top: 375px;
-    left: 825px;
+    left: 820px;
     height: 65px;
     background-color: rgb(233, 167, 92);
     border: black 1px solid;
@@ -315,8 +319,8 @@ font-family: 'Montserrat', sans-serif;
     width: 100%;
     text-align: center;
     box-sizing: border-box;
-    height: 450px;
-    width: 895px;
+    /* height: 450px;
+    width: 895px; */
     font-family: 'Montserrat', sans-serif;
 }
 

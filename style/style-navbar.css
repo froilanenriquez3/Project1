@@ -56,7 +56,6 @@
   width: 150px;
   display: inline;
   text-align: center;
-  margin-top: 20px;
 }
 
 .sidebar > ul > li {
@@ -80,4 +79,6 @@
   text-decoration: none;
   color: #ffb35c;
   display: flex;
+  box-sizing: border-box;
+  align-items: center;
 }
