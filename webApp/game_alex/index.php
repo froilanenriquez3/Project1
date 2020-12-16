@@ -21,7 +21,7 @@ $limit = $games['2']['pointLimit'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/project1/style/style-navbar.css">
     <link rel="stylesheet" href="/project1/style/buttons.css">
-      <!-- FONT MONTSERRAT -->
+    <!-- FONT MONTSERRAT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css?v=1236">
@@ -85,7 +85,7 @@ $limit = $games['2']['pointLimit'];
                                 </p>
                             </div>
                             <div id="voiceinfo">
-                                <p>Microphone Info:</p>
+                                <p id="micInfoTitle">Microphone Info:</p>
                                 <p id="info_speak_now">Speak now.</p>
                                 <p id="info_no_speech">No speech was detected. You may need to adjust your
                                     <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
@@ -169,8 +169,8 @@ $limit = $games['2']['pointLimit'];
                 <div id="endButtons">
                     <button id='replay' onclick="replayGame()">Volver a jugar</button>
                     <button id='redeem' onclick="redeemPoints()" <?php if ($game_info3['pointSave'] == 1) {
-                                                                    echo "disabled";
-                                                                } ?>>Canjear puntos</button>
+                                                                        echo "disabled";
+                                                                    } ?>>Canjear puntos</button>
                     <button id='exitGame' onclick="exitGame()">Salir</button>
 
                     <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
@@ -182,8 +182,8 @@ $limit = $games['2']['pointLimit'];
         </div>
     </div>
     <audio id="audio" type="audio/mpeg"></audio>
-    <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3" autoplay></audio>
-    <script src="./js/main.js?v=1237"></script>
+    <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3"></audio>
+    <script src="./js/main.js?v=1238"></script>
     <script src="/project1/js/navbar.js"></script>
 </body>
 
