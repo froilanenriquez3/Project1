@@ -362,6 +362,8 @@ function playLastxmas() {
     console.log("changed input");
     if (!toggle.checked) {
       inputTypeFunc = textInputFunc;
+      ignore_onend = true;
+      recognition.stop();
     } else {
       inputTypeFunc = voiceInputFunc;
     }
@@ -634,6 +636,8 @@ function playAlliwantforxmas() {
     console.log("changed input");
     if (!toggle.checked) {
       inputTypeFunc = textInputFunc;
+      ignore_onend = true;
+      recognition.stop();
     } else {
       inputTypeFunc = voiceInputFunc;
     }
@@ -903,6 +907,8 @@ function playRudolph() {
     console.log("changed input");
     if (!toggle.checked) {
       inputTypeFunc = textInputFunc;
+      ignore_onend = true;
+      recognition.stop();
     } else {
       inputTypeFunc = voiceInputFunc;
     }
@@ -1030,7 +1036,11 @@ function playFeliznavidad() {
     //{ end: "25", start: "21.3", text: "Próspero año y felicidad" },
     { end: "42", start: "39.5", text: "I want to wish you a Merry Christmas" },
     //{ end: "46", start: "43", text: "I want to wish you a Merry Christmas" },
-    { end: "48.5", start: "46.5", text: "I want to wish you a Merry Christmas" },
+    {
+      end: "48.5",
+      start: "46.5",
+      text: "I want to wish you a Merry Christmas",
+    },
     //{ end: "53", start: "49", text: "From the bottom of my heart" }
   ];
 
@@ -1175,6 +1185,8 @@ function playFeliznavidad() {
     console.log("changed input");
     if (!toggle.checked) {
       inputTypeFunc = textInputFunc;
+      ignore_onend = true;
+      recognition.stop();
     } else {
       inputTypeFunc = voiceInputFunc;
     }
@@ -1447,6 +1459,11 @@ function playCampana() {
     console.log("changed input");
     if (!toggle.checked) {
       inputTypeFunc = textInputFunc;
+      // document.querySelectorAll(
+      //   "#voiceinput p:not(#micInfoTitle)"
+      // ).style.display = "none";
+      ignore_onend = true;
+      recognition.stop();
     } else {
       inputTypeFunc = voiceInputFunc;
     }
@@ -1592,26 +1609,31 @@ function checkAnswer(number, text) {
 
 var startButton;
 var voiceLanguage = "en-US";
+var currentQuestion;
+var recognition;
+var ignore_onend;
 
 function voiceRegnition() {
+  console.log("corriendo voice recognition function");
   var final_transcript = "";
   var recognizing = false;
-  var ignore_onend;
+  ignore_onend;
   var start_timestamp;
   start_img = document.getElementById("start_img");
   if (!("webkitSpeechRecognition" in window)) {
     upgrade();
   } else {
     start_button.style.display = "inline-block";
-    var recognition = new webkitSpeechRecognition();
+    recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
 
     recognition.onstart = function () {
+      console.log("empezando speech recognition");
       recognizing = true;
       showInfo("info_speak_now");
       start_img.src = "/Project1/webApp/game_alex/media/api/mic-animate.gif";
-      let currentQuestion = questionNumber; // Set current question to check if input is moving between questions
+      currentQuestion = questionNumber; // Set current question to check if input is moving between questions
     };
 
     recognition.onerror = function (event) {
@@ -1635,11 +1657,14 @@ function voiceRegnition() {
       }
     };
 
-    recognition.onend = function () {
-      if(questionNumber != currentQuestion){ // If input has moved to another question ignore onend so it starts recognition again
-        ignore_onend = true;
-        //final_transcript = ""; ????
-      }
+    recognition.onend = function endFunction() {
+      console.log("acabando speech recognition");
+      // if (questionNumber != currentQuestion) {
+      //   // If input has moved to another question ignore onend so it starts recognition again
+      //   console.log("has pasado de respuesta");
+      //   ignore_onend = true;
+      //   // final_transcript = "";
+      // }
       recognizing = false;
       if (ignore_onend) {
         return;
@@ -1657,6 +1682,7 @@ function voiceRegnition() {
     };
 
     recognition.onresult = function (event) {
+      console.log("resultados speech recognition");
       var interim_transcript = "";
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
@@ -1672,6 +1698,7 @@ function voiceRegnition() {
   }
 
   function upgrade() {
+    console.log("haciendo upgrade");
     start_button.style.visibility = "hidden";
     showInfo("info_upgrade");
   }
@@ -1690,6 +1717,7 @@ function voiceRegnition() {
   }
 
   startButton = function (event) {
+    console.log("dandole a start button");
     if (recognizing) {
       recognition.stop();
       return;
