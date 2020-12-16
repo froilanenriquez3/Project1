@@ -48,7 +48,7 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Monedas al vuelo</h5>
-              <img src="../media/img/game4screenshot.png" class="card-img-bottom" alt="game1">
+              <img src="../media/img/game1screenshot.png" class="card-img-bottom" alt="game1">
             </div>
           </div>
         </a>
