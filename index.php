@@ -134,7 +134,6 @@ if (isset($_SESSION['user'])) {
     </div>
   </section>
   <script src="/project1/js/nomWebApp.js"></script>
-  <script src="/project1/js/navbar.js"></script>
   <script src="/project1/lang/ESP.js"></script>
   <script src="/project1/lang/ENG.js"></script>
   <script src="/project1/lang/CAT.js"></script>
