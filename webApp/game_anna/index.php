@@ -54,7 +54,7 @@
             
               <div class="col-11">
                 <p>Tienes que recoger el máximo número de monedas que puedas durante 1 minuto. Por cada moneda que consigas
-                  recibirás 200 puntos.</p>
+                  recibirás 30 puntos.</p>
               </div>
             </div>  
 
