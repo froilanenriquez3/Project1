@@ -91,7 +91,7 @@ DROP TABLE IF EXISTS `restore`.`promotion` ;
 CREATE TABLE IF NOT EXISTS `restore`.`promotion` (
   `idpromotion` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) UNIQUE NULL,
-  `promo_desc` VARCHAR(45) NULL,
+  `promo_desc` VARCHAR(65) NULL,
   `pointCost` INT NULL,
   `store_idstore` INT NOT NULL,
   `img` VARCHAR(45),
@@ -135,7 +135,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 /*Inserts for testing*/
 
-INSERT INTO user VALUES(null, "Alex", "1234pass", 300, true, "alxcant@whatev.com");
+INSERT INTO user VALUES(null, "Alex", "1234pass", 30000, true, "alxcant@whatev.com");
 INSERT INTO user VALUES(null, "Gaia", "1234pass", 300, true, "gaia@whatev.com");
 
 
@@ -157,13 +157,22 @@ INSERT INTO user_plays_game values(2, 3, 0, 0);
 INSERT INTO user_plays_game values(2, 4, 0, 0);
 
 
-INSERT INTO store VALUES(null, "Johnny's Bakery", "Local bakery");
-INSERT INTO store VALUES(null, "Pat and Mat's Music Place", "New music available!");
+INSERT INTO store VALUES(null, "Panes Juanito", "Panaderia del gótico");
+INSERT INTO store VALUES(null, "Barna Records", "¡Nueva música disponible!");
+INSERT INTO store VALUES(null, "Ca l'Antonia", "Comestibles de proximidad");
+INSERT INTO store VALUES(null, "Mr. Enriquez", "¡Viste a la moda!");
 
-INSERT INTO promotion VALUES(null, "Johnny's Big Deal", "With a purchase of $20 get a free baguette", 250, 1, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Fantastic Offer 2020", "Buy one roll get a second one free", 750, 1, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Johnny's Great Bargain", "Anything in the store, for 75% the price!", 500, 1, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "CD BOGO", "Buy 1 CD get 1 free!", 500, 2, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Pat and Mat's Music Place Giveaway", "Spend $30, get 2 free CD's of your choice!", 750, 2, "/project1/media/img/promociones.png");
-INSERT INTO promotion VALUES(null, "Music Lover's Deal", "5 free records with any purchase of $100!", 1000, 2, "/project1/media/img/promociones.png");
+
+INSERT INTO promotion VALUES(null, "¡PanaLocura!", "2ª barra de pan gratis", 200, 1, "/project1/media/promo_images/bakery1.jpg");
+INSERT INTO promotion VALUES(null, "Navidad musical", "3x2 en CDs Navideños", 500, 2, "/project1/media/promo_images/cd3.jpg");
+INSERT INTO promotion VALUES(null, "Cena fácil", "Botella de cava gratis con la compra de 2 unidades de galets", 1000, 3, "/project1/media/promo_images/groceries.jpg");
+INSERT INTO promotion VALUES(null, "Locos por los CDs", "Compra 1 CD: 2ª y 3ª unidad al 50%", 600, 2, "/project1/media/promo_images/cd3.jpg");
+INSERT INTO promotion VALUES(null, "CD extra", "CD gratis por una compra superior a 20€", 750, 2, "/project1/media/promo_images/cd3.jpg");
+INSERT INTO promotion VALUES(null, "Dulce oferta", "4€ gratis en bolleria por una compra superior a 10€", 400, 1, "/project1/media/promo_images/bakery1.jpg");
+INSERT INTO promotion VALUES(null, "Va de pan", "Cupón de bocadillo gratis a las 20 baguettes", 200, 1, "/project1/media/promo_images/bakery1.jpg");
+INSERT INTO promotion VALUES(null, "Calzado variado", "2º par de zapatos al 60%", 300, 4, "/project1/media/promo_images/clothe_store.jpg");
+INSERT INTO promotion VALUES(null, "Navidad Italiana", "2º Panettone al 50%", 250, 3, "/project1/media/promo_images/groceries.jpg");
+INSERT INTO promotion VALUES(null, "Muito Abrigado", "2ª pieza de abrigo al 50%", 1500, 4, "/project1/media/promo_images/clothe_store.jpg");
+INSERT INTO promotion VALUES(null, "¡Pies Calentitos!", "3x2 en calcetines", 150, 4, "/project1/media/promo_images/clothe_store.jpg");
+INSERT INTO promotion VALUES(null, "SuperFruta", "250g de fruta gratis con la compra de 500g", 900, 3, "/project1/media/promo_images/groceries.jpg");
 
