@@ -15,6 +15,10 @@ h2{
 
 }
 
+p{
+  margin-right:10px;
+}
+
 ul{
   list-style: none;
 
@@ -110,6 +114,13 @@ main{
       justify-content: center;
       padding: 10px;
 
+    }
+
+    div:not(#games_container){
+      background-color: white;
+      border: solid black 1px;
+      margin-right: 10px;
+      margin-bottom: 10px;
     }
 
   }
