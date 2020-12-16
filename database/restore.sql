@@ -136,16 +136,26 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 /*Inserts for testing*/
 
 INSERT INTO user VALUES(null, "Alex", "1234pass", 300, true, "alxcant@whatev.com");
+INSERT INTO user VALUES(null, "Gaia", "1234pass", 300, true, "gaia@whatev.com");
+
 
 INSERT INTO game VALUES(null, "Game1", 1000);
 INSERT INTO game VALUES(null, "Game2", 1000);
 INSERT INTO game VALUES(null, "Game3", 1000);
 INSERT INTO game VALUES(null, "Game4", 1000);
 
+/*ALEX*/
 INSERT INTO user_plays_game values(1, 1, 1, 0);
 INSERT INTO user_plays_game values(1, 2, 1, 0);
 INSERT INTO user_plays_game values(1, 3, 0, 0);
 INSERT INTO user_plays_game values(1, 4, 0, 0);
+
+/*GAIA*/
+INSERT INTO user_plays_game values(2, 1, 0, 0);
+INSERT INTO user_plays_game values(2, 2, 0, 0);
+INSERT INTO user_plays_game values(2, 3, 0, 0);
+INSERT INTO user_plays_game values(2, 4, 0, 0);
+
 
 INSERT INTO store VALUES(null, "Johnny's Bakery", "Local bakery");
 INSERT INTO store VALUES(null, "Pat and Mat's Music Place", "New music available!");
