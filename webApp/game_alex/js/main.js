@@ -1611,6 +1611,7 @@ function voiceRegnition() {
       recognizing = true;
       showInfo("info_speak_now");
       start_img.src = "/Project1/webApp/game_alex/media/api/mic-animate.gif";
+      let currentQuestion = questionNumber; // Set current question to check if input is moving between questions
     };
 
     recognition.onerror = function (event) {
@@ -1635,6 +1636,10 @@ function voiceRegnition() {
     };
 
     recognition.onend = function () {
+      if(questionNumber != currentQuestion){ // If input has moved to another question ignore onend so it starts recognition again
+        ignore_onend = true;
+        //final_transcript = ""; ????
+      }
       recognizing = false;
       if (ignore_onend) {
         return;
