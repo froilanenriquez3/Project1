@@ -358,5 +358,5 @@ function gameOver(){
   let finishGame = document.getElementById('finishGame');
   finishGame.style.display = "block";
   document.getElementById('accumulatedPoints').innerHTML = points + " puntos";
-  mySound.pause();
+  mySound.stop();
 }
