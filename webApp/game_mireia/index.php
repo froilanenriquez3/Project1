@@ -3,6 +3,7 @@
     require_once '../../php_partials/redirect.php';
     $gameInfo= selectAllFromTable("game");
     $pointsLimit= $gameInfo[3]["pointLimit"];
+    $hasPlayed= selectUserGameInfo($_SESSION['user']['userid'], 4);
 ?>
 
 <!DOCTYPE html>
@@ -134,7 +135,7 @@
             <form action="../../php_controllers/save_points_controller.php" method="POST" id="gameForm">
             <input hidden id="gameId" name="gameId" value="4" type="number">
             <input hidden id="finalPoints" name="finalPoints" value="" type="number">
-            <button onclick="savePoints()" class="btn canjeo">Canjear</button>
+            <button onclick="savePoints()"  <?php if ($hasPlayed['pointSave'] == 1) {  echo "disabled"; } ?> class="btn canjeo">Canjear</button>
             <img id="imageEnd" src="img/endGame.png" alt="">
             </form>
             <div id="replay">
