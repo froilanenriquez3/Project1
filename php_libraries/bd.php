@@ -133,10 +133,24 @@ function selectPromoByName($name)
     return $result;
 }
 
+// function to return a store name based on the promo id
+function selectStoreNameByPromoID($promo_id)
+{
+    $connection = openDB();
 
+    $mySQLsentence = "SELECT store.name FROM store JOIN promotion ON store_idstore = store.idstore WHERE idpromotion = :promo_id;";
 
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+    $mySQLsentence->bindParam(":promo_id", $promo_id);
 
+    $mySQLsentence->execute();
 
+    $result = $mySQLsentence->fetch();
+
+    $connection = closeDB();
+
+    return $result;
+}
 
 //function to return all the promos that a user has given their user id
 function selectUserPromos($user_id)
@@ -185,7 +199,7 @@ function selectHighScores($game_id)
 {
     $connection = openDB();
 
-    $mySQLsentence ="SELECT MAX(user_plays_game.highScore), user_plays_game.users_userid, user.username FROM user_plays_game JOIN user ON user.userid = user_plays_game.users_userid WHERE games_idgame = :idgame AND user_plays_game.highScore = (SELECT MAX(user_plays_game.highScore) FROM user_plays_game WHERE games_idgame = :idgame) ;";
+    $mySQLsentence = "SELECT MAX(user_plays_game.highScore), user_plays_game.users_userid, user.username FROM user_plays_game JOIN user ON user.userid = user_plays_game.users_userid WHERE games_idgame = :idgame AND user_plays_game.highScore = (SELECT MAX(user_plays_game.highScore) FROM user_plays_game WHERE games_idgame = :idgame) ;";
 
     $mySQLsentence = $connection->prepare($mySQLsentence);
     $mySQLsentence->bindParam(":idgame", $game_id);
