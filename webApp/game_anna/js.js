@@ -6,7 +6,7 @@ let block2 = document.getElementById("cloud2");
 let block3 = document.getElementById("cloud3");
 let money = document.getElementById("coin");
 let score = document.querySelector(".info > p");
-
+let limit = document.querySelector("#counter").dataset.limit;
 
 
 //BOTONES PARA CONTROLAR A TERESA
@@ -188,8 +188,10 @@ function coinCollision(){
   if((character.x <= coin.x + coin.width && character.x + character.width >= coin.x)
   && (character.y + character.height >= coin.y && character.y <= coin.y + coin.height)){
     stopCoin();
-    points += 30;
-    score.innerHTML = "Puntos: " + points;
+    if(points < limit){
+     points += limit/25;
+    }
+    score.innerHTML = "Puntos: " +  points;
     //sound
     mySound.play();
   }
@@ -359,4 +361,5 @@ function gameOver(){
   finishGame.style.display = "block";
   document.getElementById('accumulatedPoints').innerHTML = points + " puntos";
   mySound.stop();
+  clearInterval(moveCoin);
 }

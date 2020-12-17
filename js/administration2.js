@@ -1,3 +1,5 @@
+//Not in use
+
 function muestra_oculta(id){
     if (document.getElementById){ //se obtiene el id
     var el = document.getElementById(id); //se define la variable "el" igual a nuestro div

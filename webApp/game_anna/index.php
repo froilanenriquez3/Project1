@@ -108,7 +108,7 @@
             <img id="cloud3" src="img/nube.png" alt="">
             <img id="coin" src="img/coin.png" alt="">
             <div class="info">
-              <p class="points" id="counter" data-points=0 data-limit = "<?=$limit?>">Puntos: 0</p>
+              <p class="points" id="counter" data-points= 0 data-limit = "<?=$limit?>">Puntos: 0</p>
               <div id="time"></div>
             </div>          
           </div>  
