@@ -57,7 +57,7 @@ if (isset($_SESSION['user'])) {
         if ($user_set) {
             echo 'Bienvenide';
         } else {
-            echo 'Registrar';
+            echo 'Registrarse';
         }
         ?>
 
