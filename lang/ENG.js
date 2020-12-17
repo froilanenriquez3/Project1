@@ -1,3 +1,4 @@
+//Translations for english
 let eng={
     restoreExclamation:"Restore!",
     divulgation1: "96% of small businesses consider that the crisis caused by the coronavirus pandemic will affect their activity in a negative or very negative way. The capacity restrictions and temporary closure of some of these businesses resulted in many of them finding themselves in a difficult economic situation. To help in these critical times, Restore is born." ,

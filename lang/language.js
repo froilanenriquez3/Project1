@@ -1,3 +1,4 @@
+//Functions to change text to selected language
 let textArray = document.querySelectorAll('.translate');
 
 function changeLangEsp(){
