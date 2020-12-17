@@ -24,10 +24,6 @@ body {
   border: 1px solid black;
 }
 
-/* .card .card {
-  height: 55vh !important;
-} */
-
 .card-body .card-body {
   display: flex;
   flex-direction: column;
@@ -35,6 +31,7 @@ body {
   text-align: center;
   background-color: white;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .card-body {
