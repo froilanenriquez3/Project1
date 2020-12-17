@@ -10,7 +10,7 @@ body {
   padding-left: 100px;
   padding-right: 0px;
   box-sizing: border-box;
-  padding-top: 2.75em;
+  padding-top: 3em;
   height: 100%;
   text-align: center;
   
@@ -82,6 +82,10 @@ body {
   font-weight: bolder;
   font-family: "Montserrat", sans-serif;
   margin-right: 10%;
+}
+
+#statsButton:hover {
+  background-color: #ff9b29;
 }
 
 .statsDiv{

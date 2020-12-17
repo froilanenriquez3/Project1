@@ -397,7 +397,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                         <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-2" for="modstoreid">ID</label>
+                                                        <label class="col-2" for="modstoreid">ID Tienda</label>
                                                         <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
                                                     </div>
 
@@ -457,7 +457,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                             <input class="col-10 form-control" type="number" id="modpromocost" name="promocost" min="0" value="<?= $promo['pointCost'] ?>">
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-2" for="modstoreid">ID</label>
+                                                            <label class="col-2" for="modstoreid">ID Tienda</label>
                                                             <input class="col-10 form-control" type="number" id="modstoreid" name="storeid" min="1" value="<?= $promo['store_idstore'] ?>">
                                                         </div>
 
@@ -502,7 +502,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                     <input class="col-10 form-control" type="number" id="promocost" name="promocost" min="0">
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-2" for="storeid">ID</label>
+                                                    <label class="col-2" for="storeid">ID Tienda</label>
                                                     <input class="col-10 form-control" type="number" id="storeid" name="storeid" min="1">
                                                 </div>
 
