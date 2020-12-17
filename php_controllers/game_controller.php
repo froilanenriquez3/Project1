@@ -1,4 +1,6 @@
 <?php
+
+//Code for changing point limit when admins modify the value in the form in the games section of Administration page
     require_once '../php_libraries/bd.php';
 
     $modpointlim = isset($_POST['modpointlim']);

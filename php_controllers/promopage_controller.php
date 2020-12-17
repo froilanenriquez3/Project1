@@ -1,4 +1,7 @@
 <?php
+//Code to allow users to exchange points for promotions
+//Modify the user_has_promo table in order to add the selected promotion
+//Subtract the cost of the promotion from the value of the user's total points
 require_once '../php_libraries/bd.php';
 
 if (isset($_POST['promoid'])) {
