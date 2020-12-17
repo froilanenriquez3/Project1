@@ -8,7 +8,7 @@ let cat={
 
     login: "Iniciar Sessió",
     logout: "Tancar Sessió",
-    register: "Registre",
+    register: "Registrar-se",
     welcome: "Benvingudi",
 
     navRestore:"Recomerçem",
