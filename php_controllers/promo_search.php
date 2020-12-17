@@ -1,5 +1,5 @@
 <?php
-
+    //Code to find promotion and display result in promotion section of administration
     require_once '../php_libraries/bd.php';
 
     if(isset($_POST['see_all_promos'])){

@@ -1,7 +1,11 @@
 <?php
+//Code to control backend related to users and sessions
+//Updates to users based on administration
+//Updates to tables if a new user is registered
 
 require_once '../php_libraries/bd.php';
 
+//Check if the user is an admin. If the current user is admin, they will be redirecte to admin page after operations
 if(isset($_SESSION['user'])){
     if ($_SESSION['user']['isAdmin'] == 1) {
         $currentIsAdmin = true;
@@ -9,15 +13,17 @@ if(isset($_SESSION['user'])){
     
 }
 
+//Select all the users from the user table for access
 $all_users = selectAllFromTable('user');
 
+//Check from where the form has been submitted
 $remove_admin = isset($_POST['removeadmin']);
 $add_admin = isset($_POST['addadmin']);
 $modify_user = isset($_POST['modifyuser']);
 $delete_user = isset($_POST['deleteuser']);
 $add_user = isset($_POST['adduser']);
 
-
+//Code to remove admin privileges from a user
 if($remove_admin){
     $admin = selectUserById($_POST['adminid']);
 
@@ -28,6 +34,7 @@ if($remove_admin){
 
 }
 
+//Code to grant admin privileges to a user
 if($add_admin){
     $admin = selectUserById($_POST['newadmin']);
 
@@ -37,6 +44,7 @@ if($add_admin){
     $_SESSION['url'] = 'admin';
 }
 
+//Update user table with different information when user data is modified and saved from the corresponding section in the admin page
 if($modify_user){
     $_SESSION['url'] = '../php_controllers/user_controller.php';
     $user = selectUserById($_POST['userid']);
@@ -49,6 +57,7 @@ if($modify_user){
   
 }
 
+//Remove user from database
 if($delete_user){
     $_SESSION['url'] = '../php_controllers/user_controller.php';
     $user = selectUserById($_POST['userid']);
@@ -59,8 +68,9 @@ if($delete_user){
 
 }
 
-
+//Add user to table 
 if($add_user){
+    //Set previous url in order to redirect to correct section in the administration section
     $_SESSION['url'] = '../php_controllers/user_controller.php';
 
     /*Check that the passwords are the same. Then check if there was an error in inserting user. 
@@ -82,8 +92,7 @@ if($add_user){
                 
             }
         }
-
-
+        
     } else{
         header("Location: ../php_views/signup.php");
         $_SESSION['password_conf'] = false;

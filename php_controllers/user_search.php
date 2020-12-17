@@ -1,5 +1,5 @@
 <?php
-
+//Code to look for a user, then display the information in the administration page
     require_once '../php_libraries/bd.php';
 
     if(isset($_POST['see_all_users'])){

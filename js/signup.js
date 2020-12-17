@@ -1,3 +1,4 @@
+//Check if two passwords match when new user is registered
 let password = document.querySelector('#password').value;
 let password2 = document.querySelector('#confpassword').value;
 
