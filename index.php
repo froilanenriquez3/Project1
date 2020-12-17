@@ -63,9 +63,11 @@ if (isset($_SESSION['user'])) {
   require_once 'php_partials/buttons.php';
   ?>
 
+  <?php if (isset($logState) && $logState != "logged"){?>
   <div id="recomerçButton">
     <a role="button" class="btn translate" href="/project1/index.php/#divulgacio" id="restoreExclamation">Recomerçem!</a>
   </div>
+  <?php }?>
 
   <!-- temporary -->
 
