@@ -22,7 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 
 
-    <title>Sign Up</title>
+    <title>Registrarse</title>
+    <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
 </head>
 
 <body>

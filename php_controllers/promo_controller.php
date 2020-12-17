@@ -1,7 +1,11 @@
 <?php
+
+//Code to add, delete, or modify promotions in the database, based on form sent from the Administration promotions section
+
     require_once '../php_libraries/bd.php';
     
 
+    //Based on the form sent from administration, select the correct conditional
     $delete_promo = isset($_POST['deletepromo']);
     $add_promo = isset($_POST['addpromo']);
     $mod_promo = isset($_POST['modifypromo']);
@@ -13,6 +17,8 @@
     }
     
     if($mod_promo){
+
+        //Code to add image for promotion
         $target_dir = "../media/img/";
         $target_file = $target_dir . basename($_FILES["modImage"]["name"]);
         $uploadOk = 1;
@@ -49,6 +55,7 @@
     }
 
     if($add_promo){
+        //code to add image for promotion
         $target_dir = "../media/img/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         $uploadOk = 1;
@@ -77,9 +84,6 @@
             echo "Sorry, there was an error uploading your photo.";
             }
         }
-    
-        
-
 
         insertPromo($_POST['promoname'], $_POST['promodesc'], $_POST['promocost'], $_POST['storeid'], $_FILES["image"]['name']);
         header("Location: ../php_views/administration.php#promossection");
@@ -87,6 +91,7 @@
         
     }
 
+    //Set previous url session variable
     $_SESSION['url'] = '../php_controllers/promo_controller.php';
     exit();
 

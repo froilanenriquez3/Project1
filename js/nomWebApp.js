@@ -17,8 +17,8 @@ if(logState== "logged"){
     })
 
     // Button recomerçem
-    let button= document.getElementById("recomerçButton")
-    button.style.marginLeft= "50px";
+   /*  let button= document.getElementById("recomerçButton");
+    button.style.marginLeft= "50px"; */
 
     // Sections
     let sections= document.querySelectorAll("section");

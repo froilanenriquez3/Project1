@@ -14,10 +14,11 @@ $high4 = selectHighScores(4);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-navbar.css">
     <link rel="stylesheet" href="../style/buttons.css">
-    <title>Restore</title>
+    <title>Estadísticas</title>
+    <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
 </head>
 
-<body>
+<body style="background-color: #c9dbe3;">
     <?php
     require_once '../php_partials/navbar.php';
     require_once '../php_partials/buttons.php';
@@ -25,15 +26,14 @@ $high4 = selectHighScores(4);
 
     <div class="container" style="padding-top: 100px;">
         <div class="card">
-            <div class="card-header" style="text-align: center; font-weight: bolder;">Statistics</div>
+            <div class="card-header" style="text-align: center; font-weight: bolder; background-color: #ffb35c;">Statistics</div>
             <div class="card-body">
-                <table class="table" style="text-align: center; background-color: lightgrey;">
-                    <thead>
+                <table class="table" style="text-align: center;">
+                    <thead style="background-color: #2e585a; color:white;">
                         <tr>
                             <th scope="col">Game Number</th>
                             <th scope="col">Game Name</th>
                             <th scope="col">Username</th>
-                            <th scope="col">User ID</th>
                             <th scope="col">Highest Score</th>
                         </tr>
                     </thead>
@@ -42,28 +42,24 @@ $high4 = selectHighScores(4);
                             <th>1</th>
                             <td>Monedas al Vuelo</td>
                             <td><?= $high1[0][2]; ?></td>
-                            <td><?= $high1[0][1]; ?></td>
                             <td><?= $high1[0][0]; ?></td>
                         </tr>
                         <tr>
                             <th>2</th>
                             <td>Probador Fantástico</td>
                             <td><?= $high2[0][2]; ?></td>
-                            <td><?= $high2[0][1]; ?></td>
                             <td><?= $high2[0][0]; ?></td>
                         </tr>
                         <tr>
                             <th>3</th>
                             <td>Canta con Teresa</td>
                             <td><?= $high3[0][2]; ?></td>
-                            <td><?= $high3[0][1]; ?></td>
                             <td><?= $high3[0][0]; ?></td>
                         </tr>
                         <tr>
                             <th>4</th>
                             <td>Compras con prisas</td>
                             <td><?= $high4[0][2]; ?></td>
-                            <td><?= $high4[0][1]; ?></td>
                             <td><?= $high4[0][0]; ?></td>
                         </tr>
                     </tbody>

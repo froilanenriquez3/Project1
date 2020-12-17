@@ -35,8 +35,8 @@ if (isset($_SESSION['user'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
-
-  <title>Restore</title>
+  <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
+  <title>Landing Page</title>
 
 </head>
 
@@ -63,9 +63,11 @@ if (isset($_SESSION['user'])) {
   require_once 'php_partials/buttons.php';
   ?>
 
+  <?php if (isset($logState) && $logState != "logged"){?>
   <div id="recomerçButton">
     <a role="button" class="btn translate" href="/project1/index.php/#divulgacio" id="restoreExclamation">Recomerçem!</a>
   </div>
+  <?php }?>
 
   <!-- temporary -->
 
@@ -109,7 +111,7 @@ if (isset($_SESSION['user'])) {
       </div>
 
       <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
-        <img src="/project1/media/img/froilan-me.jpeg" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/froilan-me.png" width="150px" class="rounded-circle" alt="">
         <h3>Froilan Enriquez</h3>
         <p class="translate" id="aboutUs_Fr">Soy un estudiante de desarrollo de aplicaciones web de Estados Unidos pero resido en Barcelona. Toco el órgano para el coro de mi iglesia y en mi tiempo libre toco la guitarra, paso tiempo con mi novia e intento aprender cosas nuevas.
         </p>

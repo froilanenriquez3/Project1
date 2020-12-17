@@ -1555,10 +1555,6 @@ function songEndScreen(song, points) {
   if (done) {
     displayEndScreen();
   }
-
-  // playbutton.style.backgroundColor = "#d7ebf7 !important";
-  // playbutton.style.pointerEvents = "all !important";
-  // playbutton.style.cursor = "pointer";
 }
 
 /* On click continuar at songEndScreen go back to store */
@@ -1659,12 +1655,6 @@ function voiceRegnition() {
 
     recognition.onend = function endFunction() {
       console.log("acabando speech recognition");
-      // if (questionNumber != currentQuestion) {
-      //   // If input has moved to another question ignore onend so it starts recognition again
-      //   console.log("has pasado de respuesta");
-      //   ignore_onend = true;
-      //   // final_transcript = "";
-      // }
       recognizing = false;
       if (ignore_onend) {
         return;
