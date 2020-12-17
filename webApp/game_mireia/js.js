@@ -86,8 +86,9 @@ function startGame() {
     drawLady();
     shop= 1;
 
-    //Control the conversation icons
+    //Control the conversation icons & text
     checkConversationWhenChanges();
+    speak1.setAttribute("data-text","Hola Teresa! Como va todo? Y tu família? Hemos guardado el * que nos pediste! Aquí tienes");
 
 
     //Generate random list of products
@@ -420,7 +421,7 @@ function createText(e) {
     if(e.target.classList.contains("sp1")){
         if(!hasExtra){
             hasExtra= true;
-            e.target.setAttribute("data-text", "Que pases muy buen día!");
+            e.target.setAttribute("data-text", "¡Que pases muy buen día!");
             listElemements = document.querySelectorAll("li");
             listElemements.forEach(element => {
             if (element.innerHTML === extraProduct) {

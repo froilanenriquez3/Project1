@@ -92,7 +92,7 @@ if (isset($_SESSION['user'])) {
     <div data-aos="zoom-in" data-aos-duration="1500" class="part2">
       <img src="/project1/media/img/Storytelling2.png" alt="">
       <div>
-        <p class="translate" id="storyTelling2">Además, quiere comprar algunos discos de Villancicos para ambientar la comida familiar. Hablando de la comida… aún tiene que comprar algunos ingredientes que le faltan para prepararla! Regístrate para ayudarla a través de diferentes juegos, con los que ganarás puntos para acceder a descuentos y promociones exclusivas y, como Teresa, fomentar el comercio local.</p>
+        <p class="translate" id="storyTelling2">Además, quiere comprar algunos discos de Villancicos para ambientar la comida familiar. Hablando de la comida… ¡aún tiene que comprar algunos ingredientes que le faltan para prepararla! Regístrate para ayudarla a través de diferentes juegos, con los que ganarás puntos para acceder a descuentos y promociones exclusivas y, como Teresa, fomentar el comercio local.</p>
       </div>
     </div>
   </section>
