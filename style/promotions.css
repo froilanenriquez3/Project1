@@ -6,6 +6,15 @@ body {
   border: none;
 }
 
+.card .card{
+  margin-top: 20px;
+}
+.card .card .card-body{
+  box-sizing: border-box;
+  height: 275px;
+
+}
+
 /* .card .card {
   height: 55vh !important;
 } */
