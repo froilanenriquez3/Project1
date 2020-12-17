@@ -87,7 +87,7 @@ if (isset($_SESSION['user'])) {
   <section id="story">
     <div data-aos="zoom-in" data-aos-duration="1500" class="part1">
       <div>
-        <p class="translate" id="storyTelling1">Quedan muy pocos días para Navidad y la Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Sin embargo, antes de ir a comprar tendrá que conseguir dinero.</p>
+        <p class="translate" id="storyTelling1">¡Quedan muy pocos días para Navidad y Teresa aún tiene muchas cosas que hacer antes de que llegue! Acaba de recordar que aún no ha comprado ningún regalo para Marco, su nieto más exigente. Sin embargo, antes de ir a comprar tendrá que conseguir dinero.</p>
       </div>
       <img src="/project1/media/img/Storytelling1.png" alt="">
     </div>
