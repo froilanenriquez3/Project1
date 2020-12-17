@@ -20,7 +20,8 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 
-    <title>Log In</title>
+    <title>Iniciar Sesión</title>
+    <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
 </head>
 
 <body>

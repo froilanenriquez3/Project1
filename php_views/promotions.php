@@ -5,6 +5,7 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
 
 $promos = selectAllFromTable('promotion');
 $user_promos = selectUserPromos($_SESSION['user']['userid']);
+$minPrice = selectCheapestPromo();
 // $user = $_SESSION['user'];
 ?>
 
@@ -20,7 +21,7 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="../style/style-navbar.css">
     <link rel="stylesheet" href="../style/buttons.css">
-    <link rel="stylesheet" href="../style/promotions.css?v=1235">
+    <link rel="stylesheet" href="../style/promotions.css?v=1236">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,8 +29,8 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 
 
-    <title>Points and Promotions</title>
-
+    <title>Puntos y Promociones</title>
+    <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
 </head>
 
 <body>
@@ -40,7 +41,7 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
     <div class="container-fluid ">
         <div class="card ">
             <div class="card-header">
-                Promociones canjeadas
+                Promociones ya canjeadas
             </div>
             <div class="card-body " id="redeemed">
 
@@ -68,15 +69,19 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
 
         <div class="card">
             <div class="card-header">
-                Promociones Disponibles!
+                Promociones disponibles según tus puntos
                 <p id="display_points">Puntos: <?= $_SESSION['user']['points'] ?> </p>
             </div>
             
-            <div class="card-body " id="available">
+            <div class="card-body" id="available">
             <div class="row d-flex align-items-stretch">
           
                 <?php
-                foreach ($promos as $promo) {
+                if($_SESSION['user']['points'] < $minPrice[0]){
+                    echo "Aún no tienes ninguna promoción disponible.";
+                }
+                else{
+                    foreach ($promos as $promo) {
                     $storeName = selectStoreNameByPromoID($promo['idpromotion']);
                     $taken = false;
                     foreach ($user_promos as $user_promo) {
@@ -85,18 +90,18 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                         }
                     } ?>
                     <?php
-                    if ($_SESSION['user']['points'] >= $promo['pointCost'] && !$taken) {
-                    ?>
+                    if ($_SESSION['user']['points'] >= $promo['pointCost'] && !$taken) {                       
+                    ?>  
                         <div class="col-md-3 " id="<?php echo $promo['idpromotion'] ?>">
                             <div class="card mb-2 " >
                                 <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap" height=215px>
                                 <div class="card-body">
-                                
                                     <h4 class="card-title"><?php echo $promo['name'] ?></h4>
                                     <p class="card-text"><?= $storeName[0] ?></p>
                                     <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
                                     <p class="card-text"><?= $promo['pointCost'] ?> puntos</p>
-
+                                </div>
+                                <div class="card-footer">
                                     <form enctype="multipart/form-data" action="../php_controllers/promopage_controller.php" method="post">
                                         <input type="number" style="display:none" name="promoid" id="promoid" value="<?php echo $promo['idpromotion'] ?>">
                                         <input type="number" id="point_cost" name="point_cost" style="display:none" value='<?= $promo['pointCost'] ?>'>
@@ -107,8 +112,8 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
                         </div>
 
                     <?php } ?>
-                <?php } ?>
-      
+                <?php }  }?>               
+                   
                 </div>
                 
             </div>
