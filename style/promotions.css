@@ -11,8 +11,17 @@ body {
 }
 .card .card .card-body{
   box-sizing: border-box;
-  height: 275px;
+  height: 215px;
+}
 
+.card-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-footer .btn{
+  border: 1px solid black;
 }
 
 /* .card .card {
