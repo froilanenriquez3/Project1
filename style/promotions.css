@@ -82,3 +82,7 @@ body {
   background-color: #ffb35c;
   font-weight: bold;
 }
+
+#submitpromo:hover{
+  background-color: #ff9b29;
+}
