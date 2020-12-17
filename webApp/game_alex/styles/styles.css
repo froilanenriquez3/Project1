@@ -1,6 +1,6 @@
 body {
   background-color: #c9dbe3;
-  font-family: 'Montserrat', Verdana, Arial, sans-serif;
+  font-family: "Montserrat", Verdana, Arial, sans-serif;
   color: black;
 }
 
@@ -462,6 +462,10 @@ body {
   padding-left: 13px;
 }
 
+#songName {
+  font-style: italic;
+}
+
 /* Music Input Type Switch */
 .switch {
   margin-top: 8px;
@@ -546,6 +550,7 @@ input:checked + .slider:before {
   border-radius: 20px;
   border: black 2px solid;
   font-size: 30px;
+  font-weight: bold;
 }
 
 #songEnd button {
