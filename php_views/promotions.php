@@ -28,8 +28,8 @@ $user_promos = selectUserPromos($_SESSION['user']['userid']);
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 
 
-    <title>Points and Promotions</title>
-
+    <title>Puntos y Promociones</title>
+    <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
 </head>
 
 <body>
