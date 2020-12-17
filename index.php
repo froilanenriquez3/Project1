@@ -116,7 +116,7 @@ if (isset($_SESSION['user'])) {
       </div>
 
       <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
-        <img src="/project1/media/img/anna-me.jpg" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/anna-me.png" width="150px" class="rounded-circle" alt="">
         <h3>Anna Moreta</h3>
         <p class="translate" id="aboutUs_An">Soy criminóloga y estudiante de desarrollo de aplicaciones web, lo que significa que en el trabajo me confuden con la que arregla impresoras.
           Me gustan los gatos y los juegos de mesa.
