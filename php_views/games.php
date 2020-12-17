@@ -110,7 +110,7 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
       <div class="col-12 statsDiv">
     <div id="stats">
       <button class="btn btn-sm" id="statsButton" type="button">
-        <a href="./gamestats.php">Statistics</a>
+        <a href="./gamestats.php">Estadísticas</a>
       </button>
       </div>
     </div>
