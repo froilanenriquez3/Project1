@@ -62,7 +62,6 @@ document.getElementById("music").addEventListener("click", musicControl);
 
 
 function startGame() {
-    console.log(paused);
     //ocult instructions or afterGame & show interior
     document.querySelector("#background > #instructions").style.display = "none";
     document.querySelector("#background > #afterGame").style.display = "none";
@@ -280,11 +279,11 @@ function dragElement(elmnt, products) {
         //put element in front of others
         elmnt.style.zIndex = 1;
         // set the element's new position:
-        
-        if (elmnt.offsetTop - pos2 > 0 && elmnt.offsetLeft - pos1 > 0 && elmnt.offsetTop - pos2 + elmnt.clientHeight < 450 && elmnt.offsetLeft - pos1 + elmnt.clientWidth < 895) {
+        if (elmnt.offsetTop - pos2 > 0 && elmnt.offsetLeft - pos1 > 0 && elmnt.offsetTop - pos2 + elmnt.clientHeight -20 < 450 && elmnt.offsetLeft - pos1 + elmnt.clientWidth < 895) {
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
         }
+
         checkBasket(elmnt, products);
     }
 
@@ -307,10 +306,8 @@ function dragElement(elmnt, products) {
 //Check if element in basket is correct.
 function checkBasket(elmnt, products) {
     let found = false;
-    console.log(elmnt.naturalHeight);
-    console.log(elmnt.clientHeight);
     // -20 cause if it just desapears when collide it seems that is not still in the basket visually.
-    if (elmnt.offsetTop + elmnt.naturalHeight -20 > basket.offsetTop && elmnt.offsetLeft + elmnt.naturalWidth - 20 > basket.offsetLeft) {
+    if (elmnt.offsetTop + elmnt.clientHeight > basket.offsetTop && elmnt.offsetLeft + elmnt.clientWidth > basket.offsetLeft) {
         listElemements = document.querySelectorAll("li");
         listElemements.forEach(element => {
             if (element.innerHTML === elmnt.id) {
