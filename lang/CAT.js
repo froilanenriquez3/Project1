@@ -1,14 +1,14 @@
 let cat={
     restoreExclamation:"Recomerçem!",
     divulgation1: "El 96% dels petits negocis considera que la crisi provocada per la pandèmia del coronavirus afectarà de forma negativa o molt negativa a la seva activitat. Les restriccions d'aforament i el tancament temporal d'alguns d'aquests negocis ha fet que molts d'ells es trobin en una situació econòmica difícil. Per ajudar en aquests moments crítics neix 'Recomerçem'." ,
-    divulgation2: "'Recomerçem' té com a objectiu potenciar les compres en comerços locals a Barcelona. Per aquest motiu hem creat quatre jocs, mitjançant els quals podem acumular punts per accedir a promocions i descomptes a diferents tendes. T'apuntes? Segueix cap avall per conèixer a la Teresa i descobrir la seva història!",
+    divulgation2: "'Recomerçem' té com a objectiu potenciar les compres en comerços locals a Barcelona. Per aquest motiu hem creat quatre jocs, mitjançant els quals podem acumular punts per accedir a promocions i descomptes a diferents tendes. ¿T'apuntes? Segueix cap avall per conèixer a la Teresa i descobrir la seva història!",
 
-    storyTelling1: "Queden molt pocs dies per Nadal i la Teresa encara té moltes coses a fer abans de que arribi! Acaba de recordar que encara no ha comprat cap regal per en Marco, el seu net més exigent. No obstant, abans d’anar a comprar haurà d’aconseguir diners.",
-    storyTelling2: "A més, vol comprar alguns discs de Nadales per ambientar el dinar familiar. Parlant del dinar… encara ha de comprar alguns ingredients que li falten per preparar-lo! Registra’t per ajudar-la mitjançant diversos jocs, amb els que guanyaràs punts per accedir a descomptes i promocions exclusius i, com la Teresa, fomentar el comerç local.",
+    storyTelling1: "¡Queden molt pocs dies per Nadal i la Teresa encara té moltes coses a fer abans de que arribi! Acaba de recordar que encara no ha comprat cap regal per en Marco, el seu net més exigent. No obstant, abans d’anar a comprar haurà d’aconseguir diners.",
+    storyTelling2: "A més, vol comprar alguns discs de Nadales per ambientar el dinar familiar. Parlant del dinar… ¡encara ha de comprar alguns ingredients que li falten per preparar-lo! Registra’t per ajudar-la mitjançant diversos jocs, amb els que guanyaràs punts per accedir a descomptes i promocions exclusius i, com la Teresa, fomentar el comerç local.",
 
     login: "Iniciar Sessió",
     logout: "Tancar Sessió",
-    register: "Registre",
+    register: "Registrar-se",
     welcome: "Benvingudi",
 
     navRestore:"Recomerçem",

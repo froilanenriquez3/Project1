@@ -8,7 +8,7 @@ let fr={
 
     login: "Connexion",
     logout: "Déconnexion",
-    register: "Inscription/Créer un compte",
+    register: "S'inscrire",
     welcome: "Bienvenue",
 
     navRestore:"Recomerçem",
