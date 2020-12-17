@@ -189,7 +189,7 @@ function coinCollision(){
   && (character.y + character.height >= coin.y && character.y <= coin.y + coin.height)){
     stopCoin();
     if(points < limit){
-     points += limit/25;
+     points += limit/50;
     }
     score.innerHTML = "Puntos: " +  points;
     //sound
