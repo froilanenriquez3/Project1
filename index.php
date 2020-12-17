@@ -109,7 +109,7 @@ if (isset($_SESSION['user'])) {
       </div>
 
       <div data-aos="zoom-in" data-aos-duration="1500" style="text-align: center;" class="member">
-        <img src="/project1/media/img/froilan.jpg" width="150px" class="rounded-circle" alt="">
+        <img src="/project1/media/img/froilan-me.jpeg" width="150px" class="rounded-circle" alt="">
         <h3>Froilan Enriquez</h3>
         <p class="translate" id="aboutUs_Fr">Soy un estudiante de desarrollo de aplicaciones web de Estados Unidos pero resido en Barcelona. Toco el órgano para el coro de mi iglesia y en mi tiempo libre toco la guitarra, paso tiempo con mi novia e intento aprender cosas nuevas.
         </p>
