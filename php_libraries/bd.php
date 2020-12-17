@@ -174,6 +174,24 @@ function selectUserPromos($user_id)
     return $result;
 }
 
+//function to return all the promos that a user has given their user id
+function selectCheapestPromo()
+{
+    $connection = openDB();
+
+    $mySQLsentence = "SELECT MIN(pointCost) FROM promotion;";
+
+    $mySQLsentence = $connection->prepare($mySQLsentence);
+
+    $mySQLsentence->execute();
+
+    $result = $mySQLsentence->fetch();
+
+    $connection = closeDB();
+
+    return $result;
+}
+
 //Function to return all the info of a user playing a game based on the id of the user
 function selectUserGameInfo($user_id, $game_id)
 {

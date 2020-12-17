@@ -17,7 +17,9 @@ $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recomerçem-Jocs</title>
+  <title>Juegos</title>
+  <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="/project1/style/style-navbar.css">
   <link rel="stylesheet" href="/project1/style/buttons.css">
