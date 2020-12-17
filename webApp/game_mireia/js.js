@@ -87,7 +87,7 @@ function startGame() {
 
     //Control the conversation icons & text
     checkConversationWhenChanges();
-    speak1.setAttribute("data-text","Hola Teresa! Como va todo? Y tu família? Hemos guardado el * que nos pediste! Aquí tienes");
+    speak1.setAttribute("data-text","¡Hola Teresa! ¿Como va todo? ¿Y tu família? ¡Hemos guardado el * que nos pediste! Aquí tienes");
 
 
     //Generate random list of products
