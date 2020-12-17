@@ -1544,13 +1544,13 @@ function songEndScreen(song, points) {
   document.querySelector("#voiceinfo p:first-child").style.visibility =
     "hidden";
 
-  let done = played.every((value) => {
-    return value == true;
-  });
-
-  // let done = played.some((value) => {
+  // let done = played.every((value) => {
   //   return value == true;
   // });
+
+  let done = played.some((value) => {
+    return value == true;
+  });
 
   if (done) {
     displayEndScreen();
