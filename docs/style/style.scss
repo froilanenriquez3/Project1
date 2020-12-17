@@ -137,15 +137,27 @@ main{
 #games_container{
   box-sizing: border-box;
   width: 100%;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   font-weight: bold;
 
   div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     border: solid black 1px;
     background-color: white;
-    display: block;
+
     padding: 20px;
+    div{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
   }
 }
