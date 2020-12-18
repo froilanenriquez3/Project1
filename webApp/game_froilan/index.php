@@ -23,10 +23,12 @@
     <link rel="stylesheet" href="/project1/style/style-navbar.css">
     <link rel="stylesheet" href="/project1/style/buttons.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
     <!-- <link rel="stylesheet" href="../../style/language.css"> -->
     <link href="./styles/all.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 
     <title>Froilan's Fantastic Fitting Room</title>
