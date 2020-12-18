@@ -26,7 +26,7 @@ $high4 = selectHighScores(4);
 
     <div class="container" style="padding-top: 100px;">
         <div class="card">
-            <div class="card-header" style="text-align: center; font-weight: bolder; background-color: #ffb35c;">Statistics</div>
+            <div class="card-header" style="text-align: center; font-weight: bolder; background-color: #ffb35c;">Estadísticas</div>
             <div class="card-body">
                 <table class="table" style="text-align: center;">
                     <thead style="background-color: #2e585a; color:white;">
