@@ -24,7 +24,7 @@ $limit = $games['2']['pointLimit'];
     <!-- FONT MONTSERRAT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/styles.css?v=1238">
+    <link rel="stylesheet" href="./styles/styles.css?v=1239">
     <link rel="stylesheet" href="./styles/voicestyles.css?v=1236">
 </head>
 
