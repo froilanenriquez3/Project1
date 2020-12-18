@@ -78,7 +78,7 @@ $minPrice = selectCheapestPromo();
           
                 <?php
                 if($_SESSION['user']['points'] < $minPrice[0]){
-                    echo "Aún no tienes ninguna promoción disponible.";
+                    echo "Ahora mismo no tienes ninguna promoción disponible.";
                 }
                 else{
                     foreach ($promos as $promo) {
