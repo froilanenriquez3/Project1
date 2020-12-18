@@ -544,8 +544,8 @@ input:checked + .slider:before {
   text-align: center;
   width: 50%;
   padding: 20px;
-  margin-top: 25px;
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 40px;
   background-color: #d7ebf7;
   border-radius: 20px;
   border: black 2px solid;
