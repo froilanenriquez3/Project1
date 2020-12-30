@@ -24,8 +24,8 @@ $limit = $games['2']['pointLimit'];
     <!-- FONT MONTSERRAT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/styles.css?v=1236">
-    <link rel="stylesheet" href="./styles/voicestyles.css?v=1235">
+    <link rel="stylesheet" href="./styles/styles.css?v=1239">
+    <link rel="stylesheet" href="./styles/voicestyles.css?v=1236">
 </head>
 
 <body>
@@ -163,9 +163,9 @@ $limit = $games['2']['pointLimit'];
                 <div id="box18"></div>
             </div>
             <div id="endScreen">
-                <h1>¡Enhorabuena, has completado el juego con una puntuación de <span id="finalScore"></span> sobre <?= $limit ?> puntos posibles!</h1>
-                <h1>Escoge, ¿Quieres canjear tus puntos, volver a jugar o salir?</h1>
-                <h1>¡¡¡Recuerda que solo puedes canjear tus puntos una sola vez!!!</h1>
+                <h1>¡Enhorabuena, has completado el juego con una puntuación de <span id="finalScore"></span> sobre <?= $limit ?> puntos posibles!</br>
+                    </br>Escoge, ¿Quieres canjear tus puntos, volver a jugar o salir?</br>
+                    </br>¡¡¡Recuerda que solo puedes canjear tus puntos una sola vez!!!</h1>
                 <div id="endButtons">
                     <button id='replay' onclick="replayGame()">Volver a jugar</button>
                     <button id='redeem' onclick="redeemPoints()" <?php if ($game_info3['pointSave'] == 1) {
@@ -183,7 +183,7 @@ $limit = $games['2']['pointLimit'];
     </div>
     <audio id="audio" type="audio/mpeg"></audio>
     <audio id="bgmusic" type="audio/mpeg" src="./media/songs/bg/bgmusic.mp3"></audio>
-    <script src="./js/main.js?v=1238"></script>
+    <script src="./js/main.js?v=1239"></script>
     <script src="/project1/js/navbar.js"></script>
 </body>
 

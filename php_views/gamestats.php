@@ -14,6 +14,10 @@ $high4 = selectHighScores(4);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-navbar.css">
     <link rel="stylesheet" href="../style/buttons.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    
     <title>Estadísticas</title>
     <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
 </head>
@@ -26,7 +30,7 @@ $high4 = selectHighScores(4);
 
     <div class="container" style="padding-top: 100px; padding-left: 100px;">
         <div class="card">
-            <div class="card-header" style="text-align: center; font-weight: bolder; background-color: #ffb35c;">Statistics</div>
+            <div class="card-header" style="text-align: center; font-weight: bolder; background-color: #ffb35c;">Estadísticas</div>
             <div class="card-body">
                 <table class="table" style="text-align: center;">
                     <thead style="background-color: #2e585a; color:white;">
