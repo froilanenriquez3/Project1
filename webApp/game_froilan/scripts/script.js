@@ -24,10 +24,19 @@ function startGame() {
 
   document.querySelector('.startscreen').style.display = "none";
   document.querySelector('.endscreen').style.display = "none";
+  document.querySelector('.rulescreen').style.display = "none";
   document.querySelector('.mainscreen').style.display = "block";
 
   window.myMusic = new sound("img/gamemusic3.mp3");
   play();
+
+}
+
+function returnGame(){
+  document.querySelector('.startscreen').style.display = "none";
+  document.querySelector('.endscreen').style.display = "none";
+  document.querySelector('.rulescreen').style.display = "none";
+  document.querySelector('.mainscreen').style.display = "block";
 
 }
 
@@ -38,8 +47,8 @@ function endScreen() {
 }
 
 function howTo(){
-  mute();
-  document.querySelector('.startscreen').style.display = "flex";
+
+  document.querySelector('.rulescreen').style.display = "flex";
   document.querySelector('.mainscreen').style.display = "none";
 
 }

@@ -121,6 +121,25 @@ button {
     display: none;
 }
 
+.rulescreen{
+    @include flexDisplay(center);
+
+    flex-direction: column;
+    background-image: url("../img/store.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-sizing: border-box;
+    height: 526px;
+    width: 875px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+
+    color: black;
+}
+
 .topbar {
     box-sizing: border-box;
     height: 76px;
