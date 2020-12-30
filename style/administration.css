@@ -20,6 +20,8 @@ body{
 .card-header{
     font-family: 'Oswald', sans-serif;
     background-color: #FFB35C;
+    font-size: 20px;
+    color: #2e585a;
     
 }
 

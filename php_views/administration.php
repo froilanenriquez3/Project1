@@ -50,9 +50,7 @@ if ($_SESSION['user']['isAdmin'] == 0) {
     ?>
         <div class="container">
             <div class="card">
-                <div class="card-header">
-                    <h1>Administración</h1>
-                </div>
+                <div class="card-header">Administración</div>
 
                 <div class="card-body">
                     <div class="info">
