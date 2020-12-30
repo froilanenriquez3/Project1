@@ -5,6 +5,7 @@ body{
 
 .container{
     padding-top: 4.5em;
+    padding-left: 100px;
 }
 
 /* .container > .card > .card-body:not(.accordion){
@@ -56,4 +57,9 @@ h5{
 
 .card-body > p{
     font-weight: bold;
+}
+
+/* Language dropdown off */
+.dropdown{
+    display: none;
 }

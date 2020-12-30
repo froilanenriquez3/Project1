@@ -92,3 +92,8 @@ body {
 #submitpromo:hover{
   background-color: #ff9b29;
 }
+
+/* Language dropdown off */
+.dropdown{
+  display: none;
+}

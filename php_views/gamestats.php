@@ -36,7 +36,7 @@ $high4 = selectHighScores(4);
     require_once '../php_partials/buttons.php';
     ?>
 
-    <div class="container" style="padding-top: 100px;">
+    <div class="container" style="padding-top: 100px; padding-left: 100px;">
         <div class="card">
             <div class="card-header" style="text-align: center; font-weight: bolder; background-color: #ffb35c;">Estadísticas</div>
             <div class="card-body">
