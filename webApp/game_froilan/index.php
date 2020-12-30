@@ -77,6 +77,8 @@
                 <div id="buttonsbox">
                     <button class="endgame" onclick="endScreen()"  <?php if($game_info2['pointSave'] == 1){ echo "disabled";}?> >EXIT</button>
 
+                    <button class="howto" onclick="howTo()">RULES</button>
+
                     <div class="music">
                     <i class="music fas fa-volume-mute"></i>
                     

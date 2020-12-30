@@ -27,7 +27,7 @@ function startGame() {
   document.querySelector('.mainscreen').style.display = "block";
 
   window.myMusic = new sound("img/gamemusic3.mp3");
-  window.myMusic.play();
+  play();
 
 }
 
@@ -37,11 +37,17 @@ function endScreen() {
   window.myMusic.stop();
 }
 
+function howTo(){
+  mute();
+  document.querySelector('.startscreen').style.display = "flex";
+  document.querySelector('.mainscreen').style.display = "none";
+
+}
+
 //Music functions
 
 function mute() {
   window.myMusic.stop();
-
 
   document.querySelector('#music').setAttribute("onclick", "play()");
 
