@@ -56,3 +56,8 @@ h5{
 .card-body > p{
     font-weight: bold;
 }
+
+/* Language dropdown off */
+.dropdown{
+    display: none;
+}
