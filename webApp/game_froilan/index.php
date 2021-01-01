@@ -59,6 +59,26 @@
 
             
         </div>
+        <div class="rulescreen" style="display:none;">
+            <div class="text">
+                <h1 id="screenHeader" >The Fantastic Fitting Room</h1>
+                <br>
+                <h4>Help me buy clothes for my grandson, Marco. I'll just warn you right now... he's kind of picky.</h4>
+                
+                
+                <p>How to play: Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
+                    If your combo works, you earn points! If it doesn't, try again with something different. 
+                    You can earn up to <?= $limit ?> points. When you want to redeem your points, click "Exit". You can only redeem your points once.
+                    Let's go!
+                </p>
+            </div>
+            <button class='startbutton' onclick="returnGame()">Play</button>
+
+            
+        </div>
+
+
+
         <div class="mainscreen">
             <div class="topbar">
                 <div id="feedbackbox">
@@ -76,6 +96,8 @@
                 </div>
                 <div id="buttonsbox">
                     <button class="endgame" onclick="endScreen()"  <?php if($game_info2['pointSave'] == 1){ echo "disabled";}?> >EXIT</button>
+
+                    <button class="howto" onclick="howTo()">RULES</button>
 
                     <div class="music">
                     <i class="music fas fa-volume-mute"></i>

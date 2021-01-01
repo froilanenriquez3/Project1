@@ -101,11 +101,38 @@ button {
 .startbutton:hover {
   background-color: #14d614;
   color: white;
-  border: solid white 2px;
+  border: solid black 2px;
 }
 
 .mainscreen {
   display: none;
+}
+
+.rulescreen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("../img/store.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 526px;
+  width: 875px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: black;
 }
 
 .topbar {
@@ -184,8 +211,8 @@ button {
   padding: 10px;
   padding-top: 24px;
   height: 100%;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 0.5fr 0.5fr 0.5fr;
+      grid-template-columns: 0.5fr 0.5fr 0.5fr;
   background-color: aliceblue;
   border-left: solid black 3px;
 }
@@ -193,9 +220,9 @@ button {
 .topbar #buttonsbox .music {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 3fr 1fr;
-      grid-template-columns: 1fr 3fr 1fr;
-  margin-right: 15px;
+  -ms-grid-columns: 0.5fr 1fr 0.5fr;
+      grid-template-columns: 0.5fr 1fr 0.5fr;
+  margin-right: 2px;
 }
 
 .topbar #buttonsbox .music .fa-volume-up,
@@ -205,12 +232,12 @@ button {
 
 .topbar #buttonsbox .music .fa-volume-up {
   position: relative;
-  left: 12px;
+  left: 4px;
 }
 
 .topbar #buttonsbox .music .fa-volume-mute {
   position: relative;
-  left: 4px;
+  left: 1px;
 }
 
 .topbar #buttonsbox .switch {
@@ -268,35 +295,46 @@ button {
   height: 30px;
   width: 70px;
   font-size: 15px;
-  margin-left: 30px;
+  margin-left: 3px;
   text-decoration: none;
-  background-color: red;
+  background-color: green;
   color: white;
   border-radius: 5px;
   border: solid black 2px;
 }
 
-.topbar #buttonsbox button:hover {
-  background-color: white;
-  color: black;
+.topbar #buttonsbox button.endgame {
+  background-color: red;
+  color: white;
 }
 
-.topbar #buttonsbox button:active {
+.topbar #buttonsbox button.endgame:active {
   background-color: pink;
   color: black;
 }
 
-.topbar #buttonsbox button:disabled {
+.topbar #buttonsbox button.endgame:hover {
+  background-color: white;
+  color: black;
+}
+
+.topbar #buttonsbox button.endgame:disabled {
   background-color: grey;
 }
 
-.topbar #buttonsbox button:disabled:active {
+.topbar #buttonsbox button.endgame:disabled:active {
   color: white;
 }
 
-.topbar #buttonsbox button:disabled:hover {
+.topbar #buttonsbox button.endgame:disabled:hover {
   background-color: grey;
   color: white;
+}
+
+.topbar #buttonsbox button.howto:hover {
+  background-color: white;
+  color: black;
+  border: solid  black 2px;
 }
 
 .box {
@@ -606,7 +644,7 @@ button {
   height: 50px;
   width: 92px;
   border-radius: 50px;
-  border: white solid 2px;
+  border: black solid 2px;
   background-color: green;
   color: white;
   font-size: 25px;
@@ -638,7 +676,7 @@ button {
 .check:disabled:hover {
   background-color: grey;
   color: white;
-  border: white solid 2px;
+  border: black solid 2px;
 }
 
 .endscreen {
@@ -701,6 +739,6 @@ button {
 .endscreen .redeem:hover {
   background-color: blue;
   color: white;
-  border: solid white 2px;
+  border: solid black 2px;
 }
 /*# sourceMappingURL=style.css.map */

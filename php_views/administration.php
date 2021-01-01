@@ -546,10 +546,10 @@ if ($_SESSION['user']['isAdmin'] == 0) {
                                                     <div class="form-group row">
 
                                                         <label class="col-2" for="pointlimit">Puntos máximos</label>
-                                                        <input class="col-9 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0">
+                                                        <input class="col-8 form-control" type="number" id="pointlimit" name="pointlimit" value="<?= $game['pointLimit'] ?>" min="0">
                                                         <input type="num" id="gameid" name="gameid" value="<?= $game['idgame'] ?>" style="display:none">
 
-                                                        <button class="col-1 btn" type="submit" id="modpoint" name="modpointlim">Guardar</button>
+                                                        <button class="col-2 btn form-control" type="submit" id="modpoint" name="modpointlim">Guardar</button>
                                                     </div>
                                                 </form>
                                             </div>
