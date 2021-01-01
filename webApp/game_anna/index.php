@@ -64,7 +64,7 @@
               </div>
 
               <div class="col-11">
-                <p>Pulsa la barra espaciadora para saltar.</p>
+                <p>Pulsa la barra espaciadora para saltar. El personaje solo puede saltar hacia arriba, no en diagonal.</p>
               </div>
             </div>  
 
