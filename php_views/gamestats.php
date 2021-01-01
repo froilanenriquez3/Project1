@@ -45,7 +45,7 @@ $high4 = selectHighScores(4);
                         <tr>
                             <th scope="col">Número de juego</th>
                             <th scope="col">Nombre del juego</th>
-                            <th scope="col">Nombre de usuairo</th>
+                            <th scope="col">Nombre de usuario</th>
                             <th scope="col">Puntuación más alta</th>
                         </tr>
                     </thead>
