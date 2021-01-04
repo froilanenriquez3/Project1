@@ -35,13 +35,20 @@
 </head>
 
 <body>
+
+    <!--Navbar, login buttons -->
     <?php
         require_once '../../php_partials/navbar.php';
         require_once '../../php_partials/buttons.php';
         // require_once '../../php_partials/language.php';
     ?>
+
+
+    <!-- Game window -->
     <div class="gameContainer">
     <div id="game">
+
+    <!-- Screen to be displayed at the start of game-->
         <div class="startscreen">
             <div class="text">
                 <h1 id="screenHeader" >Welcome to the Fantastic Fitting Room!</h1>
@@ -49,44 +56,50 @@
                 <h4>Help me buy clothes for my grandson, Marco. I'll just warn you right now... he's kind of picky.</h4>
                 
                 
-                <p>How to play: Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
-                    If your combo works, you earn points! If it doesn't, try again with something different. 
-                    You can earn up to <?= $limit ?> points. When you want to redeem your points, click "Exit". You can only redeem your points once.
+                <p>How to play: Drag and drop clothing items to create a new outfit. 
+                    Once you think you have a winner, click the CHECK button. You need to put all four items on before checking. 
+                    If your combo works, you earn points! If it doesn't, try again with something different. You only get a limited number of tries,
+                    so pick carefully.
+                    You can earn up to <?= $limit ?> points. When you want to redeem your points, click "Exit". 
+                    Careful! This ends the game and if you change your mind, you will have to start from 0 again! You can only redeem your points once.
                     Let's go!
                 </p>
             </div>
-            <button class='startbutton' onclick="startGame()">Start</button>
-
-            
+            <button class='startbutton' onclick="startGame()">Start</button>           
         </div>
+
+    <!--Screen to be displayed when clicking on the "rules" button-->
         <div class="rulescreen" style="display:none;">
             <div class="text">
-                <h1 id="screenHeader" >The Fantastic Fitting Room</h1>
-                <br>
-                <h4>Help me buy clothes for my grandson, Marco. I'll just warn you right now... he's kind of picky.</h4>
+                <h1 id="screenHeader">How to play</h1>
                 
-                
-                <p>How to play: Drag and drop clothing items to create a new outfit. Once you think you have a winner, click the CHECK button. 
-                    If your combo works, you earn points! If it doesn't, try again with something different. 
-                    You can earn up to <?= $limit ?> points. When you want to redeem your points, click "Exit". You can only redeem your points once.
+                <p>Drag and drop clothing items to create a new outfit. 
+                    Once you think you have a winner, click the CHECK button. You need to put all four items on before checking. 
+                    If your combo works, you earn points! If it doesn't, try again with something different. You only get a limited number of tries,
+                    so pick carefully.
+                    You can earn up to <?= $limit ?> points. When you want to redeem your points, click "Exit". 
+                    Careful! This ends the game and if you change your mind, you will have to start from 0 again! You can only redeem your points once.
                     Let's go!
                 </p>
             </div>
-            <button class='startbutton' onclick="returnGame()">Play</button>
-
-            
+            <button class='startbutton' onclick="returnGame()">Play</button>     
         </div>
 
 
-
+    <!-- Primary game screen-->
         <div class="mainscreen">
+
+            <!-- Menu/feedback bar -->
             <div class="topbar">
+                <!-- Indicates to user whether guesses are correct or not-->
                 <div id="feedbackbox">
                     <p id="feedhat">Hat </p>
                     <p id="feedshirt">Shirt </p>
                     <p id="feedpants">Pants </p>
                     <p id="feedshoes">Shoes</p>
                 </div>
+
+                <!-- Displays number of points and tries to the user-->
                 <div id="scorebox">
 
                     <p id="counter" data-points=0 data-limit= "<?= $limit?>" >Score: 0</p>
@@ -94,6 +107,8 @@
                     <p id="winner"></p>
     
                 </div>
+
+                <!-- Menu, gives option to user to exit game, see rules, and turn music on and off -->
                 <div id="buttonsbox">
                     <button class="endgame" onclick="endScreen()"  <?php if($game_info2['pointSave'] == 1){ echo "disabled";}?> >EXIT</button>
 
@@ -293,15 +308,14 @@
         </div>
 
 
+        <!-- Screen to be displayed after clicking on exit button-->
         <div class="endscreen">
             <div class="text">
                 <h1>Would you like to redeem your points or try for a higher score?</h1>
                 <h2>You can only redeem your points once!</h2>
-                
             </div>
             
             <div>
-                
                 <button class='startbutton' onclick="startGame()">Try for more points!</button>
                 <button class='startbutton redeem' onclick="savePoints()">Redeem my points!</button>
 
@@ -309,12 +323,7 @@
                      <input type="number" style="display:none" id="finalPoints" name="finalPoints">
                      <input type="number" style="display:none" id="gameId" name="gameId" value="2">
                 </form>
-               
-               
-
             </div>
-
-
         </div>
         </div>
 
@@ -322,6 +331,7 @@
 
     </div>
     
+    <!-- javascript files for game logic-->
     <script src="scripts/script.js"></script>
     <script src="scripts/eventListeners.js"></script>
     <script src="scripts/submit.js"></script>
