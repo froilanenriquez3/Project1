@@ -117,3 +117,7 @@ body {
 .promoDisabled {
   pointer-events: none;
 }
+/* Language dropdown off */
+.dropdown {
+  display: none;
+}
