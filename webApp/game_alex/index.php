@@ -53,6 +53,7 @@ $limit = $games['2']['pointLimit'];
                 <div id="closeInstructions" onclick="enterStore()">
                     <img id="instructionsCross" src="./media/window-close-solid.svg" alt="">
                 </div>
+                <p>INSTRUCTIONS</p>
                 <div id="instructionImages">
                     <img id="instructionsCD" src="./media/img/cd.png" alt="">
                     <img id="instructionsArrow" src="./media/long-arrow-alt-right-solid.svg" alt="">
@@ -98,11 +99,13 @@ $limit = $games['2']['pointLimit'];
                                 <p id="info_speak_now">Speak now.</p>
                                 <p id="info_no_speech">No speech was detected. You may need to adjust your
                                     <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-                                        microphone settings</a>.</p>
+                                        microphone settings</a>.
+                                </p>
                                 <p id="info_no_microphone" style="display:none">
                                     No microphone was found. Ensure that a microphone is installed and that
                                     <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-                                        microphone settings</a> are configured correctly.</p>
+                                        microphone settings</a> are configured correctly.
+                                </p>
                                 <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
                                 <p id="info_denied">Permission to use microphone was denied.</p>
                                 <p id="info_blocked">Permission to use microphone is blocked. To change,
