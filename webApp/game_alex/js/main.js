@@ -109,9 +109,15 @@ var pointLimit = document.getElementById("pointsCounter").dataset.limit;
 var onePointScore = pointLimit / 20;
 
 function enterStore() {
+  document.getElementById("instructions").style.display = "none";
   document.getElementById("start").style.display = "none";
   document.getElementsByClassName("grid-container")[0].style.display = "grid";
   bgmusic.play();
+}
+
+function displayInstructions() {
+  document.getElementById("start").style.display = "none";
+  document.getElementById("instructions").style.display = "flex";
 }
 
 /* Points functions */

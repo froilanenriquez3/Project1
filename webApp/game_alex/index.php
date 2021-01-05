@@ -32,7 +32,6 @@ $limit = $games['2']['pointLimit'];
     <?php
     require_once '../../php_partials/navbar.php';
     require_once '../../php_partials/buttons.php';
-    // require_once '../../php_partials/language.php';
     ?>
     <div class="gameContainer">
         <div id="game">
@@ -42,12 +41,22 @@ $limit = $games['2']['pointLimit'];
                 <h1>¡He oído que en 'Barna Records' hay buenas promociones si consigues completar las letras de algunas canciones!</h1>
                 <h1>Estoy un poco viejita ya para esas cosas, ¿te importaría venir conmigo y ayudarme?</h1>
                 <div id="startGameOptions">
-                    <div id="startGameBt" onclick="enterStore()">
+                    <div id="startGameBt" onclick="displayInstructions()">
                         <p>Ayudar</p>
                     </div>
                     <div id="exitGameBt" onclick="exitGame()">
                         <p>Ignorar anciana</p>
                     </div>
+                </div>
+            </div>
+            <div id="instructions">
+                <div id="closeInstructions" onclick="enterStore()">
+                    <img id="instructionsCross" src="./media/window-close-solid.svg" alt="">
+                </div>
+                <div id="instructionImages">
+                    <img id="instructionsCD" src="./media/img/cd.png" alt="">
+                    <img id="instructionsArrow" src="./media/long-arrow-alt-right-solid.svg" alt="">
+                    <img id="instructionsCDPlayer" src="./media/img/cdplayer2.jpg" alt="">
                 </div>
             </div>
             <div id="song">
