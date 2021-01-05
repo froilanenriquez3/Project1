@@ -6,21 +6,21 @@ body {
   border: none;
 }
 
-.card .card{
+.card .card {
   margin-top: 20px;
 }
-.card .card .card-body{
+.card .card .card-body {
   box-sizing: border-box;
   height: 215px;
 }
 
-.card-footer{
+.card-footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.card-footer .btn{
+.card-footer .btn {
   border: 1px solid black;
 }
 
@@ -89,6 +89,31 @@ body {
   font-weight: bold;
 }
 
-#submitpromo:hover{
+#submitpromo:hover {
   background-color: #ff9b29;
+}
+
+/* For unavailable promotions */
+.lockImg img {
+  opacity: 0.2;
+}
+
+.lockImg {
+  background-image: url(../media/img/locked.png);
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  position: relative;
+}
+
+.noPromo {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.promoDisabled {
+  pointer-events: none;
 }
