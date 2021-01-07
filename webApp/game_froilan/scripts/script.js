@@ -1,14 +1,14 @@
-
 let hat;
 let shirt;
 let pants;
 let shoes;
 
+//Point limit based on dataset attribute of counter id html element.
 let pointLimit = document.querySelector('#counter').dataset.limit;
 
-let previousNum =0;
+let previousNum = 0;
 
-let triesLimit = 5;
+let triesLimit = 6;
 
 let myMusic;
 
@@ -32,6 +32,7 @@ function startGame() {
 
 }
 
+//From rules screen, return user to the game
 function returnGame(){
   document.querySelector('.startscreen').style.display = "none";
   document.querySelector('.endscreen').style.display = "none";
@@ -40,12 +41,14 @@ function returnGame(){
 
 }
 
+//From game screen, take user to the end screen
 function endScreen() {
   document.querySelector('.mainscreen').style.display = "none";
   document.querySelector('.endscreen').style.display = "flex";
   window.myMusic.stop();
 }
 
+//From, game screen, take user to the rules screen
 function howTo(){
 
   document.querySelector('.rulescreen').style.display = "flex";
@@ -99,6 +102,7 @@ function resetTries() {
   document.querySelector('#tries').dataset.tries = attempts;
 }
 
+//Increment the number of tries used up by user and display to user
 function increaseTries(callback1) {
   let attempts = +document.querySelector('#tries').dataset.tries;
 
@@ -110,7 +114,7 @@ function increaseTries(callback1) {
 
   if (attempts < triesLimit) {
     document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
-  } else if (attempts == 5) {
+  } else if (attempts == 6) {
     document.querySelector('#next').disabled = false;
     document.querySelector('#check').disabled = true;
     document.querySelector('#tries').innerHTML = "Tries: " + attempts + "/" + triesLimit;
@@ -133,7 +137,7 @@ function increasePoints() {
   document.querySelector('#counter').dataset.points = score;
 }
 
-
+//Update the score that is being show to user when points increase
 function displayUpdateScore() {
   let score = document.querySelector('#counter').dataset.points;
   if (score == pointLimit) {
@@ -145,7 +149,7 @@ function displayUpdateScore() {
 
 }
 
-
+// Generates random comment (1 out of 12, no immediate repeats ) of feedback if user did not get the right outfit
 function snarkTextGenerator() {
   let num;
   do {
@@ -191,16 +195,13 @@ function snarkTextGenerator() {
       message = "No. Just no.";
       break;
     case 12:
+      //favorite message
       message = "Thanks for the outfit! It'll go nicely with the garbage I have to take out later.";
       break;
 
     default:
       break;
   }
-
-
-
-
 
   return message;
 }
@@ -407,6 +408,7 @@ function newCombo(callback1, callback2, callback3) {
 
 }
 
+//reset feedback box
 function resetFeedback() {
   document.querySelector('#feedhat').innerHTML = "Hat";
   document.querySelector('#feedhat').style.color = "black";
@@ -429,6 +431,7 @@ function resetFeedback() {
 
 }
 
+//reset game items after every round
 function resetGame() {
 
 

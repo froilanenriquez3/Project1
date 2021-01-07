@@ -135,7 +135,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 /*Inserts for testing*/
 
-INSERT INTO user VALUES(null, "Alex", "1234pass", 30000, true, "alxcant@whatev.com");
+INSERT INTO user VALUES(null, "Alex", "1234pass", 1000, true, "alxcant@whatev.com");
 INSERT INTO user VALUES(null, "Gaia", "1234pass", 300, true, "gaia@whatev.com");
 
 
