@@ -44,28 +44,31 @@
             <h2>Ayuda a Teresa a acabar la compra para la comida de Navidad</h2>
             <div class="container-fluid" id="instructionsInfo">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-1">
                 <img src="img/instructions1.png" alt="">
                 </div>
-                <div class="col-10">
+                <div class="col-5">
                 <p>Aprieta al icono de lista para consultar los ingredientes a comprar.</p>
                 </div>
-                </div>
-                <div class="row">
-                <div class="col-2">
+                <div class="col-1">
                 <img src="img/instructions2.png" alt="">
                 </div>
-                <div class="col-10">
+                <div class="col-5">
                 <p>Arrastra los ingredientes correctos a la cesta de la compra.</p>
                 </div>
                 </div>
                 <div class="row">
-                <div class="col-2">
+                <div class="col-1">
                 <img src="img/instructions3.png" alt="">
                 </div>
-                <div class="col-10">
-                <p>Puedes mover a Teresa con las flechas de dirección para acercarte y ¡hablar con las
-                    personas! Aprieta el símbolo que aparecerá al acercarte a ellas. Tal vez te puedan ayudar.</p>
+                <div class="col-5">
+                <p>Puedes mover a Teresa con las flechas de dirección para acercarte y hablar con los personajes. Tal vez te puedan ayudar.</p>
+                </div>
+                <div class="col-1">
+                <img src="img/instructions4.png" alt="">
+                </div>
+                <div class="col-5">
+                <p>Puedes cambiar de tienda con este botón para encontrar más ingredientes!</p>
                 </div>
                 </div>
                 <div class="row special">
