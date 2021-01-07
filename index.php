@@ -5,6 +5,7 @@ require_once 'php_libraries/bd.php';
 $user_set = false;
 if (isset($_SESSION['user'])) {
   $user_set = true;
+  setcookie("points", $_SESSION['user']['points']);
 }
 
 ?>

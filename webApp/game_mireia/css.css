@@ -64,9 +64,9 @@ body{
     text-align: center;
 }
 
-/* .last-left{
-    margin: 5px 5px;
-} */
+.special > div > p {
+    margin: 10px 0px;
+}
 
 .last-left h3{
     font-weight: bolder;

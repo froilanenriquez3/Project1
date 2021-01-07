@@ -1,4 +1,9 @@
 //Translations for english
+cookiePoints = document.cookie;
+//Erasing the part that we don't need from the cookie.
+cookiePoints=  cookiePoints.replace("points=", "");
+points= cookiePoints.split(';')[0];
+
 let eng={
     restoreExclamation:"Restore!",
     divulgation1: "96% of small businesses consider that the crisis caused by the coronavirus pandemic will affect their activity in a negative or very negative way. The capacity restrictions and temporary closure of some of these businesses resulted in many of them finding themselves in a difficult economic situation. To help in these critical times, Restore is born." ,
@@ -10,7 +15,7 @@ let eng={
     login: "Log in",
     logout: "Log out",
     register: "Register",
-    welcome: "Welcome",
+    welcome: "Welcome! You have "+ points + " points",
 
     navRestore:"Restore",
     navGame:"Games",

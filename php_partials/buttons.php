@@ -21,6 +21,7 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
 
+
     <a id="<?php
         if ($user_set) {
             echo 'logout';
@@ -55,7 +56,7 @@ if (isset($_SESSION['user'])) {
     ?>>
     <?php
         if ($user_set) {
-            echo 'Bienvenide';
+            echo 'Bienvenide! Tienes '. $_SESSION['user']['points'].' puntos' ;
         } else {
             echo 'Registrarse';
         }

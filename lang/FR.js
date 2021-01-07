@@ -1,4 +1,9 @@
 //Translations for french 
+cookiePoints = document.cookie;
+//Erasing the part that we don't need from the cookie.
+cookiePoints=  cookiePoints.replace("points=", "");
+points= cookiePoints.split(';')[0];
+
 let fr={
     restoreExclamation:"Recomerçem!",
     divulgation1: "Le 96% des petites entreprises considère que la crise provoquée par la pandémie mondiale du Covid affectera négativement ou très négativement à son activité. Les restrictions de capacité et la fermeture temporaire de certaines entreprises ont conduit beaucoup d’elles à se retrouver dans une situation économique difficile. Pour aider dans ces moments critiques, est née ‘Recomerçem’. " ,
@@ -10,7 +15,7 @@ let fr={
     login: "Connexion",
     logout: "Déconnexion",
     register: "S'inscrire",
-    welcome: "Bienvenue",
+    welcome: "Bienvenue, vous avez "+ points + " points",
 
     navRestore:"Recomerçem",
     navGame:"Jeux",
