@@ -1,4 +1,9 @@
 //Translations for spanish
+cookiePoints = document.cookie;
+//Erasing the part that we don't need from the cookie.
+cookiePoints=  cookiePoints.replace("points=", "");
+points= cookiePoints.split(';')[0];
+
 let esp={
     restoreExclamation:"Recomerçem!",
     divulgation1: "El 96% de los pequeños negocios considera que la crisis provocada por la pandemia del coronavirus afectará de forma negativa o muy negativa a su actividad. Las restricciones de aforo y el cierre temporal de algunos de estos negocios han hecho que muchos de ellos se encuentren en una situación económica difícil. Para ayudar en estos momentos críticos nace ‘Recomerçem’." ,
@@ -10,7 +15,7 @@ let esp={
     login: "Iniciar sesión",
     logout: "Cerrar sesión",
     register: "Registrarse",
-    welcome: "Bienvenide",
+    welcome: "Bienvenide! Tienes "+ points +" puntos",
 
     navRestore:"Restore",
     navGame:"Juegos",

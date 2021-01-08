@@ -140,7 +140,6 @@ INSERT INTO user VALUES(null, "Gaia", "1234pass", 0, true, "gaia@whatev.com");
 INSERT INTO user VALUES(null, "Asha", "1234pass", 0, true, "asha@whatev.com");
 
 
-
 INSERT INTO game VALUES(null, "Game1", 1000);
 INSERT INTO game VALUES(null, "Game2", 1000);
 INSERT INTO game VALUES(null, "Game3", 1000);

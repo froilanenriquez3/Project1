@@ -1,4 +1,8 @@
 //Translations for catalan
+cookiePoints = document.cookie;
+//Erasing the part that we don't need from the cookie.
+cookiePoints=  cookiePoints.replace("points=", "");
+points= cookiePoints.split(';')[0];
 let cat={
     restoreExclamation:"Recomerçem!",
     divulgation1: "El 96% dels petits negocis considera que la crisi provocada per la pandèmia del coronavirus afectarà de forma negativa o molt negativa a la seva activitat. Les restriccions d'aforament i el tancament temporal d'alguns d'aquests negocis ha fet que molts d'ells es trobin en una situació econòmica difícil. Per ajudar en aquests moments crítics neix 'Recomerçem'." ,
@@ -10,7 +14,7 @@ let cat={
     login: "Iniciar Sessió",
     logout: "Tancar Sessió",
     register: "Registrar-se",
-    welcome: "Benvingudi",
+    welcome: "Benvingudi! Tens "+ points+ " punts",
 
     navRestore:"Recomerçem",
     navGame:"Jocs",
