@@ -54,7 +54,7 @@
             
               <div class="col-11">
                 <p>Tienes que recoger el máximo número de monedas que puedas durante 1 minuto. Por cada moneda que consigas
-                  recibirás 30 puntos.</p>
+                  recibirás 20 puntos.</p>
               </div>
             </div>  
 
@@ -64,7 +64,17 @@
               </div>
 
               <div class="col-11">
-                <p>Pulsa la barra espaciadora para saltar. El personaje solo puede saltar hacia arriba, no en diagonal.</p>
+                <p>Pulsa la barra espaciadora para saltar. El personaje solo puede saltar hacia arriba, no en diagonal.</p> 
+              </div>
+            </div>  
+
+            <div class="row">
+              <div class="col-1">
+                <img src="img/list.png" width= "20px" alt="">
+              </div>
+
+              <div class="col-11">
+                <p>Puedes saltar encima de las nubes para conseguir las monedas más altas.</p>
               </div>
             </div>  
 

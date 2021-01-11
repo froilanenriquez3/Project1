@@ -25,7 +25,10 @@ body{
 h3{
     font-family: 'Oswald', sans-serif;
     color: #2e585a;
-    padding: 30px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 15px;
 }
 
 .row img{
@@ -45,6 +48,10 @@ h3{
     background-color: #2e585a;
     padding: 7px 10px;
     border-radius: 7px;
+}
+
+#play{
+    margin-top: 0px;
 }
 
 #play:hover, #replay:hover, #redeem:hover{
