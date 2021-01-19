@@ -126,7 +126,7 @@
                 <img onclick="closeText()" src="img/cross.png">
                 <div></div>
             </div>
-            <img id="music" src="img/moff.png" alt="">
+            <img id="music" src="img/mon.png" alt="">
             <img id="basket" src="img/basket.png" alt="">
             <img id="lady" src="img/ladyLeft.png" alt="">
         </div>

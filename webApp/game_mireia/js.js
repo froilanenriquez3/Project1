@@ -503,11 +503,11 @@ function musicControl() {
  if(paused){
      window.myMusic.play();
      paused= false;
-     img.setAttribute("src", "img/moff.png");
+     img.setAttribute("src", "img/mon.png");
  } else {
      window.myMusic.stop();
      paused= true;
-     img.setAttribute("src", "img/mon.png");
+     img.setAttribute("src", "img/moff.png");
  }
 }
 
