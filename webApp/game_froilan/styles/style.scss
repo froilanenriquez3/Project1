@@ -113,12 +113,31 @@ button {
     &:hover {
         background-color: rgb(20, 214, 20);
         color: white;
-        border: solid white 2px;
+        border: solid black 2px;
     }
 }
 
 .mainscreen {
     display: none;
+}
+
+.rulescreen{
+    @include flexDisplay(center);
+
+    flex-direction: column;
+    background-image: url("../img/store.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-sizing: border-box;
+    height: 526px;
+    width: 875px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+
+    color: black;
 }
 
 .topbar {
@@ -182,26 +201,26 @@ button {
         padding: 10px;
         padding-top: 24px;
         height: 100%;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 0.5fr 0.5fr 0.5fr;
         background-color: aliceblue;
         border-left: solid black 3px;
 
         .music {
             display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-columns: 0.5fr 1fr 0.5fr;
             .fa-volume-up,
             .fa-volume-mute {
                 padding-top: 7px;
             }
             .fa-volume-up {
                 position: relative;
-                left: 12px;
+                left: 4px;
             }
             .fa-volume-mute {
                 position: relative;
-                left: 4px;
+                left:1px;
             }
-            margin-right: 15px;
+            margin-right: 2px;
         }
 
         .switch {
@@ -257,31 +276,54 @@ button {
             height: 30px;
             width: 70px;
             font-size: 15px;
-            margin-left: 30px;
+            margin-left: 3px;
             text-decoration: none;
-            background-color: red;
+            background-color: green;
             color: white;
             border-radius: 5px;
             border: solid black 2px;
 
-            &:hover {
-                background-color: white;
-                color: black;
-            }
-            &:active {
-                background-color: pink;
-                color: black;
-            }
-            &:disabled {
-                background-color: grey;
+            &.endgame{
+                background-color: red;
+                color: white;
+
+                
                 &:active {
-                    color: white;
+                    background-color: pink;
+                    color: black;
                 }
+
                 &:hover {
+                    background-color: white;
+                    color: black;
+                }
+                
+                &:disabled {
                     background-color: grey;
-                    color: white;
+                    &:active {
+                        color: white;
+                    }
+                    &:hover {
+                        background-color: grey;
+                        color: white;
+                    }
+                }
+
+            }
+
+            &.howto{
+                &:hover{
+                    background-color: white;
+                    color: black;
+                    border:solid  black 2px;
                 }
             }
+
+            
+
+            
+
+            
         }
     }
 }
@@ -491,7 +533,7 @@ button {
     height: 50px;
     width: 92px;
     border-radius: 50px;
-    border: white solid 2px;
+    border: black solid 2px;
     background-color: green;
     color: white;
     font-size: 25px;
@@ -515,7 +557,7 @@ button {
         &:hover {
             background-color: grey;
             color: white;
-            border: white solid 2px;
+            border: black solid 2px;
         }
     }
 }
@@ -568,7 +610,7 @@ button {
         &:hover {
             background-color: blue;
             color: white;
-            border: solid white 2px;
+            border: solid black 2px;
         }
     }
 }

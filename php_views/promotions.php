@@ -4,6 +4,9 @@ require_once '../php_libraries/bd.php';
 $_SESSION['user'] = selectUserById($_SESSION['user']['userid']);
 
 $promos = selectAllFromTable('promotion');
+usort($promos, function ($item1, $item2) {
+    return $item1['pointCost'] <=> $item2['pointCost'];
+});
 $user_promos = selectUserPromos($_SESSION['user']['userid']);
 $minPrice = selectCheapestPromo();
 // $user = $_SESSION['user'];
@@ -32,7 +35,7 @@ $minPrice = selectCheapestPromo();
 
 
     <title>Puntos y Promociones</title>
-    <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png"/>
+    <link rel="shortcut icon" type="image/png" href="/project1/media/img/logo.png" />
 </head>
 
 <body>
@@ -74,50 +77,69 @@ $minPrice = selectCheapestPromo();
                 Promociones disponibles según tus puntos
                 <p id="display_points">Puntos: <?= $_SESSION['user']['points'] ?> </p>
             </div>
-            
+
             <div class="card-body" id="available">
-            <div class="row d-flex align-items-stretch">
-          
-                <?php
-                if($_SESSION['user']['points'] < $minPrice[0]){
-                    echo "Ahora mismo no tienes ninguna promoción disponible.";
-                }
-                else{
-                    foreach ($promos as $promo) {
-                    $storeName = selectStoreNameByPromoID($promo['idpromotion']);
-                    $taken = false;
-                    foreach ($user_promos as $user_promo) {
-                        if ($user_promo['idpromotion'] == $promo['idpromotion']) {
-                            $taken = true;
-                        }
-                    } ?>
+                <div class="row d-flex align-items-stretch">
+
                     <?php
-                    if ($_SESSION['user']['points'] >= $promo['pointCost'] && !$taken) {                       
-                    ?>  
-                        <div class="col-md-3 " id="<?php echo $promo['idpromotion'] ?>">
-                            <div class="card mb-2 " >
-                                <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap" height=215px>
-                                <div class="card-body">
-                                    <h4 class="card-title"><?php echo $promo['name'] ?></h4>
-                                    <p class="card-text"><?= $storeName[0] ?></p>
-                                    <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
-                                    <p class="card-text"><?= $promo['pointCost'] ?> puntos</p>
-                                </div>
-                                <div class="card-footer">
-                                    <form enctype="multipart/form-data" action="../php_controllers/promopage_controller.php" method="post">
-                                        <input type="number" style="display:none" name="promoid" id="promoid" value="<?php echo $promo['idpromotion'] ?>">
-                                        <input type="number" id="point_cost" name="point_cost" style="display:none" value='<?= $promo['pointCost'] ?>'>
-                                        <input class="btn botonPromo" type="submit" value="Canjear" name="submitpromo" id="submitpromo">
-                                    </form>
+                    if ($_SESSION['user']['points'] < $minPrice[0]) {
+                    ?> <div class="noPromo">
+                            <?= "Ahora mismo no tienes ninguna promoción disponible."; ?>
+                        </div>
+                        <?php }
+                    foreach ($promos as $promo) {
+                        $storeName = selectStoreNameByPromoID($promo['idpromotion']);
+                        $taken = false;
+                        foreach ($user_promos as $user_promo) {
+                            if ($user_promo['idpromotion'] == $promo['idpromotion']) {
+                                $taken = true;
+                            }
+                        }
+                        if ($_SESSION['user']['points'] >= $promo['pointCost'] && !$taken) {
+                        ?>
+                            <div class="col-md-3 " id="<?php echo $promo['idpromotion'] ?>">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap" height=215px>
+                                    <div class="card-body">
+                                        <h4 class="card-title"><?php echo $promo['name'] ?></h4>
+                                        <p class="card-text"><?= $storeName[0] ?></p>
+                                        <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
+                                        <p class="card-text"><?= $promo['pointCost'] ?> puntos</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <form enctype="multipart/form-data" action="../php_controllers/promopage_controller.php" method="post">
+                                            <input type="number" style="display:none" name="promoid" id="promoid" value="<?php echo $promo['idpromotion'] ?>">
+                                            <input type="number" id="point_cost" name="point_cost" style="display:none" value='<?= $promo['pointCost'] ?>'>
+                                            <input class="btn botonPromo" type="submit" value="Canjear" name="submitpromo" id="submitpromo">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        <?php
+                        } elseif ($_SESSION['user']['points'] < $promo['pointCost'] && !$taken) { ?>
+                            <div class="col-md-3 " id="<?php echo $promo['idpromotion'] ?>">
+                                <div class="card mb-2">
+                                    <div class="lockImg">
+                                        <img class="card-img-top" src="<?php echo $promo['img']; ?>" alt="Card image cap" height=215px>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title"><?php echo $promo['name'] ?></h4>
+                                        <p class="card-text"><?= $storeName[0] ?></p>
+                                        <p class="card-text"><?php echo $promo['promo_desc'] ?></p>
+                                        <p class="card-text"><?= $promo['pointCost'] ?> puntos</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <form class="promoDisabled" enctype="multipart/form-data" action="../php_controllers/promopage_controller.php" method="post">
+                                            <input type="number" style="display:none" name="promoid" id="promoid" value="<?php echo $promo['idpromotion'] ?>">
+                                            <input type="number" id="point_cost" name="point_cost" style="display:none" value='<?= $promo['pointCost'] ?>'>
+                                            <input class="btn botonPromo promoDisabled" type="submit" value="Canjear" name="submitpromo" id="submitpromo">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
                     <?php } ?>
-                <?php }  }?>               
-                   
                 </div>
-                
             </div>
         </div>
     </div>

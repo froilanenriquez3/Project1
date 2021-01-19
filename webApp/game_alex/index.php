@@ -32,7 +32,6 @@ $limit = $games['2']['pointLimit'];
     <?php
     require_once '../../php_partials/navbar.php';
     require_once '../../php_partials/buttons.php';
-    // require_once '../../php_partials/language.php';
     ?>
     <div class="gameContainer">
         <div id="game">
@@ -42,12 +41,23 @@ $limit = $games['2']['pointLimit'];
                 <h1>¡He oído que en 'Barna Records' hay buenas promociones si consigues completar las letras de algunas canciones!</h1>
                 <h1>Estoy un poco viejita ya para esas cosas, ¿te importaría venir conmigo y ayudarme?</h1>
                 <div id="startGameOptions">
-                    <div id="startGameBt" onclick="enterStore()">
+                    <div id="startGameBt" onclick="displayInstructions()">
                         <p>Ayudar</p>
                     </div>
                     <div id="exitGameBt" onclick="exitGame()">
                         <p>Ignorar anciana</p>
                     </div>
+                </div>
+            </div>
+            <div id="instructions">
+                <div id="closeInstructions" onclick="enterStore()">
+                    <img id="instructionsCross" src="./media/window-close-solid.svg" alt="">
+                </div>
+                <p>INSTRUCTIONS</p>
+                <div id="instructionImages">
+                    <img id="instructionsCD" src="./media/img/cd.png" alt="">
+                    <img id="instructionsArrow" src="./media/long-arrow-alt-right-solid.svg" alt="">
+                    <img id="instructionsCDPlayer" src="./media/img/cdplayer2.jpg" alt="">
                 </div>
             </div>
             <div id="song">
@@ -89,11 +99,13 @@ $limit = $games['2']['pointLimit'];
                                 <p id="info_speak_now">Speak now.</p>
                                 <p id="info_no_speech">No speech was detected. You may need to adjust your
                                     <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-                                        microphone settings</a>.</p>
+                                        microphone settings</a>.
+                                </p>
                                 <p id="info_no_microphone" style="display:none">
                                     No microphone was found. Ensure that a microphone is installed and that
                                     <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-                                        microphone settings</a> are configured correctly.</p>
+                                        microphone settings</a> are configured correctly.
+                                </p>
                                 <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
                                 <p id="info_denied">Permission to use microphone was denied.</p>
                                 <p id="info_blocked">Permission to use microphone is blocked. To change,

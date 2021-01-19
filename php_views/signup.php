@@ -95,6 +95,17 @@
         ?>
 
     </div>
+    <div class = "<?php if (isset($_SESSION['error'])){ echo "wrongPassword";} else{
+        echo "message";}?>">
+        <?php
+            if(isset($_SESSION['error']))
+            {
+                echo $_SESSION['error'].". That username is already taken.";
+                unset($_SESSION['error']);
+            }
+
+        ?>
+    </div>
 
     
    
