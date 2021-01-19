@@ -71,7 +71,7 @@ session_start();
         if (isset($_SESSION['logged'])) {
 
         if (!$_SESSION['logged']) {
-            echo "<p>Your username or password was incorrect!</p>";
+            echo "<p>El nombre de usuario o la contraseña son incorrectos</p>";
         }}
         unset($_SESSION['logged']);
         ?>
