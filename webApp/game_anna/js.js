@@ -188,6 +188,7 @@ function coinCollision(){
   if((character.x <= coin.x + coin.width && character.x + character.width >= coin.x)
   && (character.y + character.height >= coin.y && character.y <= coin.y + coin.height)){
     stopCoin();
+    //callback(stopCoin);
     if(points < limit){
      points += limit/50;
     }
@@ -197,6 +198,11 @@ function coinCollision(){
   }
   
 }
+
+//CALLBACK SIN USAR QUE FUNCIONA PARA PROBAR COMO SE HACEN
+// function callback(callback1){
+//   callback1();
+// }
 
 //Esta función para el intervalo de los 5s. Luego mueve la moneda para que no vuelva a colisionar con el personaje y vuelve a poner en marcha el intervalo. 
 function stopCoin(){
@@ -240,7 +246,6 @@ function cloudCollision(){
   }
   return colision;
 }
-
 
 
  
