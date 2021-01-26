@@ -1,4 +1,4 @@
-# Project1
+# Project1: ACCESS TO DATABASE AND ADMIN
 
 The database script can be accessed from the database folder: restore.sql.
 
