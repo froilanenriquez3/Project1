@@ -38,10 +38,11 @@ function changeLangFr(){
 }
 
 function changeText(stringID, lang){
-    console.log('change text running');
-    console.log(stringID);
-    console.log(lang);
-    console.log(document.getElementById(stringID).innerHTML);
-    console.log(lang.stringID);
+    // console.log('change text running');
+    // console.log(stringID);
+    // console.log(lang);
+    // console.log(document.getElementById(stringID).innerHTML);
+    // console.log(lang.stringID);
+
     document.getElementById(stringID).innerHTML = lang[stringID];
 }
